@@ -1,4 +1,4 @@
-=== WordPress Affiliates Plugin — SliceWP Affiliates ===
+=== Affiliate Program Suite — SliceWP Affiliates ===
 Contributors: iova.mihai
 Donate link: https://slicewp.com/
 Tags: affiliate, affiliates, affiliate program, affiliates program, woocommerce affiliates, affiliates plugin, affiliates manager program, affiliates manager plugin
