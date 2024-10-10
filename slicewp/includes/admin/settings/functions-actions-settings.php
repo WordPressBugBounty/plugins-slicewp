@@ -18,7 +18,7 @@ function slicewp_admin_action_save_settings() {
 	// Verify for Cookie Duration.
 	if ( empty( $_POST['settings']['cookie_duration'] ) || $_POST['settings']['cookie_duration'] < 0 ) {
 
-		slicewp_admin_notices()->register_notice( 'settings_cookie_duration_error', '<p>' . __( 'Please insert a Cookie Duration greater than 0.', 'slicewp' ) . '</p>', 'error' );
+		slicewp_admin_notices()->register_notice( 'settings_cookie_duration_error', '<p>' . sprintf( __( 'Please set a value greater than 0 (zero) for the %sGeneral > General Settings > Tracking Cookie Duration%s setting.', 'slicewp' ), '<strong>', '</strong>' ) . '</p>', 'error' );
 		slicewp_admin_notices()->display_notice( 'settings_cookie_duration_error' );
 
 		return;
@@ -28,7 +28,7 @@ function slicewp_admin_action_save_settings() {
 	// Verify for Payments Minimum Amount.
 	if ( $_POST['settings']['payments_minimum_amount'] < 0 ) {
 
-		slicewp_admin_notices()->register_notice( 'settings_payments_minimum_amount_error', '<p>' . __( 'Please fill in a Payments Minimum Amount equal or greater than 0.', 'slicewp' ) . '</p>', 'error' );
+		slicewp_admin_notices()->register_notice( 'settings_payments_minimum_amount_error', '<p>' . sprintf( __( 'Please set a value equal or greater than 0 (zero) for the %sGeneral > Payouts Settings > Payments Minimum Amount%s setting.', 'slicewp' ), '<strong>', '</strong>' ) . '</p>', 'error' );
 		slicewp_admin_notices()->display_notice( 'settings_payments_minimum_amount_error' );	
 
 		return;
@@ -38,7 +38,7 @@ function slicewp_admin_action_save_settings() {
 	// Verify for Affiliate Keyword.
 	if ( empty( $_POST['settings']['affiliate_keyword'] ) ) {
 
-		slicewp_admin_notices()->register_notice( 'settings_affiliate_keyword_error', '<p>' . __( 'Please fill in the Affiliate Keyword.', 'slicewp' ) . '</p>', 'error' );
+		slicewp_admin_notices()->register_notice( 'settings_affiliate_keyword_error', '<p>' . sprintf( __( 'Please complete the %sGeneral > Affiliate URL Settings > Affiliate Keyword%s setting.', 'slicewp' ), '<strong>', '</strong>' ) . '</p>', 'error' );
 		slicewp_admin_notices()->display_notice( 'settings_affiliate_keyword_error' );	
 
 		return;
@@ -54,7 +54,7 @@ function slicewp_admin_action_save_settings() {
 	// Verify for From Email.
 	if ( ! is_email( $_POST['settings']['from_email'] ) ) {
 
-		slicewp_admin_notices()->register_notice( 'from_email_error', '<p>' . __( 'Please fill in a valid email address for From Email.', 'slicewp' ) . '</p>', 'error' );
+		slicewp_admin_notices()->register_notice( 'from_email_error', '<p>' . sprintf( __( 'Please fill in a valid email address in the %sEmail Notifications > General Settings > From Email%s setting.', 'slicewp' ), '<strong>', '</strong>' ) . '</p>', 'error' );
 		slicewp_admin_notices()->display_notice( 'from_email_error' );	
 
 		return;
@@ -63,7 +63,7 @@ function slicewp_admin_action_save_settings() {
 	// Verify for From Name.
 	if ( empty( $_POST['settings']['from_name'] ) ) {
 
-		slicewp_admin_notices()->register_notice( 'from_name_error', '<p>' . __( 'Please fill in From Name.', 'slicewp' ) . '</p>', 'error' );
+		slicewp_admin_notices()->register_notice( 'from_name_error', '<p>' . sprintf( __( 'Please complete the %sEmail Notifications > General Settings > From Name%s setting.', 'slicewp' ), '<strong>', '</strong>' ) . '</p>', 'error' );
 		slicewp_admin_notices()->display_notice( 'from_name_error' );	
 
 		return;
@@ -73,7 +73,7 @@ function slicewp_admin_action_save_settings() {
 	// Verify for Admin Emails.
 	if ( empty( $_POST['settings']['admin_emails'] ) ) {
 
-		slicewp_admin_notices()->register_notice( 'admin_emails_error', '<p>' . __( 'Please fill in the Admin Emails.', 'slicewp' ) . '</p>', 'error' );
+		slicewp_admin_notices()->register_notice( 'admin_emails_error', '<p>' . sprintf( __( 'Please complete the %sEmail Notifications > General Settings > Admin Emails%s setting.', 'slicewp' ), '<strong>', '</strong>' ) . '</p>', 'error' );
 		slicewp_admin_notices()->display_notice( 'admin_emails_error' );	
 		
 		return;
@@ -86,7 +86,7 @@ function slicewp_admin_action_save_settings() {
 
 			if ( ! is_email( $admin_email ) ) {
 
-				slicewp_admin_notices()->register_notice( 'admin_emails_error', '<p>' . __( 'Please fill in valid Admin Emails.', 'slicewp' ) . '</p>', 'error' );
+				slicewp_admin_notices()->register_notice( 'admin_emails_error', '<p>' . sprintf( __( 'Please fill in valid email addresses in the %sEmail Notifications > General Settings > Admin Emails%s setting.', 'slicewp' ), '<strong>', '</strong>' ) . '</p>', 'error' );
 				slicewp_admin_notices()->display_notice( 'admin_emails_error' );	
 
 				return;

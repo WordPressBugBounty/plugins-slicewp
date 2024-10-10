@@ -135,15 +135,16 @@ function slicewp_insert_commission_pmpro( $order ) {
 	}
 
 
-	// Get user attached to the payment
-	$user = get_userdata( $order->user_id );
+	// Get user attached to the order.
+	$user 			 = get_userdata( $order->user_id );
+	$user_name_parts = ( function_exists( 'pnp_split_full_name' ) && ! empty( $order->billing->name ) ? pnp_split_full_name( $order->billing->name ) : array() );
 
-	// Process the customer
+	// Process the customer.
 	$customer_args = array(
-		'email'   	   => $order->Email,
+		'email'   	   => $user->get( 'user_email' ),
 		'user_id' 	   => $order->user_id,
-		'first_name'   => ( $user ? $user->get( 'first_name' ) : $order->FirstName ),
-		'last_name'    => ( $user ? $user->get( 'last_name' ) : $order->LastName ),
+		'first_name'   => ( $user ? $user->get( 'first_name' ) : ( ! empty( $user_name_parts['fname'] ) ? $user_name_parts['fname'] : '' ) ),
+		'last_name'    => ( $user ? $user->get( 'last_name' ) : ( ! empty( $user_name_parts['lname'] ) ? $user_name_parts['lname'] : '' ) ),
 		'affiliate_id' => $affiliate_id
 	);
 

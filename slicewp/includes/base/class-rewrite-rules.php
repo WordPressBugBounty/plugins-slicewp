@@ -1,17 +1,17 @@
 <?php
 
-// Exit if accessed directly
+// Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 
 /**
- * Class that handles the rewrite rules
+ * Class that handles the rewrite rules.
  *
  */
 Class SliceWP_Rewrite_Rules {
 
 	/**
-	 * Constructor
+	 * Constructor.
 	 *
 	 */
 	public function __construct() {
@@ -24,18 +24,18 @@ Class SliceWP_Rewrite_Rules {
 
 
 	/** 
-	 * Adds the affiliate keyword endpoint in the URL
+	 * Adds the affiliate keyword endpoint in the URL.
 	 * 
 	 */
 	function rewrite_rules() {
 
-		// Get the affiliate keyword
+		// Get the affiliate keyword.
 		$keyword = slicewp_get_setting( 'affiliate_keyword' );
 
-		// Get the taxonomies
+		// Get the taxonomies.
 		$taxonomies = get_taxonomies( array( 'public' => true, '_builtin' => false ), 'objects' );
 
-		// Add rewrite rules for taxonomies
+		// Add rewrite rules for taxonomies.
 		foreach ( $taxonomies as $taxonomy_slug => $taxonomy ) {
 
 			if ( is_array( $taxonomy->rewrite ) && ! empty( $taxonomy->rewrite['slug'] ) ) {
@@ -46,22 +46,22 @@ Class SliceWP_Rewrite_Rules {
 			
 		}
 
-		// Rewrite the endpoint
+		// Rewrite the endpoint.
 		add_rewrite_endpoint( $keyword, EP_ROOT | EP_PERMALINK | EP_PAGES | EP_CATEGORIES | EP_TAGS | EP_SEARCH | EP_ALL_ARCHIVES, false );
 
 	}
 
 
 	/**
-	 * Flush rewrite rules if requested
+	 * Flush rewrite rules if requested.
 	 * 
 	 */
 	function maybe_flush_rewrite_rules() {
 
-		// Check if we have to flush rewrite rules
+		// Check if we have to flush rewrite rules.
 		if ( get_option( 'slicewp_flush_rewrite_rules') ) {
 
-			// Flush rewrite rules
+			// Flush rewrite rules.
 			flush_rewrite_rules();
 
 			delete_option( 'slicewp_flush_rewrite_rules' );
@@ -72,7 +72,7 @@ Class SliceWP_Rewrite_Rules {
 
 
 	/**
-	 * Prevents homepage redirects in case the requested url contains the friendly affiliate endpoint
+	 * Prevents homepage redirects in case the requested url contains the friendly affiliate endpoint.
 	 * 
 	 * @param string $redirect_url
 	 * @param string $requested_url
@@ -82,15 +82,16 @@ Class SliceWP_Rewrite_Rules {
 	 */
 	function prevent_homepage_redirects( $redirect_url, $requested_url ) {
 
-		// Check if we are on the homepage
-		if ( ! is_front_page() )
+		// Check if we are on the homepage.
+		if ( ! is_front_page() ) {
 			return $redirect_url;
+		}
 
-		// Get the affiliate keyword
+		// Get the affiliate keyword.
 		$keyword = slicewp_get_setting( 'affiliate_keyword' );
 
-		// Check if the requested url contains the affiliate keyword
-		if ( strpos( $requested_url, $keyword ) !== false ) {
+		// Check if the requested url contains the affiliate keyword.
+		if ( strpos( $requested_url, '/' . $keyword ) !== false ) {
 
 			return $requested_url;
 
