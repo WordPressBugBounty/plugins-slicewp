@@ -1086,6 +1086,7 @@ function slicewp_build_affiliate_dashboard_data( $affiliate_id, $args = array() 
 
 	// Compile commissions data.
 	$datasets['commissions'] = array();
+	$commissions_comparison  = null;
 
 	// Query commissions.
 	$query_args = array(

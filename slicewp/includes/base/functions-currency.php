@@ -471,6 +471,14 @@ function slicewp_get_currencies( $dataset = 'name' ) {
             'thousands_separator' => ',',
             'decimal_separator'   => '.'
         ),
+        'TTD' => array(
+            'name'                => __( 'Trinidad and Tobago Dollar', 'slicewp' ),
+            'symbol'              => '&#36;',
+            'symbol_position'     => 'before',
+            'decimal_places'      => 2,
+            'thousands_separator' => ',',
+            'decimal_separator'   => '.'
+        ),
         'TRY' => array(
             'name'                => __( 'Turkish Lira', 'slicewp' ),
             'symbol'              => '&#8378;',

@@ -443,7 +443,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                                 <h3><?php echo __( "Stay in the loop", 'slicewp' ); ?></h3>
                                 <p><?php echo __( "Get tips, news and product updates, straight to your inbox.", 'slicewp' ); ?></p>
 
-                                <div class="slicewp-setup-newsletter-form">
+                                <form class="slicewp-setup-newsletter-form" action="https://slicewp.us19.list-manage.com/subscribe/post?u=506ed65ce0a7eec2aa1c7cc61&id=5fe80d913e&SIGNUP=plugin_wizard" method="POST" target="_blank" novalidate>
 
                                     <div class="slicewp-setup-newsletter-form-email">
                                         <input type="email" value="" name="EMAIL" placeholder="<?php echo __( 'Your Email', 'slicewp'); ?>" class="required email" id="mce-EMAIL">
@@ -458,7 +458,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                                     <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_506ed65ce0a7eec2aa1c7cc61_5fe80d913e" tabindex="-1" value=""></div>
                                     <input type="submit" class="slicewp-button-secondary" value="<?php echo __( 'Yes, please!', 'slicewp' ); ?>" name="subscribe" id="mc-embedded-subscribe" class="button">
 
-                                </div>
+                                </form>
 
                             </div>
                         </td>
