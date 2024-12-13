@@ -105,8 +105,12 @@ function slicewp_insert_pending_commission_edd( $payment_id, $payment_data ) {
 
 	}
 
-	// Check to see if the payment is a renewal or not
-	$is_renewal = get_post_meta( $payment_id, '_edd_sl_is_renewal', true );
+	// Check to see if the payment is a renewal or not.
+	if ( function_exists( 'edd_get_order_meta' ) ) {
+		$is_renewal = edd_get_order_meta( $payment_id, '_edd_sl_is_renewal', true );
+	} else {
+		$is_renewal = get_post_meta( $payment_id, '_edd_sl_is_renewal', true );
+	}
 
 	if ( ! empty( $is_renewal ) ) {
 

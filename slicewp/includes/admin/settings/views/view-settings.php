@@ -1,6 +1,6 @@
 <?php
 
-// Exit if accessed directly
+// Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 $tabs = array(
@@ -23,7 +23,7 @@ $tabs = array(
 );
 
 /**
- * Filter the tabs for the settings edit screen
+ * Filter the tabs for the settings edit screen.
  *
  * @param array $tabs
  *
@@ -33,7 +33,7 @@ $tabs = apply_filters( 'slicewp_submenu_page_settings_tabs', $tabs );
 $active_tab = ( ! empty( $_GET['tab'] ) ? sanitize_text_field( $_GET['tab'] ) : 'general' );
 
 /**
- * Prepare the Email Notification Settings section
+ * Prepare the Email Notification Settings section.
  *
  * @param array $tabs
  *
@@ -44,13 +44,13 @@ $first_email_notification_slug = array_keys( $email_notifications )[0];
 $selected_email_notification = ( ! empty( $_GET['email_notification'] ) ? sanitize_text_field( $_GET['email_notification'] ) : $first_email_notification_slug );
 
 /**
- * Prepare the needed variables
+ * Prepare the needed variables.
  *
  */
 $user 	 = wp_get_current_user();
 $user_id = $user->ID;
 $affiliate 	  = slicewp_get_affiliate_by_user_id( $user_id );
-$affiliate_id = ( empty( $affiliate ) ? $user_id : $affiliate->get( 'id' ) );
+$affiliate_id = absint( empty( $affiliate ) ? $user_id : $affiliate->get( 'id' ) );
 
 ?>
 
@@ -68,8 +68,8 @@ $affiliate_id = ( empty( $affiliate ) ? $user_id : $affiliate->get( 'id' ) );
 			<!-- Navigation Tab Links -->
 			<ul class="slicewp-nav-tab-wrapper">
 				<?php 
-					foreach( $tabs as $tab_slug => $tab ) {
-						echo '<li class="slicewp-nav-tab ' . ( $tab_slug == $active_tab ? 'slicewp-active' : '' ) . '" data-tab="' . esc_attr( $tab_slug ) . '"><a href="#"><span class="dashicons ' . esc_attr( $tab['icon'] ) . '"></span>' . esc_attr( $tab['label'] ) . '</a></li>';
+					foreach ( $tabs as $tab_slug => $tab ) {
+						echo '<li class="slicewp-nav-tab ' . ( $tab_slug == $active_tab ? 'slicewp-active' : '' ) . '" data-tab="' . esc_attr( $tab_slug ) . '"><a href="#"><span class="dashicons ' . esc_attr( $tab['icon'] ) . '"></span>' . esc_html( $tab['label'] ) . '</a></li>';
 					}
 				?>
 			</ul>
@@ -80,20 +80,20 @@ $affiliate_id = ( empty( $affiliate ) ? $user_id : $affiliate->get( 'id' ) );
 		</div>
 
 
-		<?php foreach( $tabs as $tab_slug => $tab ): ?>
+		<?php foreach ( $tabs as $tab_slug => $tab ): ?>
 
 			<div class="slicewp-tab <?php echo ( $active_tab == $tab_slug ? 'slicewp-active' : '' ); ?>" data-tab="<?php echo esc_attr( $tab_slug ); ?>">
 
 				<?php
 
-					if( file_exists( plugin_dir_path( __FILE__ ) . 'view-settings-tab-' . $tab_slug . '.php' ) ) {
+					if ( file_exists( plugin_dir_path( __FILE__ ) . 'view-settings-tab-' . $tab_slug . '.php' ) ) {
 
 						include_once plugin_dir_path( __FILE__ ) . 'view-settings-tab-' . $tab_slug . '.php';
 					
 					} else {
 
 						/**
-						 * Hook to add additional settings tab content
+						 * Hook to add additional settings tab content.
 						 *
 						 */
 						do_action( 'slicewp_view_settings_tab_' . $tab_slug );

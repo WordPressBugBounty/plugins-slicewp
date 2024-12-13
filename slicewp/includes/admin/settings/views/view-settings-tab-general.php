@@ -1,6 +1,6 @@
 <?php
 
-// Exit if accessed directly
+// Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 ?>
@@ -434,7 +434,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 			<div class="slicewp-field-label-wrapper">
 				<label for="slicewp-affiliate-keyword">
 					<?php echo __( 'Affiliate Keyword', 'slicewp' ); ?>
-					<?php echo slicewp_output_tooltip( '<p>' . __( 'The URL query parameter name used for affiliate identification.', 'slicewp' ) . '</p><p>' . sprintf( __( 'Example: %s', 'slicewp' ), '<code style="font-family: inherit;">' . trailingslashit( site_url() ) . '?' . '<strong>' . $affiliate_keyword . '</strong>' . '=' . $affiliate_id ) . '</code>' . '</p>' . '<hr />' . '<a href="https://slicewp.com/docs/affiliate-links/" target="_blank">' . __( 'Click here to learn more', 'slicewp' ) . '</a>' ); ?>
+					<?php echo slicewp_output_tooltip( '<p>' . __( 'The URL query parameter name used for affiliate identification.', 'slicewp' ) . '</p><p>' . sprintf( __( 'Example: %s', 'slicewp' ), '<code style="font-family: inherit;">' . trailingslashit( site_url() ) . '?' . '<strong>' . esc_html( $affiliate_keyword ) . '</strong>' . '=' . $affiliate_id ) . '</code>' . '</p>' . '<hr />' . '<a href="https://slicewp.com/docs/affiliate-links/" target="_blank">' . __( 'Click here to learn more', 'slicewp' ) . '</a>' ); ?>
 				</label>
 			</div>
 
@@ -448,7 +448,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
             <div class="slicewp-field-label-wrapper">
                 <label for="slicewp-friendly-affiliate-urls">
                     <?php echo __( 'Friendly Affiliate URLs', 'slicewp' ); ?>
-					<?php echo slicewp_output_tooltip( '<p>' . __( 'When enabled, the affiliate referral links will look like this:', 'slicewp' ) . '<br />' . '<code style="display: inline-block; margin-top: 3px; font-family: inherit;">' . untrailingslashit( site_url() ) . '<strong>' . '/' . '<span>' . $affiliate_keyword . '</span>' . '/' . $affiliate_id . '/' . '</strong>' . '</code>' . '</p><p>' . __( 'Instead of this:', 'slicewp' ) . '<br />' . '<code style="display: inline-block; margin-top: 3px; font-family: inherit;">' . untrailingslashit( site_url() ) . '<strong>' . '/?' . '<span>' . $affiliate_keyword . '</span>' . '=' . $affiliate_id . '</strong>' . '</code>' . '</p>' . '<hr />' . '<a href="https://slicewp.com/docs/affiliate-links/" target="_blank">' . __( 'Click here to learn more', 'slicewp' ) . '</a>' ); ?>
+					<?php echo slicewp_output_tooltip( '<p>' . __( 'When enabled, the affiliate referral links will look like this:', 'slicewp' ) . '<br />' . '<code style="display: inline-block; margin-top: 3px; font-family: inherit;">' . untrailingslashit( site_url() ) . '<strong>' . '/' . '<span>' . esc_html( $affiliate_keyword ) . '</span>' . '/' . $affiliate_id . '/' . '</strong>' . '</code>' . '</p><p>' . __( 'Instead of this:', 'slicewp' ) . '<br />' . '<code style="display: inline-block; margin-top: 3px; font-family: inherit;">' . untrailingslashit( site_url() ) . '<strong>' . '/?' . '<span>' . esc_html( $affiliate_keyword ) . '</span>' . '=' . $affiliate_id . '</strong>' . '</code>' . '</p>' . '<hr />' . '<a href="https://slicewp.com/docs/affiliate-links/" target="_blank">' . __( 'Click here to learn more', 'slicewp' ) . '</a>' ); ?>
                 </label>
             </div>
 

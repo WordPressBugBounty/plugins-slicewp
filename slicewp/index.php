@@ -3,14 +3,14 @@
  * Plugin Name: SliceWP
  * Plugin URI: https://slicewp.com/
  * Description: The fastest and easiest way to set up an affiliate program for your store or membership site.
- * Version: 1.1.23
+ * Version: 1.1.24
  * Author: SliceWP
  * Author URI: https://slicewp.com/
  * Text Domain: slicewp
  * License: GPL2
  *
  * == Copyright ==
- * Copyright 2023 SliceWP
+ * Copyright 2024 SliceWP
  *	
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -103,7 +103,7 @@ Class SliceWP {
 	public function __construct() {
 
 		// Defining constants.
-		define( 'SLICEWP_VERSION', 		   '1.1.23' );
+		define( 'SLICEWP_VERSION', 		   '1.1.24' );
 		define( 'SLICEWP_BASENAME',  	   plugin_basename( __FILE__ ) );
 		define( 'SLICEWP_PLUGIN_DIR', 	   plugin_dir_path( __FILE__ ) );
 		define( 'SLICEWP_PLUGIN_DIR_URL',  plugin_dir_url( __FILE__ ) );
@@ -122,14 +122,14 @@ Class SliceWP {
 		// Load integrations late to ensure the plugins are loaded.
 		add_action( 'plugins_loaded', array( $this, 'load_integrations' ), 15 );
 
-		// Load plugin textdomain.
-        add_action( 'plugins_loaded', array( $this, 'load_textdomain' ), 15 );
-
         // Verifies if an update is needed.
         add_action( 'plugins_loaded', array( $this, 'set_do_update' ), 15 );
 
 		// Check if just updated.
 		add_action( 'plugins_loaded', array( $this, 'update_check' ), 20 );
+
+		// Load plugin textdomain.
+        add_action( 'init', array( $this, 'load_textdomain' ) );
 
 		// Update the database tables.
 		add_action( 'slicewp_update_check', array( $this, 'update_database_tables' ) );
