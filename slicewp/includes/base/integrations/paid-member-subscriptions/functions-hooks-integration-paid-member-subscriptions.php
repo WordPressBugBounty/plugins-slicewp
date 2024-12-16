@@ -1,40 +1,40 @@
 <?php
 
-// Exit if accessed directly
+// Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-// Add commission table reference column edit screen link
+// Add commission table reference column edit screen link.
 add_filter( 'slicewp_list_table_commissions_column_reference', 'slicewp_list_table_commissions_add_reference_edit_link_pms', 10, 2 );
 add_filter( 'slicewp_list_table_payout_commissions_column_reference', 'slicewp_list_table_commissions_add_reference_edit_link_pms', 10, 2 );
 
-// Insert a new pending commission
+// Insert a new pending commission.
 add_action( 'pms_register_payment', 'slicewp_insert_pending_commission_pms', 10, 1 );
 
-// Update the status of the commission to "unpaid", thus marking it as complete
+// Update the status of the commission to "unpaid", thus marking it as complete.
 add_action( 'pms_payment_update', 'slicewp_accept_pending_commission_pms', 10, 3 );
 
-// Update the status of the commission to "rejected" when the originating payment is failed
+// Update the status of the commission to "rejected" when the originating payment is failed.
 add_action( 'pms_payment_update', 'slicewp_reject_commission_on_fail_pms', 10, 3 );
 
-// Update the status of the commission to "rejected" when the originating payment is refunded
+// Update the status of the commission to "rejected" when the originating payment is refunded.
 add_action( 'pms_payment_update', 'slicewp_reject_commission_on_refund_pms', 10, 3 );
 
-// Update the status of the commission to "rejected" when the originating payment is deleted
+// Update the status of the commission to "rejected" when the originating payment is deleted.
 add_action( 'pms_payment_delete', 'slicewp_reject_commission_on_delete_pms', 10, 1 );
 
-// Add the commission settings in download page
+// Add the commission settings in download page.
 add_action( 'add_meta_boxes', 'slicewp_add_commission_settings_metabox_pms', 10, 2 );
 
-// Saves the commissions settings in download meta
+// Saves the commissions settings in download meta.
 add_action( 'pms_save_meta_box_pms-subscription', 'slicewp_save_product_commission_settings_pms', 10, 2 );
 
-// Add the reference amount in the commission data
+// Add the reference amount in the commission data.
 add_filter( 'slicewp_pre_insert_commission_data', 'slicewp_add_commission_data_reference_amount_pms' );
 add_filter( 'slicewp_pre_update_commission_data', 'slicewp_add_commission_data_reference_amount_pms' );
 
 
 /**
- * Adds the edit screen link to the reference column value from the commissions list table
+ * Adds the edit screen link to the reference column value from the commissions list table.
  *
  * @param string $output
  * @param array  $item
@@ -44,18 +44,21 @@ add_filter( 'slicewp_pre_update_commission_data', 'slicewp_add_commission_data_r
  */
 function slicewp_list_table_commissions_add_reference_edit_link_pms( $output, $item ) {
 
-	if( empty( $item['reference'] ) )
+	if ( empty( $item['reference'] ) ) {
 		return $output;
+	}
 
-	if( empty( $item['origin'] ) || $item['origin'] != 'pms' )
+	if ( empty( $item['origin'] ) || $item['origin'] != 'pms' ) {
 		return $output;
+	}
 
-    // Get the payment
+    // Get the payment.
     $payment = pms_get_payment( $item['reference'] );
 
-    // Create link to payment only if the payment exists
-    if( ! empty( $payment->id ) )
-        $output = '<a href="' . esc_url( add_query_arg( array( 'page' => 'pms-payments-page', 'pms-action' => 'edit_payment', 'payment_id' => $item['reference'] ), admin_url( 'admin.php' ) ) ) . '">' . $item['reference'] . '</a>';
+    // Create link to payment only if the payment exists.
+    if ( ! empty( $payment->id ) ) {
+		$output = '<a href="' . esc_url( add_query_arg( array( 'page' => 'pms-payments-page', 'pms-action' => 'edit_payment', 'payment_id' => $item['reference'] ), admin_url( 'admin.php' ) ) ) . '">' . $item['reference'] . '</a>';
+	}
     
     return $output;
     
@@ -63,19 +66,19 @@ function slicewp_list_table_commissions_add_reference_edit_link_pms( $output, $i
 
 
 /**
- * Inserts a new pending commission when a new payment is registered
+ * Inserts a new pending commission when a new payment is registered.
  *
  * @param array $payment_data
  *
  */
 function slicewp_insert_pending_commission_pms( $payment_data ) {
 
-    // Verify if commissions are disabled for the purchased subscription
+    // Verify if commissions are disabled for the purchased subscription.
     if ( get_post_meta( $payment_data['subscription_plan_id'], 'slicewp_disable_commissions', true ) ) {
 		return;
 	}
 
-	// Get and check to see if referrer exists
+	// Get and check to see if referrer exists.
 	$affiliate_id = slicewp_get_referrer_affiliate_id();
 	$visit_id	  = slicewp_get_referrer_visit_id();
 
@@ -93,7 +96,7 @@ function slicewp_insert_pending_commission_pms( $payment_data ) {
 		return;
 	}
 
-	// Verify if the affiliate is valid
+	// Verify if the affiliate is valid.
 	if ( ! slicewp_is_affiliate_valid( $affiliate_id ) ){
 
 		slicewp_add_log( 'PMS: Pending commission was not created because the affiliate is not valid.' );
@@ -101,7 +104,7 @@ function slicewp_insert_pending_commission_pms( $payment_data ) {
 
 	}
 
-	// Check to see if the payment is a renewal or not
+	// Check to see if the payment is a renewal or not.
     $is_renewal = ( in_array( $payment_data['type'] , array( 'manual_payment', 'web_accept_paypal_standard', 'subscription_initial_payment') ) ? '' : 'is_renewal' );
 
 	if ( ! empty( $is_renewal ) ) {
@@ -111,7 +114,7 @@ function slicewp_insert_pending_commission_pms( $payment_data ) {
 
 	}
 
-	// Check to see if a commission for this payment has been registered
+	// Check to see if a commission for this payment has been registered.
 	$commissions = slicewp_get_commissions( array( 'reference' => $payment_data['payment_id'], 'origin' => 'pms' ) );
 
 	if ( ! empty( $commissions ) ) {
@@ -121,23 +124,23 @@ function slicewp_insert_pending_commission_pms( $payment_data ) {
 
 	}
 
-	// Check to see if the affiliate made the purchase
+	// Check to see if the affiliate made the purchase.
 	if ( empty( slicewp_get_setting( 'affiliate_own_commissions' ) ) ) {
 
 		$affiliate = slicewp_get_affiliate( $affiliate_id );
 
-		if( is_user_logged_in() && get_current_user_id() == $affiliate->get('user_id') ) {
+		if ( is_user_logged_in() && get_current_user_id() == $affiliate->get('user_id') ) {
 
 			slicewp_add_log( 'PMS: Pending commission was not created because the customer is also the affiliate.' );
 			return;
 
 		}
 
-		// Get the user
+		// Get the user.
 		$user = get_userdata( $payment_data['user_id'] );
 
-		// Check to see if the affiliate made the purchase, as we don't want this
-		if( slicewp_affiliate_has_email( $affiliate_id, $user->user_email ) ) {
+		// Check to see if the affiliate made the purchase, as we don't want this.
+		if ( slicewp_affiliate_has_email( $affiliate_id, $user->user_email ) ) {
 
 			slicewp_add_log( 'PMS: Pending commission was not created because the customer is also the affiliate.' );
 			return;
@@ -147,10 +150,10 @@ function slicewp_insert_pending_commission_pms( $payment_data ) {
 	}
 
 
-	// Get user attached to the payment
+	// Get user attached to the payment.
 	$user = get_userdata( $payment_data['user_id'] );
 
-	// Process the customer
+	// Process the customer.
 	$customer_args = array(
 		'email'   	   => $user->get( 'user_email' ),
 		'user_id' 	   => $payment_data['user_id'],
@@ -168,14 +171,19 @@ function slicewp_insert_pending_commission_pms( $payment_data ) {
 	}
 
 	
-	// Get the order amount. Exclude tax
+	// Get the order amount.
 	$amount = $payment_data['amount'];
 	
-	if ( defined( 'PMS_TAX_VERSION' ) && slicewp_get_setting( 'exclude_tax', false ) ){
+	// Exclude tax.
+	if ( slicewp_get_setting( 'exclude_tax', false ) ) {
 
-		$tax 	= pms_tax_determine_tax_breakdown( $payment_data['payment_id'] );	
-		$amount = empty( $tax ) ? $amount : $tax['subtotal'];
-		
+		if ( function_exists( 'pms_in_tax_determine_tax_breakdown' ) ) {
+
+			$tax 	= pms_in_tax_determine_tax_breakdown( $payment_data['payment_id'] );
+			$amount = ( empty( $tax ) ? $amount : $tax['subtotal'] );
+
+		}
+
 	}
 
 	// Calculate the commission amount for the entire payment.
@@ -189,7 +197,7 @@ function slicewp_insert_pending_commission_pms( $payment_data ) {
 
 	$commission_amount = slicewp_calculate_commission_amount( slicewp_maybe_convert_amount( $amount, $payment_data['currency'], slicewp_get_setting( 'active_currency', 'USD' ) ), $args );
 
-    // Check that the commission amount is not zero
+    // Check that the commission amount is not zero.
     if ( ( $commission_amount == 0 ) && empty( slicewp_get_setting( 'zero_amount_commissions' ) ) ) {
 
         slicewp_add_log( 'PMS: Commission was not inserted because the commission amount is zero. Payment: ' . absint( $payment_data['payment_id'] ) );
@@ -198,7 +206,7 @@ function slicewp_insert_pending_commission_pms( $payment_data ) {
     }
 
 
-    // Prepare commission data
+    // Prepare commission data.
 	$commission_data = array(
 		'affiliate_id'		=> $affiliate_id,
 		'visit_id'			=> ( ! is_null( $visit_id ) ? $visit_id : 0 ),
@@ -206,7 +214,7 @@ function slicewp_insert_pending_commission_pms( $payment_data ) {
 		'date_modified'		=> slicewp_mysql_gmdate(),
 		'type'				=> 'subscription',
 		'status'			=> 'pending',
-		'reference'			=> $payment_data['payment_id'],
+		'reference'			=> absint( $payment_data['payment_id'] ),
 		'reference_amount'	=> slicewp_sanitize_amount( $payment_data['amount'] ),
 		'customer_id'		=> $customer_id,
 		'origin'			=> 'pms',
@@ -214,16 +222,16 @@ function slicewp_insert_pending_commission_pms( $payment_data ) {
 		'currency'			=> slicewp_get_setting( 'active_currency', 'USD' )
 	);
 
-	// Insert the commission
+	// Insert the commission.
 	$commission_id = slicewp_insert_commission( $commission_data );
 
 	if ( ! empty( $commission_id ) ) {
 
-		// Update the visit with the newly inserted commission_id
+		// Update the visit with the newly inserted commission_id.
 		if ( ! is_null( $visit_id ) ) {
 
 			slicewp_update_visit( $visit_id, array( 'date_modified' => slicewp_mysql_gmdate(), 'commission_id' => $commission_id ) );
-			
+
 		}
 		
 		slicewp_add_log( sprintf( 'PMS: Pending commission #%s has been successfully inserted.', $commission_id ) );
@@ -247,21 +255,24 @@ function slicewp_insert_pending_commission_pms( $payment_data ) {
  */
 function slicewp_accept_pending_commission_pms( $payment_id, $new_data, $old_data ) {
 
-    // Check if the new payment status is 'completed'
-    if ( ! isset( $new_data['status'] ) || $new_data['status'] != 'completed' )
-        return;
+    // Check if the new payment status is 'completed'.
+    if ( ! isset( $new_data['status'] ) || $new_data['status'] != 'completed' ) {
+		return;
+	}
 
 	// Check to see if a commission for this payment has been registered.
 	$commissions = slicewp_get_commissions( array( 'number' => -1, 'reference' => $payment_id, 'origin' => 'pms', 'order' => 'ASC' ) );
 
-	if ( empty( $commissions ) )
+	if ( empty( $commissions ) ) {
 		return;
+	}
 
 	foreach ( $commissions as $commission ) {
 		
 		// Return if the commission has already been paid.
-		if( $commission->get( 'status' ) == 'paid' )
+		if ( $commission->get( 'status' ) == 'paid' ) {
 			continue;
+		}
 
 		// Prepare commission data.
 		$commission_data = array(
@@ -272,7 +283,7 @@ function slicewp_accept_pending_commission_pms( $payment_id, $new_data, $old_dat
 		// Update the commission.
 		$updated = slicewp_update_commission( $commission->get( 'id' ), $commission_data );
 
-		if( false !== $updated ) {
+		if ( false !== $updated ) {
 
 			slicewp_add_log( sprintf( 'PMS: Pending commission #%s successfully marked as completed.', $commission->get( 'id' ) ) );
 
@@ -297,14 +308,16 @@ function slicewp_accept_pending_commission_pms( $payment_id, $new_data, $old_dat
  */
 function slicewp_reject_commission_on_fail_pms( $payment_id, $new_data, $old_data ) {
 
-    if ( ! isset( $new_data['status'] ) || $new_data['status'] != 'failed' )
+    if ( ! isset( $new_data['status'] ) || $new_data['status'] != 'failed' ) {
 		return;
+	}
 
 	// Check to see if a commission for this payment has been registered.
 	$commissions = slicewp_get_commissions( array( 'number' => -1, 'reference' => $payment_id, 'origin' => 'pms', 'order' => 'ASC' ) );
 
-	if ( empty( $commissions ) )
+	if ( empty( $commissions ) ) {
 		return;
+	}
 
 	foreach ( $commissions as $commission ) {
 
@@ -321,10 +334,10 @@ function slicewp_reject_commission_on_fail_pms( $payment_id, $new_data, $old_dat
 			'status' 		=> 'rejected'
 		);
 	
-		// Update the commission
+		// Update the commission.
 		$updated = slicewp_update_commission( $commission->get( 'id' ), $commission_data );
 	
-		if( false !== $updated ) {
+		if ( false !== $updated ) {
 
 			slicewp_add_log( sprintf( 'PMS: Commission #%s successfully marked as rejected, after payment #%s failed.', $commission->get( 'id' ), $payment_id ) );
 
@@ -340,7 +353,7 @@ function slicewp_reject_commission_on_fail_pms( $payment_id, $new_data, $old_dat
 
 
 /**
- * Update the status of the commission to "rejected" when the originating payment is refunded
+ * Update the status of the commission to "rejected" when the originating payment is refunded.
  *
  * @param int   $payment_id
  * @param array $new_data
@@ -349,17 +362,20 @@ function slicewp_reject_commission_on_fail_pms( $payment_id, $new_data, $old_dat
  */
 function slicewp_reject_commission_on_refund_pms( $payment_id, $new_data, $old_data ) {
 
-	if ( ! slicewp_get_setting( 'reject_commissions_on_refund', false ) )
+	if ( ! slicewp_get_setting( 'reject_commissions_on_refund', false ) ) {
 		return;
+	}
 
-	if ( ! isset( $new_data['status'] ) || $new_data['status'] != 'refunded' )
+	if ( ! isset( $new_data['status'] ) || $new_data['status'] != 'refunded' ) {
 		return;
+	}
 
-	// Check to see if a commission for this payment has been registered
+	// Check to see if a commission for this payment has been registered.
 	$commissions = slicewp_get_commissions( array( 'number' => -1, 'reference' => $payment_id, 'origin' => 'pms', 'order' => 'ASC' ) );
 
-	if ( empty( $commissions ) )
+	if ( empty( $commissions ) ) {
 		return;
+	}
 
 	foreach ( $commissions as $commission ) {
 
@@ -379,7 +395,7 @@ function slicewp_reject_commission_on_refund_pms( $payment_id, $new_data, $old_d
 		// Update the commission.
 		$updated = slicewp_update_commission( $commission->get( 'id' ), $commission_data );
 	
-		if( false !== $updated ) {
+		if ( false !== $updated ) {
 
 			slicewp_add_log( sprintf( 'PMS: Commission #%s successfully marked as rejected, after payment #%s was refunded.', $commission->get( 'id' ), $payment_id ) );
 
@@ -395,7 +411,7 @@ function slicewp_reject_commission_on_refund_pms( $payment_id, $new_data, $old_d
 
 
 /**
- * Update the status of the commission to "rejected" when the originating payment is deleted
+ * Update the status of the commission to "rejected" when the originating payment is deleted.
  *
  * @param int $payment_id
  *
@@ -405,8 +421,9 @@ function slicewp_reject_commission_on_delete_pms( $payment_id ) {
 	// Check to see if a commission for this payment has been registered.
 	$commissions = slicewp_get_commissions( array( 'number' => -1, 'reference' => $payment_id, 'origin' => 'pms', 'order' => 'ASC' ) );
 
-	if ( empty( $commissions ) )
+	if ( empty( $commissions ) ) {
 		return;
+	}
 
 	foreach ( $commissions as $commission ) {
 
@@ -442,7 +459,7 @@ function slicewp_reject_commission_on_delete_pms( $payment_id ) {
 
 
 /**
- * Adds the commissions settings metabox
+ * Adds the commissions settings metabox.
  * 
  * @param string $post_type
  * @param WP_Post $post
@@ -450,9 +467,10 @@ function slicewp_reject_commission_on_delete_pms( $payment_id ) {
  */
 function slicewp_add_commission_settings_metabox_pms( $post_type, $post ) {
 
-    // Check that post type is 'pms-subscription'
-    if ( $post_type != 'pms-subscription' )
-        return;
+    // Check that post type is 'pms-subscription'.
+    if ( $post_type != 'pms-subscription' ) {
+		return;
+	}
 
     // Add the meta box
     add_meta_box( 'slicewp_metabox_commission_settings_pms', __( 'Subscription Commission Settings', 'slicewp' ), 'slicewp_add_product_commission_settings_pms', $post_type, 'normal', 'default' );
@@ -461,14 +479,14 @@ function slicewp_add_commission_settings_metabox_pms( $post_type, $post ) {
 
 
 /**
- * Adds the product commission settings fields in PMS add/edit subscription page
+ * Adds the product commission settings fields in PMS add/edit subscription page.
  *
  */
 function slicewp_add_product_commission_settings_pms() {
 
     global $post;
 
-    // Get the disable commissions value
+    // Get the disable commissions value.
     $disable_commissions = get_post_meta( $post->ID, 'slicewp_disable_commissions', true );
 
 ?>
@@ -490,25 +508,25 @@ function slicewp_add_product_commission_settings_pms() {
             <?php
                 
                 /**
-                 * Hook to add settings before the core ones
+                 * Hook to add settings before the core ones.
                  * 
                  */
                 do_action( 'slicewp_pms_metabox_commission_settings_core_top' );
 
             ?>
 
-            <p class="slicewp-option-field-wrapper pms-meta-box-field-wrapper">
-            	<label for="slicewp-disable-commissions" class="pms-meta-box-field-label"><?php echo __( 'Disable Commissions', 'slicewp' ); ?></label>
-                <label for="slicewp-disable-commissions">
+            <div class="slicewp-option-field-wrapper pms-meta-box-field-wrapper cozmoslabs-form-field-wrapper">
+            	<label for="slicewp-disable-commissions" class="pms-meta-box-field-label cozmoslabs-form-field-label"><?php echo __( 'Disable Commissions', 'slicewp' ); ?></label>
+                <label for="slicewp-disable-commissions" class="cozmoslabs-description">
                     <input type="checkbox" class="slicewp-option-field-disable-commissions" name="slicewp_disable_commissions" id="slicewp-disable-commissions" value="1" <?php checked( $disable_commissions, true ); ?> />
-                    <?php echo __( 'Disable all commissions for this subscription plan.', 'slicewp' ); ?>
+					<?php echo __( 'Disable all commissions for this subscription plan.', 'slicewp' ); ?>
                 </label>
-            </p>
+            </div>
 
             <?php
 
                 /**
-                 * Hook to add settings after the core ones
+                 * Hook to add settings after the core ones.
                  * 
                  */
                 do_action( 'slicewp_pms_metabox_commission_settings_core_bottom' );
@@ -519,7 +537,7 @@ function slicewp_add_product_commission_settings_pms() {
         <?php
 
             /**
-             * Hook to add option groups after the core one
+             * Hook to add option groups after the core one.
              * 
              */
             do_action( 'slicewp_pms_metabox_commission_settings_bottom' );
@@ -530,14 +548,14 @@ function slicewp_add_product_commission_settings_pms() {
 
 <?php
 
-    // Add nonce field
+    // Add nonce field.
     wp_nonce_field( 'slicewp_save_meta', 'slicewp_token', false );
 
 }
 
 
 /**
- * Saves the product commission settings into the product meta
+ * Saves the product commission settings into the product meta.
  * 
  * @param int $post_id
  * @param WP_Post $post
@@ -545,7 +563,7 @@ function slicewp_add_product_commission_settings_pms() {
  */
 function slicewp_save_product_commission_settings_pms( $post_id, $post ) {
 
-    // Update the disable commissions settings
+    // Update the disable commissions settings.
     if ( ! empty( $_POST['slicewp_disable_commissions'] ) ) {
 
         update_post_meta( $post_id, 'slicewp_disable_commissions', 1 );
@@ -560,7 +578,7 @@ function slicewp_save_product_commission_settings_pms( $post_id, $post ) {
 
 
 /**
- * Adds the reference amount in the commission data
+ * Adds the reference amount in the commission data.
  * 
  * @param array $commission_data
  * 
@@ -569,27 +587,31 @@ function slicewp_save_product_commission_settings_pms( $post_id, $post ) {
  */
 function slicewp_add_commission_data_reference_amount_pms( $commission_data ) {
 
-	if ( ! ( doing_action( 'slicewp_admin_action_add_commission' ) || doing_action( 'slicewp_admin_action_update_commission' ) ) )
+	if ( ! ( doing_action( 'slicewp_admin_action_add_commission' ) || doing_action( 'slicewp_admin_action_update_commission' ) ) ) {
 		return $commission_data;
+	}
 
-	// Check if the origin is Paid Member Subscriptions
-	if ( 'pms' != $commission_data['origin'] )
+	// Check if the origin is Paid Member Subscriptions.
+	if ( 'pms' != $commission_data['origin'] ) {
 		return $commission_data;
+	}
 
-	// Check if we have a reference
-	if ( empty( $commission_data['reference'] ) )
+	// Check if we have a reference.
+	if ( empty( $commission_data['reference'] ) ) {
 		return $commission_data;
+	}
 
-	// Get the payment
+	// Get the payment.
 	$payment = pms_get_payment( $commission_data['reference'] );
 
-	if ( empty( $payment ) || empty( $payment->amount ) )
+	if ( empty( $payment ) || empty( $payment->amount ) ) {
 		return $commission_data;
+	}
 
-	// Save the reference amount
+	// Save the reference amount.
 	$commission_data['reference_amount'] = slicewp_sanitize_amount( $payment->amount );
 
-	// Return the updated commission data
+	// Return the updated commission data.
 	return $commission_data;
 
 }
