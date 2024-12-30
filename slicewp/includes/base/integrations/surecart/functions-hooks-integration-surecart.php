@@ -199,7 +199,12 @@ function slicewp_insert_pending_commission_surecart( $checkout ) {
 		}
 		
 		slicewp_add_log( sprintf( 'SureCart: Pending commission #%s has been successfully inserted.', $commission_id ) );
-		
+
+		// Mark commission as unpaid if the order is paid.
+		if ( $order->status == 'paid' ) {
+			slicewp_accept_pending_commission_surecart( $order );
+		}
+
 	} else {
 
 		slicewp_add_log( 'SureCart: Pending commission could not be inserted due to an unexpected error.' );

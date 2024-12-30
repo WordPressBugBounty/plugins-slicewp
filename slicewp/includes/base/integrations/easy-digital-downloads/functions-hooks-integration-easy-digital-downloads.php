@@ -235,15 +235,21 @@ function slicewp_insert_pending_commission_edd( $payment_id, $payment_data ) {
 			// Exclude Discounts Pro fees.
 			if ( class_exists( 'edd_dp' ) ) {
 
-				if ( ! empty( $cart_item['fees']['dp_' . $cart_item['id']]['amount'] ) ) {
+				if ( ! empty( $cart_item['item_number']['options']['price_id'] ) ) {
+					$fee_key = 'dp_' . $cart_item['id'] . '_' . $cart_item['item_number']['options']['price_id'];
+				} else {
+					$fee_key = 'dp_' . $cart_item['id'];
+				}
 
-					$amount += $cart_item['fees']['dp_' . $cart_item['id']]['amount'];
+				if ( ! empty( $cart_item['fees'][$fee_key]['amount'] ) ) {
+
+					$amount += $cart_item['fees'][$fee_key]['amount'];
 
 				} else {
 
 					if ( function_exists( 'edd_get_order_adjustments' ) ) {
 
-						$adjustments = edd_get_order_adjustments( array( 'object_id' => $cart_item['order_item_id'], 'object_type' => 'order_item', 'type' => 'fee', 'type_key' => 'dp_' . $cart_item['id'] ) );
+						$adjustments = edd_get_order_adjustments( array( 'object_id' => $cart_item['order_item_id'], 'object_type' => 'order_item', 'type' => 'fee', 'type_key' => $fee_key ) );
 
 						if ( ! empty( $adjustments ) ) {
 
@@ -257,7 +263,7 @@ function slicewp_insert_pending_commission_edd( $payment_id, $payment_data ) {
 
 			}
 
-			// Calculate commission amount
+			// Calculate commission amount.
 			$args = array(
 				'origin'	   => 'edd',
 				'type' 		   => ! empty( $cart_item['item_number']['options']['recurring'] ) ? 'subscription' : 'sale',

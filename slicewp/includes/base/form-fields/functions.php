@@ -184,6 +184,7 @@ function slicewp_register_default_affiliate_fields( $fields ) {
 		'name'				  => 'website',
 		'label'				  => __( 'Website', 'slicewp' ),
 		'is_required'		  => ( slicewp_get_setting( 'required_field_website', false ) ? true : false ),
+		'placeholder'		  => 'https://...',
 		'output_conditionals' => array( 'form' => array( 'affiliate_registration', 'affiliate_account' ) )
 	);
 
