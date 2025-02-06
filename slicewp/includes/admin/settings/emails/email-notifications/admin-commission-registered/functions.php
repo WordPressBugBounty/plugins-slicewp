@@ -112,7 +112,7 @@ function slicewp_send_email_notification_admin_new_commission_registered( $commi
 	$email_content = ( ! empty( $notification_settings['content'] ) ? $notification_settings['content'] : '' );
 
 	// Get the Affiliate and Commission objects.
-	$affiliate = slicewp_get_affiliate( $affiliate_id );
+	$affiliate  = slicewp_get_affiliate( $affiliate_id );
 	$commission = slicewp_get_commission( $commission_id );
 
 	// Replace the tags with data.

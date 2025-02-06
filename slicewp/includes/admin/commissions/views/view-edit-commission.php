@@ -170,7 +170,7 @@ if ( is_null( $commission ) ) {
 						</div>
 
 						<!-- Commission Status -->
-						<div class="slicewp-field-wrapper slicewp-field-wrapper-inline slicewp-last">
+						<div class="slicewp-field-wrapper slicewp-field-wrapper-inline <?php echo ( $commission->get( 'status' ) != 'rejected' ? 'slicewp-last' : '' ); ?>">
 
 							<div class="slicewp-field-label-wrapper">
 								<label for="slicewp-commission-status"><?php echo __( 'Status', 'slicewp' ); ?> *</label>
@@ -187,6 +187,39 @@ if ( is_null( $commission ) ) {
 							</select>
 
 						</div>
+
+						<!-- Rejection Reason -->
+						<div class="slicewp-field-wrapper slicewp-field-wrapper-inline" <?php echo ( $commission->get( 'status' ) != 'rejected' ? 'style="display: none;"' : '' ); ?>>
+
+							<div class="slicewp-field-label-wrapper">
+								<label for="slicewp-commission-rejection-reason"><?php echo __( 'Rejection Reason', 'slicewp' ); ?></label>
+							</div>
+							
+							<textarea id="slicewp-commission-rejection-reason" name="rejection_reason"><?php echo esc_textarea( slicewp_get_commission_meta( $commission->get( 'id' ), '_rejection_reason', true ) ); ?></textarea>
+
+						</div>
+
+						<!-- Send rejection email notification -->
+						<?php $notification_settings = slicewp_get_email_notification_settings( 'affiliate_commission_rejected' ); ?>
+
+						<?php if ( ! empty( $notification_settings['enabled'] ) ): ?>
+
+							<div class="slicewp-field-wrapper slicewp-field-wrapper-inline slicewp-last" <?php echo ( $commission->get( 'status' ) != 'rejected' ? 'style="display: none;"' : '' ); ?>>
+
+								<div class="slicewp-field-label-wrapper">
+									<label for="slicewp-send-rejection-email-notification"><?php echo __( 'Send Email Notification', 'slicewp' ); ?></label>
+								</div>
+
+								<div class="slicewp-switch">
+									<input id="slicewp-send-rejection-email-notification" class="slicewp-toggle slicewp-toggle-round" name="send_rejection_email_notification" type="checkbox" value="1" <?php echo ( $commission->get( 'status' ) != 'rejected' ? 'checked' : '' ); ?> />
+									<label for="slicewp-send-rejection-email-notification"></label>
+								</div>
+
+								<label for="slicewp-send-rejection-email-notification"><?php echo __( 'Send commission rejected email notification to the affiliate', 'slicewp' ); ?></label>
+
+							</div>
+
+						<?php endif; ?>
 
 					</div>
 

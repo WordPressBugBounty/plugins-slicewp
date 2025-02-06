@@ -81,7 +81,7 @@ class SliceWP_Merge_Tags {
 				'category'		=> 'affiliate'
 			),
 			'affiliate_referral_url' => array(
-				'description'	=> __( "Replaced the tag with the affiliate's referral URL.", 'slicewp' ),
+				'description'	=> __( "Replaced the tag with the affiliate's referral URL", 'slicewp' ),
 				'callback'		=> array( $this, 'do_tag_affiliate_url' ),
 				'category'		=> 'affiliate'
 			),
@@ -120,9 +120,20 @@ class SliceWP_Merge_Tags {
 				'callback'		=> array( $this, 'do_tag_promotional_methods' ),
 				'category'		=> 'affiliate'
 			),
+			/**
+			 * @deprecated 1.1.27 - The "reject_reason" merge tag is no longer used in core and not recommended for external usage.
+			 *                      Replaced by the "affiliate_rejection_reason" tag.
+			 *                      Slated for removal in version 2.0.0
+			 * 
+			 */
 			'reject_reason' => array(
 				'description'	=> __( "Replaces the tag with the affiliate application reject reason", 'slicewp' ),
-				'callback'		=> array( $this, 'do_tag_reject_reason' ),
+				'callback'		=> array( $this, 'do_tag_affiliate_rejection_reason' ),
+				'category'		=> 'affiliate'
+			),
+			'affiliate_rejection_reason' => array(
+				'description'	=> __( "Replaces the tag with the affiliate application rejection reason", 'slicewp' ),
+				'callback'		=> array( $this, 'do_tag_affiliate_rejection_reason' ),
 				'category'		=> 'affiliate'
 			),
 			'commission_id' => array(
@@ -138,6 +149,11 @@ class SliceWP_Merge_Tags {
 			'commission_reference' => array(
 				'description'	=> __( "Replaces the tag with the commission reference", 'slicewp' ),
 				'callback'		=> array( $this, 'do_tag_commission_reference' ),
+				'category'		=> 'commission'
+			),
+			'commission_rejection_reason' => array(
+				'description'	=> __( "Replaces the tag with the commission's rejection reason", 'slicewp' ),
+				'callback'		=> array( $this, 'do_tag_commission_rejection_reason' ),
 				'category'		=> 'commission'
 			),
 			'payment_id' => array(
@@ -360,12 +376,12 @@ class SliceWP_Merge_Tags {
 	}
 
 	/**
-	 * The reject reason.
+	 * The affiliate rejection reason.
 	 * 
 	 * @return string
 	 * 
 	 */	
-	public function do_tag_reject_reason() {
+	public function do_tag_affiliate_rejection_reason() {
 
 		if ( empty( $this->data['affiliate'] ) ) {
 			return '';
@@ -421,6 +437,26 @@ class SliceWP_Merge_Tags {
 
 		return $this->data['commission']->get( 'reference' );
 		
+	}
+
+	/**
+	 * The commission rejection reason.
+	 * 
+	 * @return string
+	 * 
+	 */
+	public function do_tag_commission_rejection_reason() {
+
+		if ( empty( $this->data['commission'] ) ) {
+			return '';
+		}
+
+		if ( isset( $_POST['rejection_reason'] ) ) {
+			return wp_kses_post( $_POST['rejection_reason'] );
+		}
+
+		return slicewp_get_commission_meta( $this->data['commission']->get( 'id' ), '_rejection_reason', true );
+
 	}
 
 	/**

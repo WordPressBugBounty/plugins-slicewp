@@ -67,6 +67,7 @@ Class SliceWP_Submenu_Page_Commissions extends SliceWP_Submenu_Page {
 		if ( empty( $this->current_subpage ) ) {
 
 			include 'views/view-commissions.php';
+			include 'views/view-modal-reject-commission.php';
 
 		} else {
 

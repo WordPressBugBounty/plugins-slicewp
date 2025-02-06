@@ -106,6 +106,11 @@ function slicewp_admin_action_add_commission() {
 
 	}
 
+	// Add rejection reason for the commission.
+	if ( ! empty( $_POST['rejection_reason'] ) ) {
+		slicewp_update_commission_meta( $commission_id, '_rejection_reason', sanitize_textarea_field( $_POST['rejection_reason'] ) );
+	}
+
 	// Redirect to the edit page of the commission with a success message.
 	wp_redirect( add_query_arg( array( 'page' => 'slicewp-commissions', 'subpage' => 'edit-commission', 'commission_id' => $commission_id, 'slicewp_message' => 'commission_insert_success' ), admin_url( 'admin.php' ) ) );
 	exit;
@@ -194,6 +199,11 @@ function slicewp_admin_action_update_commission() {
 
 		return;
 
+	}
+
+	// Add rejection reason for the commission.
+	if ( isset( $_POST['rejection_reason'] ) ) {
+		slicewp_update_commission_meta( $commission_id, '_rejection_reason', sanitize_textarea_field( $_POST['rejection_reason'] ) );
 	}
 
 	// Redirect to the edit page of the commission with a success message.
@@ -341,17 +351,17 @@ add_action( 'slicewp_admin_action_approve_commission', 'slicewp_admin_action_app
 function slicewp_admin_action_reject_commission() {
 
 	// Verify for nonce.
-	if ( empty( $_GET['slicewp_token'] ) || ! wp_verify_nonce( $_GET['slicewp_token'], 'slicewp_reject_commission' ) ) {
+	if ( empty( $_POST['slicewp_token'] ) || ! wp_verify_nonce( $_POST['slicewp_token'], 'slicewp_reject_commission' ) ) {
 		return;
 	}
 
 	// Verify for commission ID.
-	if ( empty( $_GET['commission_id'] ) ) {
+	if ( empty( $_POST['commission_id'] ) ) {
 		return;
 	}
 
 	// Verify for commission's existance.
-	$commission_id = absint( $_GET['commission_id'] );
+	$commission_id = absint( $_POST['commission_id'] );
 	$commission    = slicewp_get_commission( $commission_id );
 
 	if ( is_null( $commission ) ) {
@@ -368,6 +378,11 @@ function slicewp_admin_action_reject_commission() {
 	);
 
 	slicewp_update_commission( $commission_id, $commission_data );
+
+	// Add rejection reason.
+	if ( isset( $_POST['rejection_reason'] ) ) {
+		slicewp_update_commission_meta( $commission_id, '_rejection_reason', sanitize_textarea_field( $_POST['rejection_reason'] ) );
+	}
 
 	// Redirect to the current page.
 	wp_redirect( remove_query_arg( array( 'commission_id' ), add_query_arg( array( 'slicewp_message' => 'commission_rejected_success' ), slicewp_get_filtered_admin_url() ) ) );

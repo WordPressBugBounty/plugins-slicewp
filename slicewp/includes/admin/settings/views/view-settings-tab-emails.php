@@ -232,7 +232,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 							}
 
 							$tags_explanation = '<div>';
-								$tags_explanation .= '<ul>';
+								$tags_explanation .= '<ul class="slicewp-email-notification-merge-tags">';
 									$tags_explanation .= '<p>' . __( 'You can use the following tags in the email subject and email content to personalise your emails:', 'slicewp' ) . '</p>';
 									
 									foreach ( array_values( array_unique( array_column( $tags, 'category' ) ) ) as $category_slug ) {
@@ -245,7 +245,11 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 												continue;
 											}
 
-											$tags_explanation .= '<li><input type="text" onclick="select()" class="slicewp-email-notification-merge-tag-input" readonly value="' . '{{' . esc_attr( $tag_slug ) . '}}' . '" /> - ' . $tag['description'] . '</li>';
+											$tags_explanation .= '<li>';
+												$tags_explanation .= '<input type="text" onclick="select()" readonly value="' . '{{' . esc_attr( $tag_slug ) . '}}' . '" />';
+												$tags_explanation .= '<span>-</span>';
+												$tags_explanation .= '<span>' . esc_html( $tag['description'] ) . '</span>';
+											$tags_explanation .= '</li>';
 	
 										}
 

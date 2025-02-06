@@ -413,14 +413,14 @@ Class SliceWP_WP_List_Table_Commissions extends SliceWP_WP_List_Table {
 		if ( 'unpaid' == $item['status'] ) {
 
 			$row_actions['mark_as_paid'] = '<a href="' . esc_url( wp_nonce_url( add_query_arg( array( 'slicewp_action' => 'mark_as_paid_commission', 'commission_id' => absint( $item['id'] ) ), slicewp_get_filtered_admin_url() ), 'slicewp_mark_as_paid_commission', 'slicewp_token' ) ) . '">' . __( 'Mark as Paid', 'slicewp' ) . '</a>';
-			$row_actions['reject'] 		 = '<a href="' . esc_url( wp_nonce_url( add_query_arg( array( 'slicewp_action' => 'reject_commission', 'commission_id' => absint( $item['id'] ) ), slicewp_get_filtered_admin_url() ), 'slicewp_reject_commission', 'slicewp_token' ) ) . '">' . __( 'Reject', 'slicewp' ) . '</a>';
+			$row_actions['reject'] 		 = '<a href="#" class="slicewp-list-table-row-action" data-action="reject_commission" data-commission-id="' . absint( $item['id'] ) . '">' . __( 'Reject', 'slicewp' ) . '</a>';
 
 		}
 
 		if ( 'pending' == $item['status'] ) {
 
 			$row_actions['approve'] = '<a href="' . esc_url( wp_nonce_url( add_query_arg( array( 'slicewp_action' => 'approve_commission', 'commission_id' => absint( $item['id'] ) ) , slicewp_get_filtered_admin_url() ), 'slicewp_approve_commission', 'slicewp_token' ) ) . '">' . __( 'Approve', 'slicewp' ) . '</a>';
-			$row_actions['reject']  = '<a href="' . esc_url( wp_nonce_url( add_query_arg( array( 'slicewp_action' => 'reject_commission', 'commission_id' => absint( $item['id'] ) ) , slicewp_get_filtered_admin_url() ), 'slicewp_reject_commission', 'slicewp_token' ) ) . '">' . __( 'Reject', 'slicewp' ) . '</a>';
+			$row_actions['reject']  = '<a href="#" class="slicewp-list-table-row-action" data-action="reject_commission" data-commission-id="' . absint( $item['id'] ) . '">' . __( 'Reject', 'slicewp' ) . '</a>';
 
 		}
 

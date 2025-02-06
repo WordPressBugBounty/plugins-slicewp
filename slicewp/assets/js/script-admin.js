@@ -850,6 +850,63 @@ jQuery( function($) {
 
 
     /**
+     * Page: Add/Update Commission
+     * 
+     */
+    $(document).on( 'change', '.slicewp-wrap-add-commission #slicewp-commission-status, .slicewp-wrap-edit-commission #slicewp-commission-status', function() {
+
+        $(this).closest( '.slicewp-card-inner' ).find( '.slicewp-field-wrapper' ).removeClass( 'slicewp-last' );
+
+        if ( $(this).val() == 'rejected' ) {
+
+            $('#slicewp-commission-rejection-reason').closest( '.slicewp-field-wrapper' ).show();
+            $('#slicewp-send-rejection-email-notification').closest( '.slicewp-field-wrapper' ).show();
+
+            setTimeout( function() {
+                $('#slicewp-commission-rejection-reason').trigger( 'focus' );
+            }, 1 );
+
+        } else {
+
+            $('#slicewp-commission-rejection-reason').closest( '.slicewp-field-wrapper' ).hide();
+            $('#slicewp-send-rejection-email-notification').closest( '.slicewp-field-wrapper' ).hide();
+
+        }
+
+        $(this).closest( '.slicewp-card-inner' ).find( '.slicewp-field-wrapper:visible' ).last().addClass( 'slicewp-last' );
+
+    });
+
+
+    /**
+     * Page: Commissions
+     * 
+     * Opens the "Reject commission" screen overlay and modal.
+     * 
+     */
+    $(document).on( 'click', '.slicewp-list-table-row-action[data-action="reject_commission"]', function(e) {
+
+        e.preventDefault();
+
+        var $row_actions = $(this).closest( '.column-actions' );
+
+        $row_actions.find( '.slicewp-button-toggle-actions.slicewp-active, .slicewp-actions-dropdown.slicewp-active' ).removeClass( 'slicewp-active' );
+
+        var $modal = $('.slicewp-modal-reject-commission');
+
+        $modal.find( 'h1 span' ).first().html( ' - #' + $(this).attr( 'data-commission-id' ) );
+        $modal.find( '[name="commission_id"]').val( $(this).attr( 'data-commission-id' ) );
+
+        $modal.parent().addClass( 'slicewp-active' );
+
+        setTimeout( function() {
+            $modal.find( '[name="rejection_reason"]' ).trigger( 'focus' );
+        }, 50 );
+
+    });
+
+
+    /**
      * Page: Add New Creative
      *
      */

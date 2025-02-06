@@ -39,7 +39,7 @@ function slicewp_email_notification_affiliate_payment_paid( $email_notifications
 	return $email_notifications;
 
 }
-add_filter( 'slicewp_available_email_notification', 'slicewp_email_notification_affiliate_payment_paid', 55 );
+add_filter( 'slicewp_available_email_notification', 'slicewp_email_notification_affiliate_payment_paid', 60 );
 
 
 /**

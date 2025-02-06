@@ -3,7 +3,7 @@
  * Plugin Name: SliceWP
  * Plugin URI: https://slicewp.com/
  * Description: The fastest and easiest way to set up an affiliate program for your store or membership site.
- * Version: 1.1.26
+ * Version: 1.1.27
  * Author: SliceWP
  * Author URI: https://slicewp.com/
  * Text Domain: slicewp
@@ -103,7 +103,7 @@ Class SliceWP {
 	public function __construct() {
 
 		// Defining constants.
-		define( 'SLICEWP_VERSION', 		   '1.1.26' );
+		define( 'SLICEWP_VERSION', 		   '1.1.27' );
 		define( 'SLICEWP_BASENAME',  	   plugin_basename( __FILE__ ) );
 		define( 'SLICEWP_PLUGIN_DIR', 	   plugin_dir_path( __FILE__ ) );
 		define( 'SLICEWP_PLUGIN_DIR_URL',  plugin_dir_url( __FILE__ ) );
@@ -337,7 +337,7 @@ Class SliceWP {
 		}
 
 		$settings = array(
-			'allow_affiliate_registration' => 1,
+			'allow_affiliate_registration' 		=> 1,
 			'commission_rate_sale'   	   		=> 20,
 			'commission_rate_type_sale'    		=> 'percentage',
 			'commission_rate_subscription' 		=> 20,
@@ -390,6 +390,11 @@ Class SliceWP {
 					'enabled' => 1,
 					'subject' => __( 'Commission Approved', 'slicewp' ),
 					'content' => __( 'Hey {{affiliate_first_name}},', 'slicewp' ) . "\n\n" . __( "You have been rewarded a new commission of {{commission_amount}}.", 'slicewp' )
+				),
+				'affiliate_commission_rejected' => array(
+					'enabled' => 1,
+					'subject' => __( 'Commission Rejected', 'slicewp' ),
+					'content' => __( 'Hey {{affiliate_first_name}},', 'slicewp' ) . "\n\n" . __( "Commission #{{commission_id}}, totalling {{commission_amount}}, has been rejected.", 'slicewp' )
 				),
 				'affiliate_payment_paid' => array(
 					'enabled' => 1,

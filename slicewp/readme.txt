@@ -4,7 +4,7 @@ Donate link: https://slicewp.com/
 Tags: affiliate, affiliates, affiliate program, affiliates program, woocommerce affiliates, affiliates plugin, affiliates manager program, affiliates manager plugin
 Requires at least: 5.0
 Tested up to: 6.7.1
-Stable tag: 1.1.26
+Stable tag: 1.1.27
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -152,6 +152,13 @@ Yes! You can set a custom cookie lifespan for your affiliates.
 
 
 == Changelog ==
+
+= 1.1.27 =
+* New: Added affiliate commission rejection reason flow.
+* New: Added affiliate commission rejected email notification.
+* New: Added {{commission_rejection_reason}} email merge tag.
+* Enhancement: Deprecated {{reject_reason}} email merge tag and added {{affiliate_rejection_reason}} to replace it.
+* Misc: Small UI improvements.
 
 = 1.1.26 =
 * Fixed: Affiliate commissions generated for SureCart orders not being correctly marked as unpaid.

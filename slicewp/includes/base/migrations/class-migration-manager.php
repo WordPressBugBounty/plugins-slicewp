@@ -44,7 +44,8 @@ class SliceWP_Migration_Manager {
 			'class-migration-1-0-73.php' => 'SliceWP_Migration_1_0_73',
 			'class-migration-1-0-88.php' => 'SliceWP_Migration_1_0_88',
 			'class-migration-1-0-90.php' => 'SliceWP_Migration_1_0_90',
-			'class-migration-1-1-10.php' => 'SliceWP_Migration_1_1_10'
+			'class-migration-1-1-10.php' => 'SliceWP_Migration_1_1_10',
+			'class-migration-1-1-27.php' => 'SliceWP_Migration_1_1_27'
 		);
 
 		add_action( 'plugins_loaded', array( $this, 'include_migrations' ), 50 );

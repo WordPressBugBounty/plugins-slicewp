@@ -311,6 +311,8 @@ function slicewp_get_kses_allowed_html() {
             'width'           => true,
             'height'          => true,
             'viewbox'         => true,
+            'stroke'          => true,
+            'stroke-width'    => true
         ),
         'g'     => array( 'fill' => true ),
         'title' => array( 'title' => true ),

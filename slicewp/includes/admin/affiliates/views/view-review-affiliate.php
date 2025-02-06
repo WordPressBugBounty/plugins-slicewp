@@ -189,7 +189,7 @@ if ( empty( $reject_notification_settings['subject'] ) || empty( $reject_notific
 				<div class="slicewp-field-wrapper slicewp-field-wrapper-inline slicewp-last">
 
 					<div class="slicewp-field-label-wrapper">
-						<label for="slicewp-send-email-notification"><?php echo __( 'Email Notification', 'slicewp' ); ?></label>
+						<label for="slicewp-send-email-notification"><?php echo __( 'Send Email Notification', 'slicewp' ); ?></label>
 						<?php echo slicewp_output_tooltip( __( 'When enabled, an approval/rejection email notification will be sent to the affiliate.', 'slicewp' ) ); ?>
 					</div>
 

@@ -329,6 +329,12 @@ function slicewp_reject_commission_on_refund_stc( $status, $order_info ) {
 			continue;
 	
 		}
+
+		// Add rejection reason for the commission.
+		// We are adding the rejection reason early because the email notification is sent upon commission update.
+		// If we'd update the rejection reason after updating the commission, the reason would not be available when sending the commission.
+		// It would be great if we could update metadata on the fly alongside the object data and have all data available for the object update action.
+		slicewp_update_commission_meta( $commission->get( 'id' ), '_rejection_reason', sprintf( __( "This commission has been rejected because the reference order #%s was refunded.", 'slicewp' ), $order_info['ID'] ) );
 	
 		// Prepare commission data.
 		$commission_data = array(
