@@ -1,6 +1,6 @@
 <?php
 
-// Exit if accessed directly
+// Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 
@@ -47,11 +47,12 @@ class SliceWP_List_Table_Affiliate_Account_Commissions extends SliceWP_List_Tabl
         parent::__construct( $args );
 
         $this->table_columns = array(
-            'id'     => __( 'ID', 'slicewp' ),
-            'date'   => __( 'Date', 'slicewp' ),
-            'type'   => __( 'Type', 'slicewp' ),
-            'amount' => __( 'Amount', 'slicewp' ),
-            'status' => __( 'Status', 'slicewp' )
+            'id'        => __( 'ID', 'slicewp' ),
+            'amount'    => __( 'Amount', 'slicewp' ),
+            'reference' => __( 'Reference', 'slicewp' ),
+            'type'      => __( 'Type', 'slicewp' ),
+            'date'      => __( 'Date', 'slicewp' ),
+            'status'    => __( 'Status', 'slicewp' )
         );
 
         $this->commission_types    = slicewp_get_commission_types();
@@ -71,13 +72,16 @@ class SliceWP_List_Table_Affiliate_Account_Commissions extends SliceWP_List_Tabl
     protected function set_table_items_data() {
 
         $affiliate_id = slicewp_get_current_affiliate_id();
+        
+        $statuses = slicewp_get_setting( 'affiliate_account_commission_statuses', array() );
+        $statuses = ( ! empty( $statuses ) && is_array( $statuses ) ? $statuses : array( 'paid', 'unpaid' ) );
 
         // Prepare the commission args.
         $commission_args = array(
             'number'		=> $this->items_per_page,
             'offset'		=> ( $this->current_page - 1 ) * $this->items_per_page,
             'affiliate_id'	=> $affiliate_id,
-            'status'		=> array( 'paid', 'unpaid' ),
+            'status'		=> $statuses,
             'date_min'      => ( ! empty( $_GET['list-table-filter-date-start'] ) ? get_gmt_from_date( ( new DateTime( $_GET['list-table-filter-date-start'] . ' 00:00:00' ) )->format( 'Y-m-d H:i:s' ) ) : '' ),
             'date_max'      => ( ! empty( $_GET['list-table-filter-date-end'] ) ? get_gmt_from_date( ( new DateTime( $_GET['list-table-filter-date-end'] . ' 23:59:59' ) )->format( 'Y-m-d H:i:s' ) ) : '' )
         );
@@ -151,7 +155,7 @@ class SliceWP_List_Table_Affiliate_Account_Commissions extends SliceWP_List_Tabl
      */
     public function column_status( $item ) {
 
-        return ( ! empty( $this->commission_statuses[$item['status']] ) ? $this->commission_statuses[$item['status']] : $item['status'] );
+        return '<span class="slicewp-status-pill slicewp-status-' . esc_attr( $item['status'] ) . '">' . ( ! empty( $this->commission_statuses[$item['status']] ) ? $this->commission_statuses[$item['status']] : $item['status'] ) . '</span>';
 
     }
 

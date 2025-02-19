@@ -776,7 +776,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 			
 			</div>
 
-			<div style="margin-bottom: 10px;">
+			<div>
 
 				<div class="slicewp-switch">
 
@@ -791,6 +791,52 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 		</div>
 		<!-- / Required registration fields -->
+
+		<!-- Commission Statuses Display -->
+		<div class="slicewp-field-wrapper slicewp-field-wrapper-inline slicewp-tooltip-wide slicewp-last">
+
+			<?php
+
+				/**
+				 * @todo - Add a link to the documentation article in the tooltip, explaining this setting and it's customizability features.
+				 * 
+				 */
+
+			?>
+			<div class="slicewp-field-label-wrapper">
+				<label>
+					<?php echo __( 'Commission Statuses Display', 'slicewp' ); ?>
+					<?php echo slicewp_output_tooltip( __( 'Choose the commission statuses to display in the commissions table of the affiliate account page.', 'slicewp' ) ); ?>
+				</label>
+			</div>
+
+			<?php
+				$commission_statuses 		 = slicewp_get_commission_available_statuses();
+				$account_commission_statuses = slicewp_get_setting( 'affiliate_account_commission_statuses', array() );
+			?>
+
+			<?php foreach ( $commission_statuses as $status_slug => $status_name ): ?>
+
+				<div <?php echo ( $status_slug != key( array_slice( $commission_statuses, -1, 1, true) ) ? 'style="margin-bottom: 10px;"' : '' ); ?>>
+
+					<?php $is_disabled = ( in_array( $status_slug, array( 'paid', 'unpaid' ) ) ? true : false ); ?>
+					<?php $is_checked  = ( in_array( $status_slug, array( 'paid', 'unpaid' ) ) ? true : ( ! empty( $_POST['settings']['affiliate_account_commission_statuses'] ) && in_array( $status_slug, $_POST['settings']['affiliate_account_commission_statuses'] ) ? true : ( empty( $_POST ) ? ( in_array( $status_slug, $account_commission_statuses ) ? true : false ) : false ) ) ); ?>
+
+					<div class="slicewp-switch <?php echo ( $is_disabled ? 'slicewp-disabled' : '' ); ?>" <?php echo ( $is_disabled ? 'title="' . __( 'This commission status will always be shown to affiliates.', 'slicewp' ) . '"' : '' ); ?>>
+
+						<input id="slicewp-commission-status-<?php echo esc_attr( $status_slug ); ?>" class="slicewp-toggle slicewp-toggle-round" name="settings[affiliate_account_commission_statuses][]" type="checkbox" value="<?php echo esc_attr( $status_slug ); ?>" <?php echo ( $is_checked ? 'checked' : '' ); ?> <?php echo ( $is_disabled ? 'disabled' : '' ); ?> />
+						<label for="slicewp-commission-status-<?php echo esc_attr( $status_slug ); ?>"></label>
+
+					</div>
+
+					<label for="slicewp-commission-status-<?php echo esc_attr( $status_slug ); ?>"><?php echo esc_html( $status_name ); ?></label>							
+
+				</div>
+				
+			<?php endforeach; ?>
+
+		</div>
+		<!-- / Commission Statuses Display -->
 
 	</div>
 

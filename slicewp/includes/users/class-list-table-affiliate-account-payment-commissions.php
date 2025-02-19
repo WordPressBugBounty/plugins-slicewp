@@ -1,6 +1,6 @@
 <?php
 
-// Exit if accessed directly
+// Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 
@@ -47,11 +47,11 @@ class SliceWP_List_Table_Affiliate_Account_Payment_Commissions extends SliceWP_L
         parent::__construct( $args );
 
         $this->table_columns = array(
-            'id'     => __( 'ID', 'slicewp' ),
-            'date'   => __( 'Date', 'slicewp' ),
-            'type'   => __( 'Type', 'slicewp' ),
-            'amount' => __( 'Amount', 'slicewp' ),
-            'status' => __( 'Status', 'slicewp' )
+            'id'        => __( 'ID', 'slicewp' ),
+            'amount'    => __( 'Amount', 'slicewp' ),
+            'reference' => __( 'Reference', 'slicewp' ),
+            'type'      => __( 'Type', 'slicewp' ),
+            'date'      => __( 'Date', 'slicewp' )
         );
 
         $this->commission_types    = slicewp_get_commission_types();
@@ -69,7 +69,7 @@ class SliceWP_List_Table_Affiliate_Account_Payment_Commissions extends SliceWP_L
      */
     protected function set_table_items_data() {
 
-        if ( empty( $this->args['payment'] ) ) {
+        if ( empty( $this->args['payment_id'] ) ) {
             return;
         }
 
@@ -79,7 +79,7 @@ class SliceWP_List_Table_Affiliate_Account_Payment_Commissions extends SliceWP_L
         $commission_args = array(
             'number'		=> -1,
             'affiliate_id'	=> $affiliate_id,
-            'payment_id'    => $this->args['payment']->get( 'id' ),
+            'payment_id'    => $this->args['payment_id'],
             'status'		=> array( 'paid', 'unpaid' )
         );
 
@@ -135,16 +135,30 @@ class SliceWP_List_Table_Affiliate_Account_Payment_Commissions extends SliceWP_L
 
 
     /**
-     * Column "status".
-     * 
-     * @param array $item
-     * 
-     * @return string
+     * Outputs the pagination elements.
      * 
      */
-    public function column_status( $item ) {
+    public function output_table_pagination() {
 
-        return ( ! empty( $this->commission_statuses[$item['status']] ) ? $this->commission_statuses[$item['status']] : $item['status'] );
+        if ( count( $this->items ) == 0 ) {
+            return;
+        }
+
+        $total_pages = ceil( $this->items_total / $this->items_per_page );
+
+        echo '<div class="slicewp-list-table-pagination">';
+
+        if ( $this->items_total <= count( $this->items ) ) {
+
+            if ( $this->items_total == 1 ) {
+                echo '<span>' . __( '1 commission', 'slicewp' ) . '</span>';
+            } else {
+                echo '<span>' . sprintf( __( '%d commissions', 'slicewp' ), $this->items_total ) . '</span>';
+            }
+
+        }
+
+        echo '</div>';
 
     }
 

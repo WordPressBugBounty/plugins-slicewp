@@ -1,6 +1,6 @@
 <?php
 
-// Exit if accessed directly
+// Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 
@@ -138,6 +138,8 @@ class SliceWP_List_Table {
         $page_number_arg_slug = ( ! empty( $this->id ) ? 'page_number_' . $this->id : 'page_number' );
 
         $this->current_page = ( empty( $this->current_page ) ? ( ! empty( $_GET[$page_number_arg_slug] ) ? absint( $_GET[$page_number_arg_slug] ) : 1 ) : $this->current_page );
+
+        $this->should_show_items_details = $this->should_show_items_details();
 
     }
 
@@ -295,49 +297,53 @@ class SliceWP_List_Table {
      */
     public function output_table_body() {
 
-        echo '<tbody>';
+        if ( ! $this->should_show_items_details ) {
+            echo '<tbody>';
+        }
 
-            if ( ! empty( $this->items ) ) {
+        if ( ! empty( $this->items ) ) {
 
-                $items = $this->prepare_items_for_output( $this->items );
+            $items = $this->prepare_items_for_output( $this->items );
 
-                foreach ( $items as $key => $item ) {
+            foreach ( $items as $key => $item ) {
+
+                /**
+                 * Filters the $item array generally, right before outputting it.
+                 * 
+                 * @param array $item
+                 * 
+                 */
+                $item = apply_filters( 'slicewp_list_table_row_item', $item );
+
+                if ( ! empty( $this->id ) ) {
 
                     /**
-                     * Filters the $item array generally, right before outputting it.
+                     * Filters the $item array targetted by table unique ID, right before outputting it.
                      * 
                      * @param array $item
                      * 
                      */
-                    $item = apply_filters( 'slicewp_list_table_row_item', $item );
-
-                    if ( ! empty( $this->id ) ) {
-
-                        /**
-                         * Filters the $item array targetted by table unique ID, right before outputting it.
-                         * 
-                         * @param array $item
-                         * 
-                         */
-                        $item = apply_filters( 'slicewp_list_table_row_item_' . $this->id, $item );
-                        
-                    }
-
-                    $this->output_table_row( $item );
-
+                    $item = apply_filters( 'slicewp_list_table_row_item_' . $this->id, $item );
+                    
                 }
 
-            } else {
-
-                echo '<tr>';
-                    echo '<td colspan="' . count( $this->get_filtered_table_columns() ) . '">';
-                        $this->output_no_items();
-                    echo '</td>';
-                echo '</tr>';
+                $this->output_table_row( $item );
 
             }
 
-        echo '</tbody>';
+        } else {
+
+            echo '<tr>';
+                echo '<td colspan="' . count( $this->get_filtered_table_columns() ) . '">';
+                    $this->output_no_items();
+                echo '</td>';
+            echo '</tr>';
+
+        }
+
+        if ( ! $this->should_show_items_details ) {
+            echo '</tbody>';
+        }
 
     }
 
@@ -350,6 +356,22 @@ class SliceWP_List_Table {
      */
     public function output_table_row( $item ) {
 
+        if ( $this->should_show_items_details ) {
+            echo '<tbody>';
+        }
+
+        // Get table details.
+        ob_start();
+        
+        $this->output_table_row_item_details( $item );
+
+        $table_row_item_details = ob_get_clean();
+
+        if ( ! empty( $table_row_item_details ) ) {
+            $item['item_details'] = true;
+        }
+
+        // Output table row.
         echo '<tr>';
 
             foreach ( $this->get_filtered_table_columns() as $column_slug => $column_name ) {
@@ -359,6 +381,48 @@ class SliceWP_List_Table {
             }
 
         echo '</tr>';
+
+        // Output table row item details.
+        if ( ! empty( $table_row_item_details ) ) {
+
+            echo '<tr class="slicewp-list-table-item-details-row">';
+                echo '<td colspan="' . count( $this->get_filtered_table_columns() ) . '">';
+                    echo '<div>';
+                        echo '<div>';
+                            echo $table_row_item_details;
+                        echo '</div>';
+                    echo '</div>';
+                echo '</td>';
+            echo '</tr>';
+
+        }
+
+        if ( $this->should_show_items_details ) {
+            echo '</tbody>';
+        }
+
+    }
+
+
+    /**
+     * Outputs the table row item details for the given item data.
+     * 
+     * @param array $item
+     * 
+     */
+    public function output_table_row_item_details( $item ) {
+
+        if ( ! empty( $this->id ) ) {
+
+            /**
+             * Action to add extra item details to this table.
+             *
+             * @param array $item
+             * 
+             */
+            do_action( 'slicewp_list_table_output_item_details_' . $this->id, $item );
+
+        }
 
     }
 
@@ -401,6 +465,21 @@ class SliceWP_List_Table {
     public function column_default( $column_slug, $item ) {
 
         return ( ! empty( $item[$column_slug] ) ? $item[$column_slug] : '' );
+
+    }
+
+
+    /**
+     * Column "actions".
+     * 
+     * @param array $item
+     * 
+     * @return string
+     * 
+     */
+    public function column_actions( $item ) {
+
+        return ( ! empty( $item['item_details'] ) ? '<a href="#" class="slicewp-toggle-item-details">' . __( 'Details', 'slicewp' ) . slicewp_get_svg( 'outline-chevron-down' ) . '</a>' : '' );
 
     }
 
@@ -628,6 +707,34 @@ class SliceWP_List_Table {
         }
 
         return $items;
+
+    }
+
+
+    /**
+     * Determines whether to show the details for the table items globally per table.
+     * 
+     * @return bool
+     * 
+     */
+    protected function should_show_items_details() {
+
+        $show = false;
+
+        if ( ! empty( $this->id ) ) {
+
+            /**
+             * Filter to modify the displaying of the items details, for the table with the set id.
+             * 
+             * @param bool  $show
+             * @param array $item
+             * 
+             */
+            $show = apply_filters( 'slicewp_list_table_should_show_items_details_' . $this->id, $show );
+
+        }
+
+        return $show;
 
     }
 

@@ -256,6 +256,9 @@ input.slicewp-toggle-round:checked + label:after { margin-left: 16px; }
 .slicewp-switch .slicewp-loader::after { content: ''; position: absolute; left: 8px; top: 8px; border: 3px solid #fff; width: 0; height: 0; border-radius: 50%; box-sizing: border-box; }
 .slicewp-switch.slicewp-loading .slicewp-loader { opacity: 1; transition: opacity 0.4s ease-in-out; cursor: default; }
 
+.slicewp-switch.slicewp-disabled { opacity: 0.7; }
+.slicewp-switch.slicewp-disabled .slicewp-toggle + label { cursor: not-allowed !important; }
+
 @keyframes slicewp-loader-animation {
 	0% { transform: rotate(0deg); }
 	100% { transform: rotate(360deg); }
@@ -735,8 +738,9 @@ table.slicewp-wp-list-table.striped > tbody > :nth-child(odd) {
 
 .slicewp-wp-list-table .column-actions .row-actions { position: relative; display: flex; justify-content: flex-end; align-items: center; visibility: visible; left: 0; padding: 0; }
 .slicewp-wp-list-table .column-actions .row-actions > a,
-.slicewp-wp-list-table .column-actions .row-actions > span { margin-left: 12px; word-break: keep-all; word-wrap: initial; text-overflow: initial; }
+.slicewp-wp-list-table .column-actions .row-actions > span { margin-left: 12px; word-break: keep-all; word-wrap: initial; text-overflow: initial; white-space: nowrap; }
 .slicewp-wp-list-table .column-actions .row-actions > :first-child { margin-left: 0; }
+.slicewp-wp-list-table .column-actions .row-actions .slicewp-disabled { color: #a7aaad; cursor: not-allowed; }
 
 body.slicewp-pagestyles .tablenav { height: 36px; margin: 6px 0 10px; }
 
@@ -829,9 +833,20 @@ body.slicewp-pagestyles .tablenav-pages .tablenav-paging-text { vertical-align: 
 .slicewp-wp-list-table.slicewp_visits .column-converted { width: 105px; }
 
 /* Payouts List Table */
-.slicewp-wp-list-table.slicewp_payouts .column-amount,
-.slicewp-wp-list-table.slicewp_payouts .column-payments_count { width: 85px; }
+.slicewp-wp-list-table.slicewp_payouts .column-total { width: 1%; min-width: 85px; }
 .slicewp-wp-list-table.slicewp_payouts .column-date_created { width: 225px; }
+.slicewp-wp-list-table.slicewp_payouts .column-actions { width: 1%; padding-left: 12px; }
+
+.slicewp-wp-list-table.slicewp_payouts .column-payments { padding-left: 12px; padding-right: 18px; }
+
+.slicewp-wp-list-table.slicewp_payouts .column-payments .slicewp-progressbar { background: #dee5ed; height: 8px; margin-top: 5px; border-radius: 4px; box-shadow: none; }
+.slicewp-wp-list-table.slicewp_payouts .column-payments .slicewp-progressbar .slicewp-progressbar-fill { border-radius: 4px; }
+.slicewp-wp-list-table.slicewp_payouts .column-payments .slicewp-progressbar.slicewp-completed .slicewp-progressbar-fill { background: #18b193; }
+
+.slicewp-wp-list-table.slicewp_payouts .column-payments .slicewp-tooltip-wrapper { display: block; width: auto; height: auto; }
+.slicewp-wp-list-table.slicewp_payouts .column-payments .slicewp-tooltip-wrapper .slicewp-tooltip-message { width: 400px; margin-left: -200px; top: 65px; }
+.slicewp-wp-list-table.slicewp_payouts .column-payments .slicewp-tooltip-wrapper:hover .slicewp-tooltip-message { top: 45px; }
+.slicewp-wp-list-table.slicewp_payouts .column-payments .slicewp-tooltip-wrapper .slicewp-tooltip-icon { cursor: initial !important; }
 
 /* Payouts Preview List Table */
 .slicewp-wp-list-table.slicewp_payout_preview_payments { max-width: 675px; margin-bottom: 2em; }
@@ -921,6 +936,7 @@ body.slicewp-pagestyles .tablenav-pages .tablenav-paging-text { vertical-align: 
 /*******************************************************************************************/
 #slicewp-card-payout-progress .slicewp-progressbar { height: 10px; border-radius: 5px; box-shadow: none; }
 #slicewp-card-payout-progress .slicewp-progressbar .slicewp-progressbar-fill { border-radius: 5px; }
+#slicewp-card-payout-progress .slicewp-progressbar.slicewp-completed .slicewp-progressbar-fill { background: #18b193; }
 
 #slicewp-card-payout-progress .slicewp-card-footer .slicewp-field-label-wrapper { margin-bottom: 10px; }
 #slicewp-card-payout-progress .slicewp-card-footer .slicewp-field-label-wrapper label { font-weight: normal; }

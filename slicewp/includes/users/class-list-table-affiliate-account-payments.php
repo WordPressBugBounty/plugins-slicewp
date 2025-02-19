@@ -1,6 +1,6 @@
 <?php
 
-// Exit if accessed directly
+// Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 
@@ -39,11 +39,14 @@ class SliceWP_List_Table_Affiliate_Account_Payments extends SliceWP_List_Table {
 
         $this->table_columns = array(
             'id'     => __( 'ID', 'slicewp' ),
-            'date'   => __( 'Date', 'slicewp' ),
             'amount' => __( 'Amount', 'slicewp' ),
-            'status' => __( 'Status', 'slicewp' ),
-            'action' => __( 'Action', 'slicewp' )
+            'date'   => __( 'Date', 'slicewp' ),
+            'status' => __( 'Status', 'slicewp' )
         );
+
+        if ( $this->should_show_items_details ) {
+            $this->table_columns['actions'] = '';
+        }
 
         $this->payment_statuses = slicewp_get_payment_available_statuses();
         $this->no_items         = ( empty( $_GET['list-table-filter-date-start'] ) ? __( 'You have no payouts.', 'slicewp' ) : '' );
@@ -124,25 +127,30 @@ class SliceWP_List_Table_Affiliate_Account_Payments extends SliceWP_List_Table {
      */
     public function column_status( $item ) {
 
-        return ( ! empty( $this->payment_statuses[$item['status']] ) ? $this->payment_statuses[$item['status']] : $item['status'] );
+        return '<span class="slicewp-status-pill slicewp-status-' . esc_attr( $item['status'] ) . '">' . ( ! empty( $this->payment_statuses[$item['status']] ) ? $this->payment_statuses[$item['status']] : $item['status'] ) . '</span>';
 
     }
 
 
     /**
-     * Column "action".
+     * Outputs the table row item details for the given item data.
      * 
      * @param array $item
      * 
-     * @return string
-     * 
      */
-    public function column_action( $item ) {
+    public function output_table_row_item_details( $item ) {
 
-        $redirect_url = remove_query_arg( array( 'affiliate-account-tab', 'page_number_commissions' ) );
-        $redirect_url = add_query_arg( array( 'affiliate-account-tab' => 'commissions', 'payment_id' => $item['id'] ), $redirect_url );
+        if ( ! empty( $this->id ) ) {
 
-        return '<a href="' . esc_url( $redirect_url ) . '">' . __( 'View', 'slicewp' ) . '</a>';
+            /**
+             * Action to add extra item details to this table.
+             *
+             * @param array $item
+             * 
+             */
+            do_action( 'slicewp_list_table_output_item_details_' . $this->id, $item );
+
+        }
 
     }
 
@@ -163,6 +171,34 @@ class SliceWP_List_Table_Affiliate_Account_Payments extends SliceWP_List_Table {
         );
 
         echo slicewp_element_date_range_picker( $args );
+
+    }
+
+
+    /**
+     * Determines whether to show the details for the table items globally per table.
+     * 
+     * @return bool
+     * 
+     */
+    protected function should_show_items_details() {
+
+        $show = true;
+
+        if ( ! empty( $this->id ) ) {
+
+            /**
+             * Filter to modify the displaying of the items details, for the table with the set id.
+             * 
+             * @param bool  $show
+             * @param array $item
+             * 
+             */
+            $show = apply_filters( 'slicewp_list_table_should_show_items_details_' . $this->id, $show );
+
+        }
+
+        return $show;
 
     }
 

@@ -128,7 +128,7 @@ function slicewp_output_tooltip( $message ) {
  */
 function slicewp_output_progressbar( $progress, $return = false ) {
 
-	$output  = '<div class="slicewp-progressbar">';
+	$output  = '<div class="slicewp-progressbar ' . ( $progress >= 100 ? 'slicewp-completed' : '' ) . '">';
 
 		if ( empty( $progress ) ) {
 
@@ -327,7 +327,7 @@ function slicewp_output_select2_posts_search( $args, $return = false ) {
  */
 function slicewp_register_website_admin_notice() {
 
-	if ( empty( $_GET['page'] ) || strpos( $_GET['page'], 'slicewp' ) === false ) {
+	if ( empty( $_GET['page'] ) || ! is_string( $_GET['page'] ) || strpos( $_GET['page'], 'slicewp' ) === false ) {
 		return;
 	}
 
@@ -435,7 +435,7 @@ add_action( 'admin_init', 'slicewp_add_admin_menu_notification', 1000 );
  */
 function slicewp_admin_header() {
 
-	if ( empty( $_GET['page'] ) || false === strpos( $_GET['page'], 'slicewp' ) || $_GET['page'] == 'slicewp-setup' ) {
+	if ( empty( $_GET['page'] ) || ! is_string( $_GET['page'] ) || false === strpos( $_GET['page'], 'slicewp' ) || $_GET['page'] == 'slicewp-setup' ) {
 		return;
 	}
 
@@ -570,16 +570,16 @@ add_action( 'slicewp_admin_action_dismiss_notice', 'slicewp_admin_action_dismiss
 
 
 /**
- * Outputs a promo notice for version 1.1.10.
- * 
+ * Outputs a promo notice for version 1.1.28.
+ *
  */
-function slicewp_admin_notice_version_1_1_10() {
+function slicewp_admin_notice_version_1_1_28() {
 
-	if ( empty( $_GET['page'] ) || false === strpos( $_GET['page'], 'slicewp' ) ) {
+	if ( empty( $_GET['page'] ) || ! is_string( $_GET['page'] ) || false === strpos( $_GET['page'], 'slicewp' ) ) {
 		return;
 	}
 
-	if ( version_compare( SLICEWP_VERSION, '1.1.12', '>' ) ) {
+	if ( version_compare( SLICEWP_VERSION, '1.1.32', '>' ) ) {
 		return;
 	}
 
@@ -589,7 +589,7 @@ function slicewp_admin_notice_version_1_1_10() {
 
 	$dismissed_admin_notices = get_option( 'slicewp_dismissed_admin_notices', array() );
 
-	if ( in_array( 'version_1_1_10', $dismissed_admin_notices ) ) {
+	if ( in_array( 'version_1_1_28', $dismissed_admin_notices ) ) {
 		return;
 	}
 
@@ -614,11 +614,11 @@ function slicewp_admin_notice_version_1_1_10() {
 			</div>
 
 			<div class="slicewp-admin-notice-content">
-				<h3><strong><?php echo __( 'Say hello to affiliate payout requests!', 'slicewp' ); ?></strong></h3>
-				<p style="font-size: 14px;"><?php echo __( "We're excited to announce the release of payout requests, a new add-on that allows your affiliates to effortlessly request a payout for their payable commissions straight from their affiliate account.", 'slicewp' ); ?></p>
+				<h3><strong><?php echo __( 'A superior experience for you and your affiliates!', 'slicewp' ); ?></strong></h3>
+				<p style="font-size: 14px;"><?php echo __( "We're excited to introduce a suite of new features designed to enhance your affiliate program, including redesigned affiliate account tables, a streamlined commission rejection flow and a revamped admin payouts page.", 'slicewp' ); ?></p>
 
-				<a target="_blank" style="margin-top: 10px; margin-right: 10px;" href="<?php echo esc_url( 'https://slicewp.com/blog/product-update-affiliate-payout-requests/' ); ?>" class="button-primary"><?php echo __( 'Explore payout requests', 'slicewp' ); ?></a>
-				<a href="<?php echo wp_nonce_url( add_query_arg( array( 'slicewp_action' => 'dismiss_notice', 'notice_slug' => 'version_1_1_10' ) ), 'slicewp_dismiss_notice', 'slicewp_token' ); ?>"><?php echo __( 'Dismiss notice', 'slicewp' ); ?></a>
+				<a target="_blank" style="margin-top: 10px; margin-right: 10px;" href="<?php echo esc_url( 'https://slicewp.com/blog/product-update-affiliate-area-improvements/' ); ?>" class="button-primary"><?php echo __( 'Explore new features', 'slicewp' ); ?></a>
+				<a href="<?php echo wp_nonce_url( add_query_arg( array( 'slicewp_action' => 'dismiss_notice', 'notice_slug' => 'version_1_1_28' ) ), 'slicewp_dismiss_notice', 'slicewp_token' ); ?>"><?php echo __( 'Dismiss notice', 'slicewp' ); ?></a>
 			</div>
 
 		</div>
@@ -626,4 +626,4 @@ function slicewp_admin_notice_version_1_1_10() {
 	<?php
 
 }
-add_action( 'admin_notices', 'slicewp_admin_notice_version_1_1_10' );
+add_action( 'admin_notices', 'slicewp_admin_notice_version_1_1_28' );

@@ -323,7 +323,7 @@ class SliceWP_Plugin_Usage_Tracker {
 	 */
 	public function register_admin_notice() {
 
-		if ( empty( $_GET['page'] ) || false === strpos( $_GET['page'], 'slicewp' ) ) {
+		if ( empty( $_GET['page'] ) || ! is_string( $_GET['page'] ) || false === strpos( $_GET['page'], 'slicewp' ) ) {
 			return;
 		}
 

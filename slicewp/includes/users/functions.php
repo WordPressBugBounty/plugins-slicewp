@@ -283,3 +283,31 @@ function slicewp_output_qr_code_templates() {
 
 }
 add_action( 'slicewp_affiliate_account_bottom', 'slicewp_output_qr_code_templates' );
+
+
+/**
+ * Outputs the default view for the commissions in the affiliate account payments list table.
+ * 
+ * @param array $item
+ * 
+ */
+function slicewp_output_list_table_payment_commissions_default( $item ) {
+
+	// Get commissions count.
+	$commissions_count = slicewp_get_commissions( array( 'payment_id' => absint( $item['id'] ) ), true );
+
+	if ( empty( $commissions_count ) ) {
+		return;
+	}
+
+	echo '<h4>' . __( 'Commissions', 'slicewp' ) . '</h4>';
+	echo '<p>' . __( 'The following commissions have been included in this payout.', 'slicewp' ) . '</p>';
+
+	$table = new SliceWP_List_Table_Affiliate_Account_Payment_Commissions( array(
+		'screen_base_url' => add_query_arg( array( 'affiliate-account-tab' => 'commissions' ), strtok( set_url_scheme( 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ), '?' ) ), 'args' => array( 'payment_id' => absint( $item['id'] ) )
+	));
+
+	$table->output();
+
+}
+add_action( 'slicewp_list_table_output_item_details_affiliate_account_payments', 'slicewp_output_list_table_payment_commissions_default', 100 );

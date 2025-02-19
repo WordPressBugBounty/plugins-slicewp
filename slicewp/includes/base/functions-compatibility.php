@@ -11,12 +11,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * 
  */
 function slicewp_compatibility_deregister_popup_maker_admin_script() {
-	
-	if ( empty( $_GET['page'] ) ) {
-		return;
-	}
-	
-	if ( false === strpos( $_GET['page'], 'slicewp' ) ) {
+
+	if ( empty( $_GET['page'] ) || ! is_string( $_GET['page'] ) || false === strpos( $_GET['page'], 'slicewp' ) ) {
 		return;
 	}
 	

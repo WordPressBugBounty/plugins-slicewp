@@ -3,7 +3,7 @@
  * Plugin Name: SliceWP
  * Plugin URI: https://slicewp.com/
  * Description: The fastest and easiest way to set up an affiliate program for your store or membership site.
- * Version: 1.1.27
+ * Version: 1.1.28
  * Author: SliceWP
  * Author URI: https://slicewp.com/
  * Text Domain: slicewp
@@ -103,7 +103,7 @@ Class SliceWP {
 	public function __construct() {
 
 		// Defining constants.
-		define( 'SLICEWP_VERSION', 		   '1.1.27' );
+		define( 'SLICEWP_VERSION', 		   '1.1.28' );
 		define( 'SLICEWP_BASENAME',  	   plugin_basename( __FILE__ ) );
 		define( 'SLICEWP_PLUGIN_DIR', 	   plugin_dir_path( __FILE__ ) );
 		define( 'SLICEWP_PLUGIN_DIR_URL',  plugin_dir_url( __FILE__ ) );
@@ -355,9 +355,10 @@ Class SliceWP {
 			'currency_symbol_position' 	   => 'before',
 			'affiliate_keyword'			   => 'aff',
 			'affiliate_credit'			   => 'last',
-			'required_field_payment_email' 		 => 1,
-			'required_field_website'	   		 => 1,
-			'required_field_promotional_methods' => 1,
+			'affiliate_account_commission_statuses' => array( 'paid', 'unpaid', 'pending', 'rejected' ),
+			'required_field_payment_email' 		 	=> 1,
+			'required_field_website'	   		 	=> 1,
+			'required_field_promotional_methods' 	=> 1,
 			'from_email'				   => get_bloginfo( 'admin_email' ),
 			'from_name'					   => get_bloginfo( 'name' ),
 			'email_template'			   => 'default',
@@ -384,7 +385,7 @@ Class SliceWP {
 				),
 				'affiliate_account_rejected' => array(
 					'subject' => __( 'Affiliate Account Rejected', 'slicewp' ),
-					'content' => __( 'Hey {{affiliate_first_name}},', 'slicewp' ) . "\n\n" . __( 'Unfortunately, your application for an affiliate account was rejected.', 'slicewp' ) . "\n\n" . "{{reject_reason}}"
+					'content' => __( 'Hey {{affiliate_first_name}},', 'slicewp' ) . "\n\n" . __( 'Unfortunately, your application for an affiliate account was rejected.', 'slicewp' ) . "\n\n" . "{{affiliate_rejection_reason}}"
 				),
 				'affiliate_commission_approved' => array(
 					'enabled' => 1,
@@ -732,7 +733,7 @@ Class SliceWP {
 	 */
 	public function enqueue_admin_scripts( $hook ) {
 
-		if ( strpos( $hook, 'slicewp' ) !== false || ( isset( $_GET['page'] ) && strpos( $_GET['page'], 'slicewp' ) === 0 ) ) {
+		if ( strpos( $hook, 'slicewp' ) !== false || ( isset( $_GET['page'] ) && is_string( $_GET['page'] ) && strpos( $_GET['page'], 'slicewp' ) === 0 ) ) {
 
 			// Color picker.
     		wp_enqueue_style( 'jquery-style', SLICEWP_PLUGIN_DIR_URL . 'assets/css/jquery-ui.css', array(), SLICEWP_VERSION );

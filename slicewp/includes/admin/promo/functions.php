@@ -290,7 +290,7 @@ add_action( 'slicewp_view_settings_tab_affiliate_fields', 'slicewp_promo_view_se
  */
 function slicewp_admin_notice_review_request() {
 
-	if ( empty( $_GET['page'] ) ) {
+	if ( empty( $_GET['page'] ) || ! is_string( $_GET['page'] ) ) {
 		return;
 	}
 

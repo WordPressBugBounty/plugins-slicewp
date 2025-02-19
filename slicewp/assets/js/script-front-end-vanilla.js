@@ -2059,6 +2059,42 @@ var slicewp_front_end = function() {
 
 
     /**
+     * Toggles the list table item details panel.
+     * 
+     */
+    on( 'click', '.slicewp-list-table .slicewp-toggle-item-details', function(e) {
+
+        e.preventDefault();
+
+        this.blur();
+
+        var tbody = this.closest( 'tbody' );
+        var row   = tbody.querySelector( '.slicewp-list-table-item-details-row' );
+
+        if ( ! tbody.classList.contains( 'slicewp-active' ) ) {
+
+            row.style.display = 'table-row';
+
+            setTimeout( function() {
+                tbody.classList.add( 'slicewp-active' );
+                row.querySelector( 'td > div' ).style.height = row.querySelector( 'td > div > div' ).offsetHeight + 'px';
+            }, 1 );
+            
+        } else {
+
+            tbody.classList.remove( 'slicewp-active' );
+            row.querySelector( 'td > div' ).style.height = 0;
+
+            setTimeout( function() {
+                row.style.display = 'none';                
+            }, 275 );
+
+        }
+
+    });
+
+
+    /**
      * Converts the given bytes into KB, MB etc.
      *
      */

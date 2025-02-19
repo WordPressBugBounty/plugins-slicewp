@@ -187,7 +187,7 @@ abstract class SliceWP_Add_On {
     public function enqueue_admin_scripts() {
 
         // By default load admin scripts and styles only on our pages.
-        if ( empty( $_GET['page'] ) || strpos( $_GET['page'], 'slicewp' ) === false ) {
+        if ( empty( $_GET['page'] ) || ! is_string( $_GET['page'] ) || strpos( $_GET['page'], 'slicewp' ) === false ) {
             return;
         }
 

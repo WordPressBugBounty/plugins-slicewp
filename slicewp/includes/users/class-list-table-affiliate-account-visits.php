@@ -1,6 +1,6 @@
 <?php
 
-// Exit if accessed directly
+// Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 
@@ -30,9 +30,9 @@ class SliceWP_List_Table_Affiliate_Account_Visits extends SliceWP_List_Table {
 
         $this->table_columns = array(
             'id'           => __( 'ID', 'slicewp' ),
-            'date'         => __( 'Date', 'slicewp' ),
             'landing_url'  => __( 'Landing URL', 'slicewp' ),
             'referrer_url' => __( 'Referrer URL', 'slicewp' ),
+            'date'         => __( 'Date', 'slicewp' )
         );
 
         $this->no_items      = ( empty( $_GET['list-table-filter-date-start'] ) ? __( 'You have no visits.', 'slicewp' ) : '' );

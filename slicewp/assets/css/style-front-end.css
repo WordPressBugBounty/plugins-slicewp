@@ -181,9 +181,22 @@
 .slicewp-button-view-qr-code { margin-top: 10px; margin-left: 7px; }
 
 /******************************************************************************************/
+/* Status Pills
+/******************************************************************************************/
+.slicewp-status-pill { display: inline-flex; font-size: 0.875rem; line-height: 1; font-weight: 500; background: #cdd1d8; color: #34495e; padding: 8px 9px; border-radius: 3px; }
+.slicewp-status-pill.slicewp-status-active,
+.slicewp-status-pill.slicewp-status-complete,
+.slicewp-status-pill.slicewp-status-paid { background: #c1e3db; color: #148f77; }
+.slicewp-status-pill.slicewp-status-pending,
+.slicewp-status-pill.slicewp-status-requested { background: #fde0c0; color: #b36508; }
+.slicewp-status-pill.slicewp-status-unpaid { background: #c5dff4; color: #217dbb; }
+.slicewp-status-pill.slicewp-status-rejected,
+.slicewp-status-pill.slicewp-status-failed { background: #fed8d9; color: #b91c1c; }
+
+/******************************************************************************************/
 /* General Cards
 /******************************************************************************************/
-.slicewp-card { position: relative; width: 100%; margin-bottom: 1.5em; background: #fff; box-shadow: 0 0 0 1px rgba(200, 215, 225, 0.5), 0 1px 2px #e9eff3; box-sizing: border-box; }
+.slicewp-card { position: relative; width: 100%; margin-bottom: 1.5em; background: #fff; border-radius: 2px; box-shadow: 0 0 0 1px rgba(200, 215, 225, 0.5), 0 1px 2px #e9eff3; box-sizing: border-box; }
 
 .slicewp-card-header { padding: 20px; border-bottom: 1px solid rgba(200, 215, 225, 0.5); font-weight: bold; }
 .slicewp-card-inner { padding: 20px; }
@@ -394,10 +407,34 @@
 /******************************************************************************************/
 /* Tables
 /******************************************************************************************/
-body table.slicewp-list-table { width: 100%; margin-top: 0; margin-bottom: 0; }
-body table.slicewp-list-table td,
-body table.slicewp-list-table th { padding: 0.5rem; text-align: left; }
-body table.slicewp-list-table td { word-break: break-all; }
+body table.slicewp-list-table { width: 100%; margin-top: 0; margin-bottom: 0; border: 0 !important; border-radius: 2px; border-collapse: collapse; box-shadow: 0 0 0 1px rgba(200, 215, 225, 0.5), 0 1px 2px #e9eff3; }
+body table.slicewp-list-table tbody { border: 0 !important; }
+body table.slicewp-list-table th,
+body table.slicewp-list-table td { padding: 0.5rem 0.675rem; text-align: left; border: 0 !important; background: transparent !important; }
+body table.slicewp-list-table th { background: rgba( 200, 215, 225, 0.15 ) !important; border-bottom: 1px solid #e9eff3 !important; border-right: 1px solid #e9eff3 !important; }
+body table.slicewp-list-table td { word-break: break-all; border-top: 1px solid #e9eff3 !important; border-right: 1px solid #e9eff3 !important; }
+body table.slicewp-list-table th:last-of-type,
+body table.slicewp-list-table td:last-of-type { border-right: 0 !important; }
+body table.slicewp-list-table tbody:first-of-type tr:first-of-type td { border-top: 0 !important; }
+
+body table.slicewp-list-table .slicewp-column-actions { text-align: right; width: auto; width: 1px; white-space: nowrap; }
+body table.slicewp-list-table .slicewp-column-status { width: 1px; white-space: nowrap; }
+
+table.slicewp-list-table .slicewp-list-table-item-details-row { display: none; }
+table.slicewp-list-table .slicewp-list-table-item-details-row > td { overflow-y: hidden; padding: 0 !important; }
+table.slicewp-list-table .slicewp-list-table-item-details-row > td > div { height: 0; opacity: 0; transition: all 0.275s ease-in-out; }
+table.slicewp-list-table .slicewp-list-table-item-details-row > td > div > div { padding: 1.25rem; }
+
+table.slicewp-list-table tbody.slicewp-active > .slicewp-list-table-item-details-row td > div { opacity: 1; }
+
+table.slicewp-list-table .slicewp-list-table-item-details-row > td > div > div > h4 { font-size: 1.25rem; margin: 0 0 1rem 0; padding: 0; }
+table.slicewp-list-table .slicewp-list-table-item-details-row > td > div > div > p { margin: 1rem 0; }
+table.slicewp-list-table .slicewp-list-table-item-details-row > td > div > div > h4 + p { margin-top: -0.5rem; }
+
+table.slicewp-list-table .slicewp-toggle-item-details { display: inline-flex; align-items: center; }
+table.slicewp-list-table .slicewp-toggle-item-details:focus { outline: 0 !important; background-color: transparent !important; }
+table.slicewp-list-table .slicewp-toggle-item-details svg { transition: transform 0.2s ease-in-out; }
+table.slicewp-list-table tbody.slicewp-active .slicewp-toggle-item-details svg { transform: rotate( 180deg ); }
 
 .slicewp-list-table-after,
 .slicewp-list-table-before { display: flex; }

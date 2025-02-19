@@ -25,6 +25,10 @@ $request = ( ! empty( $_POST ) ? $_POST : $_GET );
 			<div class="slicewp-card-header">
 				<span class="slicewp-card-title"><?php echo __( 'Payout Details', 'slicewp' ); ?></span>
 				<p class="slicewp-card-header-subheading"><?php echo __( 'Filter which unpaid commissions you wish to pay.', 'slicewp' ); ?></p>
+
+				<div class="slicewp-card-actions">
+					<a href="https://slicewp.com/docs/paying-your-affiliates/#payouts-create-new" target="_blank" class="slicewp-button-info" title="<?php echo esc_attr( __( 'Click to learn more...', 'slicewp' ) ); ?>"><svg height="18" width="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M13 9h-2V7h2v2zm0 2h-2v6h2v-6zm-1-7c-4.41 0-8 3.59-8 8s3.59 8 8 8 8-3.59 8-8-3.59-8-8-8m0-2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2z"></path></g></svg></a>
+				</div>
 			</div>
 
 			<div class="slicewp-card-inner">

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SliceWP\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-13 12:11+0300\n"
-"PO-Revision-Date: 2024-08-13 12:12+0300\n"
+"POT-Creation-Date: 2025-02-19 11:14+0200\n"
+"PO-Revision-Date: 2025-02-19 11:19+0200\n"
 "Last-Translator: \n"
 "Language-Team: Spanish (Spain)\n"
 "Language: es_ES\n"
@@ -24,12 +24,12 @@ msgid ""
 "commission for each purchase made using these coupons."
 msgstr ""
 
-#: slicewp-pro/add-ons/affiliate-coupons/includes/base/functions.php:94
+#: slicewp-pro/add-ons/affiliate-coupons/includes/base/functions.php:95
 #: slicewp-pro/add-ons/performance-bonuses/includes/users/class-outputter-affiliate-bonuses.php:196
 msgid "Coupon Code"
 msgstr ""
 
-#: slicewp-pro/add-ons/affiliate-coupons/includes/base/functions.php:95
+#: slicewp-pro/add-ons/affiliate-coupons/includes/base/functions.php:96
 #: slicewp-pro/add-ons/import-export/includes/base/class-batch-export-commissions.php:37
 #: slicewp-pro/add-ons/import-export/includes/base/class-batch-export-payments.php:38
 #: slicewp-pro/add-ons/lead-commissions/includes/admin/leads/views/view-add-lead-commission.php:71
@@ -41,12 +41,11 @@ msgstr ""
 #: slicewp/includes/admin/payouts/class-list-table-payments.php:90
 #: slicewp/includes/admin/payouts/class-list-table-payout-payments-preview.php:46
 #: slicewp/includes/admin/payouts/class-list-table-payout-payments.php:82
-#: slicewp/includes/admin/payouts/class-list-table-payouts.php:70
 #: slicewp/includes/admin/payouts/views/view-payout.php:92
 #: slicewp/includes/admin/payouts/views/view-review-payment.php:87
-#: slicewp/includes/users/class-list-table-affiliate-account-commissions.php:53
-#: slicewp/includes/users/class-list-table-affiliate-account-payment-commissions.php:53
-#: slicewp/includes/users/class-list-table-affiliate-account-payments.php:43
+#: slicewp/includes/users/class-list-table-affiliate-account-commissions.php:51
+#: slicewp/includes/users/class-list-table-affiliate-account-payment-commissions.php:51
+#: slicewp/includes/users/class-list-table-affiliate-account-payments.php:42
 msgid "Amount"
 msgstr "Cantidad"
 
@@ -73,7 +72,7 @@ msgid ""
 msgstr ""
 
 #: slicewp-pro/add-ons/affiliate-coupons/includes/base/integrations/memberpress/functions-hooks-integration-memberpress.php:22
-#: slicewp/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:606
+#: slicewp/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:612
 msgid "SliceWP"
 msgstr "SliceWP"
 
@@ -158,8 +157,8 @@ msgstr "Seleccione el afiliado al que desea asignar esta comisión."
 #: slicewp/includes/admin/payouts/class-list-table-payment-commissions.php:97
 #: slicewp/includes/admin/payouts/class-list-table-payments.php:89
 #: slicewp/includes/admin/payouts/class-list-table-payout-payments.php:80
-#: slicewp/includes/admin/payouts/class-list-table-payouts.php:69
-#: slicewp/includes/admin/visits/class-list-table-visits.php:75
+#: slicewp/includes/admin/payouts/class-list-table-payouts.php:82
+#: slicewp/includes/admin/visits/class-list-table-visits.php:74
 #: slicewp/includes/users/class-list-table-affiliate-account-commissions.php:50
 #: slicewp/includes/users/class-list-table-affiliate-account-payment-commissions.php:50
 #: slicewp/includes/users/class-list-table-affiliate-account-payments.php:41
@@ -228,11 +227,11 @@ msgstr ""
 #: slicewp/includes/admin/affiliates/class-list-table-affiliates.php:270
 #: slicewp/includes/admin/commissions/class-list-table-commissions.php:294
 #: slicewp/includes/admin/commissions/views/view-edit-commission.php:64
-#: slicewp/includes/admin/payouts/class-list-table-payments.php:272
+#: slicewp/includes/admin/payouts/class-list-table-payments.php:273
 #: slicewp/includes/admin/payouts/class-list-table-payout-payments-preview.php:158
-#: slicewp/includes/admin/payouts/class-list-table-payout-payments.php:279
+#: slicewp/includes/admin/payouts/class-list-table-payout-payments.php:280
 #: slicewp/includes/admin/payouts/views/view-review-payment.php:75
-#: slicewp/includes/admin/visits/class-list-table-visits.php:236
+#: slicewp/includes/admin/visits/class-list-table-visits.php:235
 msgid "(inexistent affiliate)"
 msgstr "(afiliado inexistente)"
 
@@ -588,8 +587,8 @@ msgid "State"
 msgstr "Estado"
 
 #: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:249
-#: slicewp/includes/admin/settings/views/view-settings-tab-emails.php:283
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:820
+#: slicewp/includes/admin/settings/views/view-settings-tab-emails.php:287
+#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:866
 #: slicewp/includes/admin/settings/views/view-settings-tab-integrations.php:256
 #: slicewp/includes/admin/settings/views/view-settings-tab-tools.php:221
 msgid "Save Settings"
@@ -787,7 +786,7 @@ msgstr "Correo electrónico"
 
 #: slicewp-pro/add-ons/custom-affiliate-fields/index.php:167
 #: slicewp/includes/admin/settings/views/view-settings-tab-general.php:788
-#: slicewp/includes/base/form-fields/functions.php:194
+#: slicewp/includes/base/form-fields/functions.php:195
 msgid "How will you promote us?"
 msgstr "¿Donde nos promocionaras?"
 
@@ -869,8 +868,8 @@ msgstr ""
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/woocommerce/class-integration-woocommerce.php:328
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/woocommerce/class-integration-woocommerce.php:393
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/woocommerce/class-integration-woocommerce.php:417
-#: slicewp-pro/includes/admin/affiliates/views/view-add-affiliate-group.php:89
-#: slicewp-pro/includes/admin/affiliates/views/view-edit-affiliate-group.php:106
+#: slicewp-pro/includes/admin/affiliates/views/view-add-affiliate-group.php:93
+#: slicewp-pro/includes/admin/affiliates/views/view-edit-affiliate-group.php:110
 #, fuzzy
 #| msgid "Site Key"
 msgid "Site default"
@@ -888,6 +887,7 @@ msgstr ""
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/easy-digital-downloads/class-integration-easy-digital-downloads.php:301
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/getpaid/class-integration-getpaid.php:274
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/memberpress/class-integration-memberpress.php:279
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-member-subscriptions/class-integration-paid-member-subscriptions.php:268
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-memberships-pro/class-integration-paid-memberships-pro.php:242
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/restrict-content-pro/class-integration-restrict-content-pro.php:264
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/studiocart/class-integration-studiocart.php:265
@@ -1073,8 +1073,8 @@ msgstr ""
 #: slicewp-pro/add-ons/lead-commissions/includes/admin/leads/class-list-table-leads.php:138
 #: slicewp-pro/includes/base/reports/class-chart-visits.php:97
 #: slicewp/includes/admin/dashboard/cards/class-admin-dashboard-card-latest-visits.php:43
-#: slicewp/includes/admin/visits/class-list-table-visits.php:81
-#: slicewp/includes/admin/visits/class-list-table-visits.php:139
+#: slicewp/includes/admin/visits/class-list-table-visits.php:80
+#: slicewp/includes/admin/visits/class-list-table-visits.php:138
 msgid "Converted"
 msgstr "Convertido"
 
@@ -1124,13 +1124,14 @@ msgstr "Afiliados"
 #: slicewp-pro/add-ons/multi-level-affiliates/templates/affiliate-area/affiliates-tree-affiliate-card.php:36
 #: slicewp-pro/includes/admin/reports/views/view-reports-commissions.php:178
 #: slicewp-pro/includes/admin/reports/views/view-reports.php:8
-#: slicewp/includes/admin/commissions/functions.php:44
-#: slicewp/includes/admin/commissions/functions.php:45
+#: slicewp/includes/admin/commissions/functions.php:48
+#: slicewp/includes/admin/commissions/functions.php:49
 #: slicewp/includes/admin/commissions/views/view-commissions.php:13
 #: slicewp/includes/admin/dashboard/cards/class-admin-dashboard-card-totals.php:138
 #: slicewp/includes/admin/payouts/class-list-table-payout-payments-preview.php:47
 #: slicewp/includes/admin/payouts/views/view-review-payment.php:169
 #: slicewp/includes/users/functions.php:103
+#: slicewp/includes/users/functions.php:303
 #: slicewp/templates/affiliate-area/affiliate-account-tab-dashboard.php:27
 #: slicewp/templates/affiliate-area/affiliate-account-tab-dashboard.php:88
 #: slicewp/templates/affiliate-area/affiliate-account-tab-dashboard.php:180
@@ -1140,7 +1141,7 @@ msgstr "Comisiones"
 #: slicewp-pro/add-ons/import-export/includes/admin/views/view-card-export.php:32
 #: slicewp-pro/includes/admin/reports/views/view-reports-payments.php:158
 #: slicewp-pro/includes/admin/reports/views/view-reports.php:20
-#: slicewp/includes/admin/payouts/class-list-table-payouts.php:71
+#: slicewp/includes/admin/payouts/class-list-table-payouts.php:84
 #: slicewp/includes/admin/payouts/views/view-payments.php:13
 #: slicewp/includes/admin/payouts/views/view-payout.php:103
 #: slicewp/includes/admin/payouts/views/view-payout.php:266
@@ -1177,13 +1178,13 @@ msgstr "Filtro"
 #: slicewp/includes/admin/dashboard/cards/class-admin-dashboard-card-latest-commissions.php:41
 #: slicewp/includes/admin/dashboard/cards/class-admin-dashboard-card-latest-visits.php:41
 #: slicewp/includes/admin/payouts/class-list-table-payments.php:91
-#: slicewp/includes/admin/payouts/class-list-table-payments.php:443
+#: slicewp/includes/admin/payouts/class-list-table-payments.php:446
 #: slicewp/includes/admin/payouts/class-list-table-payout-payments-preview.php:45
 #: slicewp/includes/admin/payouts/class-list-table-payout-payments.php:81
 #: slicewp/includes/admin/payouts/views/view-review-payment.php:69
 #: slicewp/includes/admin/settings/views/view-settings-tab-emails.php:172
-#: slicewp/includes/admin/visits/class-list-table-visits.php:76
-#: slicewp/includes/admin/visits/class-list-table-visits.php:351
+#: slicewp/includes/admin/visits/class-list-table-visits.php:75
+#: slicewp/includes/admin/visits/class-list-table-visits.php:350
 #: slicewp/includes/base/affiliate/functions.php:795
 #: slicewp/includes/base/class-merge-tags.php:51
 msgid "Affiliate"
@@ -1192,11 +1193,11 @@ msgstr "Afiliado"
 #: slicewp-pro/add-ons/import-export/includes/admin/views/view-card-export.php:55
 #: slicewp-pro/add-ons/lead-commissions/includes/admin/leads/class-list-table-leads.php:392
 #: slicewp-pro/add-ons/performance-bonuses/includes/admin/rewards/class-list-table-rewards.php:423
-#: slicewp-pro/includes/admin/reports/views/view-reports.php:196
+#: slicewp-pro/includes/admin/reports/views/view-reports.php:214
 #: slicewp/includes/admin/commissions/class-list-table-commissions.php:503
 #: slicewp/includes/admin/commissions/views/view-add-commission.php:38
-#: slicewp/includes/admin/payouts/class-list-table-payments.php:445
-#: slicewp/includes/admin/visits/class-list-table-visits.php:353
+#: slicewp/includes/admin/payouts/class-list-table-payments.php:448
+#: slicewp/includes/admin/visits/class-list-table-visits.php:352
 #, fuzzy
 #| msgid "Delete affiliate"
 msgid "Select affiliate..."
@@ -1211,22 +1212,22 @@ msgstr "Fecha creada"
 #: slicewp-pro/add-ons/import-export/includes/admin/views/view-card-export.php:69
 #: slicewp-pro/add-ons/lead-commissions/includes/admin/leads/class-list-table-leads.php:399
 #: slicewp-pro/add-ons/performance-bonuses/includes/admin/rewards/class-list-table-rewards.php:430
-#: slicewp-pro/includes/admin/reports/views/view-reports.php:222
+#: slicewp-pro/includes/admin/reports/views/view-reports.php:240
 #: slicewp/includes/admin/commissions/class-list-table-commissions.php:510
-#: slicewp/includes/admin/payouts/class-list-table-payments.php:452
-#: slicewp/includes/admin/payouts/views/view-create-payout.php:61
-#: slicewp/includes/admin/visits/class-list-table-visits.php:360
+#: slicewp/includes/admin/payouts/class-list-table-payments.php:455
+#: slicewp/includes/admin/payouts/views/view-create-payout.php:65
+#: slicewp/includes/admin/visits/class-list-table-visits.php:359
 msgid "From"
 msgstr "De"
 
 #: slicewp-pro/add-ons/import-export/includes/admin/views/view-card-export.php:72
 #: slicewp-pro/add-ons/lead-commissions/includes/admin/leads/class-list-table-leads.php:406
 #: slicewp-pro/add-ons/performance-bonuses/includes/admin/rewards/class-list-table-rewards.php:437
-#: slicewp-pro/includes/admin/reports/views/view-reports.php:229
+#: slicewp-pro/includes/admin/reports/views/view-reports.php:247
 #: slicewp/includes/admin/commissions/class-list-table-commissions.php:517
-#: slicewp/includes/admin/payouts/class-list-table-payments.php:459
-#: slicewp/includes/admin/payouts/views/view-create-payout.php:66
-#: slicewp/includes/admin/visits/class-list-table-visits.php:367
+#: slicewp/includes/admin/payouts/class-list-table-payments.php:462
+#: slicewp/includes/admin/payouts/views/view-create-payout.php:70
+#: slicewp/includes/admin/visits/class-list-table-visits.php:366
 msgid "To"
 msgstr "A"
 
@@ -1255,8 +1256,7 @@ msgstr "A"
 #: slicewp/includes/admin/payouts/class-list-table-payments.php:95
 #: slicewp/includes/admin/payouts/class-list-table-payout-payments.php:85
 #: slicewp/includes/admin/payouts/views/view-review-payment.php:125
-#: slicewp/includes/users/class-list-table-affiliate-account-commissions.php:54
-#: slicewp/includes/users/class-list-table-affiliate-account-payment-commissions.php:54
+#: slicewp/includes/users/class-list-table-affiliate-account-commissions.php:55
 #: slicewp/includes/users/class-list-table-affiliate-account-payments.php:44
 msgid "Status"
 msgstr "Estado"
@@ -1380,6 +1380,8 @@ msgstr "Moneda"
 #: slicewp/includes/admin/commissions/views/view-edit-commission.php:91
 #: slicewp/includes/admin/dashboard/cards/class-admin-dashboard-card-latest-commissions.php:43
 #: slicewp/includes/admin/payouts/class-list-table-payment-commissions.php:99
+#: slicewp/includes/users/class-list-table-affiliate-account-commissions.php:52
+#: slicewp/includes/users/class-list-table-affiliate-account-payment-commissions.php:52
 msgid "Reference"
 msgstr "Referencia"
 
@@ -1390,8 +1392,8 @@ msgstr "Referencia"
 #: slicewp/includes/admin/creatives/class-list-table-creatives.php:109
 #: slicewp/includes/admin/creatives/views/view-add-creative.php:58
 #: slicewp/includes/admin/creatives/views/view-edit-creative.php:82
-#: slicewp/includes/users/class-list-table-affiliate-account-commissions.php:52
-#: slicewp/includes/users/class-list-table-affiliate-account-payment-commissions.php:52
+#: slicewp/includes/users/class-list-table-affiliate-account-commissions.php:53
+#: slicewp/includes/users/class-list-table-affiliate-account-payment-commissions.php:53
 msgid "Type"
 msgstr "Tipo"
 
@@ -1407,12 +1409,12 @@ msgstr "Tipo"
 #: slicewp/includes/admin/commissions/views/view-edit-commission.php:146
 #: slicewp/includes/admin/payouts/class-list-table-payment-commissions.php:100
 #: slicewp/includes/admin/payouts/class-list-table-payments.php:93
-#: slicewp/includes/admin/payouts/class-list-table-payouts.php:72
-#: slicewp/includes/admin/visits/class-list-table-visits.php:77
-#: slicewp/includes/users/class-list-table-affiliate-account-commissions.php:51
-#: slicewp/includes/users/class-list-table-affiliate-account-payment-commissions.php:51
-#: slicewp/includes/users/class-list-table-affiliate-account-payments.php:42
-#: slicewp/includes/users/class-list-table-affiliate-account-visits.php:33
+#: slicewp/includes/admin/payouts/class-list-table-payouts.php:85
+#: slicewp/includes/admin/visits/class-list-table-visits.php:76
+#: slicewp/includes/users/class-list-table-affiliate-account-commissions.php:54
+#: slicewp/includes/users/class-list-table-affiliate-account-payment-commissions.php:54
+#: slicewp/includes/users/class-list-table-affiliate-account-payments.php:43
+#: slicewp/includes/users/class-list-table-affiliate-account-visits.php:35
 msgid "Date"
 msgstr "Fecha"
 
@@ -1495,19 +1497,19 @@ msgstr "Visitas"
 #: slicewp/includes/admin/creatives/class-list-table-creatives.php:110
 #: slicewp/includes/admin/creatives/views/view-add-creative.php:115
 #: slicewp/includes/admin/creatives/views/view-edit-creative.php:139
-#: slicewp/includes/admin/visits/class-list-table-visits.php:79
-#: slicewp/includes/users/class-list-table-affiliate-account-visits.php:34
+#: slicewp/includes/admin/visits/class-list-table-visits.php:78
+#: slicewp/includes/users/class-list-table-affiliate-account-visits.php:33
 msgid "Landing URL"
 msgstr "URL Destino"
 
 #: slicewp-pro/add-ons/import-export/includes/base/class-batch-export-visits.php:44
-#: slicewp/includes/admin/visits/class-list-table-visits.php:80
-#: slicewp/includes/users/class-list-table-affiliate-account-visits.php:35
+#: slicewp/includes/admin/visits/class-list-table-visits.php:79
+#: slicewp/includes/users/class-list-table-affiliate-account-visits.php:34
 msgid "Referrer URL"
 msgstr "URL de referido"
 
 #: slicewp-pro/add-ons/import-export/includes/base/class-batch-export-visits.php:45
-#: slicewp/includes/admin/visits/class-list-table-visits.php:78
+#: slicewp/includes/admin/visits/class-list-table-visits.php:77
 msgid "IP Address"
 msgstr "Dirección IP"
 
@@ -1555,12 +1557,12 @@ msgstr "Cantidad"
 #: slicewp/includes/admin/creatives/class-list-table-creatives.php:162
 #: slicewp/includes/admin/payouts/class-list-table-payments.php:151
 #: slicewp/includes/admin/payouts/class-list-table-payout-payments.php:140
-#: slicewp/includes/admin/visits/class-list-table-visits.php:135
+#: slicewp/includes/admin/visits/class-list-table-visits.php:134
 msgid "All"
 msgstr "Todo"
 
 #: slicewp-pro/add-ons/lead-commissions/includes/admin/leads/class-list-table-leads.php:139
-#: slicewp/includes/admin/visits/class-list-table-visits.php:140
+#: slicewp/includes/admin/visits/class-list-table-visits.php:139
 msgid "Not Converted"
 msgstr "No convertido"
 
@@ -1591,10 +1593,10 @@ msgstr "¿Estás seguro de que quieres eliminar esta nota?"
 #: slicewp/includes/admin/commissions/class-list-table-commissions.php:433
 #: slicewp/includes/admin/creatives/class-list-table-creatives.php:87
 #: slicewp/includes/admin/creatives/class-list-table-creatives.php:378
-#: slicewp/includes/admin/payouts/class-list-table-payments.php:374
-#: slicewp/includes/admin/payouts/class-list-table-payout-payments.php:362
-#: slicewp/includes/admin/payouts/class-list-table-payouts.php:290
-#: slicewp/includes/admin/payouts/class-list-table-payouts.php:295
+#: slicewp/includes/admin/payouts/class-list-table-payments.php:376
+#: slicewp/includes/admin/payouts/class-list-table-payout-payments.php:364
+#: slicewp/includes/admin/payouts/class-list-table-payouts.php:313
+#: slicewp/includes/admin/payouts/class-list-table-payouts.php:318
 msgid "Delete"
 msgstr "Eliminar"
 
@@ -1606,11 +1608,11 @@ msgstr "Publicidad no encontrada."
 
 #: slicewp-pro/add-ons/lead-commissions/includes/admin/leads/class-list-table-leads.php:433
 #: slicewp-pro/add-ons/performance-bonuses/includes/admin/rewards/class-list-table-rewards.php:459
-#: slicewp-pro/includes/admin/reports/views/view-reports.php:233
+#: slicewp-pro/includes/admin/reports/views/view-reports.php:251
 #: slicewp/includes/admin/affiliates/class-list-table-affiliates.php:544
 #: slicewp/includes/admin/commissions/class-list-table-commissions.php:542
-#: slicewp/includes/admin/payouts/class-list-table-payments.php:484
-#: slicewp/includes/admin/visits/class-list-table-visits.php:394
+#: slicewp/includes/admin/payouts/class-list-table-payments.php:487
+#: slicewp/includes/admin/visits/class-list-table-visits.php:393
 msgid "Filter"
 msgstr "Filtro"
 
@@ -1618,8 +1620,8 @@ msgstr "Filtro"
 #: slicewp-pro/add-ons/performance-bonuses/includes/admin/rewards/class-list-table-rewards.php:462
 #: slicewp/includes/admin/affiliates/class-list-table-affiliates.php:547
 #: slicewp/includes/admin/commissions/class-list-table-commissions.php:545
-#: slicewp/includes/admin/payouts/class-list-table-payments.php:487
-#: slicewp/includes/admin/visits/class-list-table-visits.php:397
+#: slicewp/includes/admin/payouts/class-list-table-payments.php:490
+#: slicewp/includes/admin/visits/class-list-table-visits.php:396
 msgid "Clear"
 msgstr "Limpiar"
 
@@ -1637,7 +1639,7 @@ msgstr "Seleccione el estado de la nueva comisión."
 #: slicewp/includes/admin/affiliates/functions-actions-affiliates.php:125
 #: slicewp/includes/admin/affiliates/functions-actions-affiliates.php:319
 #: slicewp/includes/admin/commissions/functions-actions-commissions.php:73
-#: slicewp/includes/admin/commissions/functions-actions-commissions.php:166
+#: slicewp/includes/admin/commissions/functions-actions-commissions.php:171
 #: slicewp/includes/admin/creatives/functions-actions-creatives.php:92
 #: slicewp/includes/admin/creatives/functions-actions-creatives.php:244
 #: slicewp/includes/admin/payouts/functions-actions-payments.php:164
@@ -1824,6 +1826,7 @@ msgstr "Actualizar comisión"
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/easy-digital-downloads/class-integration-easy-digital-downloads.php:300
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/getpaid/class-integration-getpaid.php:273
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/memberpress/class-integration-memberpress.php:278
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-member-subscriptions/class-integration-paid-member-subscriptions.php:267
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-memberships-pro/class-integration-paid-memberships-pro.php:241
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/restrict-content-pro/class-integration-restrict-content-pro.php:263
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/studiocart/class-integration-studiocart.php:264
@@ -1831,7 +1834,7 @@ msgstr "Actualizar comisión"
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/woocommerce/class-integration-woocommerce.php:295
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/woocommerce/class-integration-woocommerce.php:394
 #: slicewp-pro/includes/admin/reports/views/view-reports.php:50
-#: slicewp-pro/includes/admin/reports/views/view-reports.php:214
+#: slicewp-pro/includes/admin/reports/views/view-reports.php:232
 #: slicewp/includes/users/functions.php:222
 msgid "Custom"
 msgstr ""
@@ -1869,9 +1872,9 @@ msgstr ""
 #: slicewp-pro/add-ons/recurring-commissions/includes/admin/views/view-recurring-commissions-affiliate-group.php:59
 #: slicewp-pro/add-ons/recurring-commissions/includes/admin/views/view-recurring-commissions-affiliate.php:58
 #: slicewp-pro/add-ons/recurring-commissions/includes/admin/views/view-recurring-commissions-general-settings.php:59
-#: slicewp-pro/includes/admin/affiliates/views/view-add-affiliate-group.php:91
-#: slicewp-pro/includes/admin/affiliates/views/view-affiliate-commission-rates.php:63
-#: slicewp-pro/includes/admin/affiliates/views/view-edit-affiliate-group.php:108
+#: slicewp-pro/includes/admin/affiliates/views/view-add-affiliate-group.php:95
+#: slicewp-pro/includes/admin/affiliates/views/view-affiliate-commission-rates.php:67
+#: slicewp-pro/includes/admin/affiliates/views/view-edit-affiliate-group.php:112
 #: slicewp/includes/admin/promo/functions.php:177
 #: slicewp/includes/admin/settings/views/view-settings-tab-general.php:196
 #: slicewp/includes/admin/setup-wizard/views/view-setup-wizard.php:144
@@ -1887,7 +1890,7 @@ msgstr "Porcentaje (%)"
 #: slicewp-pro/add-ons/recurring-commissions/includes/admin/views/view-recurring-commissions-affiliate-group.php:59
 #: slicewp-pro/add-ons/recurring-commissions/includes/admin/views/view-recurring-commissions-affiliate.php:58
 #: slicewp-pro/add-ons/recurring-commissions/includes/admin/views/view-recurring-commissions-general-settings.php:59
-#: slicewp-pro/includes/admin/affiliates/views/view-affiliate-commission-rates.php:63
+#: slicewp-pro/includes/admin/affiliates/views/view-affiliate-commission-rates.php:67
 #: slicewp/includes/admin/promo/functions.php:177
 #: slicewp/includes/admin/settings/views/view-settings-tab-general.php:196
 #: slicewp/includes/admin/setup-wizard/views/view-setup-wizard.php:144
@@ -1918,7 +1921,7 @@ msgstr ""
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/easy-digital-downloads/class-integration-easy-digital-downloads.php:324
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/getpaid/class-integration-getpaid.php:343
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/memberpress/class-integration-memberpress.php:308
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-member-subscriptions/class-integration-paid-member-subscriptions.php:104
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-member-subscriptions/class-integration-paid-member-subscriptions.php:293
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-memberships-pro/class-integration-paid-memberships-pro.php:271
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/restrict-content-pro/class-integration-restrict-content-pro.php:299
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/studiocart/class-integration-studiocart.php:333
@@ -1937,7 +1940,7 @@ msgstr ""
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/easy-digital-downloads/class-integration-easy-digital-downloads.php:325
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/getpaid/class-integration-getpaid.php:344
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/memberpress/class-integration-memberpress.php:309
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-member-subscriptions/class-integration-paid-member-subscriptions.php:105
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-member-subscriptions/class-integration-paid-member-subscriptions.php:294
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-memberships-pro/class-integration-paid-memberships-pro.php:272
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/restrict-content-pro/class-integration-restrict-content-pro.php:300
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/studiocart/class-integration-studiocart.php:334
@@ -2266,13 +2269,13 @@ msgid ""
 "the current affiliate."
 msgstr ""
 
-#: slicewp-pro/add-ons/multi-level-affiliates/includes/admin/functions.php:202
+#: slicewp-pro/add-ons/multi-level-affiliates/includes/admin/functions.php:205
 #, fuzzy
 #| msgid "Affiliate Pages"
 msgid "Affiliate Parent"
 msgstr "Páginas de afiliados"
 
-#: slicewp-pro/add-ons/multi-level-affiliates/includes/admin/functions.php:204
+#: slicewp-pro/add-ons/multi-level-affiliates/includes/admin/functions.php:207
 #, fuzzy
 #| msgid "Delete affiliate"
 msgid "Select affiliate parent..."
@@ -2305,6 +2308,10 @@ msgstr "Pagar afiliados"
 
 #: slicewp-pro/add-ons/multi-level-affiliates/includes/admin/views/view-multi-level-general-settings.php:14
 #: slicewp-pro/add-ons/paypal-payouts/includes/admin/views/view-settings-paypal-credentials.php:14
+#: slicewp-pro/includes/admin/affiliates/views/view-add-affiliate-group.php:67
+#: slicewp-pro/includes/admin/affiliates/views/view-affiliate-commission-rates.php:16
+#: slicewp-pro/includes/admin/affiliates/views/view-edit-affiliate-group.php:79
+#: slicewp/includes/admin/payouts/views/view-create-payout.php:30
 #: slicewp/includes/admin/settings/views/view-settings-tab-general.php:163
 #: slicewp/includes/admin/settings/views/view-settings-tab-general.php:335
 #: slicewp/includes/admin/settings/views/view-settings-tab-general.php:425
@@ -2350,9 +2357,9 @@ msgstr ""
 #: slicewp/includes/admin/settings/views/view-settings-tab-general.php:606
 #: slicewp/includes/admin/settings/views/view-settings-tab-general.php:630
 #: slicewp/includes/admin/setup-wizard/views/view-setup-wizard.php:177
-#: slicewp/includes/base/functions-utils.php:536
 #: slicewp/includes/base/functions-utils.php:538
-#: slicewp/includes/base/functions-utils.php:539
+#: slicewp/includes/base/functions-utils.php:540
+#: slicewp/includes/base/functions-utils.php:541
 msgid "Click here to learn more"
 msgstr "Pulsa aquí para saber más"
 
@@ -3447,7 +3454,7 @@ msgstr "%s tasa de comisión"
 #: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/easy-digital-downloads/functions-hooks-integration-easy-digital-downloads.php:233
 #: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/memberpress/functions-hooks-integration-memberpress.php:50
 #: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/paid-member-subscriptions/functions-hooks-integration-paid-member-subscriptions.php:47
-#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/paid-memberships-pro/functions-hooks-integration-paid-memberships-pro.php:52
+#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/paid-memberships-pro/functions-hooks-integration-paid-memberships-pro.php:51
 #: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/restrict-content-pro/functions-hooks-integration-restrict-content-pro.php:49
 #: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/studiocart/functions-hooks-integration-studiocart.php:83
 #: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/studiocart/functions-hooks-integration-studiocart.php:212
@@ -3500,6 +3507,8 @@ msgstr ""
 "Cuando se marca, no se generarán comisiones para esta categoría de producto."
 
 #: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/easy-digital-downloads/functions-hooks-integration-easy-digital-downloads.php:229
+#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/paid-member-subscriptions/functions-hooks-integration-paid-member-subscriptions.php:43
+#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/paid-memberships-pro/functions-hooks-integration-paid-memberships-pro.php:47
 #: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/studiocart/functions-hooks-integration-studiocart.php:253
 #, fuzzy
 #| msgid "Commission Rate"
@@ -3536,19 +3545,21 @@ msgid "%s Commission Rate"
 msgstr "%s tasa de comisión"
 
 #: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/memberpress/functions-hooks-integration-memberpress.php:45
-#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/paid-member-subscriptions/functions-hooks-integration-paid-member-subscriptions.php:43
-#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/paid-memberships-pro/functions-hooks-integration-paid-memberships-pro.php:48
 #, fuzzy
 #| msgid "Commission Rate"
 msgid "Commission Rate Type:"
 msgstr "Porcentaje de comisión"
 
 #: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/memberpress/functions-hooks-integration-memberpress.php:62
-#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/paid-member-subscriptions/functions-hooks-integration-paid-member-subscriptions.php:58
-#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/paid-memberships-pro/functions-hooks-integration-paid-memberships-pro.php:62
 #, fuzzy
 #| msgid "Commission Rate"
 msgid "Commission Rate:"
+msgstr "Porcentaje de comisión"
+
+#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/paid-member-subscriptions/functions-hooks-integration-paid-member-subscriptions.php:58
+#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/paid-memberships-pro/functions-hooks-integration-paid-memberships-pro.php:61
+#: slicewp/templates/affiliate-area/affiliate-account-tab-dashboard.php:227
+msgid "Commission Rate"
 msgstr "Porcentaje de comisión"
 
 #: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/restrict-content-pro/functions-hooks-integration-restrict-content-pro.php:45
@@ -3566,7 +3577,7 @@ msgstr "Suscripción"
 #: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/studiocart/functions-hooks-integration-studiocart.php:66
 #: slicewp-pro/includes/admin/affiliates/views/view-add-affiliate-group.php:64
 #: slicewp-pro/includes/admin/affiliates/views/view-affiliate-commission-rates.php:13
-#: slicewp-pro/includes/admin/affiliates/views/view-affiliate-commission-rates.php:22
+#: slicewp-pro/includes/admin/affiliates/views/view-affiliate-commission-rates.php:26
 #: slicewp-pro/includes/admin/affiliates/views/view-edit-affiliate-group.php:76
 #: slicewp/includes/admin/promo/functions.php:135
 #: slicewp/templates/affiliate-area/affiliate-account-tab-dashboard.php:227
@@ -3638,6 +3649,7 @@ msgstr "Porcentaje de comisión"
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/easy-digital-downloads/class-integration-easy-digital-downloads.php:297
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/getpaid/class-integration-getpaid.php:255
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/memberpress/class-integration-memberpress.php:274
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-member-subscriptions/class-integration-paid-member-subscriptions.php:264
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-memberships-pro/class-integration-paid-memberships-pro.php:237
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/restrict-content-pro/class-integration-restrict-content-pro.php:258
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/studiocart/class-integration-studiocart.php:248
@@ -3653,9 +3665,9 @@ msgstr "Buscar comisiones"
 #: slicewp-pro/add-ons/recurring-commissions/includes/admin/views/view-recurring-commissions-affiliate-group.php:49
 #: slicewp-pro/add-ons/recurring-commissions/includes/admin/views/view-recurring-commissions-affiliate.php:49
 #: slicewp-pro/add-ons/recurring-commissions/includes/admin/views/view-recurring-commissions-general-settings.php:51
-#: slicewp-pro/includes/admin/affiliates/views/view-add-affiliate-group.php:82
-#: slicewp-pro/includes/admin/affiliates/views/view-affiliate-commission-rates.php:55
-#: slicewp-pro/includes/admin/affiliates/views/view-edit-affiliate-group.php:99
+#: slicewp-pro/includes/admin/affiliates/views/view-add-affiliate-group.php:86
+#: slicewp-pro/includes/admin/affiliates/views/view-affiliate-commission-rates.php:59
+#: slicewp-pro/includes/admin/affiliates/views/view-edit-affiliate-group.php:103
 #: slicewp/includes/admin/promo/functions.php:169
 #, fuzzy, php-format
 #| msgid "%s rate: %s"
@@ -3687,7 +3699,7 @@ msgstr ""
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/easy-digital-downloads/class-integration-easy-digital-downloads.php:321
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/getpaid/class-integration-getpaid.php:326
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/memberpress/class-integration-memberpress.php:304
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-member-subscriptions/class-integration-paid-member-subscriptions.php:101
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-member-subscriptions/class-integration-paid-member-subscriptions.php:290
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-memberships-pro/class-integration-paid-memberships-pro.php:267
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/restrict-content-pro/class-integration-restrict-content-pro.php:294
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/studiocart/class-integration-studiocart.php:328
@@ -3712,7 +3724,7 @@ msgstr ""
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/easy-digital-downloads/class-integration-easy-digital-downloads.php:330
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/getpaid/class-integration-getpaid.php:357
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/memberpress/class-integration-memberpress.php:315
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-member-subscriptions/class-integration-paid-member-subscriptions.php:111
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-member-subscriptions/class-integration-paid-member-subscriptions.php:300
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-memberships-pro/class-integration-paid-memberships-pro.php:278
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/restrict-content-pro/class-integration-restrict-content-pro.php:307
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/studiocart/class-integration-studiocart.php:352
@@ -3783,8 +3795,9 @@ msgstr ""
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/memberpress/class-integration-memberpress.php:277
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/memberpress/class-integration-memberpress.php:288
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/memberpress/class-integration-memberpress.php:307
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-member-subscriptions/class-integration-paid-member-subscriptions.php:86
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-member-subscriptions/class-integration-paid-member-subscriptions.php:103
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-member-subscriptions/class-integration-paid-member-subscriptions.php:266
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-member-subscriptions/class-integration-paid-member-subscriptions.php:275
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-member-subscriptions/class-integration-paid-member-subscriptions.php:292
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-memberships-pro/class-integration-paid-memberships-pro.php:240
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/restrict-content-pro/class-integration-restrict-content-pro.php:262
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/studiocart/class-integration-studiocart.php:263
@@ -3803,7 +3816,7 @@ msgstr "Licencia publica"
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/easy-digital-downloads/class-integration-easy-digital-downloads.php:306
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/getpaid/class-integration-getpaid.php:287
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/memberpress/class-integration-memberpress.php:285
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-member-subscriptions/class-integration-paid-member-subscriptions.php:84
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-member-subscriptions/class-integration-paid-member-subscriptions.php:273
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-memberships-pro/class-integration-paid-memberships-pro.php:248
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/restrict-content-pro/class-integration-restrict-content-pro.php:271
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/studiocart/class-integration-studiocart.php:290
@@ -3816,7 +3829,7 @@ msgstr ""
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/easy-digital-downloads/class-integration-easy-digital-downloads.php:316
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/getpaid/class-integration-getpaid.php:314
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/memberpress/class-integration-memberpress.php:297
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-member-subscriptions/class-integration-paid-member-subscriptions.php:95
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-member-subscriptions/class-integration-paid-member-subscriptions.php:284
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-memberships-pro/class-integration-paid-memberships-pro.php:260
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/restrict-content-pro/class-integration-restrict-content-pro.php:285
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/studiocart/class-integration-studiocart.php:309
@@ -3830,19 +3843,7 @@ msgstr ""
 msgid "Select rate type"
 msgstr ""
 
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-member-subscriptions/class-integration-paid-member-subscriptions.php:78
-#, fuzzy
-#| msgid "Disable Commissions"
-msgid "Disable Recurring Commissions"
-msgstr "Deshabilitar comisiones"
-
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-member-subscriptions/class-integration-paid-member-subscriptions.php:80
-#, fuzzy
-#| msgid "Disable all commissions for this subscription plan."
-msgid "Disable recurring commissions for this subscription plan."
-msgstr "Deshabilite todas las comisiones para este plan de suscripción."
-
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-member-subscriptions/class-integration-paid-member-subscriptions.php:91
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-member-subscriptions/class-integration-paid-member-subscriptions.php:280
 #, fuzzy
 #| msgid ""
 #| "Here you can make commission customizations for this product. These "
@@ -3854,7 +3855,7 @@ msgstr ""
 "Aquí puede realizar personalizaciones de comisiones para este producto. Esta "
 "configuración se utilizará para calcular las comisiones de este producto."
 
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-member-subscriptions/class-integration-paid-member-subscriptions.php:97
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-member-subscriptions/class-integration-paid-member-subscriptions.php:286
 #, fuzzy
 #| msgid "Disable all commissions for this subscription plan."
 msgid ""
@@ -3862,13 +3863,13 @@ msgid ""
 "plan."
 msgstr "Deshabilite todas las comisiones para este plan de suscripción."
 
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-member-subscriptions/class-integration-paid-member-subscriptions.php:107
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-member-subscriptions/class-integration-paid-member-subscriptions.php:296
 msgid ""
 "Select whether the affiliate should be rewarded for all recurring payments "
 "for this subscription plan or for a limited number of recurring payments."
 msgstr ""
 
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-member-subscriptions/class-integration-paid-member-subscriptions.php:113
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-member-subscriptions/class-integration-paid-member-subscriptions.php:302
 msgid ""
 "Set the maximum number of commissions an affiliate is rewarded for recurring "
 "payments made by this subscription plan."
@@ -3943,6 +3944,7 @@ msgstr "Algo salió mal. No se pudo actualizar la publicidad."
 
 #: slicewp-pro/add-ons/rest-api/includes/admin/functions-actions-ajax.php:282
 #: slicewp-pro/add-ons/rest-api/includes/admin/views/view-card-api-keys.php:70
+#: slicewp/includes/users/class-list-table.php:482
 #, fuzzy
 #| msgid "Payout Details"
 msgid "Details"
@@ -4079,6 +4081,7 @@ msgstr "Generado por"
 
 #: slicewp-pro/add-ons/rest-api/includes/admin/views/view-card-api-keys.php:210
 #: slicewp-pro/includes/admin/affiliates/views/view-modal-add-affiliates-to-group.php:61
+#: slicewp/includes/admin/commissions/views/view-modal-reject-commission.php:59
 msgid "Cancel"
 msgstr ""
 
@@ -4715,15 +4718,15 @@ msgstr ""
 msgid "This is your store credit balance, that you can use towards purchases."
 msgstr ""
 
-#: slicewp-pro/add-ons/store-credit/includes/integrations/class-integration-woocommerce.php:255
+#: slicewp-pro/add-ons/store-credit/includes/integrations/class-integration-woocommerce.php:260
 msgid "Your account balance is"
 msgstr ""
 
-#: slicewp-pro/add-ons/store-credit/includes/integrations/class-integration-woocommerce.php:257
+#: slicewp-pro/add-ons/store-credit/includes/integrations/class-integration-woocommerce.php:262
 msgid "Would you like to use it as a discount now?"
 msgstr ""
 
-#: slicewp-pro/add-ons/store-credit/includes/integrations/class-integration-woocommerce.php:259
+#: slicewp-pro/add-ons/store-credit/includes/integrations/class-integration-woocommerce.php:264
 msgid "Yes, apply discount"
 msgstr ""
 
@@ -4740,7 +4743,7 @@ msgstr "Descripción"
 #: slicewp/includes/admin/commissions/class-list-table-commissions.php:118
 #: slicewp/includes/admin/payouts/class-list-table-payments.php:94
 #: slicewp/includes/admin/payouts/class-list-table-payout-payments.php:84
-#: slicewp/includes/admin/payouts/class-list-table-payouts.php:73
+#: slicewp/includes/admin/payouts/class-list-table-payouts.php:86
 #: slicewp/includes/base/notes/class-outputter-notes.php:75
 msgid "Notes"
 msgstr "Notas"
@@ -4764,7 +4767,7 @@ msgid "Make default"
 msgstr "Licencia publica"
 
 #: slicewp-pro/includes/admin/affiliates/class-list-table-affiliate-groups.php:344
-#: slicewp-pro/includes/admin/affiliates/views/view-edit-affiliate-group.php:177
+#: slicewp-pro/includes/admin/affiliates/views/view-edit-affiliate-group.php:181
 #, fuzzy
 #| msgid ""
 #| "Are you sure you want to delete this payout? All the contained payments "
@@ -4946,26 +4949,26 @@ msgstr ""
 msgid "%d affiliates successfully added to the %s group."
 msgstr "Afiliado eliminado con éxito."
 
-#: slicewp-pro/includes/admin/affiliates/functions.php:107
+#: slicewp-pro/includes/admin/affiliates/functions.php:109
 #, fuzzy
 #| msgid "Learn how to use SliceWP"
 msgid "Say hello to affiliate groups!"
 msgstr "Aprenda a usar SliceWP"
 
-#: slicewp-pro/includes/admin/affiliates/functions.php:108
+#: slicewp-pro/includes/admin/affiliates/functions.php:110
 msgid ""
 "This new update is huge! It brings you affiliate groups, a feature designed "
 "to offer you even more flexibility and control over your affiliate program."
 msgstr ""
 
-#: slicewp-pro/includes/admin/affiliates/functions.php:110
+#: slicewp-pro/includes/admin/affiliates/functions.php:112
 #, fuzzy
 #| msgid "No affiliates found."
 msgid "Explore affiliate groups"
 msgstr "No se encontraron afiliados."
 
-#: slicewp-pro/includes/admin/affiliates/functions.php:111
-#: slicewp/includes/admin/functions.php:617
+#: slicewp-pro/includes/admin/affiliates/functions.php:113
+#: slicewp/includes/admin/functions.php:621
 msgid "Dismiss notice"
 msgstr ""
 
@@ -4994,41 +4997,41 @@ msgid ""
 "description is visible only by administrators."
 msgstr ""
 
-#: slicewp-pro/includes/admin/affiliates/views/view-add-affiliate-group.php:91
-#: slicewp-pro/includes/admin/affiliates/views/view-edit-affiliate-group.php:108
+#: slicewp-pro/includes/admin/affiliates/views/view-add-affiliate-group.php:95
+#: slicewp-pro/includes/admin/affiliates/views/view-edit-affiliate-group.php:112
 #, fuzzy, php-format
 #| msgid "Fixed Amount"
 msgid "Fixed Amount (%s)"
 msgstr "Cantidad fija"
 
-#: slicewp-pro/includes/admin/affiliates/views/view-add-affiliate-group.php:103
-#: slicewp-pro/includes/admin/affiliates/views/view-affiliate-commission-rates.php:81
-#: slicewp-pro/includes/admin/affiliates/views/view-edit-affiliate-group.php:120
+#: slicewp-pro/includes/admin/affiliates/views/view-add-affiliate-group.php:107
+#: slicewp-pro/includes/admin/affiliates/views/view-affiliate-commission-rates.php:85
+#: slicewp-pro/includes/admin/affiliates/views/view-edit-affiliate-group.php:124
 #: slicewp/includes/admin/settings/views/view-settings-tab-general.php:210
 msgid "Sale Commission Basis"
 msgstr "Base de comisión de venta"
 
-#: slicewp-pro/includes/admin/affiliates/views/view-add-affiliate-group.php:108
-#: slicewp-pro/includes/admin/affiliates/views/view-affiliate-commission-rates.php:86
-#: slicewp-pro/includes/admin/affiliates/views/view-edit-affiliate-group.php:125
+#: slicewp-pro/includes/admin/affiliates/views/view-add-affiliate-group.php:112
+#: slicewp-pro/includes/admin/affiliates/views/view-affiliate-commission-rates.php:90
+#: slicewp-pro/includes/admin/affiliates/views/view-edit-affiliate-group.php:129
 #: slicewp/includes/admin/settings/views/view-settings-tab-general.php:215
 msgid "Fixed amount per product"
 msgstr "Cantidad fija por producto"
 
-#: slicewp-pro/includes/admin/affiliates/views/view-add-affiliate-group.php:109
-#: slicewp-pro/includes/admin/affiliates/views/view-affiliate-commission-rates.php:87
-#: slicewp-pro/includes/admin/affiliates/views/view-edit-affiliate-group.php:126
+#: slicewp-pro/includes/admin/affiliates/views/view-add-affiliate-group.php:113
+#: slicewp-pro/includes/admin/affiliates/views/view-affiliate-commission-rates.php:91
+#: slicewp-pro/includes/admin/affiliates/views/view-edit-affiliate-group.php:130
 #: slicewp/includes/admin/settings/views/view-settings-tab-general.php:216
 msgid "Fixed amount per order"
 msgstr "Cantidad fija por pedido"
 
-#: slicewp-pro/includes/admin/affiliates/views/view-add-affiliate-group.php:153
+#: slicewp-pro/includes/admin/affiliates/views/view-add-affiliate-group.php:157
 #, fuzzy
 #| msgid "Add Affiliate"
 msgid "Add Affiliate Group"
 msgstr "Agregar afiliado"
 
-#: slicewp-pro/includes/admin/affiliates/views/view-affiliate-commission-rates.php:32
+#: slicewp-pro/includes/admin/affiliates/views/view-affiliate-commission-rates.php:36
 #: slicewp/includes/admin/promo/functions.php:145
 #, fuzzy
 #| msgid "Disable commissions for this %s"
@@ -5047,13 +5050,13 @@ msgstr "Agregar nueva publicidad"
 msgid "Edit Affiliate Group"
 msgstr "Editar afiliado"
 
-#: slicewp-pro/includes/admin/affiliates/views/view-edit-affiliate-group.php:175
+#: slicewp-pro/includes/admin/affiliates/views/view-edit-affiliate-group.php:179
 #, fuzzy
 #| msgid "Update Affiliate"
 msgid "Update Affiliate Group"
 msgstr "Actualizar afiliado"
 
-#: slicewp-pro/includes/admin/affiliates/views/view-edit-affiliate-group.php:177
+#: slicewp-pro/includes/admin/affiliates/views/view-edit-affiliate-group.php:181
 #, fuzzy
 #| msgid "Delete affiliate"
 msgid "Delete affiliate group"
@@ -5280,46 +5283,46 @@ msgid "No referral URLs found for the selected period."
 msgstr ""
 
 #: slicewp-pro/includes/admin/reports/views/view-reports.php:42
-#: slicewp-pro/includes/admin/reports/views/view-reports.php:206
+#: slicewp-pro/includes/admin/reports/views/view-reports.php:224
 #, fuzzy
 #| msgid "Last 30 Days"
 msgid "Last 7 Days"
 msgstr "Últimos 30 días"
 
 #: slicewp-pro/includes/admin/reports/views/view-reports.php:43
-#: slicewp-pro/includes/admin/reports/views/view-reports.php:207
+#: slicewp-pro/includes/admin/reports/views/view-reports.php:225
 msgid "Last 30 Days"
 msgstr "Últimos 30 días"
 
 #: slicewp-pro/includes/admin/reports/views/view-reports.php:44
-#: slicewp-pro/includes/admin/reports/views/view-reports.php:208
+#: slicewp-pro/includes/admin/reports/views/view-reports.php:226
 msgid "This Month"
 msgstr ""
 
 #: slicewp-pro/includes/admin/reports/views/view-reports.php:45
-#: slicewp-pro/includes/admin/reports/views/view-reports.php:209
+#: slicewp-pro/includes/admin/reports/views/view-reports.php:227
 msgid "Last Month"
 msgstr ""
 
 #: slicewp-pro/includes/admin/reports/views/view-reports.php:46
-#: slicewp-pro/includes/admin/reports/views/view-reports.php:210
+#: slicewp-pro/includes/admin/reports/views/view-reports.php:228
 #, fuzzy
 #| msgid "Last 30 Days"
 msgid "Last 3 Months"
 msgstr "Últimos 30 días"
 
 #: slicewp-pro/includes/admin/reports/views/view-reports.php:47
-#: slicewp-pro/includes/admin/reports/views/view-reports.php:211
+#: slicewp-pro/includes/admin/reports/views/view-reports.php:229
 msgid "Last 6 Months"
 msgstr ""
 
 #: slicewp-pro/includes/admin/reports/views/view-reports.php:48
-#: slicewp-pro/includes/admin/reports/views/view-reports.php:212
+#: slicewp-pro/includes/admin/reports/views/view-reports.php:230
 msgid "This Year"
 msgstr ""
 
 #: slicewp-pro/includes/admin/reports/views/view-reports.php:49
-#: slicewp-pro/includes/admin/reports/views/view-reports.php:213
+#: slicewp-pro/includes/admin/reports/views/view-reports.php:231
 #, fuzzy
 #| msgid "Last Name"
 msgid "Last Year"
@@ -5656,7 +5659,7 @@ msgstr "Pulsa aquí para saber más"
 #: slicewp/includes/admin/settings/functions.php:43
 #: slicewp/includes/admin/settings/functions.php:44
 #: slicewp/includes/admin/settings/views/view-settings.php:62
-#: slicewp/includes/users/functions.php:119 slicewp/index.php:865
+#: slicewp/includes/users/functions.php:119 slicewp/index.php:873
 msgid "Settings"
 msgstr "Ajustes"
 
@@ -5971,7 +5974,11 @@ msgid "Rejected"
 msgstr "Rechazado"
 
 #: slicewp/includes/admin/affiliates/views/view-review-affiliate.php:192
-msgid "Email Notification"
+#: slicewp/includes/admin/commissions/views/view-add-commission.php:171
+#: slicewp/includes/admin/commissions/views/view-edit-commission.php:210
+#, fuzzy
+#| msgid "Email Notification"
+msgid "Send Email Notification"
 msgstr "Notificaciones por correo"
 
 #: slicewp/includes/admin/affiliates/views/view-review-affiliate.php:193
@@ -6054,14 +6061,14 @@ msgid "Do not deactivate"
 msgstr "No desactivar"
 
 #: slicewp/includes/admin/commissions/class-list-table-commissions.php:415
-#: slicewp/includes/admin/payouts/class-list-table-payments.php:373
-#: slicewp/includes/admin/payouts/class-list-table-payout-payments.php:361
+#: slicewp/includes/admin/payouts/class-list-table-payments.php:375
+#: slicewp/includes/admin/payouts/class-list-table-payout-payments.php:363
 #: slicewp/includes/admin/payouts/views/view-payout.php:243
 msgid "Mark as Paid"
 msgstr "Marcar como pagado"
 
 #: slicewp/includes/admin/commissions/class-list-table-commissions.php:433
-#: slicewp/includes/admin/commissions/views/view-edit-commission.php:236
+#: slicewp/includes/admin/commissions/views/view-edit-commission.php:269
 msgid "Are you sure you want to delete this commission?"
 msgstr "¿Estás seguro de que deseas eliminar esta comisión?"
 
@@ -6130,19 +6137,19 @@ msgstr "La fecha y hora seleccionadas para la comisión no son válidas."
 msgid "Please select the type of the new commission."
 msgstr "Seleccione el tipo de nueva comisión."
 
-#: slicewp/includes/admin/commissions/functions-actions-commissions.php:131
-#: slicewp/includes/admin/commissions/functions-actions-commissions.php:144
-#: slicewp/includes/admin/commissions/functions-actions-commissions.php:192
+#: slicewp/includes/admin/commissions/functions-actions-commissions.php:136
+#: slicewp/includes/admin/commissions/functions-actions-commissions.php:149
+#: slicewp/includes/admin/commissions/functions-actions-commissions.php:197
 #: slicewp/includes/admin/payouts/functions-actions-payments.php:233
 msgid ""
 "Something went wrong. Could not update the commission. Please try again."
 msgstr "Algo salió mal. No se pudo actualizar la comisión. Inténtalo de nuevo."
 
-#: slicewp/includes/admin/commissions/functions-actions-commissions.php:154
+#: slicewp/includes/admin/commissions/functions-actions-commissions.php:159
 msgid "Please select the status of your new commission."
 msgstr "Seleccione el estado de su nueva comisión."
 
-#: slicewp/includes/admin/commissions/functions-actions-commissions.php:236
+#: slicewp/includes/admin/commissions/functions-actions-commissions.php:246
 msgid ""
 "Something went wrong. Could not delete the commission. Please try again."
 msgstr "Algo salió mal. No se pudo borrar la comisión. Inténtalo de nuevo."
@@ -6198,7 +6205,26 @@ msgid ""
 "commission."
 msgstr ""
 
-#: slicewp/includes/admin/commissions/views/view-add-commission.php:190
+#: slicewp/includes/admin/commissions/views/view-add-commission.php:156
+#: slicewp/includes/admin/commissions/views/view-edit-commission.php:195
+#, fuzzy
+#| msgid "Reject Reason"
+msgid "Rejection Reason"
+msgstr "Razón del rechazo"
+
+#: slicewp/includes/admin/commissions/views/view-add-commission.php:179
+#: slicewp/includes/admin/commissions/views/view-edit-commission.php:218
+#: slicewp/includes/admin/commissions/views/view-modal-reject-commission.php:44
+#, fuzzy
+#| msgid ""
+#| "When enabled, an approval/rejection email notification will be sent to "
+#| "the affiliate."
+msgid "Send commission rejected email notification to the affiliate"
+msgstr ""
+"Cuando está habilitado, se enviará una notificación por correo electrónico "
+"de aprobación / rechazo al afiliado."
+
+#: slicewp/includes/admin/commissions/views/view-add-commission.php:223
 msgid "Add Commission"
 msgstr "Agregar comisión"
 
@@ -6214,13 +6240,25 @@ msgstr "Buscar comisiones"
 msgid "Edit Commission"
 msgstr "Editar comisión"
 
-#: slicewp/includes/admin/commissions/views/view-edit-commission.php:234
+#: slicewp/includes/admin/commissions/views/view-edit-commission.php:267
 msgid "Update Commission"
 msgstr "Actualizar comisión"
 
-#: slicewp/includes/admin/commissions/views/view-edit-commission.php:236
+#: slicewp/includes/admin/commissions/views/view-edit-commission.php:269
 msgid "Delete commission"
 msgstr "Eliminar comisión"
+
+#: slicewp/includes/admin/commissions/views/view-modal-reject-commission.php:15
+#, fuzzy
+#| msgid "Delete commission"
+msgid "Reject commission"
+msgstr "Eliminar comisión"
+
+#: slicewp/includes/admin/commissions/views/view-modal-reject-commission.php:25
+#, fuzzy
+#| msgid "Reject Reason"
+msgid "Rejection reason"
+msgstr "Razón del rechazo"
 
 #: slicewp/includes/admin/creatives/class-list-table-creatives.php:111
 #: slicewp/includes/users/shortcodes/templates/template-creative.php:20
@@ -6559,8 +6597,8 @@ msgid "Last 30 days"
 msgstr "Últimos 30 días"
 
 #: slicewp/includes/admin/dashboard/cards/class-admin-dashboard-card-totals.php:91
-#: slicewp/includes/users/class-list-table-affiliate-account-commissions.php:167
-#: slicewp/includes/users/class-list-table-affiliate-account-payments.php:158
+#: slicewp/includes/users/class-list-table-affiliate-account-commissions.php:171
+#: slicewp/includes/users/class-list-table-affiliate-account-payments.php:166
 #: slicewp/includes/users/class-list-table-affiliate-account-visits.php:92
 #: slicewp/templates/affiliate-area/affiliate-account-tab-dashboard.php:161
 #, fuzzy
@@ -6615,7 +6653,7 @@ msgstr "%s Notificación"
 msgid "Select a page"
 msgstr "Seleccionar método de pago ..."
 
-#: slicewp/includes/admin/functions.php:338
+#: slicewp/includes/admin/functions.php:342
 #, php-format
 msgid ""
 "Your %sSliceWP%s license key is missing. To receive automatic updates and "
@@ -6626,57 +6664,55 @@ msgstr ""
 "automáticas y soporte técnico,% sregistra tu sitio web en SliceWP & rarr; "
 "Configuración% s"
 
-#: slicewp/includes/admin/functions.php:356
+#: slicewp/includes/admin/functions.php:360
 #, php-format
 msgid "You have %d affiliate(s) pending approval."
 msgstr ""
 
-#: slicewp/includes/admin/functions.php:356
+#: slicewp/includes/admin/functions.php:360
 msgid "View pending applications"
 msgstr ""
 
-#: slicewp/includes/admin/functions.php:365
+#: slicewp/includes/admin/functions.php:369
 #, php-format
 msgid "You have %d affiliate(s) that are eligible for payment, totalling %s."
 msgstr ""
 
-#: slicewp/includes/admin/functions.php:365
+#: slicewp/includes/admin/functions.php:369
 #, fuzzy
 #| msgid "Affiliate Pages"
 msgid "Preview affiliate payments"
 msgstr "Páginas de afiliados"
 
-#: slicewp/includes/admin/functions.php:447
-#: slicewp/includes/admin/functions.php:449
+#: slicewp/includes/admin/functions.php:451
+#: slicewp/includes/admin/functions.php:453
 msgid "Support"
 msgstr "Soporte"
 
-#: slicewp/includes/admin/functions.php:452
+#: slicewp/includes/admin/functions.php:456
 #: slicewp/includes/admin/setup-wizard/views/view-setup-wizard.php:422
-#: slicewp/index.php:871
+#: slicewp/index.php:879
 msgid "Documentation"
 msgstr "Documentation"
 
-#: slicewp/includes/admin/functions.php:455
+#: slicewp/includes/admin/functions.php:459
 #: slicewp/includes/admin/promo/class-submenu-page-promo-reports.php:53
 msgid "Upgrade to PRO"
 msgstr ""
 
-#: slicewp/includes/admin/functions.php:613
-#, fuzzy
-#| msgid "Learn how to use SliceWP"
-msgid "Say hello to affiliate payout requests!"
-msgstr "Aprenda a usar SliceWP"
-
-#: slicewp/includes/admin/functions.php:614
-msgid ""
-"We're excited to announce the release of payout requests, a new add-on that "
-"allows your affiliates to effortlessly request a payout for their payable "
-"commissions straight from their affiliate account."
+#: slicewp/includes/admin/functions.php:617
+msgid "A superior experience for you and your affiliates!"
 msgstr ""
 
-#: slicewp/includes/admin/functions.php:616
-msgid "Explore payout requests"
+#: slicewp/includes/admin/functions.php:618
+msgid ""
+"We're excited to introduce a suite of new features designed to enhance your "
+"affiliate program, including redesigned affiliate account tables, a "
+"streamlined commission rejection flow and a revamped admin payouts page."
+msgstr ""
+
+#: slicewp/includes/admin/functions.php:620
+msgid "Explore new features"
 msgstr ""
 
 #: slicewp/includes/admin/payouts/class-list-table-payment-commissions.php:270
@@ -6685,8 +6721,8 @@ msgstr ""
 msgid "Are you sure you want to remove this commission from this payment?"
 msgstr "¿Estás seguro de que quieres eliminar esta comisión?"
 
-#: slicewp/includes/admin/payouts/class-list-table-payments.php:373
-#: slicewp/includes/admin/payouts/class-list-table-payout-payments.php:361
+#: slicewp/includes/admin/payouts/class-list-table-payments.php:375
+#: slicewp/includes/admin/payouts/class-list-table-payout-payments.php:363
 #, fuzzy
 #| msgid ""
 #| "This will mark all unpaid and failed payments for this payout as paid. "
@@ -6701,45 +6737,85 @@ msgstr ""
 "Todas las comisiones asociadas con estos pagos también se marcarán como "
 "pagadas. Estás seguro de que quieres continuar?"
 
-#: slicewp/includes/admin/payouts/class-list-table-payments.php:374
-#: slicewp/includes/admin/payouts/class-list-table-payout-payments.php:362
+#: slicewp/includes/admin/payouts/class-list-table-payments.php:376
+#: slicewp/includes/admin/payouts/class-list-table-payout-payments.php:364
 msgid "Are you sure you want to delete this payment?"
 msgstr "¿Está seguro de que desea eliminar este pago?"
 
-#: slicewp/includes/admin/payouts/class-list-table-payments.php:388
-#: slicewp/includes/admin/payouts/class-list-table-payout-payments.php:376
-#: slicewp/includes/admin/payouts/class-list-table-payouts.php:274
-#: slicewp/includes/users/class-list-table-affiliate-account-payments.php:145
+#: slicewp/includes/admin/payouts/class-list-table-payments.php:390
+#: slicewp/includes/admin/payouts/class-list-table-payout-payments.php:378
+#: slicewp/includes/admin/payouts/class-list-table-payouts.php:296
 #: slicewp/templates/affiliate-area/affiliate-account-tab-creatives.php:71
 msgid "View"
 msgstr "Ver"
 
-#: slicewp/includes/admin/payouts/class-list-table-payments.php:417
+#: slicewp/includes/admin/payouts/class-list-table-payments.php:420
 #: slicewp/includes/admin/payouts/class-list-table-payout-payments-preview.php:227
-#: slicewp/includes/admin/payouts/class-list-table-payout-payments.php:405
+#: slicewp/includes/admin/payouts/class-list-table-payout-payments.php:408
 msgid "No payments found."
 msgstr "No se encontraron pagos."
 
-#: slicewp/includes/admin/payouts/class-list-table-payouts.php:74
-msgid "Progress"
-msgstr "Progreso"
+#: slicewp/includes/admin/payouts/class-list-table-payouts.php:83
+msgid "Total"
+msgstr ""
 
-#: slicewp/includes/admin/payouts/class-list-table-payouts.php:278
-#: slicewp/includes/admin/payouts/class-list-table-payouts.php:280
+#: slicewp/includes/admin/payouts/class-list-table-payouts.php:217
+#, fuzzy
+#| msgid "Payment Email"
+msgid "Payments paid"
+msgstr "Correo electrónico de paypal"
+
+#: slicewp/includes/admin/payouts/class-list-table-payouts.php:226
+#, php-format
+msgid "This bulk payout contains %d payment(s) totaling %s."
+msgstr ""
+
+#: slicewp/includes/admin/payouts/class-list-table-payouts.php:233
+#: slicewp/includes/admin/payouts/views/view-payout.php:159
+#: slicewp/includes/base/commission/functions.php:237
+#: slicewp/includes/base/payment/functions.php:240
+msgid "Paid"
+msgstr "Pagado"
+
+#: slicewp/includes/admin/payouts/class-list-table-payouts.php:235
+#: slicewp/includes/admin/payouts/class-list-table-payouts.php:241
+#: slicewp/includes/admin/payouts/views/view-payout.php:161
+#: slicewp/includes/admin/payouts/views/view-payout.php:169
+#, fuzzy, php-format
+#| msgid "Payments"
+msgid "%d payments"
+msgstr "Pagos"
+
+#: slicewp/includes/admin/payouts/class-list-table-payouts.php:235
+#: slicewp/includes/admin/payouts/class-list-table-payouts.php:241
+#: slicewp/includes/admin/payouts/views/view-payout.php:161
+#: slicewp/includes/admin/payouts/views/view-payout.php:169
+#, fuzzy, php-format
+#| msgid "Payments"
+msgid "%d payment"
+msgstr "Pagos"
+
+#: slicewp/includes/admin/payouts/class-list-table-payouts.php:239
+#: slicewp/includes/admin/payouts/views/view-payout.php:167
+msgid "Still to be paid"
+msgstr ""
+
+#: slicewp/includes/admin/payouts/class-list-table-payouts.php:300
+#: slicewp/includes/admin/payouts/class-list-table-payouts.php:302
 #: slicewp/includes/admin/payouts/views/view-payout.php:269
 msgid "Generate CSV"
 msgstr "Generar CSV"
 
-#: slicewp/includes/admin/payouts/class-list-table-payouts.php:288
+#: slicewp/includes/admin/payouts/class-list-table-payouts.php:311
 msgid "You cannot delete this payout because it contains paid payments."
 msgstr "No puede eliminar este pago porque contiene pagos pagados."
 
-#: slicewp/includes/admin/payouts/class-list-table-payouts.php:288
+#: slicewp/includes/admin/payouts/class-list-table-payouts.php:311
 msgid ""
 "You cannot delete this payout because you are not the one that created it."
 msgstr "No puede eliminar este pago porque no es usted quien lo creó."
 
-#: slicewp/includes/admin/payouts/class-list-table-payouts.php:295
+#: slicewp/includes/admin/payouts/class-list-table-payouts.php:318
 msgid ""
 "Are you sure you want to delete this payout? All the contained payments will "
 "be also deleted!"
@@ -6747,7 +6823,7 @@ msgstr ""
 "¿Está seguro de que desea eliminar este pago? ¡Todos los pagos contenidos "
 "también serán eliminados!"
 
-#: slicewp/includes/admin/payouts/class-list-table-payouts.php:327
+#: slicewp/includes/admin/payouts/class-list-table-payouts.php:350
 msgid "No payouts found."
 msgstr "No se encontraron pagos."
 
@@ -6845,7 +6921,6 @@ msgid "Please fill in an End Date greater than Start Date."
 msgstr "Complete una Fecha de finalización mayor que la Fecha de inicio."
 
 #: slicewp/includes/admin/payouts/functions-actions-payouts.php:39
-#: slicewp/includes/admin/settings/functions-actions-settings.php:31
 msgid "Please fill in a Payments Minimum Amount equal or greater than 0."
 msgstr "Por favor ingrese un Monto Mínimo de Pagos igual o mayor que 0."
 
@@ -6904,57 +6979,57 @@ msgstr "Detalles de pago"
 msgid "Filter which unpaid commissions you wish to pay."
 msgstr ""
 
-#: slicewp/includes/admin/payouts/views/view-create-payout.php:36
+#: slicewp/includes/admin/payouts/views/view-create-payout.php:40
 #, fuzzy
 #| msgid "Add Commission"
 msgid "Included Commissions"
 msgstr "Agregar comisión"
 
-#: slicewp/includes/admin/payouts/views/view-create-payout.php:40
+#: slicewp/includes/admin/payouts/views/view-create-payout.php:44
 #, fuzzy
 #| msgid "Unpaid Commissions"
 msgid "Unpaid commissions up to..."
 msgstr "Comisiones no pagadas"
 
-#: slicewp/includes/admin/payouts/views/view-create-payout.php:41
+#: slicewp/includes/admin/payouts/views/view-create-payout.php:45
 #, fuzzy
 #| msgid "Unpaid Commissions"
 msgid "Unpaid commission from custom range..."
 msgstr "Comisiones no pagadas"
 
-#: slicewp/includes/admin/payouts/views/view-create-payout.php:51
+#: slicewp/includes/admin/payouts/views/view-create-payout.php:55
 msgid "Today"
 msgstr ""
 
-#: slicewp/includes/admin/payouts/views/view-create-payout.php:77
+#: slicewp/includes/admin/payouts/views/view-create-payout.php:81
 #, fuzzy
 #| msgid "Paid Commissions"
 msgid "Grace Period Commissions"
 msgstr "Comisiones pagadas"
 
-#: slicewp/includes/admin/payouts/views/view-create-payout.php:78
+#: slicewp/includes/admin/payouts/views/view-create-payout.php:82
 #, php-format
 msgid ""
 "By default, to protect you in case of refunds, commissions that are in the "
 "%d days grace period will not be included in the payout."
 msgstr ""
 
-#: slicewp/includes/admin/payouts/views/view-create-payout.php:78
+#: slicewp/includes/admin/payouts/views/view-create-payout.php:82
 msgid ""
 "If you wish to also pay commissions that are in the grace period in this "
 "payout, enable this option."
 msgstr ""
 
-#: slicewp/includes/admin/payouts/views/view-create-payout.php:88
+#: slicewp/includes/admin/payouts/views/view-create-payout.php:92
 msgid "Pay commissions that are in the grace period."
 msgstr ""
 
-#: slicewp/includes/admin/payouts/views/view-create-payout.php:98
+#: slicewp/includes/admin/payouts/views/view-create-payout.php:102
 #: slicewp/includes/admin/settings/views/view-settings-tab-general.php:376
 msgid "Payments Minimum Amount"
 msgstr "Pago mínimo de monto"
 
-#: slicewp/includes/admin/payouts/views/view-create-payout.php:99
+#: slicewp/includes/admin/payouts/views/view-create-payout.php:103
 #, fuzzy
 #| msgid ""
 #| "The payment will be generated only if its commissions sum is greater than "
@@ -6969,31 +7044,31 @@ msgstr ""
 "valor. Si se establece en 0, se generarán los pagos para todas las "
 "comisiones."
 
-#: slicewp/includes/admin/payouts/views/view-create-payout.php:110
+#: slicewp/includes/admin/payouts/views/view-create-payout.php:114
 #, fuzzy
 #| msgid "Add Affiliate"
 msgid "Included Affiliates"
 msgstr "Agregar afiliado"
 
-#: slicewp/includes/admin/payouts/views/view-create-payout.php:114
+#: slicewp/includes/admin/payouts/views/view-create-payout.php:118
 #, fuzzy
 #| msgid "Delete affiliate"
 msgid "All eligible affiliates"
 msgstr "Eliminar Afiliado"
 
-#: slicewp/includes/admin/payouts/views/view-create-payout.php:115
+#: slicewp/includes/admin/payouts/views/view-create-payout.php:119
 #, fuzzy
 #| msgid "Delete affiliate"
 msgid "Only selected affiliates..."
 msgstr "Eliminar Afiliado"
 
-#: slicewp/includes/admin/payouts/views/view-create-payout.php:122
+#: slicewp/includes/admin/payouts/views/view-create-payout.php:126
 #, fuzzy
 #| msgid "Search Affiliates"
 msgid "Search for an affiliate..."
 msgstr "Buscar afiliados"
 
-#: slicewp/includes/admin/payouts/views/view-create-payout.php:161
+#: slicewp/includes/admin/payouts/views/view-create-payout.php:166
 #: slicewp/includes/admin/payouts/views/view-preview-payout.php:18
 msgid "Preview Payout"
 msgstr "Vista previa del pago"
@@ -7030,30 +7105,6 @@ msgstr "(administrador inexistente)"
 #: slicewp/includes/admin/payouts/views/view-payout.php:150
 msgid "Payout Progress"
 msgstr "Progreso de pago"
-
-#: slicewp/includes/admin/payouts/views/view-payout.php:159
-#: slicewp/includes/base/commission/functions.php:237
-#: slicewp/includes/base/payment/functions.php:240
-msgid "Paid"
-msgstr "Pagado"
-
-#: slicewp/includes/admin/payouts/views/view-payout.php:161
-#: slicewp/includes/admin/payouts/views/view-payout.php:169
-#, fuzzy, php-format
-#| msgid "Payments"
-msgid "%d payments"
-msgstr "Pagos"
-
-#: slicewp/includes/admin/payouts/views/view-payout.php:161
-#: slicewp/includes/admin/payouts/views/view-payout.php:169
-#, fuzzy, php-format
-#| msgid "Payments"
-msgid "%d payment"
-msgstr "Pagos"
-
-#: slicewp/includes/admin/payouts/views/view-payout.php:167
-msgid "Still to be paid"
-msgstr ""
 
 #: slicewp/includes/admin/payouts/views/view-payout.php:213
 msgid "Bulk process..."
@@ -7228,7 +7279,7 @@ msgstr ""
 "comisión."
 
 #: slicewp/includes/admin/settings/emails/email-notifications/admin-new-affiliate-registration/functions.php:19
-#: slicewp/index.php:366
+#: slicewp/index.php:369
 msgid "New Affiliate Registration"
 msgstr "Registro de nuevos afiliados"
 
@@ -7277,7 +7328,7 @@ msgstr ""
 "su solicitud de registro pendiente."
 
 #: slicewp/includes/admin/settings/emails/email-notifications/affiliate-commission-approved/functions.php:19
-#: slicewp/index.php:389
+#: slicewp/index.php:392
 msgid "Commission Approved"
 msgstr "Comisión Aprobada"
 
@@ -7285,6 +7336,26 @@ msgstr "Comisión Aprobada"
 msgid ""
 "The affiliate will receive an email when an order that generated a "
 "commission is completed."
+msgstr ""
+"El afiliado recibirá un correo electrónico cuando se complete un pedido que "
+"generó una comisión."
+
+#: slicewp/includes/admin/settings/emails/email-notifications/affiliate-commission-rejected/functions.php:19
+#: slicewp/includes/base/migrations/class-migration-1-1-27.php:46
+#: slicewp/index.php:397
+#, fuzzy
+#| msgid "Commission Rate"
+msgid "Commission Rejected"
+msgstr "Porcentaje de comisión"
+
+#: slicewp/includes/admin/settings/emails/email-notifications/affiliate-commission-rejected/functions.php:20
+#, fuzzy
+#| msgid ""
+#| "The affiliate will receive an email when an order that generated a "
+#| "commission is completed."
+msgid ""
+"The affiliate will receive an email when a commission attributed to them is "
+"rejected."
 msgstr ""
 "El afiliado recibirá un correo electrónico cuando se complete un pedido que "
 "generó una comisión."
@@ -7306,30 +7377,56 @@ msgstr ""
 "generó una comisión."
 
 #: slicewp/includes/admin/settings/functions-actions-settings.php:21
-msgid "Please insert a Cookie Duration greater than 0."
-msgstr "Introduzca una duración de la cookie superior a 0."
+#, php-format
+msgid ""
+"Please set a value greater than 0 (zero) for the %sGeneral > General "
+"Settings > Tracking Cookie Duration%s setting."
+msgstr ""
+
+#: slicewp/includes/admin/settings/functions-actions-settings.php:31
+#, php-format
+msgid ""
+"Please set a value equal or greater than 0 (zero) for the %sGeneral > "
+"Payouts Settings > Payments Minimum Amount%s setting."
+msgstr ""
 
 #: slicewp/includes/admin/settings/functions-actions-settings.php:41
-msgid "Please fill in the Affiliate Keyword."
-msgstr "Por favor complete el código de afiliado."
+#, php-format
+msgid ""
+"Please complete the %sGeneral > Affiliate URL Settings > Affiliate Keyword%s "
+"setting."
+msgstr ""
 
 #: slicewp/includes/admin/settings/functions-actions-settings.php:57
-msgid "Please fill in a valid email address for From Email."
+#, fuzzy, php-format
+#| msgid "Please fill in a valid email address for From Email."
+msgid ""
+"Please fill in a valid email address in the %sEmail Notifications > General "
+"Settings > From Email%s setting."
 msgstr ""
 "Ingrese una dirección de correo electrónico válida para De correo "
 "electrónico."
 
 #: slicewp/includes/admin/settings/functions-actions-settings.php:66
-msgid "Please fill in From Name."
-msgstr "Por favor complete el nombre DE."
+#, php-format
+msgid ""
+"Please complete the %sEmail Notifications > General Settings > From Name%s "
+"setting."
+msgstr ""
 
 #: slicewp/includes/admin/settings/functions-actions-settings.php:76
-msgid "Please fill in the Admin Emails."
-msgstr "Complete los correos electrónicos del administrador."
+#, php-format
+msgid ""
+"Please complete the %sEmail Notifications > General Settings > Admin "
+"Emails%s setting."
+msgstr ""
 
 #: slicewp/includes/admin/settings/functions-actions-settings.php:89
-msgid "Please fill in valid Admin Emails."
-msgstr "Complete los correos electrónicos de administración válidos."
+#, php-format
+msgid ""
+"Please fill in valid email addresses in the %sEmail Notifications > General "
+"Settings > Admin Emails%s setting."
+msgstr ""
 
 #: slicewp/includes/admin/settings/functions-actions-settings.php:107
 #, php-format
@@ -7344,19 +7441,19 @@ msgid "Please fill in the \"%s\" Email Notification content."
 msgstr ""
 "Complete el contenido de la notificación por correo electrónico \"%s\"."
 
-#: slicewp/includes/admin/settings/functions-actions-settings.php:198
+#: slicewp/includes/admin/settings/functions-actions-settings.php:209
 msgid "The debug log could not be cleared. Please try again."
 msgstr "No se pudo borrar el registro de depuración. Inténtalo de nuevo."
 
-#: slicewp/includes/admin/settings/functions-actions-settings.php:232
+#: slicewp/includes/admin/settings/functions-actions-settings.php:243
 msgid "Please fill in the Admin Emails field."
 msgstr "Complete el campo Correos electrónicos del administrador."
 
-#: slicewp/includes/admin/settings/functions-actions-settings.php:244
+#: slicewp/includes/admin/settings/functions-actions-settings.php:255
 msgid "Please fill in the Email Subject."
 msgstr "Por favor complete el Asunto del correo electrónico."
 
-#: slicewp/includes/admin/settings/functions-actions-settings.php:253
+#: slicewp/includes/admin/settings/functions-actions-settings.php:264
 msgid "Please fill in the Email Content."
 msgstr "Complete el contenido del correo electrónico."
 
@@ -7471,11 +7568,11 @@ msgstr ""
 msgid "%s tags"
 msgstr ""
 
-#: slicewp/includes/admin/settings/views/view-settings-tab-emails.php:267
+#: slicewp/includes/admin/settings/views/view-settings-tab-emails.php:271
 msgid "Preview Email"
 msgstr "Vista previa del correo electrónico"
 
-#: slicewp/includes/admin/settings/views/view-settings-tab-emails.php:268
+#: slicewp/includes/admin/settings/views/view-settings-tab-emails.php:272
 msgid "Send Test Email"
 msgstr "Enviar correo electrónico de prueba"
 
@@ -7866,6 +7963,22 @@ msgstr ""
 "Establezca los campos que debe completar el afiliado en las páginas de "
 "registro y cuenta de afiliado."
 
+#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:808
+#, fuzzy
+#| msgid "Commission Rates"
+msgid "Commission Statuses Display"
+msgstr "Tarifas de comisión"
+
+#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:809
+msgid ""
+"Choose the commission statuses to display in the commissions table of the "
+"affiliate account page."
+msgstr ""
+
+#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:825
+msgid "This commission status will always be shown to affiliates."
+msgstr ""
+
 #: slicewp/includes/admin/settings/views/view-settings-tab-integrations.php:54
 msgid "Captcha"
 msgstr ""
@@ -8029,7 +8142,7 @@ msgstr "Haga clic para habilitar el Informe de estado del sistema."
 #: slicewp/includes/admin/settings/views/view-settings-tab-tools.php:162
 #: slicewp/includes/admin/settings/views/view-settings-tab-tools.php:169
 #: slicewp/includes/admin/setup-wizard/functions.php:53
-#: slicewp/includes/admin/setup-wizard/functions.php:54 slicewp/index.php:875
+#: slicewp/includes/admin/setup-wizard/functions.php:54 slicewp/index.php:883
 msgid "Setup Wizard"
 msgstr "Asistente de configuración"
 
@@ -8049,7 +8162,7 @@ msgid "Allow Tracking"
 msgstr "Permitir seguimiento"
 
 #: slicewp/includes/admin/settings/views/view-settings-tab-tools.php:200
-#: slicewp/includes/base/class-plugin-usage-tracker.php:272
+#: slicewp/includes/base/class-plugin-usage-tracker.php:350
 msgid ""
 "Allow SliceWP to anonymously track the plugin's usage. The collected data "
 "can help us improve the plugin and provide better features. Sensitive data "
@@ -8061,7 +8174,7 @@ msgstr ""
 "sensibles."
 
 #: slicewp/includes/admin/settings/views/view-settings-tab-tools.php:202
-#: slicewp/includes/base/class-plugin-usage-tracker.php:272
+#: slicewp/includes/base/class-plugin-usage-tracker.php:350
 msgid "Learn more about what we track and what we don't."
 msgstr "Obtenga más información sobre lo que rastreamos y lo que no."
 
@@ -8336,7 +8449,7 @@ msgstr ""
 msgid "Finish and hide setup wizard"
 msgstr "Omitir asistente de configuración"
 
-#: slicewp/includes/admin/visits/class-list-table-visits.php:325
+#: slicewp/includes/admin/visits/class-list-table-visits.php:324
 msgid "No visits found."
 msgstr "No se encontraron visitas."
 
@@ -8369,7 +8482,7 @@ msgid "Bulk Actions"
 msgstr "Acción"
 
 #: slicewp/includes/base/abstracts/abstract-class-list-table.php:491
-#: slicewp/includes/users/class-list-table.php:482
+#: slicewp/includes/users/class-list-table.php:561
 #: slicewp/templates/affiliate-area/affiliate-account-tab-dashboard.php:50
 msgid "Apply"
 msgstr ""
@@ -8420,14 +8533,14 @@ msgid "%s item"
 msgstr ""
 
 #: slicewp/includes/base/abstracts/abstract-class-list-table.php:816
-#: slicewp/includes/users/class-list-table.php:575
+#: slicewp/includes/users/class-list-table.php:654
 #, fuzzy
 #| msgid "First Name"
 msgid "First page"
 msgstr "Nombre"
 
 #: slicewp/includes/base/abstracts/abstract-class-list-table.php:826
-#: slicewp/includes/users/class-list-table.php:581
+#: slicewp/includes/users/class-list-table.php:660
 msgid "Previous page"
 msgstr ""
 
@@ -8439,14 +8552,14 @@ msgid "Current Page"
 msgstr "Moneda"
 
 #: slicewp/includes/base/abstracts/abstract-class-list-table.php:849
-#: slicewp/includes/users/class-list-table.php:587
+#: slicewp/includes/users/class-list-table.php:666
 #, fuzzy
 #| msgid "Next steps"
 msgid "Next page"
 msgstr "Próximos pasos"
 
 #: slicewp/includes/base/abstracts/abstract-class-list-table.php:859
-#: slicewp/includes/users/class-list-table.php:593
+#: slicewp/includes/users/class-list-table.php:672
 #, fuzzy
 #| msgid "Last Name"
 msgid "Last page"
@@ -8498,7 +8611,7 @@ msgstr "Reemplaza la etiqueta con la identificación del afiliado"
 #: slicewp/includes/base/class-merge-tags.php:84
 #, fuzzy
 #| msgid "Replaces the tag with the affiliate's email"
-msgid "Replaced the tag with the affiliate's referral URL."
+msgid "Replaced the tag with the affiliate's referral URL"
 msgstr "Reemplaza la etiqueta con el correo electrónico del afiliado"
 
 #: slicewp/includes/base/class-merge-tags.php:89
@@ -8531,63 +8644,76 @@ msgstr ""
 "Reemplaza la etiqueta con los métodos promocionales de la aplicación de "
 "afiliados"
 
-#: slicewp/includes/base/class-merge-tags.php:124
+#: slicewp/includes/base/class-merge-tags.php:130
 msgid "Replaces the tag with the affiliate application reject reason"
 msgstr ""
 "Reemplaza la etiqueta con el motivo de rechazo de la solicitud de afiliado"
 
-#: slicewp/includes/base/class-merge-tags.php:129
+#: slicewp/includes/base/class-merge-tags.php:135
+#, fuzzy
+#| msgid "Replaces the tag with the affiliate application reject reason"
+msgid "Replaces the tag with the affiliate application rejection reason"
+msgstr ""
+"Reemplaza la etiqueta con el motivo de rechazo de la solicitud de afiliado"
+
+#: slicewp/includes/base/class-merge-tags.php:140
 #, fuzzy
 #| msgid "Replaces the tag with the commission amount"
 msgid "Replaces the tag with the commission's ID"
 msgstr "Reemplaza la etiqueta con el monto de la comisión"
 
-#: slicewp/includes/base/class-merge-tags.php:134
+#: slicewp/includes/base/class-merge-tags.php:145
 msgid "Replaces the tag with the commission amount"
 msgstr "Reemplaza la etiqueta con el monto de la comisión"
 
-#: slicewp/includes/base/class-merge-tags.php:139
+#: slicewp/includes/base/class-merge-tags.php:150
 #, fuzzy
 #| msgid "Replaces the tag with the commission amount"
 msgid "Replaces the tag with the commission reference"
 msgstr "Reemplaza la etiqueta con el monto de la comisión"
 
-#: slicewp/includes/base/class-merge-tags.php:144
+#: slicewp/includes/base/class-merge-tags.php:155
+#, fuzzy
+#| msgid "Replaces the tag with the commission amount"
+msgid "Replaces the tag with the commission's rejection reason"
+msgstr "Reemplaza la etiqueta con el monto de la comisión"
+
+#: slicewp/includes/base/class-merge-tags.php:160
 #, fuzzy
 #| msgid "Replaces the tag with the affiliate's status"
 msgid "Replaces the tag with the affiliate payment's ID"
 msgstr "Reemplaza la etiqueta con el estado del afiliado"
 
-#: slicewp/includes/base/class-merge-tags.php:149
+#: slicewp/includes/base/class-merge-tags.php:165
 #, fuzzy
 #| msgid "Replaces the tag with the affiliate's last name"
 msgid "Replaces the tag with the affiliate payment amount"
 msgstr "Reemplaza la etiqueta con el apellido del afiliado"
 
-#: slicewp/includes/base/class-merge-tags.php:154
+#: slicewp/includes/base/class-merge-tags.php:170
 #, fuzzy
 #| msgid "Replaces the tag with the affiliate's last name"
 msgid "Replaces the tag with the affiliate payment's payout method"
 msgstr "Reemplaza la etiqueta con el apellido del afiliado"
 
-#: slicewp/includes/base/class-merge-tags.php:159
+#: slicewp/includes/base/class-merge-tags.php:175
 msgid "Replaces the tag with your site name"
 msgstr "Reemplaza la etiqueta con el nombre de su sitio"
 
-#: slicewp/includes/base/class-merge-tags.php:164
+#: slicewp/includes/base/class-merge-tags.php:180
 msgid "Replaces the tag with the link to the Affiliate Account Page"
 msgstr ""
 "Reemplaza la etiqueta con el enlace a la página de la cuenta de afiliado"
 
-#: slicewp/includes/base/class-plugin-usage-tracker.php:272
+#: slicewp/includes/base/class-plugin-usage-tracker.php:350
 msgid "Help us improve SliceWP"
 msgstr "Ayúdanos a mejorar SliceWP"
 
-#: slicewp/includes/base/class-plugin-usage-tracker.php:272
+#: slicewp/includes/base/class-plugin-usage-tracker.php:350
 msgid "Allow tracking"
 msgstr "Permitir seguimiento"
 
-#: slicewp/includes/base/class-plugin-usage-tracker.php:272
+#: slicewp/includes/base/class-plugin-usage-tracker.php:350
 msgid "Don't allow"
 msgstr "No permitir"
 
@@ -8740,8 +8866,8 @@ msgid "Your website has been successfully registered."
 msgstr "Su sitio web se ha registrado correctamente."
 
 #: slicewp/includes/base/functions-actions-ajax.php:193
-#: slicewp/includes/base/functions-utils.php:540
-#: slicewp/includes/base/functions-utils.php:545
+#: slicewp/includes/base/functions-utils.php:542
+#: slicewp/includes/base/functions-utils.php:547
 msgid "Something went wrong. Could not activate the website. Please try again."
 msgstr "Algo salió mal. No se pudo activar el sitio web. Inténtalo de nuevo."
 
@@ -16287,34 +16413,38 @@ msgid "Thai Baht"
 msgstr "Baht tailandés"
 
 #: slicewp/includes/base/functions-currency.php:475
+msgid "Trinidad and Tobago Dollar"
+msgstr ""
+
+#: slicewp/includes/base/functions-currency.php:483
 msgid "Turkish Lira"
 msgstr "Lira turca"
 
-#: slicewp/includes/base/functions-currency.php:483
+#: slicewp/includes/base/functions-currency.php:491
 #, fuzzy
 #| msgid "Ukrainian hryvnia"
 msgid "Ukrainian Hryvnia"
 msgstr "Hryvnia ucraniano"
 
-#: slicewp/includes/base/functions-currency.php:491
+#: slicewp/includes/base/functions-currency.php:499
 msgid "United Arab Emirates Dirham"
 msgstr ""
 
-#: slicewp/includes/base/functions-currency.php:499
+#: slicewp/includes/base/functions-currency.php:507
 msgid "Uruguayan Peso"
 msgstr "Peso uruguayo"
 
-#: slicewp/includes/base/functions-currency.php:507
+#: slicewp/includes/base/functions-currency.php:515
 #, fuzzy
 #| msgid "Venezuelan bolívar"
 msgid "Venezuelan Bolívar"
 msgstr "Bolívar venezolano"
 
-#: slicewp/includes/base/functions-currency.php:515
+#: slicewp/includes/base/functions-currency.php:523
 msgid "Vietnamese đồng"
 msgstr ""
 
-#: slicewp/includes/base/functions-currency.php:523
+#: slicewp/includes/base/functions-currency.php:531
 #, fuzzy
 #| msgid "South African Rand"
 msgid "West African CFA franc"
@@ -16362,35 +16492,55 @@ msgstr "Últimos 30 días"
 msgid "Last year"
 msgstr "Apellido"
 
-#: slicewp/includes/base/functions-utils.php:536
-#: slicewp/includes/base/functions-utils.php:543
+#: slicewp/includes/base/functions-utils.php:538
+#: slicewp/includes/base/functions-utils.php:545
 msgid "The provided license key does not exist or is invalid."
 msgstr "La clave de licencia proporcionada no existe o no es válida."
 
-#: slicewp/includes/base/functions-utils.php:537
+#: slicewp/includes/base/functions-utils.php:539
 msgid "The provided license key is inactive."
 msgstr "La clave de licencia proporcionada está inactiva."
 
-#: slicewp/includes/base/functions-utils.php:538
+#: slicewp/includes/base/functions-utils.php:540
 msgid "The provided license key is expired."
 msgstr "La clave de licencia proporcionada está vencida."
 
-#: slicewp/includes/base/functions-utils.php:539
+#: slicewp/includes/base/functions-utils.php:541
 msgid "The activation limit for this license key has been reached."
 msgstr ""
 
-#: slicewp/includes/base/functions-utils.php:544
+#: slicewp/includes/base/functions-utils.php:546
 msgid "This website is not registered on our system."
 msgstr "Este sitio web no está registrado en nuestro sistema."
 
-#: slicewp/includes/base/integrations/easy-digital-downloads/functions-hooks-integration-easy-digital-downloads.php:499
+#: slicewp/includes/base/integrations/easy-digital-downloads/functions-hooks-integration-easy-digital-downloads.php:428
+#: slicewp/includes/base/integrations/getpaid/functions-hooks-integration-getpaid.php:364
+#: slicewp/includes/base/integrations/memberpress/functions-hooks-integration-memberpress.php:370
+#: slicewp/includes/base/integrations/paid-member-subscriptions/functions-hooks-integration-paid-member-subscriptions.php:393
+#: slicewp/includes/base/integrations/paid-memberships-pro/functions-hooks-integration-paid-memberships-pro.php:375
+#: slicewp/includes/base/integrations/restrict-content-pro/functions-hooks-integration-restrict-content-pro.php:365
+#: slicewp/includes/base/integrations/studiocart/functions-hooks-integration-studiocart.php:337
+#: slicewp/includes/base/integrations/surecart/functions-hooks-integration-surecart.php:297
+#: slicewp/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:419
+#, fuzzy, php-format
+#| msgid ""
+#| "Mark unpaid commissions as rejected if the originating purchase is "
+#| "refunded."
+msgid ""
+"This commission has been rejected because the reference order #%s was "
+"refunded."
+msgstr ""
+"Marque las comisiones impagadas como rechazadas si se reembolsa la compra "
+"original."
+
+#: slicewp/includes/base/integrations/easy-digital-downloads/functions-hooks-integration-easy-digital-downloads.php:515
 #, php-format
 msgid "%1$s Commission Settings"
 msgstr "%1$s Configuración de comisión"
 
-#: slicewp/includes/base/integrations/easy-digital-downloads/functions-hooks-integration-easy-digital-downloads.php:541
-#: slicewp/includes/base/integrations/studiocart/functions-hooks-integration-studiocart.php:453
-#: slicewp/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:652
+#: slicewp/includes/base/integrations/easy-digital-downloads/functions-hooks-integration-easy-digital-downloads.php:557
+#: slicewp/includes/base/integrations/studiocart/functions-hooks-integration-studiocart.php:459
+#: slicewp/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:658
 msgid ""
 "The product commission rate settings are not available because the "
 "commissions for this product category are disabled."
@@ -16398,83 +16548,83 @@ msgstr ""
 "La configuración de la tasa de comisión del producto no está disponible "
 "porque las comisiones para esta categoría de producto están deshabilitadas."
 
-#: slicewp/includes/base/integrations/easy-digital-downloads/functions-hooks-integration-easy-digital-downloads.php:558
+#: slicewp/includes/base/integrations/easy-digital-downloads/functions-hooks-integration-easy-digital-downloads.php:574
 #, php-format
 msgid "Disable commissions for this %s"
 msgstr "Inhabilitar comisiones para este %s"
 
-#: slicewp/includes/base/integrations/easy-digital-downloads/functions-hooks-integration-easy-digital-downloads.php:645
-#: slicewp/includes/base/integrations/easy-digital-downloads/functions-hooks-integration-easy-digital-downloads.php:683
-#: slicewp/includes/base/integrations/getpaid/functions-hooks-integration-getpaid.php:597
-#: slicewp/includes/base/integrations/memberpress/functions-hooks-integration-memberpress.php:500
-#: slicewp/includes/base/integrations/paid-member-subscriptions/functions-hooks-integration-paid-member-subscriptions.php:501
-#: slicewp/includes/base/integrations/paid-memberships-pro/functions-hooks-integration-paid-memberships-pro.php:488
-#: slicewp/includes/base/integrations/studiocart/functions-hooks-integration-studiocart.php:569
-#: slicewp/includes/base/integrations/studiocart/functions-hooks-integration-studiocart.php:607
+#: slicewp/includes/base/integrations/easy-digital-downloads/functions-hooks-integration-easy-digital-downloads.php:661
+#: slicewp/includes/base/integrations/easy-digital-downloads/functions-hooks-integration-easy-digital-downloads.php:699
+#: slicewp/includes/base/integrations/getpaid/functions-hooks-integration-getpaid.php:603
+#: slicewp/includes/base/integrations/memberpress/functions-hooks-integration-memberpress.php:506
+#: slicewp/includes/base/integrations/paid-member-subscriptions/functions-hooks-integration-paid-member-subscriptions.php:525
+#: slicewp/includes/base/integrations/paid-memberships-pro/functions-hooks-integration-paid-memberships-pro.php:495
+#: slicewp/includes/base/integrations/studiocart/functions-hooks-integration-studiocart.php:575
+#: slicewp/includes/base/integrations/studiocart/functions-hooks-integration-studiocart.php:613
 msgid "Disable Commissions"
 msgstr "Deshabilitar comisiones"
 
-#: slicewp/includes/base/integrations/easy-digital-downloads/functions-hooks-integration-easy-digital-downloads.php:647
-#: slicewp/includes/base/integrations/easy-digital-downloads/functions-hooks-integration-easy-digital-downloads.php:687
-#: slicewp/includes/base/integrations/studiocart/functions-hooks-integration-studiocart.php:571
-#: slicewp/includes/base/integrations/studiocart/functions-hooks-integration-studiocart.php:611
-#: slicewp/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:898
-#: slicewp/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:938
+#: slicewp/includes/base/integrations/easy-digital-downloads/functions-hooks-integration-easy-digital-downloads.php:663
+#: slicewp/includes/base/integrations/easy-digital-downloads/functions-hooks-integration-easy-digital-downloads.php:703
+#: slicewp/includes/base/integrations/studiocart/functions-hooks-integration-studiocart.php:577
+#: slicewp/includes/base/integrations/studiocart/functions-hooks-integration-studiocart.php:617
+#: slicewp/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:904
+#: slicewp/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:944
 msgid ""
 "When checked, commissions will not be generated for this product category."
 msgstr ""
 "Cuando se marca, no se generarán comisiones para esta categoría de producto."
 
-#: slicewp/includes/base/integrations/getpaid/functions-hooks-integration-getpaid.php:551
+#: slicewp/includes/base/integrations/getpaid/functions-hooks-integration-getpaid.php:557
 #, fuzzy
 #| msgid "Commissions Settings"
 msgid "Commission settings"
 msgstr "Ajustes de comisiones"
 
-#: slicewp/includes/base/integrations/getpaid/functions-hooks-integration-getpaid.php:608
+#: slicewp/includes/base/integrations/getpaid/functions-hooks-integration-getpaid.php:614
 #, fuzzy
 #| msgid "Disable commissions for this %s"
 msgid "Disable commissions for this item"
 msgstr "Inhabilitar comisiones para este %s"
 
-#: slicewp/includes/base/integrations/memberpress/functions-hooks-integration-memberpress.php:457
-#: slicewp/includes/base/integrations/paid-member-subscriptions/functions-hooks-integration-paid-member-subscriptions.php:458
-#: slicewp/includes/base/integrations/paid-memberships-pro/functions-hooks-integration-paid-memberships-pro.php:459
+#: slicewp/includes/base/integrations/memberpress/functions-hooks-integration-memberpress.php:463
+#: slicewp/includes/base/integrations/paid-member-subscriptions/functions-hooks-integration-paid-member-subscriptions.php:482
+#: slicewp/includes/base/integrations/paid-memberships-pro/functions-hooks-integration-paid-memberships-pro.php:466
 msgid "Subscription Commission Settings"
 msgstr "Configuración de la comisión de suscripción"
 
-#: slicewp/includes/base/integrations/memberpress/functions-hooks-integration-memberpress.php:503
+#: slicewp/includes/base/integrations/memberpress/functions-hooks-integration-memberpress.php:509
 #, fuzzy
 #| msgid "Disable commissions for this %s"
 msgid "Disable commissions for this membership."
 msgstr "Inhabilitar comisiones para este %s"
 
-#: slicewp/includes/base/integrations/paid-member-subscriptions/functions-hooks-integration-paid-member-subscriptions.php:504
+#: slicewp/includes/base/integrations/paid-member-subscriptions/functions-hooks-integration-paid-member-subscriptions.php:528
 msgid "Disable all commissions for this subscription plan."
 msgstr "Deshabilite todas las comisiones para este plan de suscripción."
 
-#: slicewp/includes/base/integrations/paid-memberships-pro/functions-hooks-integration-paid-memberships-pro.php:492
+#: slicewp/includes/base/integrations/paid-memberships-pro/functions-hooks-integration-paid-memberships-pro.php:499
 msgid "Disable commissions for this subscription."
 msgstr "Deshabilite las comisiones para esta suscripción."
 
-#: slicewp/includes/base/integrations/restrict-content-pro/functions-hooks-integration-restrict-content-pro.php:446
-#: slicewp/includes/base/integrations/studiocart/functions-hooks-integration-studiocart.php:414
+#: slicewp/includes/base/integrations/restrict-content-pro/functions-hooks-integration-restrict-content-pro.php:452
+#: slicewp/includes/base/integrations/studiocart/functions-hooks-integration-studiocart.php:420
 #: slicewp/includes/base/integrations/upsell/functions-hooks-integration-upsell.php:400
 #, fuzzy
 #| msgid "Commissions Settings"
 msgid "Commission Settings"
 msgstr "Ajustes de comisiones"
 
-#: slicewp/includes/base/integrations/restrict-content-pro/functions-hooks-integration-restrict-content-pro.php:473
-#: slicewp/includes/base/integrations/studiocart/functions-hooks-integration-studiocart.php:473
+#: slicewp/includes/base/integrations/restrict-content-pro/functions-hooks-integration-restrict-content-pro.php:479
+#: slicewp/includes/base/integrations/studiocart/functions-hooks-integration-studiocart.php:479
 #: slicewp/includes/base/integrations/upsell/functions-hooks-integration-upsell.php:429
-#: slicewp/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:666
-#: slicewp/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:896
-#: slicewp/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:934
+#: slicewp/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:672
+#: slicewp/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:902
+#: slicewp/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:940
 msgid "Disable commissions"
 msgstr "Deshabilitar comisiones"
 
-#: slicewp/includes/base/integrations/restrict-content-pro/functions-hooks-integration-restrict-content-pro.php:477
+#: slicewp/includes/base/integrations/restrict-content-pro/functions-hooks-integration-restrict-content-pro.php:483
 #, fuzzy
 #| msgid "Disable commissions for this %s"
 msgid "Disable commissions for this membership level."
@@ -16487,7 +16637,7 @@ msgid ""
 "When enabled, affiliate commissions will not be generated for this product."
 msgstr "Cuando está marcado, no se generarán comisiones para este producto."
 
-#: slicewp/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:641
+#: slicewp/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:647
 msgid ""
 "Here you can make commission customizations for this product. These settings "
 "will be used to calculate the commissions for this product."
@@ -16495,15 +16645,15 @@ msgstr ""
 "Aquí puede realizar personalizaciones de comisiones para este producto. Esta "
 "configuración se utilizará para calcular las comisiones de este producto."
 
-#: slicewp/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:667
+#: slicewp/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:673
 msgid "When checked, commissions will not be generated for this product."
 msgstr "Cuando está marcado, no se generarán comisiones para este producto."
 
-#: slicewp/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:766
+#: slicewp/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:772
 msgid "SliceWP Commission Settings"
 msgstr "Configuración de comisión de SliceWP"
 
-#: slicewp/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:783
+#: slicewp/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:789
 msgid ""
 "The product variation commission rate settings are not available because the "
 "commissions for this product category are disabled."
@@ -16512,7 +16662,7 @@ msgstr ""
 "disponible porque las comisiones para esta categoría de producto están "
 "deshabilitadas."
 
-#: slicewp/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:792
+#: slicewp/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:798
 msgid ""
 "The product variation commission rate settings are not available because the "
 "commissions for this product are disabled."
@@ -16520,11 +16670,11 @@ msgstr ""
 "La configuración de la tasa de comisión de variación del producto no está "
 "disponible porque las comisiones para este producto están deshabilitadas."
 
-#: slicewp/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:810
+#: slicewp/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:816
 msgid "Disable commissions for this product variation"
 msgstr "Deshabilitar comisiones para esta variación de producto"
 
-#: slicewp/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:997
+#: slicewp/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:1003
 #, php-format
 msgid "A %s commission (%s) has been registered for affiliate %s (%s)"
 msgstr ""
@@ -16570,38 +16720,46 @@ msgid "Run the updater"
 msgstr ""
 
 #: slicewp/includes/base/migrations/class-migration-1-1-10.php:46
-#: slicewp/index.php:394
+#: slicewp/index.php:402
 #, fuzzy
 #| msgid "Affiliate Pages"
 msgid "Affiliate Payment Paid"
 msgstr "Páginas de afiliados"
 
 #: slicewp/includes/base/migrations/class-migration-1-1-10.php:47
-#: slicewp/index.php:377 slicewp/index.php:381 slicewp/index.php:385
-#: slicewp/index.php:390 slicewp/index.php:395
+#: slicewp/includes/base/migrations/class-migration-1-1-27.php:47
+#: slicewp/index.php:380 slicewp/index.php:384 slicewp/index.php:388
+#: slicewp/index.php:393 slicewp/index.php:398 slicewp/index.php:403
 msgid "Hey {{affiliate_first_name}},"
 msgstr "Hola {{affiliate_first_name}},"
 
 #: slicewp/includes/base/migrations/class-migration-1-1-10.php:47
-#: slicewp/index.php:395
+#: slicewp/index.php:403
 msgid "We've processed your affiliate earnings and sent out your payment."
 msgstr ""
 
 #: slicewp/includes/base/migrations/class-migration-1-1-10.php:47
-#: slicewp/index.php:395
+#: slicewp/index.php:403
 msgid "Payment amount: {{payment_amount}}"
 msgstr ""
 
 #: slicewp/includes/base/migrations/class-migration-1-1-10.php:47
-#: slicewp/index.php:395
+#: slicewp/index.php:403
 #, fuzzy
 #| msgid "Select payout method..."
 msgid "Payment method: {{payment_payout_method}}"
 msgstr "Seleccionar método de pago ..."
 
 #: slicewp/includes/base/migrations/class-migration-1-1-10.php:47
-#: slicewp/index.php:395
+#: slicewp/index.php:403
 msgid "Payment ID: {{payment_id}}"
+msgstr ""
+
+#: slicewp/includes/base/migrations/class-migration-1-1-27.php:47
+#: slicewp/index.php:398
+msgid ""
+"Commission #{{commission_id}}, totalling {{commission_amount}}, has been "
+"rejected."
 msgstr ""
 
 #: slicewp/includes/base/notes/class-outputter-notes.php:80
@@ -16656,16 +16814,24 @@ msgstr ""
 msgid "By clicking the button below, you can mark these payments as paid."
 msgstr ""
 
-#: slicewp/includes/users/class-list-table-affiliate-account-commissions.php:59
+#: slicewp/includes/users/class-list-table-affiliate-account-commissions.php:60
 #: slicewp/includes/users/class-list-table-affiliate-account-payment-commissions.php:59
 msgid "You have no commissions."
 msgstr "No tienes comisiones."
 
-#: slicewp/includes/users/class-list-table-affiliate-account-payments.php:45
-msgid "Action"
-msgstr "Acción"
+#: slicewp/includes/users/class-list-table-affiliate-account-payment-commissions.php:154
+#, fuzzy
+#| msgid "Commissions"
+msgid "1 commission"
+msgstr "Comisiones"
 
-#: slicewp/includes/users/class-list-table-affiliate-account-payments.php:49
+#: slicewp/includes/users/class-list-table-affiliate-account-payment-commissions.php:156
+#, fuzzy, php-format
+#| msgid "Commissions"
+msgid "%d commissions"
+msgstr "Comisiones"
+
+#: slicewp/includes/users/class-list-table-affiliate-account-payments.php:52
 msgid "You have no payouts."
 msgstr "No tienes pagos."
 
@@ -16673,28 +16839,28 @@ msgstr "No tienes pagos."
 msgid "You have no visits."
 msgstr "No tienes visitas."
 
-#: slicewp/includes/users/class-list-table.php:414
+#: slicewp/includes/users/class-list-table.php:493
 #, fuzzy
 #| msgid "No visits found."
 msgid "No results found."
 msgstr "No se encontraron visitas."
 
-#: slicewp/includes/users/class-list-table.php:522
+#: slicewp/includes/users/class-list-table.php:601
 #, fuzzy
 #| msgid "Select payout method..."
 msgid "results per page"
 msgstr "Seleccionar método de pago ..."
 
-#: slicewp/includes/users/class-list-table.php:551
+#: slicewp/includes/users/class-list-table.php:630
 msgid "1 result"
 msgstr ""
 
-#: slicewp/includes/users/class-list-table.php:553
+#: slicewp/includes/users/class-list-table.php:632
 #, php-format
 msgid "%d results"
 msgstr ""
 
-#: slicewp/includes/users/class-list-table.php:566
+#: slicewp/includes/users/class-list-table.php:645
 #, php-format
 msgid "Showing %s-%s of %s results"
 msgstr ""
@@ -16711,6 +16877,10 @@ msgstr "Logo"
 
 #: slicewp/includes/users/functions.php:255
 msgid "View QR Code"
+msgstr ""
+
+#: slicewp/includes/users/functions.php:304
+msgid "The following commissions have been included in this payout."
 msgstr ""
 
 #: slicewp/includes/users/shortcodes/functions-actions-shortcodes.php:102
@@ -16997,7 +17167,7 @@ msgstr ""
 msgid "Agree to Our Terms and Conditions"
 msgstr "Acepta nuestros términos y condiciones"
 
-#: slicewp/index.php:367
+#: slicewp/index.php:370
 msgid ""
 "The user {{affiliate_username}} ({{affiliate_email}}) just signed up for the "
 "affiliate program."
@@ -17005,11 +17175,11 @@ msgstr ""
 "El usuario {{afiliado_username}} ({{afiliado_email}}) acaba de registrarse "
 "en el programa de afiliados."
 
-#: slicewp/index.php:371
+#: slicewp/index.php:374
 msgid "New Commission Registered"
 msgstr "Nueva comisión registrada"
 
-#: slicewp/index.php:372
+#: slicewp/index.php:375
 msgid ""
 "A new commission was generated for your affiliate partner "
 "{{affiliate_first_name}} {{affiliate_last_name}} ({{affiliate_email}})."
@@ -17017,11 +17187,11 @@ msgstr ""
 "Se generó una nueva comisión para su socio afiliado {{afiliado_first_name}} "
 "{{afiliado_last_name}} ({{afiliado_email}})."
 
-#: slicewp/index.php:376
+#: slicewp/index.php:379
 msgid "Affiliate Account Registration"
 msgstr "Registro de cuenta de afiliado"
 
-#: slicewp/index.php:377
+#: slicewp/index.php:380
 msgid ""
 "We've received your affiliate registration request. Our team will review it "
 "shortly and we'll get back to you with details."
@@ -17029,32 +17199,32 @@ msgstr ""
 "Hemos recibido su solicitud de registro de afiliado. Nuestro equipo lo "
 "revisará en breve y nos pondremos en contacto contigo con más detalles."
 
-#: slicewp/index.php:380
+#: slicewp/index.php:383
 msgid "Affiliate Account Approved"
 msgstr "Cuenta de afiliado aprobada"
 
-#: slicewp/index.php:381
+#: slicewp/index.php:384
 msgid "Your application for our affiliate account has been approved."
 msgstr "Su solicitud para nuestra cuenta de afiliado ha sido aprobada."
 
-#: slicewp/index.php:381
+#: slicewp/index.php:384
 msgid "Welcome to the team!"
 msgstr "Bienvenido al equipo!"
 
-#: slicewp/index.php:384
+#: slicewp/index.php:387
 msgid "Affiliate Account Rejected"
 msgstr "Cuenta de afiliado rechazada"
 
-#: slicewp/index.php:385
+#: slicewp/index.php:388
 msgid "Unfortunately, your application for an affiliate account was rejected."
 msgstr ""
 "Desafortunadamente, su solicitud para una cuenta de afiliado fue rechazada."
 
-#: slicewp/index.php:390
+#: slicewp/index.php:393
 msgid "You have been rewarded a new commission of {{commission_amount}}."
 msgstr "Se le ha recompensado con una nueva comisión de {{commission_amount}}."
 
-#: slicewp/index.php:868
+#: slicewp/index.php:876
 msgid "Upgrade"
 msgstr ""
 
@@ -17129,10 +17299,6 @@ msgstr ""
 msgid "Program details"
 msgstr "Conceptos básicos del programa"
 
-#: slicewp/templates/affiliate-area/affiliate-account-tab-dashboard.php:227
-msgid "Commission Rate"
-msgstr "Porcentaje de comisión"
-
 #: slicewp/templates/affiliate-area/affiliate-account-tab-dashboard.php:236
 #, php-format
 msgid "%s rate: %s"
@@ -17195,6 +17361,42 @@ msgstr ""
 #: slicewp/templates/affiliate-area/reset-password-form.php:55
 msgid "Save new password"
 msgstr ""
+
+#, fuzzy
+#~| msgid "Disable Commissions"
+#~ msgid "Disable Recurring Commissions"
+#~ msgstr "Deshabilitar comisiones"
+
+#, fuzzy
+#~| msgid "Disable all commissions for this subscription plan."
+#~ msgid "Disable recurring commissions for this subscription plan."
+#~ msgstr "Deshabilite todas las comisiones para este plan de suscripción."
+
+#, fuzzy
+#~| msgid "Learn how to use SliceWP"
+#~ msgid "Say hello to affiliate payout requests!"
+#~ msgstr "Aprenda a usar SliceWP"
+
+#~ msgid "Progress"
+#~ msgstr "Progreso"
+
+#~ msgid "Please insert a Cookie Duration greater than 0."
+#~ msgstr "Introduzca una duración de la cookie superior a 0."
+
+#~ msgid "Please fill in the Affiliate Keyword."
+#~ msgstr "Por favor complete el código de afiliado."
+
+#~ msgid "Please fill in From Name."
+#~ msgstr "Por favor complete el nombre DE."
+
+#~ msgid "Please fill in the Admin Emails."
+#~ msgstr "Complete los correos electrónicos del administrador."
+
+#~ msgid "Please fill in valid Admin Emails."
+#~ msgstr "Complete los correos electrónicos de administración válidos."
+
+#~ msgid "Action"
+#~ msgstr "Acción"
 
 #~ msgid "Affiliate name"
 #~ msgstr "Nombre del afiliado"

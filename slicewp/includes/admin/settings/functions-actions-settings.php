@@ -138,6 +138,17 @@ function slicewp_admin_action_save_settings() {
 
 	}
 
+	// Sanitize the affiliate account commission statuses setting.
+	$commission_statuses = array( 'paid', 'unpaid' );
+
+	if ( ! empty( $_POST['settings']['affiliate_account_commission_statuses'] ) && is_array( $_POST['settings']['affiliate_account_commission_statuses'] ) ) {
+
+		$commission_statuses = array_values( array_merge( $commission_statuses, array_intersect( $_POST['settings']['affiliate_account_commission_statuses'], array_keys( slicewp_get_commission_available_statuses() ) ) ) );
+
+	}
+
+	$_POST['settings']['affiliate_account_commission_statuses'] = array_values( array_unique( $commission_statuses ) );
+
 	// Save the settings.
 	$_POST = stripslashes_deep( $_POST );
 
