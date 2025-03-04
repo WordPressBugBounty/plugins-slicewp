@@ -4,7 +4,7 @@ Donate link: https://slicewp.com/
 Tags: affiliate, affiliates, affiliate program, affiliates program, woocommerce affiliates, affiliates plugin, affiliates manager program, affiliates manager plugin
 Requires at least: 5.0
 Tested up to: 6.7.2
-Stable tag: 1.1.28
+Stable tag: 1.1.29
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -152,6 +152,9 @@ Yes! You can set a custom cookie lifespan for your affiliates.
 
 
 == Changelog ==
+
+= 1.1.29 =
+* Fixed: Affiliate commission registered email notification not being sent in certain conditions.
 
 = 1.1.28 =
 * New: Added the "Commission Statuses Display" setting, allowing admins to select which commission statuses appear in the commissions table on the affiliate account.

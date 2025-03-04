@@ -52,9 +52,9 @@ add_filter( 'slicewp_available_email_notification', 'slicewp_email_notification_
 function slicewp_send_email_notification_admin_new_commission_registered( $commission_id = 0, $commission_data = array() ) {
 
 	// Verify if the notification request comes from backend.
-	if ( is_admin() ) {
-		return;
-	}
+	if ( slicewp_verify_request_action( 'add_commission' ) ) {
+        return;
+    }
 
 	// Verify received arguments not to be empty.
 	if ( empty( $commission_id ) ) {
