@@ -269,6 +269,7 @@ function slicewp_insert_pending_commission_edd( $payment_id, $payment_data ) {
 				'type' 		   => ! empty( $cart_item['item_number']['options']['recurring'] ) ? 'subscription' : 'sale',
 				'affiliate_id' => $affiliate_id,
 				'product_id'   => $cart_item['id'],
+				'quantity'	   => $cart_item['quantity'],
 				'customer_id'  => $customer_id
 			);
 

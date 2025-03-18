@@ -1,35 +1,38 @@
 <?php
 
-// Exit if accessed directly
+// Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 
 /**
- * Includes the files needed for the commissions
+ * Includes the files needed for the commissions.
  *
  */
 function slicewp_include_files_commission() {
 
-	// Get commission dir path
+	// Get commission dir path.
 	$dir_path = plugin_dir_path( __FILE__ );
 
-	// Include main commission class
-	if( file_exists( $dir_path . 'class-commission.php' ) )
+	// Include main commission class.
+	if ( file_exists( $dir_path . 'class-commission.php' ) ) {
 		include $dir_path . 'class-commission.php';
+	}
 
-	// Include the db layer classes
-	if( file_exists( $dir_path . 'class-object-db-commissions.php' ) )
+	// Include the db layer classes.
+	if ( file_exists( $dir_path . 'class-object-db-commissions.php' ) ) {
 		include $dir_path . 'class-object-db-commissions.php';
+	}
 
-	if( file_exists( $dir_path . 'class-object-meta-db-commissions.php' ) )
+	if ( file_exists( $dir_path . 'class-object-meta-db-commissions.php' ) ) {
 		include $dir_path . 'class-object-meta-db-commissions.php';
+	}
 
 }
 add_action( 'slicewp_include_files', 'slicewp_include_files_commission' );
 
 
 /**
- * Register the class that handles database queries for the commissions
+ * Register the class that handles database queries for the commissions.
  *
  * @param array $classes
  *
@@ -48,7 +51,7 @@ add_filter( 'slicewp_register_database_classes', 'slicewp_register_database_clas
 
 
 /**
- * Returns an array with SliceWP_Commission objects from the database
+ * Returns an array with SliceWP_Commission objects from the database.
  *
  * @param array $args
  * @param bool  $count
@@ -61,7 +64,7 @@ function slicewp_get_commissions( $args = array(), $count = false ) {
 	$commissions = slicewp()->db['commissions']->get_commissions( $args, $count );
 
 	/**
-	 * Add a filter hook just before returning
+	 * Add a filter hook just before returning.
 	 *
 	 * @param array $commissions
 	 * @param array $args
@@ -74,7 +77,7 @@ function slicewp_get_commissions( $args = array(), $count = false ) {
 
 
 /**
- * Gets a commission from the database
+ * Gets a commission from the database.
  *
  * @param mixed int|object      - commission id or object representing the commission
  *
@@ -89,7 +92,7 @@ function slicewp_get_commission( $commission ) {
 
 
 /**
- * Inserts a new commission into the database
+ * Inserts a new commission into the database.
  *
  * @param array $data
  *
@@ -104,7 +107,7 @@ function slicewp_insert_commission( $data ) {
 
 
 /**
- * Updates a commission from the database
+ * Updates a commission from the database.
  *
  * @param int 	$commission_id
  * @param array $data
@@ -155,7 +158,7 @@ function slicewp_delete_commission( $commission_id ) {
 
 
 /**
- * Inserts a new meta entry for the commission
+ * Inserts a new meta entry for the commission.
  *
  * @param int    $commission_id
  * @param string $meta_key
@@ -173,7 +176,7 @@ function slicewp_add_commission_meta( $commission_id, $meta_key, $meta_value, $u
 
 
 /**
- * Updates a meta entry for the commission
+ * Updates a meta entry for the commission.
  *
  * @param int    $commission_id
  * @param string $meta_key
@@ -191,7 +194,7 @@ function slicewp_update_commission_meta( $commission_id, $meta_key, $meta_value,
 
 
 /**
- * Returns a meta entry for the commission
+ * Returns a meta entry for the commission.
  *
  * @param int    $commission_id
  * @param string $meta_key
@@ -208,7 +211,7 @@ function slicewp_get_commission_meta( $commission_id, $meta_key = '', $single = 
 
 
 /**
- * Removes a meta entry for the commission
+ * Removes a meta entry for the commission.
  *
  * @param int    $commission_id
  * @param string $meta_key
@@ -226,7 +229,7 @@ function slicewp_delete_commission_meta( $commission_id, $meta_key, $meta_value 
 
 
 /**
- * Returns an array with the possible statuses the Commission can have
+ * Returns an array with the possible statuses the Commission can have.
  *
  * @return array
  *
@@ -241,7 +244,7 @@ function slicewp_get_commission_available_statuses() {
 	);
 
 	/**
-	 * Filter the available statuses just before returning
+	 * Filter the available statuses just before returning.
 	 *
 	 * @param array $statuses
 	 *
@@ -254,7 +257,7 @@ function slicewp_get_commission_available_statuses() {
 
 
 /**
- * Returns all available commission types
+ * Returns all available commission types.
  *
  * @return array
  *
@@ -273,7 +276,7 @@ function slicewp_get_commission_types() {
 	);
 
 	/**
-	 * Filter to register more commission types
+	 * Filter to register more commission types.
 	 *
 	 * @param array $commission_date_types
 	 *
@@ -286,7 +289,7 @@ function slicewp_get_commission_types() {
 
 
 /**
- * Returns the rate types supported by the given commission type
+ * Returns the rate types supported by the given commission type.
  *
  * @param string $commission_type
  *
@@ -302,18 +305,19 @@ function slicewp_get_commission_type_rate_types( $commission_type ) {
 
 	$commission_types = slicewp_get_commission_types();
 
-	// Return empty string if the commission type doesn't support rate types
-	if( empty( $commission_types[$commission_type]['rate_types'] ) )
+	// Return empty string if the commission type doesn't support rate types.
+	if ( empty( $commission_types[$commission_type]['rate_types'] ) ) {
 		return array();
+	}
 	
-	// Return only rate types that match keys
+	// Return only rate types that match keys.
 	return array_intersect_key( $rate_types, array_flip( $commission_types[$commission_type]['rate_types'] ) );
 	
 }
 
 
 /**
- * Returns the commision types that are available, based on what integration is available or active
+ * Returns the commision types that are available, based on what integration is available or active.
  *
  * @param bool   $only_active  - whether to return only for integrations that are enabled/active or for all existing integrations
  * @param string $default_type - if the returned value ends up being empty, add a default so that something is returned
@@ -326,22 +330,25 @@ function slicewp_get_available_commission_types( $only_active = false, $default_
 	$commission_types 		 	= slicewp_get_commission_types();
 	$available_commistion_types = array();
 
-	// Go through each integration and check the supports array for commission rate types
-	foreach( slicewp()->integrations as $integration_slug => $integration ) {
+	// Go through each integration and check the supports array for commission rate types.
+	foreach ( slicewp()->integrations as $integration_slug => $integration ) {
 
 		$supports = $integration->get( 'supports' );
 
-		if( empty( $supports['commission_types'] ) || ! is_array( $supports['commission_types'] ) )
+		if ( empty( $supports['commission_types'] ) || ! is_array( $supports['commission_types'] ) ) {
 			continue;
+		}
 
-		if( $only_active && ! slicewp_is_integration_active( $integration_slug ) )
+		if ( $only_active && ! slicewp_is_integration_active( $integration_slug ) ) {
 			continue;
+		}
 
-		// Go through each commission rate types from the integration's supports array
-		foreach( $supports['commission_types'] as $type_slug ) {
+		// Go through each commission rate types from the integration's supports array.
+		foreach ( $supports['commission_types'] as $type_slug ) {
 
-			if( ! array_key_exists( $type_slug, $commission_types ) )
+			if ( ! array_key_exists( $type_slug, $commission_types ) ) {
 				continue;
+			}
 
 			$available_commistion_types[$type_slug] = $commission_types[$type_slug];
 
@@ -349,8 +356,8 @@ function slicewp_get_available_commission_types( $only_active = false, $default_
 
 	}
 
-	// Set default if nothing is active
-	if( empty( $available_commistion_types ) && ! empty( $default_type ) && ! empty( $commission_types[$default_type] ) ) {
+	// Set default if nothing is active.
+	if ( empty( $available_commistion_types ) && ! empty( $default_type ) && ! empty( $commission_types[$default_type] ) ) {
 
 		$available_commistion_types[$default_type] = $commission_types[$default_type];
 
@@ -362,7 +369,7 @@ function slicewp_get_available_commission_types( $only_active = false, $default_
 
 
 /**
- * Checks to see if the commissions are set to be calculated on a per order basis
+ * Checks to see if the commissions are set to be calculated on a per order basis.
  *
  * @return bool
  *
@@ -371,15 +378,16 @@ function slicewp_is_commission_basis_per_order() {
 
 	$return = false;
 
-	if( 'fixed_amount' == slicewp_get_setting( 'commission_rate_type_sale' ) ) {
+	if ( 'fixed_amount' == slicewp_get_setting( 'commission_rate_type_sale' ) ) {
 
-		if( 'order' == slicewp_get_setting( 'commission_fixed_amount_rate_basis' ) )
+		if ( 'order' == slicewp_get_setting( 'commission_fixed_amount_rate_basis' ) ) {
 			$return = true;
+		}
 
 	}
 
 	/**
-	 * Filters the value just before returning it
+	 * Filters the value just before returning it.
 	 *
 	 * @param bool $return
 	 *

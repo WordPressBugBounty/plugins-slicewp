@@ -175,8 +175,7 @@ function slicewp_get_referrer_visit_id() {
 
 
 /**
- * Calculates the commission amount for a given base amount taking into account
- * the passed arguments
+ * Calculates the commission amount for a given base amount taking into account the passed arguments.
  *
  * @param float $amount
  * @param array $args
@@ -198,6 +197,13 @@ function slicewp_calculate_commission_amount( $amount, $args = array() ) {
 	$rate_type = slicewp_get_setting( 'commission_rate_type_' . $args['type'] );
 
 	$commission_amount = ( $rate_type == 'percentage' ? round( ( $amount * $rate / 100 ), 2 ) : $rate );
+
+	// Calculate the commission amount for fixed amounts per product.
+	if ( $args['type'] == 'sale' && $rate_type == 'fixed_amount' && slicewp_get_setting( 'commission_fixed_amount_rate_basis' ) == 'product' ) {
+
+		$commission_amount = $rate * ( ! empty( $args['quantity'] ) ? $args['quantity'] : 1 );
+
+	}
 
 	/**
 	 * Filter the commission amount before returning it.

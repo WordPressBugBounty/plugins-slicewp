@@ -251,6 +251,7 @@ function slicewp_insert_pending_commission_woo( $order ) {
 				'type' 		   => $product->is_type( array( 'subscription', 'variable-subscription', 'subscription_variation' ) ) ? 'subscription' : 'sale',
 				'affiliate_id' => $affiliate_id,
 				'product_id'   => $product_id,
+				'quantity'	   => $cart_item->get_quantity( 'edit' ),
 				'customer_id'  => $customer_id
 			);
 
