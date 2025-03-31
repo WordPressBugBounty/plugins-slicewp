@@ -10,6 +10,9 @@ add_filter( 'slicewp_list_table_payout_commissions_column_reference', 'slicewp_l
 // Insert a new pending commission.
 add_action( 'pms_register_payment', 'slicewp_insert_pending_commission_pms', 10, 1 );
 
+// Checks whether the referring customer of the affiliate referrer is a new customer or not.
+add_action( 'slicewp_referrer_affiliate_id_pms', 'slicewp_validate_referrer_affiliate_id_new_customer_pms', 15, 2 );
+
 // Update the status of the commission to "unpaid", thus marking it as complete.
 add_action( 'pms_payment_update', 'slicewp_accept_pending_commission_pms', 10, 3 );
 
@@ -579,6 +582,36 @@ function slicewp_save_product_commission_settings_pms( $post_id, $post ) {
         delete_post_meta( $post_id, 'slicewp_disable_commissions' );
 
     }
+
+}
+
+
+/**
+ * Checks whether the referring customer of the affiliate referrer is a new customer or not.
+ * If they are, the affiliate referrer is no longer valid.
+ * 
+ * @param int $affiliate_id
+ * @param int $payment_id
+ * 
+ * @return int
+ * 
+ */
+function slicewp_validate_referrer_affiliate_id_new_customer_pms( $affiliate_id, $payment_id ) {
+
+	if ( empty( slicewp_get_setting( 'new_customer_commissions_only' ) ) ) {
+		return $affiliate_id;
+	}
+
+	$payment = pms_get_payment( $payment_id );
+
+	if ( empty( $payment->user_id ) ) {
+		return $affiliate_id;
+	}
+
+	// Get customer's order count.
+	$orders_count = pms_get_payments_count( array( 'user_id' => $payment->user_id ) );
+
+	return ( $orders_count > 1 ? 0 : $affiliate_id );
 
 }
 

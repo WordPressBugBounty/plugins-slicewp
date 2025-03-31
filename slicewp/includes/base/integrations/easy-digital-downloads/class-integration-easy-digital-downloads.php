@@ -27,7 +27,8 @@ Class SliceWP_Integration_Easy_Digital_Downloads extends SliceWP_Integration {
 		 *
 		 */
 		$supports = array(
-			'commission_types' => array( 'sale' )
+			'commission_types' 				=> array( 'sale' ),
+			'new_customer_commissions_only' => true
 		);
 
 		/**

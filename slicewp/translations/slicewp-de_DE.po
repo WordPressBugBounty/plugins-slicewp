@@ -2,19 +2,21 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SliceWP\n"
 "POT-Creation-Date: 2025-02-19 11:14+0200\n"
-"PO-Revision-Date: 2025-02-19 11:19+0200\n"
+"PO-Revision-Date: 2025-03-25 13:00+0000\n"
 "Last-Translator: \n"
-"Language-Team: BullMedia\n"
+"Language-Team: German\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.2.2\n"
-"X-Poedit-Basepath: ../../../development/web projects/slicewp/wp-content/"
-"plugins/slicewp\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Poedit-Basepath: ../../../development/web projects/slicewp/wp-"
+"content/plugins/slicewp\n"
 "X-Poedit-KeywordsList: __\n"
 "X-Poedit-SearchPath-0: .\n"
+"Report-Msgid-Bugs-To: \n"
+"X-Loco-Version: 2.7.1; wp-6.7.2"
 
 #: slicewp-pro/add-ons/affiliate-coupons/includes/base/functions.php:58
 msgid "Coupons"
@@ -652,8 +654,8 @@ msgstr "Aktion"
 #: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:686
 #, php-format
 msgid ""
-"%sImportant note%s: Keys can only contain lower case alphanumeric "
-"characters, underscores and hyphens."
+"%sImportant note%s: Keys can only contain lower case alphanumeric characters,"
+" underscores and hyphens."
 msgstr ""
 
 #: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:539
@@ -4609,8 +4611,8 @@ msgstr ""
 #| "paid. Are you sure you want to continue?"
 msgid ""
 "This will mark this payment as paid, add the payment amount to the "
-"affiliate's store credit balance and mark all associated commissions as "
-"paid. Are you sure you want to continue?"
+"affiliate's store credit balance and mark all associated commissions as paid."
+" Are you sure you want to continue?"
 msgstr ""
 "Dadurch werden alle unbezahlten und fehlgeschlagenen Zahlungen für diese "
 "Auszahlung als bezahlt markiert. Alle Provisionen im Zusammenhang mit diesen "
@@ -4766,8 +4768,8 @@ msgstr ""
 msgid ""
 "Something went wrong. Could not add the affiliate group. Please try again."
 msgstr ""
-"Irgendetwas ist schief gelaufen. Der Partner konnte nicht hinzugefügt "
-"werden. Bitte versuche es erneut."
+"Irgendetwas ist schief gelaufen. Der Partner konnte nicht hinzugefügt werden."
+" Bitte versuche es erneut."
 
 #: slicewp-pro/includes/admin/affiliates/functions-actions-affiliate-groups.php:127
 #: slicewp-pro/includes/admin/affiliates/functions-actions-affiliate-groups.php:140
@@ -5698,8 +5700,8 @@ msgstr "Der ausgewählte Typ ist nicht zulässig."
 #: slicewp/includes/admin/affiliates/functions-actions-affiliates.php:166
 msgid "Something went wrong. Could not add the affiliate. Please try again."
 msgstr ""
-"Irgendetwas ist schief gelaufen. Der Partner konnte nicht hinzugefügt "
-"werden. Bitte versuche es erneut."
+"Irgendetwas ist schief gelaufen. Der Partner konnte nicht hinzugefügt werden."
+" Bitte versuche es erneut."
 
 #: slicewp/includes/admin/affiliates/functions-actions-affiliates.php:201
 #: slicewp/includes/admin/affiliates/functions-actions-affiliates.php:297
@@ -6068,8 +6070,8 @@ msgstr "Bitte wähle den Status der neuen Provision aus."
 msgid ""
 "Something went wrong. Could not delete the commission. Please try again."
 msgstr ""
-"Irgendetwas ist schief gelaufen. Die Kommission konnte nicht gelöscht "
-"werden. Bitte versuche es erneut."
+"Irgendetwas ist schief gelaufen. Die Kommission konnte nicht gelöscht werden."
+" Bitte versuche es erneut."
 
 #: slicewp/includes/admin/commissions/views/view-add-commission.php:13
 msgid "Add a New Commission"
@@ -6885,8 +6887,8 @@ msgstr ""
 #: slicewp/includes/admin/payouts/functions-actions-payouts.php:441
 msgid "Something went wrong. Could not delete the payout. Please try again."
 msgstr ""
-"Irgendetwas ist schief gelaufen. Die Auszahlung konnte nicht gelöscht "
-"werden. Bitte versuche es erneut."
+"Irgendetwas ist schief gelaufen. Die Auszahlung konnte nicht gelöscht werden."
+" Bitte versuche es erneut."
 
 #: slicewp/includes/admin/payouts/functions.php:64
 #: slicewp/includes/admin/payouts/functions.php:65
@@ -8205,12 +8207,12 @@ msgstr "Ein paar wesentliche Dinge, die wir einrichten müssen"
 #| "worry, you can change them later."
 msgid ""
 "Please set up the following options that are at the core of your affiliate "
-"program. If you're not quite sure how you want these options set don't "
-"worry, you can change them later."
+"program. If you're not quite sure how you want these options set don't worry,"
+" you can change them later."
 msgstr ""
-"Richte die folgenden Optionen ein, die den Kern des Partner-Programms "
-"bilden. Wenn du nicht ganz sicher bist, wie diese Optionen festgelegt werden "
-"sollen, mache dir keine Sorgen, du kannst sie später ändern."
+"Richte die folgenden Optionen ein, die den Kern des Partner-Programms bilden."
+" Wenn du nicht ganz sicher bist, wie diese Optionen festgelegt werden sollen,"
+" mache dir keine Sorgen, du kannst sie später ändern."
 
 #: slicewp/includes/admin/setup-wizard/views/view-setup-wizard.php:194
 #: slicewp/includes/admin/setup-wizard/views/view-setup-wizard.php:320
@@ -17194,268 +17196,3 @@ msgstr ""
 #: slicewp/templates/affiliate-area/reset-password-form.php:55
 msgid "Save new password"
 msgstr ""
-
-#, fuzzy
-#~| msgid "Affiliate Own Commissions"
-#~ msgid "Disable Recurring Commissions"
-#~ msgstr "Provisionen für Partner Einkäufe"
-
-#, fuzzy
-#~| msgid "Welcome your affiliates"
-#~ msgid "Say hello to affiliate payout requests!"
-#~ msgstr "Willkommen zu deinen Partnern"
-
-#~ msgid "Progress"
-#~ msgstr "Fortschritt"
-
-#~ msgid "Please insert a Cookie Duration greater than 0."
-#~ msgstr "Bitte füge eine Cookie-Dauer größer als 0 ein."
-
-#~ msgid "Please fill in the Affiliate Keyword."
-#~ msgstr "Bitte fülle das Partner-Schlüsselwort aus."
-
-#~ msgid "Please fill in From Name."
-#~ msgstr "Bitte gib einen von Name ein."
-
-#~ msgid "Please fill in the Admin Emails."
-#~ msgstr "Bitte fülle die Admin-E-Mails aus."
-
-#~ msgid "Please fill in valid Admin Emails."
-#~ msgstr "Bitte gib eine gültige Admin-E-Mails an."
-
-#~ msgid "Action"
-#~ msgstr "Aktion"
-
-#~ msgid "Affiliate name"
-#~ msgstr "Partner-Name"
-
-#, fuzzy
-#~| msgid "Welcome your affiliates"
-#~ msgid "Say hello to performance bonuses!"
-#~ msgstr "Willkommen zu deinen Partnern"
-
-#~ msgid ""
-#~ "The payment will be generated only if its commissions sum is greater than "
-#~ "this value. If is set to 0, the payments will be generated for all the "
-#~ "commissions."
-#~ msgstr ""
-#~ "Die Zahlung wird nur generiert, wenn die Summe der Provision größer als "
-#~ "dieser Wert ist. Wenn auf 0 gesetzt ist, werden die Zahlungen für alle "
-#~ "Provisionen generiert."
-
-#, fuzzy
-#~| msgid "Default Template"
-#~ msgid "Default Tweet"
-#~ msgstr "Standardvorlage"
-
-#~ msgid ""
-#~ "Your activation limit for this license key has been reached. Please "
-#~ "upgrade your account if you'd like to register more websites."
-#~ msgstr ""
-#~ "Dein Aktivierungslimit für diesen Lizenzschlüssel wurde erreicht. Bitte "
-#~ "aktualisiere dein Konto, wenn du weitere Websites registrieren möchtest."
-
-#~ msgid "Type the affiliate's email or name..."
-#~ msgstr "E-Mail oder den Namen des Partners eingeben."
-
-#~ msgid "Image Preview"
-#~ msgstr "Bild Vorschau"
-
-#, php-format
-#~ msgid "Creative: %s"
-#~ msgstr "Werbemittel: %s"
-
-#, fuzzy
-#~| msgid "Affiliate Login Page"
-#~ msgid "Affiliate Landing Pages"
-#~ msgstr "Partner Login Seite"
-
-#, fuzzy
-#~| msgid "Enable Logging"
-#~ msgid "Enable"
-#~ msgstr "Protokollierung aktivieren"
-
-#~ msgid ""
-#~ "Something went wrong. Could not connect to the server to retrieve the add-"
-#~ "ons. Please refresh the page to try again."
-#~ msgstr ""
-#~ "Irgendetwas ist schief gelaufen. Es konnte keine Verbindung zum Server "
-#~ "hergestellt werden, um die Add-Ons abzurufen. Aktualisieren Sie die "
-#~ "Seite, um es erneut zu versuchen."
-
-#~ msgid "Continue setting up SliceWP"
-#~ msgstr "SliceWP weiter einrichten"
-
-#~ msgid ""
-#~ "The setup wizard covers only the few essential options you need to start. "
-#~ "You can add more or refine the existing ones to cater to your needs."
-#~ msgstr ""
-#~ "Der Setup-Assistent deckt nur die wenigen wichtigen Optionen ab, die du "
-#~ "zum Starten benötigst. Du kannst weitere hinzufügen oder die vorhandenen "
-#~ "verfeinern, um deinen Anforderungen gerecht zu werden."
-
-#~ msgid "Review Settings"
-#~ msgstr "Einstellungen überprüfen"
-
-#~ msgid "Continue to your admin dashboard"
-#~ msgstr "Weiter zum Admin-Dashboard"
-
-#~ msgid ""
-#~ "If all looks good here, head over to your admin dashboard to continue "
-#~ "managing your website."
-#~ msgstr ""
-#~ "Wenn hier alles gut aussieht, gehe zum Admin-Dashboard, um deine Website "
-#~ "weiter zu verwalten."
-
-#~ msgid "Visit Dashboard"
-#~ msgstr "Dashboard aufrufen"
-
-#~ msgid ""
-#~ "Welcome to the setup wizard! Ready to get your affiliate program up and "
-#~ "running?"
-#~ msgstr ""
-#~ "Willkommen beim Setup-Assistenten! Bereit, dein Partner-Programm in "
-#~ "Betrieb zu nehmen?"
-
-#~ msgid ""
-#~ "Upgrade to Pro and expand your affiliate program with these premium add-"
-#~ "ons."
-#~ msgstr ""
-#~ "Upgrade auf Pro und das Partner Programm kann mit diesen Premium Add-ons "
-#~ "erweitert werden."
-
-#~ msgid "View Pricing"
-#~ msgstr "Preise ansehen"
-
-#~ msgid "An affiliate attached to the selected user already exists."
-#~ msgstr ""
-#~ "Ein Partner, der dem ausgewählten Benutzer zugeordnet ist, ist bereits "
-#~ "vorhanden."
-
-#~ msgid "Please fill in the Payment Email."
-#~ msgstr "Bitte gib eine Email-Adresse für Zahlungen ein."
-
-#~ msgid "Please fill in a valid Payment Email."
-#~ msgstr "Bitte gib eine gültige Email-Adresse für Zahlungen ein."
-
-#~ msgid "Affiliate Message"
-#~ msgstr "Partner Nachricht"
-
-#, fuzzy
-#~ msgid "<a href=\""
-#~ msgstr "<a href=\"%s\">ansehen</a>"
-
-#~ msgid "Not enough commissions to generate a payment."
-#~ msgstr "Nicht genügend Provisionen, um eine Zahlung zu generieren."
-
-#~ msgid "Please fill in the \"Start Date\" and \"End Date\" fields."
-#~ msgstr "Bitte fülle die Felder \"Startdatum\" und \"Enddatum\" aus."
-
-#~ msgid ""
-#~ "Entering an affiliate name will create a payment only for the selected "
-#~ "affiliate. Leaving it blank will create payments for all the affiliates."
-#~ msgstr ""
-#~ "Wenn du einen Partner-Namen eingibst, wird nur für den ausgewählten "
-#~ "Partner eine Zahlung erstellt. Wenn du keinen eingibst, werden Zahlungen "
-#~ "für alle verbundenen Partner erstellt."
-
-#~ msgid "John Doe"
-#~ msgstr "Max Mustermann"
-
-#~ msgid "Start Date"
-#~ msgstr "Startdatum"
-
-#~ msgid "End Date"
-#~ msgstr "Datum"
-
-#~ msgid ""
-#~ "The payment will be generated only if its commissions sum is greater than "
-#~ "this value. If is set to 0, the payments will be generated for all the "
-#~ "commissions.\t"
-#~ msgstr ""
-#~ "Die Zahlung wird nur generiert, wenn die Provisionssumme größer als "
-#~ "dieser Wert ist. Wenn auf 0 gesetzt ist, werden die Zahlungen für alle "
-#~ "Provisionen generiert.\t"
-
-#~ msgid "Minimum Amount"
-#~ msgstr "Mindestbetrag"
-
-#~ msgid "Select the email notification you want to modify"
-#~ msgstr "Wähle die E-Mail-Benachrichtigung aus, die geändert werden soll"
-
-#~ msgid "Admin"
-#~ msgstr "Administrator"
-
-#~ msgid "Send the email?"
-#~ msgstr "E-Mail senden?"
-
-#~ msgid "Affiliate Login"
-#~ msgstr "Partner Login"
-
-#~ msgid ""
-#~ "Affiliates are the backbone of any affiliate program. Already have an "
-#~ "affiliate partner in the waiting list? You can add them manually here."
-#~ msgstr ""
-#~ "Partner sind das Rückgrat jedes Partner-Programms. Hast du bereits einen "
-#~ "Partner auf der Warteliste? Du kannst ihn hier manuell hinzufügen."
-
-#~ msgid "no"
-#~ msgstr "nein"
-
-#~ msgid "yes"
-#~ msgstr "ja"
-
-#~ msgid ""
-#~ " Allow SliceWP to anonymously track the plugin's usage. Data provided by "
-#~ "this tracking can help us improve the plugin and provide better features."
-#~ msgstr ""
-#~ "Erlauben Sie SliceWP, die Verwendung des Plugins anonym zu verfolgen. "
-#~ "Daten, die von diesem Tracking zur Verfügung gestellt werden, können uns "
-#~ "dabei helfen, das Plugin zu verbessern und bessere Funktionen zur "
-#~ "Verfügung zu stellen."
-
-#~ msgid "Sensitive data will not be tracked."
-#~ msgstr "Sensible Daten werden nicht nachverfolgt."
-
-#~ msgid "User Signup"
-#~ msgstr "Benutzer Anmeldung"
-
-#~ msgid "Email Subscribe"
-#~ msgstr "E-Mail Abonnement"
-
-#~ msgid "Please fill in your Username."
-#~ msgstr "Bitte gib deinen Benutzernamen ein."
-
-#~ msgid "Please fill in your First Name."
-#~ msgstr "Bitte gib deinen Vornamen ein."
-
-#~ msgid "Please fill in your Last Name."
-#~ msgstr "Bitte gib deinen Nachnamen ein."
-
-#~ msgid "Please fill in your Email."
-#~ msgstr "Bitte gib deine E-Mail Adresse an."
-
-#~ msgid "Please fill in a valid Email."
-#~ msgstr "Bitte gib eine gültige E-Mail Adresse an."
-
-#~ msgid "Please fill in your Payment Email."
-#~ msgstr "Bitte gib deine Zahlungs E-Mail Adresse an."
-
-#~ msgid "Please fill in your Website."
-#~ msgstr "Bitte fülle deine Website aus."
-
-#~ msgid "Please provide a valid Website URL."
-#~ msgstr "Bitte gib eine gültige Website URL an."
-
-#~ msgid "Please fill how you will promote us."
-#~ msgstr "Wie wirst Du uns bewerben?"
-
-#~ msgid "You are not logged in!"
-#~ msgstr "Du bist nicht eingeloggt!"
-
-#, php-format
-#~ msgid "<a href=\"%s\">view</a>"
-#~ msgstr "<a href=\"%s\">ansehen</a>"
-
-#~ msgid "Docs"
-#~ msgstr "Dokumentation"

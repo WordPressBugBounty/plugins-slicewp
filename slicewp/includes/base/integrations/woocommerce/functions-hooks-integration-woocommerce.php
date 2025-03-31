@@ -1,13 +1,13 @@
 <?php
 
-// Exit if accessed directly
+// Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-// Add commission table reference column edit screen link
+// Add commission table reference column edit screen link.
 add_filter( 'slicewp_list_table_commissions_column_reference', 'slicewp_list_table_commissions_add_reference_edit_link_woo', 10, 2 );
 add_filter( 'slicewp_list_table_payout_commissions_column_reference', 'slicewp_list_table_commissions_add_reference_edit_link_woo', 10, 2 );
 
-// Insert a new pending commission
+// Insert a new pending commission.
 add_action( 'woocommerce_checkout_update_order_meta', 'slicewp_insert_pending_commission_woo', 10, 1 );
 
 if ( defined( 'WC_VERSION' ) && version_compare( WC_VERSION, '6.4.0', '>=' ) ) {
@@ -15,6 +15,9 @@ if ( defined( 'WC_VERSION' ) && version_compare( WC_VERSION, '6.4.0', '>=' ) ) {
 } else {
 	add_action( 'woocommerce_blocks_checkout_order_processed', 'slicewp_insert_pending_commission_woo' );
 }
+
+// Checks whether the referring customer of the affiliate referrer is a new customer or not.
+add_action( 'slicewp_referrer_affiliate_id_woo', 'slicewp_validate_referrer_affiliate_id_new_customer_woo', 15, 2 );
 
 // Update the status of the commission to "unpaid", thus marking it as complete
 add_action( 'woocommerce_order_status_completed', 'slicewp_accept_pending_commission_woo', 10, 1 );
@@ -975,6 +978,42 @@ function slicewp_save_product_category_commission_settings_woo( $category_id ) {
         delete_term_meta( $category_id, 'slicewp_disable_commissions' );
     
     }
+
+}
+
+
+/**
+ * Checks whether the referring customer of the affiliate referrer is a new customer or not.
+ * If they are, the affiliate referrer is no longer valid.
+ * 
+ * @param int $affiliate_id
+ * @param int $order_id
+ * 
+ * @return int
+ * 
+ */
+function slicewp_validate_referrer_affiliate_id_new_customer_woo( $affiliate_id, $order_id ) {
+
+	if ( empty( slicewp_get_setting( 'new_customer_commissions_only' ) ) ) {
+		return $affiliate_id;
+	}
+
+	// Get current order.
+	$order = wc_get_order( $order_id );
+
+	if ( empty( $order ) ) {
+		return $affiliate_id;
+	}
+
+	// Get customer's order count.
+	if ( ! empty( $order->get_customer_id() ) ) {
+		$orders_count = wc_get_customer_order_count( $order->get_customer_id() );
+	} else {
+		$orders_count = count( wc_get_orders( array( 'billing_email' => $order->get_billing_email(), 'limit' => 2 ) ) );
+	}
+
+	return ( $orders_count > 1 ? 0 : $affiliate_id );
+
 }
 
 

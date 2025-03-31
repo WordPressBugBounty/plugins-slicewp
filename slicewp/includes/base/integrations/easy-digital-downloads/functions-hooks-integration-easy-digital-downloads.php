@@ -10,6 +10,9 @@ add_filter( 'slicewp_list_table_payout_commissions_column_reference', 'slicewp_l
 // Insert a new pending commission
 add_action( 'edd_insert_payment', 'slicewp_insert_pending_commission_edd', 10, 2 );
 
+// Checks whether the referring customer of the affiliate referrer is a new customer or not.
+add_action( 'slicewp_referrer_affiliate_id_edd', 'slicewp_validate_referrer_affiliate_id_new_customer_edd', 15, 2 );
+
 // Update the status of the commission to "unpaid", thus marking it as complete
 add_action( 'edd_complete_purchase', 'slicewp_accept_pending_commission_edd', 10, 1 );
 
@@ -42,7 +45,7 @@ add_action( 'init', 'slicewp_add_rewrite_rules_edd' );
 
 
 /**
- * Adds the edit screen link to the reference column value from the commissions list table
+ * Adds the edit screen link to the reference column value from the commissions list table.
  *
  * @param string $output
  * @param array  $item
@@ -52,18 +55,21 @@ add_action( 'init', 'slicewp_add_rewrite_rules_edd' );
  */
 function slicewp_list_table_commissions_add_reference_edit_link_edd( $output, $item ) {
 
-	if ( empty( $item['reference'] ) )
+	if ( empty( $item['reference'] ) ) {
 		return $output;
+	}
 
-	if ( empty( $item['origin'] ) || $item['origin'] != 'edd' )
+	if ( empty( $item['origin'] ) || $item['origin'] != 'edd' ) {
 		return $output;
+	}
 
-    // Get the payment
+    // Get the payment.
     $payment = edd_get_payment( $item['reference'] );
 
-	// Create link to payment only if the payment exists
-    if ( ! empty( $payment->ID ) )
+	// Create link to payment only if the payment exists.
+    if ( ! empty( $payment->ID ) ) {
 		$output = '<a href="' . esc_url( add_query_arg( array( 'post_type' => 'download', 'page' => 'edd-payment-history', 'view' => 'view-order-details', 'id' => $item['reference'] ), admin_url( 'edit.php' ) ) ) . '">' . $item['reference'] . '</a>';
+	}
 
 	return $output;
 
@@ -735,11 +741,47 @@ function slicewp_save_category_commission_settings_edd( $category_id ) {
         delete_term_meta( $category_id, 'slicewp_disable_commissions' );
     
     }
+
 }
 
 
 /**
- * Adds the reference amount in the commission data
+ * Checks whether the referring customer of the affiliate referrer is a new customer or not.
+ * If they are, the affiliate referrer is no longer valid.
+ * 
+ * @param int $affiliate_id
+ * @param int $order_id
+ * 
+ * @return int
+ * 
+ */
+function slicewp_validate_referrer_affiliate_id_new_customer_edd( $affiliate_id, $order_id ) {
+
+	if ( empty( slicewp_get_setting( 'new_customer_commissions_only' ) ) ) {
+		return $affiliate_id;
+	}
+
+	// Get current order.
+	$order = edd_get_order( $order_id );
+
+	if ( empty( $order ) ) {
+		return $affiliate_id;
+	}
+
+	// Get customer's order count.
+	if ( ! empty( $order->customer_id ) ) {
+		$orders_count = edd_count_orders( array( 'customer_id' => $order->customer_id ) );
+	} else {
+		$orders_count = edd_count_orders( array( 'email' => $order->email ) );
+	}
+
+	return ( $orders_count > 1 ? 0 : $affiliate_id );
+
+}
+
+
+/**
+ * Adds the reference amount in the commission data.
  * 
  * @param array $commission_data
  * 
@@ -748,36 +790,40 @@ function slicewp_save_category_commission_settings_edd( $category_id ) {
  */
 function slicewp_add_commission_data_reference_amount_edd( $commission_data ) {
 
-	if ( ! ( doing_action( 'slicewp_admin_action_add_commission' ) || doing_action( 'slicewp_admin_action_update_commission' ) ) )
+	if ( ! ( doing_action( 'slicewp_admin_action_add_commission' ) || doing_action( 'slicewp_admin_action_update_commission' ) ) ) {
 		return $commission_data;
+	}
 
-	// Check if the origin is Easy Digital Downloads
-	if ( 'edd' != $commission_data['origin'] )
+	// Check if the origin is Easy Digital Downloads.
+	if ( 'edd' != $commission_data['origin'] ) {
 		return $commission_data;
+	}
 
-	// Check if we have a reference
-	if ( empty( $commission_data['reference'] ) )
+	// Check if we have a reference.
+	if ( empty( $commission_data['reference'] ) ) {
 		return $commission_data;
+	}
 
-	// Get the payment
+	// Get the payment.
 	$payment = edd_get_payment( $commission_data['reference'] );
 
-	if ( empty( $payment ) )
+	if ( empty( $payment ) ) {
 		return $commission_data;
+	}
 
-	// Save the reference amount
+	// Save the reference amount.
 	$commission_data['reference_amount'] = slicewp_sanitize_amount( $payment->total );
 
-	// Return the updated commission data
+	// Return the updated commission data.
 	return $commission_data;
 
 }
 
 
 /**
- * Add the rewrite rules for the 'downloads' category
+ * Add the rewrite rules for the 'downloads' category.
  * 
- **/
+ */
 function slicewp_add_rewrite_rules_edd() {
 
 	// Get the affiliate keyword

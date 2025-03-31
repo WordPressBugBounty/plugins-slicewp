@@ -1,17 +1,17 @@
 <?php
 
-// Exit if accessed directly
+// Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 
 /**
- * Base class for all integrations
+ * Base class for all integrations.
  *
  */
 abstract Class SliceWP_Integration {
 
 	/**
-	 * The name of the integration
+	 * The name of the integration.
 	 *
 	 * @access protected
 	 * @var    string
@@ -20,7 +20,7 @@ abstract Class SliceWP_Integration {
 	protected $name = '';
 
 	/**
-	 * The supports array of the integration
+	 * The supports array of the integration.
 	 *
 	 * @access protected
 	 * @var    array
@@ -29,9 +29,9 @@ abstract Class SliceWP_Integration {
 	protected $supports = array();
 
 	/**
-	 * Constructor
+	 * Constructor.
 	 *
-	 * Subclasses should set the class properties
+	 * Subclasses should set the class properties.
 	 *
 	 * @access public
 	 *
@@ -39,17 +39,22 @@ abstract Class SliceWP_Integration {
 	public function __construct() {}
 
 	/**
-	 * Getter
+	 * Getter.
 	 *
 	 * @param string $property
 	 *
 	 */
 	public function get( $property = '' ) {
 
-		if( method_exists( $this, 'get_' . $property ) )
+		if ( method_exists( $this, 'get_' . $property ) ) {
+
 			return $this->{'get_' . $property}();
-		else
+
+		} else {
+
 			return $this->$property;
+
+		}
 
 	}
 

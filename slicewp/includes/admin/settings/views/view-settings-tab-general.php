@@ -260,6 +260,27 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 		</div><!-- / Exclude Tax -->
 
+		<!-- New Customers Only -->
+		<div class="slicewp-field-wrapper slicewp-field-wrapper-inline slicewp-tooltip-wide" style="display: none;">
+
+			<div class="slicewp-field-label-wrapper">
+				<label for="slicewp-new-customer-commissions-only">
+					<?php echo __( 'New Customers Only', 'slicewp' ); ?>
+					<?php echo slicewp_output_tooltip( '<p>' . __( "By default, affiliates earn a commission for every referred purchase. When this option is enabled, commissions will only be awarded for a customer's first purchase.", 'slicewp' ) . '</p><p>' . sprintf( __( "%sRecurring commissions%s and %slifetime commissions%s will not be affected by this option.", 'slicewp' ), '<a href="https://slicewp.com/products/recurring-commissions/" target="_blank">', '</a>', '<a href="https://slicewp.com/products/lifetime-commissions/" target="_blank">', '</a>' ) . '</p>' ); ?>
+				</label>
+			</div>
+
+			<div class="slicewp-switch">
+
+				<input id="slicewp-new-customer-commissions-only" class="slicewp-toggle slicewp-toggle-round" name="settings[new_customer_commissions_only]" type="checkbox" value="1" <?php checked( ! empty( $_POST['settings']['new_customer_commissions_only'] ) ? '1' : ( empty( $_POST ) ? slicewp_get_setting( 'new_customer_commissions_only' ) : '' ), '1' ); ?> />
+				<label for="slicewp-new-customer-commissions-only"></label>
+
+			</div>
+
+			<label for="slicewp-new-customer-commissions-only"><?php echo __( "Reward commissions only for customers' first purchase.", 'slicewp' ); ?></label>
+
+		</div><!-- / New Customers Only -->
+
 		<!-- Reject Unpaid Commissions on Refund -->
 		<div class="slicewp-field-wrapper slicewp-field-wrapper-inline">
 
@@ -741,7 +762,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 		</div><!-- / Affiliate Default Referral URL -->
 
 		<!-- Required registration fields -->
-		<div class="slicewp-field-wrapper slicewp-field-wrapper-inline slicewp-last">
+		<div class="slicewp-field-wrapper slicewp-field-wrapper-inline">
 
 			<div class="slicewp-field-label-wrapper">
 				<label>

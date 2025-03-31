@@ -987,7 +987,7 @@ jQuery( function($) {
         // Get all commission types from all integrations
         $('[id^="slicewp-integration-switch-"]').each( function() {
 
-            if( $(this).is( ':checked' ) ) {
+            if ( $(this).is( ':checked' ) ) {
 
                 var supports = JSON.parse( $(this).attr( 'data-supports' ) );
 
@@ -1020,6 +1020,36 @@ jQuery( function($) {
 
         // We need to trigger this change as there might be fields that have visibility dependent on this, for example the sale commission basis
         $('[id^="slicewp-commission-rate-"]').siblings('select').trigger( 'change' );
+
+    });
+
+    /**
+     * Page: Settings - shows/hides new customer only option based on the active integration supports.
+     *
+     */
+    $(document).on( 'change', '[id^="slicewp-integration-switch-"]', function() {
+
+        var show_option = false;
+
+        $('[id^="slicewp-integration-switch-"]').each( function() {
+
+            if ( $(this).is( ':checked' ) ) {
+
+                var supports = JSON.parse( $(this).attr( 'data-supports' ) );
+
+                if ( typeof supports['new_customer_commissions_only'] != 'undefined' && supports['new_customer_commissions_only'] == true ) {
+                    show_option = true;
+                }
+
+            }
+
+        });
+
+        if ( show_option ) {
+            $('[name="settings[new_customer_commissions_only]"]').closest( '.slicewp-field-wrapper' ).show();
+        } else {
+            $('[name="settings[new_customer_commissions_only]"]').closest( '.slicewp-field-wrapper' ).hide();
+        }
 
     });
     

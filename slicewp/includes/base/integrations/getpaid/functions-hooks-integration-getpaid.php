@@ -10,6 +10,9 @@ add_filter( 'slicewp_list_table_payout_commissions_column_reference', 'slicewp_l
 // Insert a new pending commission
 add_action( 'getpaid_new_invoice', 'slicewp_insert_pending_commission_gpd', 10 );
 
+// Checks whether the referring customer of the affiliate referrer is a new customer or not.
+add_action( 'slicewp_referrer_affiliate_id_gpd', 'slicewp_validate_referrer_affiliate_id_new_customer_gpd', 15, 2 );
+
 // Update the status of the commission to "unpaid", thus marking it as complete
 add_action( 'getpaid_invoice_status_publish', 'slicewp_accept_pending_commission_gpd', 10, 2 );
 
@@ -686,6 +689,41 @@ function slicewp_save_product_commission_settings_gpd( $post_id, $item ) {
 		delete_post_meta( $post_id, 'slicewp_disable_commissions' );
 
 	}
+
+}
+
+
+/**
+ * Checks whether the referring customer of the affiliate referrer is a new customer or not.
+ * If they are, the affiliate referrer is no longer valid.
+ * 
+ * @param int $affiliate_id
+ * @param int $invoice_id
+ * 
+ * @return int
+ * 
+ */
+function slicewp_validate_referrer_affiliate_id_new_customer_gpd( $affiliate_id, $invoice_id ) {
+
+	if ( empty( slicewp_get_setting( 'new_customer_commissions_only' ) ) ) {
+		return $affiliate_id;
+	}
+
+	// Get current invoice.
+	$invoice = wpinv_get_invoice( $invoice_id );
+
+	if ( empty( $invoice ) ) {
+		return $affiliate_id;
+	}
+
+	// Get customer's order count.
+	if ( ! empty( $invoice->get_user_id() ) ) {
+		$orders_count = count( wpinv_get_invoices( array( 'user' => $invoice->get_user_id(), 'posts_per_page' => 2, 'paginate' => false ) ) );
+	} else {
+		$orders_count = count( wpinv_get_invoices( array( 'email' => $invoice->get_email(), 'posts_per_page' => 2, 'paginate' => false ) ) );
+	}
+
+	return ( $orders_count > 1 ? 0 : $affiliate_id );
 
 }
 

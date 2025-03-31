@@ -1,40 +1,43 @@
 <?php
 
-// Exit if accessed directly
+// Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-// Add commission table reference column edit screen link
+// Add commission table reference column edit screen link.
 add_filter( 'slicewp_list_table_commissions_column_reference', 'slicewp_list_table_commissions_add_reference_edit_link_pmpro', 10, 2 );
 add_filter( 'slicewp_list_table_payout_commissions_column_reference', 'slicewp_list_table_commissions_add_reference_edit_link_pmpro', 10, 2 );
 
-// Insert a new pending/unpaid commission
+// Insert a new pending/unpaid commission.
 add_action( 'pmpro_added_order', 'slicewp_insert_commission_pmpro', 10, 1 );
 
-// Update the status of the commission to "unpaid", thus marking it as complete
+// Checks whether the referring customer of the affiliate referrer is a new customer or not.
+add_action( 'slicewp_referrer_affiliate_id_pmpro', 'slicewp_validate_referrer_affiliate_id_new_customer_pmpro', 15, 2 );
+
+// Update the status of the commission to "unpaid", thus marking it as complete.
 add_action( 'pmpro_updated_order', 'slicewp_accept_pending_commission_pmpro', 10, 1 );
 
-// Update the status of the commission to "rejected" when the originating order is failed
+// Update the status of the commission to "rejected" when the originating order is failed.
 add_action( 'pmpro_updated_order', 'slicewp_reject_commission_on_fail_pmpro', 10, 1 );
 
-// Update the status of the commission to "rejected" when the originating order is refunded
+// Update the status of the commission to "rejected" when the originating order is refunded.
 add_action( 'pmpro_updated_order', 'slicewp_reject_commission_on_refund_pmpro', 10, 1 );
 
-// Update the status of the commission to "rejected" when the originating order is deleted
+// Update the status of the commission to "rejected" when the originating order is deleted.
 add_action( 'pmpro_delete_order', 'slicewp_reject_commission_on_delete_pmpro', 10, 1 );
 
-// Add the commission settings in membership level pages
+// Add the commission settings in membership level pages.
 add_action( 'pmpro_membership_level_after_other_settings', 'slicewp_add_product_commission_settings_pmpro' );
 
-// Saves the commissions settings in 
+// Saves the commissions settings per level.
 add_action( 'pmpro_save_membership_level', 'slicewp_save_product_commission_settings_pmpro' );
 
-// Add the reference amount in the commission data
+// Add the reference amount in the commission data.
 add_filter( 'slicewp_pre_insert_commission_data', 'slicewp_add_commission_data_reference_amount_pmpro' );
 add_filter( 'slicewp_pre_update_commission_data', 'slicewp_add_commission_data_reference_amount_pmpro' );
 
 
 /**
- * Adds the edit screen link to the reference column value from the commissions list table
+ * Adds the edit screen link to the reference column value from the commissions list table.
  *
  * @param string $output
  * @param array  $item
@@ -44,18 +47,21 @@ add_filter( 'slicewp_pre_update_commission_data', 'slicewp_add_commission_data_r
  */
 function slicewp_list_table_commissions_add_reference_edit_link_pmpro( $output, $item ) {
 
-	if( empty( $item['reference'] ) )
+	if ( empty( $item['reference'] ) ) {
 		return $output;
+	}
 
-	if( empty( $item['origin'] ) || $item['origin'] != 'pmpro' )
+	if ( empty( $item['origin'] ) || $item['origin'] != 'pmpro' ) {
 		return $output;
+	}
 
-    // Get the order
+    // Get the order.
 	$order = new MemberOrder( $item['reference'] );
 
-	// Create link to payment only if the payment exists
-    if( ! empty( $order->id ) )
+	// Create link to payment only if the payment exists.
+    if ( ! empty( $order->id ) ) {
 		$output = '<a href="' . esc_url( add_query_arg( array( 'page' => 'pmpro-orders', 'order' => $item['reference'] ), admin_url( 'admin.php' ) ) ) . '">' . $item['reference'] . '</a>';
+	}
 
 	return $output;
 
@@ -250,20 +256,23 @@ function slicewp_insert_commission_pmpro( $order ) {
 function slicewp_accept_pending_commission_pmpro( $order ) {
 
     // Check if the new order status is 'success'.
-    if ( $order->status != 'success' )
-        return;
+    if ( $order->status != 'success' ) {
+		return;
+	}
 
 	// Check to see if a commission for this order has been registered.
 	$commissions = slicewp_get_commissions( array( 'number' => -1, 'reference' => $order->id, 'origin' => 'pmpro', 'order' => 'ASC' ) );
 
-	if ( empty( $commissions ) )
+	if ( empty( $commissions ) ) {
 		return;
+	}
 
 	foreach ( $commissions as $commission ) {
 
 		// Return if the commission has already been paid.
-		if ( $commission->get( 'status' ) == 'paid' )
+		if ( $commission->get( 'status' ) == 'paid' ) {
 			continue;
+		}
 
 		// Prepare commission data.
 		$commission_data = array(
@@ -297,14 +306,16 @@ function slicewp_accept_pending_commission_pmpro( $order ) {
  */
 function slicewp_reject_commission_on_fail_pmpro( $order ) {
 
-	if ( $order->status != 'error' )
+	if ( $order->status != 'error' ) {
 		return;
+	}
 
 	// Check to see if a commission for this order has been registered.
 	$commissions = slicewp_get_commissions( array( 'number' => -1, 'reference' => $order->id, 'origin' => 'pmpro', 'order' => 'ASC' ) );
 
-	if ( empty( $commissions ) )
+	if ( empty( $commissions ) ) {
 		return;
+	}
 
 	foreach ( $commissions as $commission ) {
 
@@ -347,17 +358,20 @@ function slicewp_reject_commission_on_fail_pmpro( $order ) {
  */
 function slicewp_reject_commission_on_refund_pmpro( $order ) {
 
-	if ( ! slicewp_get_setting( 'reject_commissions_on_refund', false ) )
+	if ( ! slicewp_get_setting( 'reject_commissions_on_refund', false ) ) {
 		return;
+	}
 
-	if ( $order->status != 'refunded' )
+	if ( $order->status != 'refunded' ) {
 		return;
+	}
 
 	// Check to see if a commission for this order has been registered.
 	$commissions = slicewp_get_commissions( array( 'number' => -1, 'reference' => $order->id, 'origin' => 'pmpro', 'order' => 'ASC' ) );
 
-	if ( empty( $commissions ) )
+	if ( empty( $commissions ) ) {
 		return;
+	}
 
 	foreach ( $commissions as $commission ) {
 
@@ -409,8 +423,9 @@ function slicewp_reject_commission_on_delete_pmpro( $order_id ) {
 	// Check to see if a commission for this order has been registered.
 	$commissions = slicewp_get_commissions( array( 'number' => -1, 'reference' => $order_id, 'origin' => 'pmpro', 'order' => 'ASC' ) );
 
-	if ( empty( $commissions ) )
+	if ( empty( $commissions ) ) {
 		return;
+	}
 
 	foreach ( $commissions as $commission ) {
 
@@ -452,8 +467,9 @@ function slicewp_reject_commission_on_delete_pmpro( $order_id ) {
 function slicewp_add_product_commission_settings_pmpro() {
 
     // Check for membership level id
-    if ( empty( $_GET['edit'] ) )
-        return;
+    if ( empty( $_GET['edit'] ) ) {
+		return;
+	}
 
     $level_id = intval( $_GET['edit'] );
 
@@ -541,8 +557,9 @@ function slicewp_add_product_commission_settings_pmpro() {
 function slicewp_save_product_commission_settings_pmpro( $level_id ) {
 
     // Verify for nonce
-    if ( empty( $_POST['slicewp_token'] ) || ! wp_verify_nonce( $_POST['slicewp_token'], 'slicewp_save_membership' ) )
-        return;
+    if ( empty( $_POST['slicewp_token'] ) || ! wp_verify_nonce( $_POST['slicewp_token'], 'slicewp_save_membership' ) ) {
+		return;
+	}
 
     // Update the disable commissions settings
     if ( ! empty( $_POST['slicewp_disable_commissions'] ) ) {
@@ -559,7 +576,31 @@ function slicewp_save_product_commission_settings_pmpro( $level_id ) {
 
 
 /**
- * Adds the reference amount in the commission data
+ * Checks whether the referring customer of the affiliate referrer is a new customer or not.
+ * If they are, the affiliate referrer is no longer valid.
+ * 
+ * @param int 		  $affiliate_id
+ * @param MemberOrder $order
+ * 
+ * @return int
+ * 
+ */
+function slicewp_validate_referrer_affiliate_id_new_customer_pmpro( $affiliate_id, $order ) {
+
+	if ( empty( slicewp_get_setting( 'new_customer_commissions_only' ) ) ) {
+		return $affiliate_id;
+	}
+
+	// Get customer's order count.
+	$orders_count = MemberOrder::get_orders( array( 'user_id' => $order->user_id, 'return_count' => true ) );
+
+	return ( $orders_count > 1 ? 0 : $affiliate_id );
+
+}
+
+
+/**
+ * Adds the reference amount in the commission data.
  * 
  * @param array $commission_data
  * 
@@ -568,27 +609,31 @@ function slicewp_save_product_commission_settings_pmpro( $level_id ) {
  */
 function slicewp_add_commission_data_reference_amount_pmpro( $commission_data ) {
 
-	if ( ! ( doing_action( 'slicewp_admin_action_add_commission' ) || doing_action( 'slicewp_admin_action_update_commission' ) ) )
+	if ( ! ( doing_action( 'slicewp_admin_action_add_commission' ) || doing_action( 'slicewp_admin_action_update_commission' ) ) ) {
 		return $commission_data;
+	}
 
-	// Check if the origin is Paid Memberships Pro
-	if ( 'pmpro' != $commission_data['origin'] )
+	// Check if the origin is Paid Memberships Pro.
+	if ( 'pmpro' != $commission_data['origin'] ) {
 		return $commission_data;
+	}
 
-	// Check if we have a reference
-	if ( empty( $commission_data['reference'] ) )
+	// Check if we have a reference.
+	if ( empty( $commission_data['reference'] ) ) {
 		return $commission_data;
+	}
 
-	// Get the order
+	// Get the order.
 	$order = new MemberOrder( $commission_data['reference'] );
 
-	if ( empty( $order ) || empty( $order->total ) )
+	if ( empty( $order ) || empty( $order->total ) ) {
 		return $commission_data;
+	}
 
-	// Save the reference amount
+	// Save the reference amount.
 	$commission_data['reference_amount'] = slicewp_sanitize_amount( $order->total );
 
-	// Return the updated commission data
+	// Return the updated commission data.
 	return $commission_data;
 
 }

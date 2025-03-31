@@ -59,7 +59,7 @@ $creatives_per_page = apply_filters( 'slicewp_items_per_page_creatives', 12 );
                     <?php elseif ( $creative->get('type') == 'long_text' ):?>
 
                         <div>
-                            <?php echo wpautop( wp_trim_words( $creative->get('text'), 35 ) ); ?>
+                            <?php echo wpautop( wp_trim_words( strpos( $creative->get( 'text' ), '[slicewp_affiliate_url]' ) === false ? $creative->get( 'text' ) : str_replace( '[slicewp_affiliate_url]', do_shortcode( '[slicewp_affiliate_url]' ), $creative->get( 'text' ) ), 35 ) ); ?>
                         </div>
 
                     <?php endif; ?>
@@ -138,7 +138,7 @@ $creatives_per_page = apply_filters( 'slicewp_items_per_page_creatives', 12 );
 
                             <?php elseif ( $creative->get( 'type' ) == 'long_text' ):?>
 
-                                <textarea class="slicewp-creative-affiliate-textarea" readonly><?php echo esc_textarea( $creative->get('text') ); ?></textarea>
+                                <textarea class="slicewp-creative-affiliate-textarea" readonly><?php echo esc_textarea( strpos( $creative->get( 'text' ), '[slicewp_affiliate_url]' ) === false ? $creative->get( 'text' ) : str_replace( '[slicewp_affiliate_url]', do_shortcode( '[slicewp_affiliate_url]' ), $creative->get( 'text' ) ) ); ?></textarea>
 
                             <?php endif; ?>
 

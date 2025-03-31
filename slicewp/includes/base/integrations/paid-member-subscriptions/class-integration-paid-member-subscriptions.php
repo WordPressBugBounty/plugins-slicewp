@@ -27,7 +27,8 @@ Class SliceWP_Integration_Paid_Member_Subscriptions extends SliceWP_Integration 
 		 *
 		 */
 		$supports = array(
-			'commission_types' => array( 'subscription' )
+			'commission_types' 				=> array( 'subscription' ),
+			'new_customer_commissions_only' => true
 		);
 
 		/**
