@@ -3,8 +3,8 @@ Contributors: iova.mihai
 Donate link: https://slicewp.com/
 Tags: affiliate, affiliates, affiliate program, affiliates program, woocommerce affiliates, affiliates plugin, affiliates manager program, affiliates manager plugin
 Requires at least: 5.0
-Tested up to: 6.7.2
-Stable tag: 1.1.31
+Tested up to: 6.8.0
+Stable tag: 1.1.32
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -152,6 +152,10 @@ Yes! You can set a custom cookie lifespan for your affiliates.
 
 
 == Changelog ==
+
+= 1.1.32 =
+* New: Added Iraqi Dinar currency.
+* Enhancement: Added fallback license server checker.
 
 = 1.1.31 =
 * New: Added option to reward affiliates only for the referred customers' first purchase. Supported currently only by the following integrations: WooCommerce, Easy Digital Downloads, GetPaid, Paid Memberships Pro, Paid Member Subscriptions.

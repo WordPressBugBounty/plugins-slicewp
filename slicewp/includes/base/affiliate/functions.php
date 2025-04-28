@@ -748,7 +748,7 @@ function slicewp_is_affiliate_active( $affiliate_id ) {
 
 
 /**
- * Get the Affiliate Commission Rates
+ * Get the affiliate commission rates.
  *
  * @param int $affiliate_id
  *
@@ -757,17 +757,18 @@ function slicewp_is_affiliate_active( $affiliate_id ) {
  */
 function slicewp_get_affiliate_commission_rates( $affiliate_id ) {
 
-	// Get the default commission rates
+	// Get the default commission rates.
 	$commission_types = slicewp_get_available_commission_types( true );
 	
-	// Save the default commission rates
+	// Save the default commission rates.
 	$affiliate_commission_rates = array();
 
 	foreach ( $commission_types as $type => $details ) {
 
-		// Skip recurring commission type
-		if( $type == 'recurring' )
+		// Skip recurring commission type.
+		if ( $type == 'recurring' ) {
 			continue;
+		}
 
 		$affiliate_commission_rates[$type]['rate']	 	= slicewp_get_setting( 'commission_rate_' . $type );
 		$affiliate_commission_rates[$type]['rate_type']	= slicewp_get_setting( 'commission_rate_type_' . $type );
@@ -775,7 +776,7 @@ function slicewp_get_affiliate_commission_rates( $affiliate_id ) {
 	}
 
 	/**
-	 * Filter the affiliate commission rates
+	 * Filter the affiliate commission rates.
 	 *
 	 * @param array $affiliate_commission_rates
 	 * @param int   $affiliate_id
@@ -787,7 +788,7 @@ function slicewp_get_affiliate_commission_rates( $affiliate_id ) {
 
 
 /**
- * Adds the "affiliate" user role to WordPress
+ * Adds the "affiliate" user role to WordPress.
  *
  */
 function slicewp_register_affiliate_user_role() {
@@ -795,7 +796,7 @@ function slicewp_register_affiliate_user_role() {
 	add_role( 'slicewp_affiliate', __( 'Affiliate', 'slicewp' ), array( 'read' ) );
 
 }
-add_action( 'slicewp_update_check', 'slicewp_register_affiliate_user_role' );
+register_activation_hook( SLICEWP_PLUGIN_DIR . 'index.php', 'slicewp_register_affiliate_user_role' );
 
 
 /**

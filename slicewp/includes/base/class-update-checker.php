@@ -139,6 +139,33 @@ if( ! class_exists( 'SliceWP_PluginUpdateChecker' ) ) {
 				$url,
 				$options
 			);
+
+			/**
+			 * Fallback call to retrieve the plugin info in case the direct call to slicewp.com is blocked.
+			 * 
+			 * This implementation isn't the cleanest. As the class is getting the medatadataURL from outside, ideally the fallback URL
+			 * should have been set beforehand. However, we don't know if the call to our own website will fail or not, so we cannot
+			 * set the fallback URL without a larger refactoring of this class.
+			 * Furthermore, we know that the metadataURL will always be slicewp.com, so we can somewhat safely set the fallback URL based on it.
+			 * 
+			 * We could hit the fallback URL directly, as this URL is just a passthrough via AWS to slicewp.com, however,
+			 * we're doing it this way because:
+			 *    1. In most cases, the call to slicewp.com will work without issues.
+			 *    2. AWS usage costs. The more we ping them, the more we pay.
+			 * 
+			 * With this implementation, even though it's not the cleanest code wise, it works well and it is cost effective.
+			 * 
+			 */
+			if ( is_wp_error( $result ) ) {
+
+				$url = str_replace( 'slicewp.com', 'license.slicewp.com', $url );
+
+				$result = wp_remote_get(
+					$url,
+					$options
+				);
+
+			}
 			
 			//Try to parse the response
 			$pluginInfo = null;

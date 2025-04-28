@@ -223,7 +223,7 @@ Class SliceWP_WP_List_Table_Payouts extends SliceWP_WP_List_Table {
 
 			$output .= '<span class="slicewp-tooltip-message">';
 				
-				$output .= '<p>' . sprintf( __( "This bulk payout contains %d payment(s) totaling %s.", 'slicewp' ), count( $payments_all ), slicewp_format_amount( array_sum( $payments_all ), slicewp_get_setting( 'active_currency', 'USD' ) ) ) . '</p>'; // @todo - Replace payments count and amount values.
+				$output .= '<p>' . sprintf( __( "This bulk payout contains %d payment(s) totaling %s.", 'slicewp' ), count( $payments_all ), slicewp_format_amount( array_sum( $payments_all ), slicewp_get_setting( 'active_currency', 'USD' ) ) ) . '</p>';
 
 				$output .= '<hr />';
 
@@ -231,13 +231,13 @@ Class SliceWP_WP_List_Table_Payouts extends SliceWP_WP_List_Table {
 
 					$output .= '<div class="slicew-grid-item">';
 						$output .= '<span>' . __( "Paid", 'slicewp' ) . '</span>';
-						$output .= '<div style="font-size: 18px; line-height: 1; margin-top: 10px; margin-bottom: 5px;">' . slicewp_format_amount( array_sum( $payments_paid ), slicewp_get_setting( 'active_currency', 'USD' ) ) . '</div>'; // @todo - Replace money with actual formatted value.
+						$output .= '<div style="font-size: 18px; line-height: 1; margin-top: 10px; margin-bottom: 5px;">' . slicewp_format_amount( array_sum( $payments_paid ), slicewp_get_setting( 'active_currency', 'USD' ) ) . '</div>';
 						$output .= '<div>' . ( count( $payments_paid ) != 1 ? sprintf( __( '%d payments', 'slicewp' ), count( $payments_paid ) ) : sprintf( __( '%d payment', 'slicewp' ), count( $payments_paid ) ) ) . '</div>';
 					$output .= '</div>';
 
 					$output .= '<div class="slicew-grid-item" style="text-align: right;">';
 						$output .= '<span>' . __( "Still to be paid", 'slicewp' ) . '</span>';
-						$output .= '<div style="font-size: 18px; line-height: 1; margin-top: 10px; margin-bottom: 5px;">' . slicewp_format_amount( array_sum( $payments_all ) - array_sum( $payments_paid ), slicewp_get_setting( 'active_currency', 'USD' ) ) . '</div>'; // @todo - Replace money with actual formatted value.
+						$output .= '<div style="font-size: 18px; line-height: 1; margin-top: 10px; margin-bottom: 5px;">' . slicewp_format_amount( array_sum( $payments_all ) - array_sum( $payments_paid ), slicewp_get_setting( 'active_currency', 'USD' ) ) . '</div>';
 						$output .= '<div>' . ( count( $payments_all ) - count( $payments_paid ) != 1 ? sprintf( __( '%d payments', 'slicewp' ), count( $payments_all ) - count( $payments_paid ) ) : sprintf( __( '%d payment', 'slicewp' ), count( $payments_all ) - count( $payments_paid ) ) ) . '</div>';
 					$output .= '</div>';
 

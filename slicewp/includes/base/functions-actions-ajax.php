@@ -115,8 +115,13 @@ function slicewp_action_ajax_register_website() {
 	$license_key = sanitize_text_field( $_POST['license_key'] );
 	$website_url = get_site_url();
 
-	// Call the API link
+	// Call the API link.
 	$response = wp_remote_get( add_query_arg( array( 'edde_api_action' => 'register_website', 'license_key' => $license_key, 'url' => $website_url ), 'https://slicewp.com/' ), array( 'timeout' => 30, 'sslverify' => false, 'headers' => array( 'Cache-Control' => 'no-cache' ) ) );
+
+	// Fallback call to the API.
+	if ( is_wp_error( $response ) ) {
+		$response = wp_remote_get( add_query_arg( array( 'edde_api_action' => 'register_website', 'license_key' => $license_key, 'url' => $website_url ), 'https://license.slicewp.com/' ), array( 'timeout' => 30, 'sslverify' => false, 'headers' => array( 'Cache-Control' => 'no-cache' ) ) );
+	}
 
 	// If the connection isn't successfull, return
 	if ( is_wp_error( $response ) ) {
@@ -181,9 +186,14 @@ function slicewp_action_ajax_deregister_website() {
 	$license_key = sanitize_text_field( $_POST['license_key'] );
 	$website_url = get_site_url();
 
-	// Call the API link
+	// Call the API link.
 	$response = wp_remote_get( add_query_arg( array( 'edde_api_action' => 'deregister_website', 'license_key' => $license_key, 'url' => $website_url ), 'https://slicewp.com/' ), array( 'timeout' => 30, 'sslverify' => false, 'headers' => array( 'Cache-Control' => 'no-cache' ) ) );
 
+	// Fallback call to the API.
+	if ( is_wp_error( $response ) ) {
+		$response = wp_remote_get( add_query_arg( array( 'edde_api_action' => 'deregister_website', 'license_key' => $license_key, 'url' => $website_url ), 'https://license.slicewp.com/' ), array( 'timeout' => 30, 'sslverify' => false, 'headers' => array( 'Cache-Control' => 'no-cache' ) ) );
+	}
+	
 	// If the connection isn't successfull, return
 	if ( is_wp_error( $response ) ) {
 

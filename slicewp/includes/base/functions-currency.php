@@ -255,6 +255,14 @@ function slicewp_get_currencies( $dataset = 'name' ) {
             'thousands_separator' => ',',
             'decimal_separator'   => '.'
         ),
+        'IQD' => array(
+            'name'                => __( 'Iraqi dinar', 'slicewp' ),
+            'symbol'              => '&#x639;.&#x62f;',
+            'symbol_position'     => 'before',
+            'decimal_places'      => 2,
+            'thousands_separator' => ',',
+            'decimal_separator'   => '.'
+        ),
         'JPY' => array(
             'name'                => __( 'Japanese Yen', 'slicewp' ),
             'symbol'              => '&#165;',
