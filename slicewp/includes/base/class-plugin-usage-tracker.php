@@ -294,6 +294,7 @@ class SliceWP_Plugin_Usage_Tracker {
 	 */
 	private function get_affiliate_program_data() {
 
+		// Add object count data.
 		$data = array(
 			'affiliates' => array(
 				'total_count' => slicewp_get_affiliates( array(), true )
@@ -309,8 +310,36 @@ class SliceWP_Plugin_Usage_Tracker {
 			),
 			'payments' => array(
 				'total_count' => slicewp_get_payments( array(), true )
+			),
+			'notes' => array(
+				'total_count' => slicewp_get_notes( array(), true )
 			)
 		);
+
+		// Add affiliate groups data.
+		$affiliate_groups = slicewp_get_collections( array( 'number' => -1, 'object_context' => 'affiliate', 'type' => 'group' ) );
+		$key_to_keep 	  = array( 'name' );
+
+		foreach ( $affiliate_groups as $key => $affiliate_group ) {
+
+			$affiliate_group 		= $affiliate_group->to_array();
+			$affiliate_groups[$key] = array_intersect_key( $affiliate_group, array_flip( $key_to_keep ) );
+
+		}
+
+		$data['affiliates']['groups'] = $affiliate_groups;
+
+		// Add affiliate fields data.
+		$affiliate_fields = slicewp_get_affiliate_fields();
+		$key_to_keep 	  = array( 'type', 'name', 'label', 'options' );
+
+		foreach ( $affiliate_fields as $key => $affiliate_field ) {
+
+			$affiliate_fields[$key] = array_intersect_key( $affiliate_field, array_flip( $key_to_keep ) );
+
+		}
+
+		$data['affiliates']['fields'] = $affiliate_fields;
 
 		return $data;
 

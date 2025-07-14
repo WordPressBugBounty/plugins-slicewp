@@ -164,9 +164,9 @@ $payout_methods = slicewp_get_payout_methods();
 					<?php 
 						$table = new SliceWP_WP_List_Table_Payment_Commissions();
 					?>
-					
+
 					<div class="slicewp-card-header slicewp-flex">
-						<?php echo __( 'Commissions', 'slicewp' ); ?>
+						<span class="slicewp-card-title"><?php echo __( 'Commissions', 'slicewp' ); ?></span>
 						<?php ( $table->get_pagination_arg( 'total_items' ) > $table->get_pagination_arg( 'per_page' ) ? $table->pagination( 'bottom' ) : '' ); ?>
 					</div>
 

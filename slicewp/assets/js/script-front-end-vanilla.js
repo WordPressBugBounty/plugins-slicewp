@@ -1216,7 +1216,7 @@ var slicewp_front_end = function() {
                             drawBorder: false
                         },
                         ticks: {
-                            maxTicksLimit: 12,
+                            maxTicksLimit: get_chart_scale_x_max_ticks(),
                             maxRotation: 0,
                             source: 'data'
                         },
@@ -1413,6 +1413,18 @@ var slicewp_front_end = function() {
 
 
     /**
+     * On window resize, triggers the callback which handles the resizing of the charts.
+     * 
+     */
+    var trigger_resize_callback;
+
+    window.addEventListener( 'resize', function() {
+        clearTimeout( trigger_resize_callback );
+        trigger_resize_callback = setTimeout( chart_resize_callback, 100 );
+    });
+
+
+    /**
      * Update the chart data when switching between time units.
      * 
      */
@@ -1591,6 +1603,23 @@ var slicewp_front_end = function() {
 
 
     /**
+     * A callback to the window resize event to correctly resize the existing charts.
+     * 
+     */
+    function chart_resize_callback() {
+
+        for ( var i = 0; i < charts.length; i++ ) {
+
+            charts[i].config.options.scales.x.ticks.maxTicksLimit = get_chart_scale_x_max_ticks();
+
+            charts[i].update();
+
+        }
+
+    }
+
+
+    /**
      * Returns the scale's maximum value and step value for the given dataset.
      *
      */
@@ -1615,6 +1644,25 @@ var slicewp_front_end = function() {
             scale_step : scale_step
         }
         
+    }
+
+
+    /**
+     * Returns the max ticks for the X scale of a chart based on the window inner width.
+     * 
+     */
+    function get_chart_scale_x_max_ticks() {
+
+        if ( window.innerWidth < 720 ) {
+            return 4;
+        }
+
+        if ( window.innerWidth < 1000 ) {
+            return 8;
+        }
+
+        return 12;
+
     }
 
 

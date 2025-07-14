@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	<?php
 
 		/**
-		 * Hooks to output form fields
+		 * Hooks to output form fields.
 		 *
 		 * @param string $form
 		 *
@@ -31,8 +31,18 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 			<div class="slicewp-field-label-wrapper">
 
+				<?php
+
+					$terms_label = ( ! empty( slicewp_get_setting( 'terms_label' ) ) ? slicewp_get_setting( 'terms_label' ) :  __( 'Agree to Our Terms and Conditions', 'slicewp' ) );
+
+					if ( ! preg_match( '/<a\s[^>]*href=["\']?[^"\'>]+["\']?[^>]*>/i', $terms_label ) ) {
+						$terms_label = '<a href="' . esc_url( get_permalink( $page_terms_conditions ) ) . '" target="_blank">' . $terms_label . '</a>';
+					}
+
+				?>
+
 				<input id="slicewp-terms-and-conditions" name="terms_conditions" type="checkbox" value="1" <?php checked( ! empty( $_POST['terms_conditions'] ), '1' ) ?>/>
-				<label for="slicewp-terms-and-conditions"><a href="<?php echo get_permalink( slicewp_get_setting( 'page_terms_conditions' ) ); ?>" target="_blank"><?php echo ( ! empty( slicewp_get_setting( 'terms_label' ) ) ? slicewp_get_setting( 'terms_label' ) :  __( 'Agree to Our Terms and Conditions', 'slicewp' ) ); ?></a></label>
+				<label for="slicewp-terms-and-conditions"><?php echo wp_kses_post( $terms_label ); ?></label>
 
 			</div>
 

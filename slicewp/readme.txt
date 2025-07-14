@@ -3,8 +3,8 @@ Contributors: iova.mihai
 Donate link: https://slicewp.com/
 Tags: affiliate, affiliates, affiliate program, affiliates program, woocommerce affiliates, affiliates plugin, affiliates manager program, affiliates manager plugin
 Requires at least: 5.0
-Tested up to: 6.8.0
-Stable tag: 1.1.32
+Tested up to: 6.8.1
+Stable tag: 1.1.34
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -152,6 +152,14 @@ Yes! You can set a custom cookie lifespan for your affiliates.
 
 
 == Changelog ==
+
+= 1.1.34 =
+* Enhancement: Anchor tags can now be used within the "Terms and Conditions Label" option.
+* Misc: Added tracking for affiliate group and affiliate fields data.
+
+= 1.1.33 =
+* Fixed: Affiliate account chart labels overlapping.
+* Misc: Small UI improvements.
 
 = 1.1.32 =
 * New: Added Iraqi Dinar currency.

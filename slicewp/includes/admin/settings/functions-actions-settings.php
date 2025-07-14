@@ -288,7 +288,7 @@ add_action( 'slicewp_admin_action_send_test_email', 'slicewp_admin_action_send_t
  * Generates the Preview Email.
  *
  */
-function slicewp_user_action_preview_email(){
+function slicewp_user_action_preview_email() {
 
 	$dir_path = plugin_dir_path( __FILE__ );
 	
