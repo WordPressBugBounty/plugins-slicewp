@@ -93,7 +93,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 								<?php 
 									foreach( slicewp()->integrations as $integration_slug => $integration ) {
 										echo '<option value="' . esc_attr( $integration_slug ) . '">' . esc_html( $integration->get( 'name' ) ) . '</option>';
-									} 
+									}
 								?>
 
 							</select>

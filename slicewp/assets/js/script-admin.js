@@ -296,11 +296,13 @@ jQuery( function($) {
 
             });
 
-            if ( data.templateResult )
+            if ( data.templateResult ) {
                 $this.siblings('.select2-container').addClass( 'slicewp-has-template-result' );
+            }
 
-            if ( data.templateSelection )
+            if ( data.templateSelection ) {
                 $this.siblings('.select2-container').addClass( 'slicewp-has-template-selection' );
+            }
 
             $this.siblings('.select2-container').addClass( classes );
 
@@ -374,6 +376,62 @@ jQuery( function($) {
             $this.siblings('.select2-container').addClass( classes );
 
         });
+
+
+        // Change select2 defaults for the products fields.
+		$('.slicewp-select2-products-field').each( function() {
+
+			var $this = $(this);
+
+            $this.select2({
+                dropdownPosition : 'below',
+                minimumInputLength : 2,
+                placeholder : $this.attr( 'placeholder' ),
+                allowClear : ( typeof $this.attr( 'multiple' ) == 'undefined' ? true : false ),
+                ajax : {
+                    url      : ajaxurl + '?action=slicewp_action_ajax_get_products',
+                    delay    : 250,
+                    dataType : 'json',
+                    data     : function( params ) {
+
+                        var query = {
+                            term          : params.term,
+                            origin	      : ( $this.attr( 'data-origin' ) ? JSON.parse( $this.attr( 'data-origin' ) ) : '' ),
+                            slicewp_token : $this.attr( 'data-nonce' )
+                        };
+
+                        return query;
+
+                    },
+                    processResults : function( data ) {
+
+                        var results = [];
+
+                        for ( var index in data ) {
+                            results.push({ id: data[index].origin + ':' + data[index].id, text: data[index].name });
+                        }
+
+                        return {
+                            results : results
+                        }
+
+                    }
+                }
+            }).on('select2:open', function() {
+
+                var container = $('.select2-container').last();
+
+                container.addClass('slicewp-select2-container');
+                container.find('.select2-search__field').attr( 'placeholder', 'Type to search...' );
+
+                // Focus the search field for single selects.
+                if ( typeof $this.attr( 'multiple' ) == 'undefined' ) {
+                    container.find('.select2-search__field')[0].focus();
+                }
+
+            });
+
+		});
 
 
 		// Change select2 defaults for the post fields.

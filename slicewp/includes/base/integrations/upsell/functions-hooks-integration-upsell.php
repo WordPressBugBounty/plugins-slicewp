@@ -138,7 +138,7 @@ function slicewp_insert_pending_commission_upsell( $order ) {
 	}
 
 	// Calculate the commission amount for each item in the cart
-	if ( ! slicewp_is_commission_basis_per_order() ) {
+	if ( ! slicewp_is_commission_basis_per_order( $affiliate_id ) ) {
 
 		$commission_amount = 0;
 

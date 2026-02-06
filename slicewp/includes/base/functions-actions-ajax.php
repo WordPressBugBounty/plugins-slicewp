@@ -237,6 +237,49 @@ add_action( 'wp_ajax_slicewp_action_ajax_deregister_website', 'slicewp_action_aj
 
 
 /**
+ * AJAX callback that returns an array of products data from the different origins.
+ *
+ */
+function slicewp_action_ajax_get_products() {
+
+	if ( empty( $_REQUEST['slicewp_token'] ) || ! wp_verify_nonce( $_REQUEST['slicewp_token'], 'slicewp_product_search' ) ) {
+		wp_die( 0 );
+	}
+	
+	if ( ! current_user_can( 'administrator' ) ) {
+		wp_die( 0 );
+	}
+
+	// Set the "origin".
+	$origins = array_unique( ! empty( $_REQUEST['origin'] ) ? (array)$_REQUEST['origin'] : array_keys( slicewp()->integrations ) );
+
+	// Set the search term.
+	$search_term = ( ! empty( $_REQUEST['term']) ? $_REQUEST['term'] : '' );
+
+	// Go through each origin and return the corresponding products.
+	$products = array();
+
+	foreach ( $origins as $origin ) {
+
+		/**
+		 * Filter where the different integrations can hook to return the products.
+		 * 
+		 * @param array $origin_products
+		 * @param array $args
+		 * 
+		 */
+		$products = array_merge( $products, apply_filters( 'slicewp_action_ajax_get_products', array(), array( 'origin' => $origin, 'search_term' => $search_term ) ) );
+
+	}
+
+	echo json_encode( $products );
+	wp_die();
+
+}
+add_action( 'wp_ajax_slicewp_action_ajax_get_products', 'slicewp_action_ajax_get_products' );
+
+
+/**
  * AJAX callback that returns an array of data from WP_Posts objects.
  *
  */

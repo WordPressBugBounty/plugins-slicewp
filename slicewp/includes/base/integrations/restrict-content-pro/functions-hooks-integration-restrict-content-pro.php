@@ -180,6 +180,9 @@ function slicewp_insert_pending_commission_rcp( $_post_data, $user_id, $price, $
 		slicewp_add_log( 'RCP: Customer could not be processed due to an unexpected error.' );
 	}
 
+	// Set currencies.
+	$active_currency = slicewp_get_setting( 'active_currency', 'USD' );
+	$order_currency  = rcp_get_currency();
 	
 	// Get the order amount
 	$amount = $payment->amount;
@@ -193,7 +196,7 @@ function slicewp_insert_pending_commission_rcp( $_post_data, $user_id, $price, $
 		'customer_id'  => $customer_id
 	);
 
-	$commission_amount = slicewp_calculate_commission_amount( slicewp_maybe_convert_amount( $amount, rcp_get_currency(), slicewp_get_setting( 'active_currency', 'USD' ) ), $args );
+	$commission_amount = slicewp_calculate_commission_amount( slicewp_maybe_convert_amount( $amount, $order_currency, $active_currency ), $args );
 
 	// Check that the commission amount is not zero
 	if ( ( $commission_amount == 0 ) && empty( slicewp_get_setting( 'zero_amount_commissions' ) ) ) {
@@ -203,20 +206,20 @@ function slicewp_insert_pending_commission_rcp( $_post_data, $user_id, $price, $
 
 	}
 
-	// Prepare commission data
+	// Prepare commission data.
 	$commission_data = array(
 		'affiliate_id'		=> $affiliate_id,
 		'visit_id'			=> ( ! is_null( $visit_id ) ? $visit_id : 0 ),
-		'date_created'		=> slicewp_mysql_gmdate(),
-		'date_modified'		=> slicewp_mysql_gmdate(),
 		'type'				=> 'subscription',
 		'status'			=> 'pending',
 		'reference'			=> $payment_id,
-		'reference_amount'	=> slicewp_sanitize_amount( $payment->amount ),
+		'reference_amount'	=> slicewp_sanitize_amount( slicewp_maybe_convert_amount( $payment->amount, $order_currency, $active_currency ) ),
 		'customer_id'		=> $customer_id,
 		'origin'			=> 'rcp',
 		'amount'			=> slicewp_sanitize_amount( $commission_amount ),
-		'currency'			=> slicewp_get_setting( 'active_currency', 'USD' )
+		'currency'			=> $active_currency,
+		'date_created'		=> slicewp_mysql_gmdate(),
+		'date_modified'		=> slicewp_mysql_gmdate()
 	);
 
 	// Insert the commission

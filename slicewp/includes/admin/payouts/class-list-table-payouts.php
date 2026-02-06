@@ -204,8 +204,8 @@ Class SliceWP_WP_List_Table_Payouts extends SliceWP_WP_List_Table {
 	public function column_payments( $item ) {
 
 		// Get total and paid payments count.
-		$payments_all  = slicewp_get_payments( array( 'payout_id' => absint( $item['id'] ), 'fields' => 'amount' ) );
-		$payments_paid = slicewp_get_payments( array( 'payout_id' => absint( $item['id'] ), 'fields' => 'amount', 'status'	=> 'paid' ) );
+		$payments_all  = slicewp_get_payments( array( 'number' => -1, 'payout_id' => absint( $item['id'] ), 'fields' => 'amount' ) );
+		$payments_paid = slicewp_get_payments( array( 'number' => -1, 'payout_id' => absint( $item['id'] ), 'fields' => 'amount', 'status'	=> 'paid' ) );
 
 		// Compute the paid percentages.
 		$paid_percentage = ( count( $payments_all ) != 0 ? round( count( $payments_paid ) / count( $payments_all ) * 100 ) : 0 );

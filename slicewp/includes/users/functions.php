@@ -311,3 +311,49 @@ function slicewp_output_list_table_payment_commissions_default( $item ) {
 
 }
 add_action( 'slicewp_list_table_output_item_details_affiliate_account_payments', 'slicewp_output_list_table_payment_commissions_default', 100 );
+
+
+/**
+ * Outputs the default view for the visit in the affiliate account commissions list table.
+ * 
+ * @param array $item
+ * 
+ */
+function slicewp_output_list_table_commissions_visit( $item ) {
+	
+	if ( empty( $item['visit_id'] ) ) {
+		return;
+	}
+
+	$visit = slicewp_get_visit( absint( $item['visit_id'] ) );
+
+	if ( $visit->get( 'affiliate_id' ) != $item['affiliate_id'] ) {
+		return;
+	}
+	
+	echo '<h4 style="margin-top: 1.5rem;">' . __( 'Visit', 'slicewp' ) . '</h4>';
+
+	echo '<table class="slicewp-list-table">';
+	
+		echo '<thead>';
+			echo '<tr>';
+				echo '<th class="slicewp-column-id" style="width: 85px;">' . __( 'Visit', 'slicewp' ) . '</th>';
+				echo '<th class="slicewp-column-landing_url" style="width: 35%">' . __( 'Landing URL', 'slicewp' ) . '</th>';
+				echo '<th class="slicewp-column-referrer_url" style="width: 35%">' . __( 'Referrer URL', 'slicewp' ) . '</th>';
+				echo '<th class="slicewp-column-date">' . __( 'Date', 'slicewp' ) . '</th>';
+			echo '</tr>';
+		echo '</thead>';
+	
+		echo '<tbody>';
+			echo '<tr>';
+				echo '<td class="slicewp-column-id">' . esc_html( $visit->get( 'id' ) ) . '</td>';
+				echo '<td class="slicewp-column-landing_url">' . esc_html( $visit->get( 'landing_url' ) ) . '</td>';
+				echo '<td class="slicewp-column-referrer_url">' . esc_html( ! empty( $visit->get( 'referrer_url' ) ) ? $visit->get( 'referrer_url' ) : '-' ) . '</td>';
+				echo '<td class="slicewp-column-date">' . esc_html( slicewp_date_i18n( $visit->get( 'date_created' ) ) ) . '</td>';
+			echo '</tr>';
+		echo '</tbody>';
+	
+	echo '</table>';
+
+}
+add_action( 'slicewp_list_table_output_item_details_affiliate_account_commissions', 'slicewp_output_list_table_commissions_visit', 100 );

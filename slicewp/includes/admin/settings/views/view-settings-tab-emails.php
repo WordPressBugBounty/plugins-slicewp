@@ -176,7 +176,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 					<!-- / Notification Actions -->
 					<div class="slicewp-email-notification-settings-actions">
-						<a href="#" class="slicewp-expand-item"><?php echo __( 'Customize', 'slicewp' ); ?><?php echo slicewp_get_svg( 'outline-chevron-down' ); ?></a></a>
+						<a href="#" class="slicewp-expand-item"><?php echo __( 'Customize', 'slicewp' ); ?><?php echo slicewp_get_svg( 'outline-chevron-down' ); ?></a>
 					</div>
 					<!-- / Notification Actions -->
 

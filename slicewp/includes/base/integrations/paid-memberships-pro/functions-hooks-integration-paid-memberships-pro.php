@@ -60,7 +60,7 @@ function slicewp_list_table_commissions_add_reference_edit_link_pmpro( $output, 
 
 	// Create link to payment only if the payment exists.
     if ( ! empty( $order->id ) ) {
-		$output = '<a href="' . esc_url( add_query_arg( array( 'page' => 'pmpro-orders', 'order' => $item['reference'] ), admin_url( 'admin.php' ) ) ) . '">' . $item['reference'] . '</a>';
+		$output = '<a href="' . esc_url( add_query_arg( array( 'page' => 'pmpro-orders', 'id' => $item['reference'] ), admin_url( 'admin.php' ) ) ) . '">' . esc_html( $item['reference'] ) . '</a>';
 	}
 
 	return $output;
@@ -69,7 +69,7 @@ function slicewp_list_table_commissions_add_reference_edit_link_pmpro( $output, 
 
 
 /**
- * Inserts a new pending commission when a new order is registered
+ * Inserts a new pending commission when a new order is registered.
  *
  * @param MemberOrder $order
  *
@@ -78,12 +78,12 @@ function slicewp_insert_commission_pmpro( $order ) {
 
 	global $pmpro_currency;
 
-    // Verify if commissions are disabled for the purchased membership
+    // Verify if commissions are disabled for the purchased membership.
     if ( get_pmpro_membership_level_meta( $order->membership_id, 'slicewp_disable_commissions', true ) ) {
 		return;
 	}
 
-	// Get and check to see if referrer exists
+	// Get and check to see if referrer exists.
 	$affiliate_id = slicewp_get_referrer_affiliate_id();
 	$visit_id	  = slicewp_get_referrer_visit_id();
 
@@ -101,7 +101,7 @@ function slicewp_insert_commission_pmpro( $order ) {
 		return;
 	}
 
-	// Verify if the affiliate is valid
+	// Verify if the affiliate is valid.
 	if ( ! slicewp_is_affiliate_valid( $affiliate_id ) ) {
 
 		slicewp_add_log( 'PMPRO: Pending commission was not created because the affiliate is not valid.' );
@@ -109,7 +109,7 @@ function slicewp_insert_commission_pmpro( $order ) {
 		
 	}
 
-	// Check to see if a commission for this order has been registered
+	// Check to see if a commission for this order has been registered.
 	$commissions = slicewp_get_commissions( array( 'reference' => $order->id, 'origin' => 'pmpro' ) );
 
 	if ( ! empty( $commissions ) ) {
@@ -119,7 +119,7 @@ function slicewp_insert_commission_pmpro( $order ) {
 
 	}
 
-	// Check to see if the affiliate made the purchase
+	// Check to see if the affiliate made the purchase.
 	if ( empty( slicewp_get_setting( 'affiliate_own_commissions' ) ) ) {
 
 		$affiliate = slicewp_get_affiliate( $affiliate_id );
@@ -161,17 +161,58 @@ function slicewp_insert_commission_pmpro( $order ) {
 	} else {
 		slicewp_add_log( 'PMPRO: Customer could not be processed due to an unexpected error.' );
 	}
-	
 
-    // Get the order amount
-    $amount = $order->total;
-    
-    // Exclude tax
-    if ( slicewp_get_setting( 'exclude_tax', false ) ) {
-		$amount = $amount - $order->tax;
+
+	// Get formatted order data.
+	$formatted_order_data = slicewp()->integrations['pmpro']->get_formatted_order_data( $order );
+
+	// Set currencies.
+	$active_currency = slicewp_get_setting( 'active_currency', 'USD' );
+	$order_currency  = $formatted_order_data['currency'];
+
+	// Prepare the transaction data.
+	$transaction_data = $formatted_order_data;
+
+	$transaction_data['original_currency'] = $transaction_data['currency'];
+	$transaction_data['original_subtotal'] = $transaction_data['subtotal'];
+	$transaction_data['original_total']    = $transaction_data['total'];
+	$transaction_data['original_tax'] 	   = $transaction_data['tax'];
+
+	$transaction_data['currency'] = $active_currency;
+	$transaction_data['subtotal'] = slicewp_sanitize_amount( slicewp_maybe_convert_amount( $transaction_data['subtotal'], $order_currency, $active_currency ) );
+	$transaction_data['total'] 	  = slicewp_sanitize_amount( slicewp_maybe_convert_amount( $transaction_data['total'], $order_currency, $active_currency ) );
+	$transaction_data['tax'] 	  = slicewp_sanitize_amount( slicewp_maybe_convert_amount( $transaction_data['tax'], $order_currency, $active_currency ) );
+
+	$transaction_data['customer_id'] = $customer_id;
+
+	$transaction_data['currency_conversion_rate'] = slicewp_get_currency_conversion_rate( $order_currency, $active_currency );
+
+	foreach ( $transaction_data['items'] as $key => $transaction_item_data ) {
+
+		$transaction_item_data['original_subtotal'] = $transaction_item_data['subtotal'];
+		$transaction_item_data['original_total']    = $transaction_item_data['total'];
+		$transaction_item_data['original_tax'] 	    = $transaction_item_data['tax'];
+
+		$transaction_item_data['subtotal'] = slicewp_sanitize_amount( slicewp_maybe_convert_amount( $transaction_item_data['subtotal'], $order_currency, $active_currency ) );
+		$transaction_item_data['total']    = slicewp_sanitize_amount( slicewp_maybe_convert_amount( $transaction_item_data['total'], $order_currency, $active_currency ) );
+		$transaction_item_data['tax'] 	   = slicewp_sanitize_amount( slicewp_maybe_convert_amount( $transaction_item_data['tax'], $order_currency, $active_currency ) );
+
+		// Move meta_data at the end for cleaner array.
+		if ( ! empty( $transaction_item_data['meta_data'] ) ) {
+			$transaction_item_data = array_merge( array_diff_key( $transaction_item_data, array( 'meta_data' => $transaction_item_data['meta_data'] ) ), array( 'meta_data' => $transaction_item_data['meta_data'] ) );
+		}
+
+		$transaction_data['items'][$key] = $transaction_item_data;
+
 	}
 
-    // Calculate the commission amount for the entire order
+	// Move items at the end for cleaner array.
+	if ( ! empty( $transaction_data['items'] ) ) {
+		$transaction_data = array_merge( array_diff_key( $transaction_data, array( 'items' => $transaction_data['items'] ) ), array( 'items' => $transaction_data['items'] ) );
+	}
+
+
+    // Build the commission item.
     $args = array(
         'origin'	   => 'pmpro',
         'type' 		   => 'subscription',
@@ -180,9 +221,20 @@ function slicewp_insert_commission_pmpro( $order ) {
 		'customer_id'  => $customer_id
     );
 
-	$commission_amount = slicewp_calculate_commission_amount( slicewp_maybe_convert_amount( $amount, $pmpro_currency, slicewp_get_setting( 'active_currency', 'USD' ) ), $args );
+	$commissionable_amount = $transaction_data['total'] - ( slicewp_get_setting( 'exclude_tax', false ) ? $transaction_data['tax'] : 0 );
 
-    // Check that the commission amount is not zero
+	$commission_items = array(
+		array(
+			'commissionable_amount'   => slicewp_sanitize_amount( $commissionable_amount ),
+			'commissionable_quantity' => 1,
+			'amount'				  => slicewp_sanitize_amount( slicewp_calculate_commission_amount( $commissionable_amount, $args ) ),
+			'transaction_item'		  => $transaction_data['items'][0]
+		)
+	);
+
+	$commission_amount = array_sum( array_column( $commission_items, 'amount' ) );
+
+    // Check that the commission amount is not zero.
     if ( ( $commission_amount == 0 ) && empty( slicewp_get_setting( 'zero_amount_commissions' ) ) ) {
 
         slicewp_add_log( 'PMPRO: Commission was not inserted because the commission amount is zero. Order: ' . absint( $order->id ) );
@@ -191,7 +243,7 @@ function slicewp_insert_commission_pmpro( $order ) {
     }
 
 
-	// Get the commission status
+	// Get the commission status.
 	switch ( $order->status ) {
 
 		case 'success':
@@ -208,31 +260,53 @@ function slicewp_insert_commission_pmpro( $order ) {
 
 	}
 
-	// Prepare commission data
+	// Get the current referrer visit.
+	$visit = slicewp_get_visit( $visit_id );
+
+	// Prepare commission data.
 	$commission_data = array(
 		'affiliate_id'		=> $affiliate_id,
-		'visit_id'			=> ( ! is_null( $visit_id ) ? $visit_id : 0 ),
-		'date_created'		=> slicewp_mysql_gmdate(),
-		'date_modified'		=> slicewp_mysql_gmdate(),
+		'visit_id'			=> ( ! is_null( $visit ) && $visit->get( 'affiliate_id' ) == $affiliate_id ? $visit_id : 0 ),
 		'type'				=> 'subscription',
 		'status'			=> $commission_status,
 		'reference'			=> $order->id,
-		'reference_amount'	=> slicewp_sanitize_amount( $order->total ),
+		'reference_amount'	=> slicewp_sanitize_amount( $transaction_data['total'] ),
 		'customer_id'		=> $customer_id,
 		'origin'			=> 'pmpro',
 		'amount'			=> slicewp_sanitize_amount( $commission_amount ),
-		'currency'			=> slicewp_get_setting( 'active_currency', 'USD' )
+		'currency'			=> $active_currency,
+		'date_created'		=> slicewp_mysql_gmdate(),
+		'date_modified'		=> slicewp_mysql_gmdate()
 	);
 
-	// Insert the commission
+	// Insert the commission.
 	$commission_id = slicewp_insert_commission( $commission_data );
 
 	if ( ! empty( $commission_id ) ) {
 
-		// Update the visit with the newly inserted commission_id
-		if ( ! is_null( $visit_id ) ) {
+		// Add the transaction data as metadata.
+		if ( ! empty( $transaction_data ) ) {
 
-			slicewp_update_visit( $visit_id, array( 'date_modified' => slicewp_mysql_gmdate(), 'commission_id' => $commission_id ) );
+			slicewp_update_commission_meta( $commission_id, '__transaction_data', $transaction_data );
+
+		}
+
+		// Add commission items as metadata.
+		if ( ! empty( $commission_items ) ) {
+
+			slicewp_update_commission_meta( $commission_id, '__commission_items', $commission_items );
+
+		}
+
+		// Update the visit with the newly inserted commission_id if the visit isn't already marked as converted and
+		// if the current referrer affiliate is the same as the visit's affiliate.
+		if ( ! is_null( $visit ) ) {
+
+			if ( $visit->get( 'affiliate_id' ) == $affiliate_id && empty( $visit->get( 'commission_id' ) ) ) {
+
+				slicewp_update_visit( $visit_id, array( 'date_modified' => slicewp_mysql_gmdate(), 'commission_id' => $commission_id ) );
+
+			}
 			
 		}
 		
@@ -461,19 +535,19 @@ function slicewp_reject_commission_on_delete_pmpro( $order_id ) {
 
 
 /**
- * Adds the product commission settings fields in PMPRO add/edit membership page
+ * Adds the product commission settings fields in PMPRO add/edit membership page.
  *
  */
 function slicewp_add_product_commission_settings_pmpro() {
 
-    // Check for membership level id
+    // Check for membership level id.
     if ( empty( $_GET['edit'] ) ) {
 		return;
 	}
 
     $level_id = intval( $_GET['edit'] );
 
-    // Get the disable commissions value
+    // Get the disable commissions value.
     $disable_commissions = get_pmpro_membership_level_meta( $level_id, 'slicewp_disable_commissions', true );
 
 ?>
@@ -486,7 +560,7 @@ function slicewp_add_product_commission_settings_pmpro() {
         <?php
 
             /**
-             * Hook to add option groups before the core one
+             * Hook to add option groups before the core one.
              * 
              */
             do_action( 'slicewp_pmpro_commission_settings_top' );
@@ -499,7 +573,7 @@ function slicewp_add_product_commission_settings_pmpro() {
             	<?php
         
 	                /**
-	                 * Hook to add settings before the core ones
+	                 * Hook to add settings before the core ones.
 	                 * 
 	                 */
 	                do_action( 'slicewp_pmpro_commission_settings_core_top' );
@@ -519,7 +593,7 @@ function slicewp_add_product_commission_settings_pmpro() {
                 <?php
 
 	                /**
-	                 * Hook to add settings after the core ones
+	                 * Hook to add settings after the core ones.
 	                 * 
 	                 */
 	                do_action( 'slicewp_pmpro_commission_settings_core_bottom' );
@@ -531,7 +605,7 @@ function slicewp_add_product_commission_settings_pmpro() {
         <?php
 
             /**
-             * Hook to add option groups after the core one
+             * Hook to add option groups after the core one.
              * 
              */
             do_action( 'slicewp_pmpro_commission_settings_bottom' );
@@ -542,26 +616,26 @@ function slicewp_add_product_commission_settings_pmpro() {
 
 <?php
 
-    // Add nonce field
+    // Add nonce field.
     wp_nonce_field( 'slicewp_save_membership', 'slicewp_token', false );
 
 }
 
 
 /**
- * Saves the commission settings into WordPress options
+ * Saves the commission settings into WordPress options.
  * 
  * @param int $level_id
  * 
  */
 function slicewp_save_product_commission_settings_pmpro( $level_id ) {
 
-    // Verify for nonce
+    // Verify for nonce.
     if ( empty( $_POST['slicewp_token'] ) || ! wp_verify_nonce( $_POST['slicewp_token'], 'slicewp_save_membership' ) ) {
 		return;
 	}
 
-    // Update the disable commissions settings
+    // Update the disable commissions settings.
     if ( ! empty( $_POST['slicewp_disable_commissions'] ) ) {
 
         update_pmpro_membership_level_meta( $level_id, 'slicewp_disable_commissions', 1 );
@@ -602,6 +676,8 @@ function slicewp_validate_referrer_affiliate_id_new_customer_pmpro( $affiliate_i
 /**
  * Adds the reference amount in the commission data.
  * 
+ * @todo - This should only be updated if the commission has no reference amount data already saved.
+ * 
  * @param array $commission_data
  * 
  * @return array
@@ -637,3 +713,45 @@ function slicewp_add_commission_data_reference_amount_pmpro( $commission_data ) 
 	return $commission_data;
 
 }
+
+
+/**
+ * Returns an array of products data from Paid Memberships Pro to populate the "slicewp_action_ajax_get_products" AJAX callback.
+ * 
+ * @param array $products
+ * 
+ * @return array
+ * 
+ */
+function slicewp_action_ajax_get_products_pmpro( $products, $args = array() ) {
+
+	if ( empty( $args['origin'] ) || $args['origin'] != 'pmpro' ) {
+		return $products;
+	}
+
+	if ( empty( $args['search_term'] ) ) {
+		return $products;
+	}
+
+	global $wpdb;
+
+	$query  = "SELECT * FROM $wpdb->pmpro_membership_levels ";
+	$query .= "WHERE name LIKE '%" . esc_sql( $args['search_term'] ) . "%' ";
+	$query .= "ORDER BY id ASC";
+
+	$levels = $wpdb->get_results( $query, OBJECT );
+
+	foreach ( $levels as $level ) {
+
+		$products[] = array(
+			'origin' => 'pmpro',
+			'id'   	 => $level->id,
+			'name'   => $level->name
+		);
+
+	}
+
+	return $products;
+
+}
+add_filter( 'slicewp_action_ajax_get_products', 'slicewp_action_ajax_get_products_pmpro', 10, 2 );

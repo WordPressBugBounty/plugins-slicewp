@@ -243,6 +243,13 @@ Class SliceWP_Object_DB_Commissions extends SliceWP_Object_DB {
 
 		}
 
+		if ( is_array( $args['parent_id'] ) && ! empty( $args['parent_id'] ) ) {
+
+			$parent_ids = implode( ',', array_map( 'absint', $args['parent_id'] ) );
+			$where     .= " AND parent_id IN({$parent_ids})";
+
+		}
+
 		// Include where clause.
 		if ( ! empty( $args['include'] ) ) {
 

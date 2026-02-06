@@ -1,6 +1,6 @@
 <?php
 
-// Exit if accessed directly
+// Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 
@@ -54,6 +54,7 @@ Class SliceWP_Submenu_Page_Add_Ons extends SliceWP_Submenu_Page {
 			'payout-requests',
 			'affiliate-landing-pages',
 			'product-commission-rates',
+			'product-revenue-share',
 			'multi-currency',
 			'reports',
 			'affiliate-leaderboard',
@@ -233,6 +234,13 @@ Class SliceWP_Submenu_Page_Add_Ons extends SliceWP_Submenu_Page {
 				'description' => 'Overwrite global commission rates with custom rates for each individual product or subscription.',
 				'url' => 'https://slicewp.com/products/product-commission-rates/',
 				'date_added' => '2020-05-13 07:35:47',
+			),
+			array(
+				'name' => 'Product Revenue Share',
+				'slug' => 'product-revenue-share',
+				'description' => 'Link affiliates to specific products and reward them with a commission on every sale of those products.',
+				'url' => 'https://slicewp.com/products/product-revenue-share/',
+				'date_added' => '2025-09-20 10:30:00',
 			),
 			array(
 				'name' => 'Multi-currency',

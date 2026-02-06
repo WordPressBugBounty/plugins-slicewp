@@ -1,6 +1,6 @@
 <?php
 
-// Exit if accessed directly
+// Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 
@@ -415,7 +415,7 @@ function slicewp_user_action_login_affiliate() {
     // Login the user.
     $user = wp_signon( $credentials, '' );
 
-    if ( is_wp_error( $user ) ){
+    if ( is_wp_error( $user ) ) {
  
         slicewp_user_notices()->register_notice( 'affiliate_login_error', '<p>' . __( 'Unable to login. Please try again.' , 'slicewp' ) . '</p>', 'error' );
         slicewp_user_notices()->display_notice( 'affiliate_login_error' );

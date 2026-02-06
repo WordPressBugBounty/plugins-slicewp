@@ -255,7 +255,7 @@ if ( is_null( $commission ) ) {
 		</div>
 
 		<!-- Hidden commission id field -->
-		<input type="hidden" name="commission_id" value="<?php echo $commission_id; ?>" />
+		<input type="hidden" name="commission_id" value="<?php echo absint( $commission_id ); ?>" />
 
 		<!-- Action and nonce -->
 		<input type="hidden" name="slicewp_action" value="update_commission" />

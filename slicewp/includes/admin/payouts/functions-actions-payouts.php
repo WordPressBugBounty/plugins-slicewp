@@ -119,12 +119,12 @@ function slicewp_admin_action_create_payout() {
 			'amount'		 	 => slicewp_sanitize_amount( $_payment_data['amount'] ),
 			'currency'		 	 => sanitize_text_field( $_payment_data['currency'] ),
 			'payout_method'	 	 => slicewp_get_affiliate_payout_method( absint( $_payment_data['affiliate_id'] ) ),
-			'date_created'   	 => slicewp_mysql_gmdate(),
-			'date_modified'  	 => slicewp_mysql_gmdate(),
 			'status'		 	 => 'unpaid',
 			'commission_ids' 	 => sanitize_text_field( implode( ',', $_payment_data['commission_ids'] ) ),
 			'payout_id'		 	 => $payout_id,
-			'originator_user_id' => get_current_user_id()
+			'originator_user_id' => get_current_user_id(),
+			'date_created'   	 => slicewp_mysql_gmdate(),
+			'date_modified'  	 => slicewp_mysql_gmdate()
 		);
 		
 		$payment_id = slicewp_insert_payment( $payment_data );

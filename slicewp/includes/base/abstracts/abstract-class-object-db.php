@@ -279,7 +279,7 @@ abstract class SliceWP_Object_DB extends SliceWP_DB {
 		 * @param array $current_data
 		 *
 		 */
-		do_action( 'slicewp_pre_update_' . $this->context, $row_id, $data, ( ! is_null( $object ) ? $object->to_array() : array() ) );
+		do_action( 'slicewp_pre_update_' . $this->context, $row_id, $data, ( ! is_null( $object ) ? slicewp_object_to_array( $object ) : array() ) );
 
 		$data_keys 		= array_keys( $data );
 		$column_formats = array_merge( array_flip( $data_keys ), $column_formats );
@@ -299,7 +299,7 @@ abstract class SliceWP_Object_DB extends SliceWP_DB {
 		 * @param array $old_data
 		 *
 		 */
-		do_action( 'slicewp_update_' . $this->context, $row_id, $data, ( ! is_null( $object ) ? $object->to_array() : array() ) );
+		do_action( 'slicewp_update_' . $this->context, $row_id, $data, ( ! is_null( $object ) ? slicewp_object_to_array( $object ) : array() ) );
 
 		return true;
 
@@ -380,7 +380,15 @@ abstract class SliceWP_Object_DB extends SliceWP_DB {
 
 			} else {
 
-				$_object = new $this->query_object_type( $object );
+				if ( $this->query_object_type != 'stdClass' ) {
+
+					$_object = new $this->query_object_type( $object );
+
+				} else {
+
+					$_object = $object;
+
+				}
 
 			}
 

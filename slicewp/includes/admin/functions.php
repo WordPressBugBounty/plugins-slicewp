@@ -235,6 +235,78 @@ function slicewp_output_select2_user_search( $args, $return = false ) {
 
 
 /**
+ * Outputs a select2 field to select one or more products.
+ * 
+ * @param array $args
+ * 
+ */
+function slicewp_output_select2_products_search( $args, $return = false ) {
+
+	$defaults = array(
+		'is_multiple'  	  => false,
+		'is_disabled'  	  => false,
+		'placeholder'  	  => '',
+		'id'		   	  => 'slicewp-product-search',
+		'name'		   	  => 'product_search',
+		'value'		   	  => '',
+		'placeholder'	  => ( empty( $args['is_multiple'] ) || $args['is_multiple'] == false ? __( 'Select product...', 'slicewp' ) : __( 'Select products...', 'slicewp' ) ),
+		'origin'		  => array(),
+		'data_attributes' => array()
+	);
+
+	$args = wp_parse_args( $args, $defaults );
+
+	// Make sure origin is an array.
+	$args['origin'] = (array)$args['origin'];
+
+	// Build the selected options.
+	$selected_options = array();
+
+	if ( ! empty( $args['value'] ) ) {
+
+		$selected_values = array_unique( is_array( $args['value'] ) ? array_map( 'trim', $args['value'] ) : array( $args['value'] ) );
+
+		foreach ( $selected_values as $selected_value ) {
+
+			$exploded = explode( ':', $selected_value );
+
+			// @todo - Get the product name for each origin.
+			$label = $selected_value;
+
+			$selected_options[$selected_value] = $label;
+
+		}
+
+	}
+
+	// Prepare data attributes.
+	$data_attributes = '';
+
+	foreach ( $args['data_attributes'] as $key => $value ) {
+		$data_attributes .= ' data-' . esc_attr( str_replace( '_', '-', $key ) ) . '="' . esc_attr( $value ) . '"';
+	}
+
+	// Prepare the output.
+	$output = '<select id="' . esc_attr( $args['id'] ) . '" name="' . esc_attr( $args['name'] ) . ( $args['is_multiple'] ? '[]' : '' ) .  '" class="slicewp-select2 slicewp-select2-products-field" data-origin="' . esc_attr( ! empty( $args['origin'] ) ? json_encode( $args['origin'] ) : '' ) . '" ' . ( $args['is_multiple'] ? 'multiple' : '' ) . ' ' . ( $args['is_disabled'] ? 'disabled' : '' ) . ' placeholder="' . esc_attr( $args['placeholder'] ) . '"' . $data_attributes . ' data-nonce="' . wp_create_nonce( 'slicewp_product_search' ) . '">';
+
+		foreach ( $selected_options as $key => $label ) {
+
+			$output .= '<option value="' . esc_attr( $key ) . '" selected>' . esc_html( $label ) . '</option>';
+
+		}
+
+	$output .= '</select>';
+
+	if ( ! $return ) {
+		echo $output;
+	} else {
+		return $output;
+	}
+
+}
+
+
+/**
  * Outputs a select field containing a list of posts.
  * 
  * @param array $args
@@ -570,16 +642,16 @@ add_action( 'slicewp_admin_action_dismiss_notice', 'slicewp_admin_action_dismiss
 
 
 /**
- * Outputs a promo notice for version 1.1.28.
+ * Outputs a promo notice for version 1.2.2.
  *
  */
-function slicewp_admin_notice_version_1_1_28() {
+function slicewp_admin_notice_version_1_2_2() {
 
 	if ( empty( $_GET['page'] ) || ! is_string( $_GET['page'] ) || false === strpos( $_GET['page'], 'slicewp' ) ) {
 		return;
 	}
 
-	if ( version_compare( SLICEWP_VERSION, '1.1.32', '>' ) ) {
+	if ( version_compare( SLICEWP_VERSION, '1.2.5', '>' ) ) {
 		return;
 	}
 
@@ -589,7 +661,7 @@ function slicewp_admin_notice_version_1_1_28() {
 
 	$dismissed_admin_notices = get_option( 'slicewp_dismissed_admin_notices', array() );
 
-	if ( in_array( 'version_1_1_28', $dismissed_admin_notices ) ) {
+	if ( in_array( 'version_1_2_2', $dismissed_admin_notices ) ) {
 		return;
 	}
 
@@ -614,11 +686,11 @@ function slicewp_admin_notice_version_1_1_28() {
 			</div>
 
 			<div class="slicewp-admin-notice-content">
-				<h3><strong><?php echo __( 'A superior experience for you and your affiliates!', 'slicewp' ); ?></strong></h3>
-				<p style="font-size: 14px;"><?php echo __( "We're excited to introduce a suite of new features designed to enhance your affiliate program, including redesigned affiliate account tables, a streamlined commission rejection flow and a revamped admin payouts page.", 'slicewp' ); ?></p>
+				<h3><strong><?php echo __( 'Reports just got better!', 'slicewp' ); ?></strong></h3>
+				<p style="font-size: 14px;"><?php echo sprintf( __( "SliceWP's reports page just got a big upgrade, featuring a new referral sales tab, a smarter date picker, and improved KPIs for easier performance tracking.", 'slicewp' ), '<strong>', '</strong>', '<strong>', '</strong>' ); ?></p>
 
-				<a target="_blank" style="margin-top: 10px; margin-right: 10px;" href="<?php echo esc_url( 'https://slicewp.com/blog/product-update-affiliate-area-improvements/' ); ?>" class="button-primary"><?php echo __( 'Explore new features', 'slicewp' ); ?></a>
-				<a href="<?php echo wp_nonce_url( add_query_arg( array( 'slicewp_action' => 'dismiss_notice', 'notice_slug' => 'version_1_1_28' ) ), 'slicewp_dismiss_notice', 'slicewp_token' ); ?>"><?php echo __( 'Dismiss notice', 'slicewp' ); ?></a>
+				<a target="_blank" style="margin-top: 10px; margin-right: 10px;" href="<?php echo esc_url( 'https://slicewp.com/blog/product-update-improved-reports/' ); ?>" class="button-primary"><?php echo __( 'Explore new features', 'slicewp' ); ?></a>
+				<a href="<?php echo wp_nonce_url( add_query_arg( array( 'slicewp_action' => 'dismiss_notice', 'notice_slug' => 'version_1_2_2' ) ), 'slicewp_dismiss_notice', 'slicewp_token' ); ?>"><?php echo __( 'Dismiss notice', 'slicewp' ); ?></a>
 			</div>
 
 		</div>
@@ -626,4 +698,4 @@ function slicewp_admin_notice_version_1_1_28() {
 	<?php
 
 }
-add_action( 'admin_notices', 'slicewp_admin_notice_version_1_1_28' );
+add_action( 'admin_notices', 'slicewp_admin_notice_version_1_2_2' );

@@ -370,11 +370,13 @@ function slicewp_get_available_commission_types( $only_active = false, $default_
 
 /**
  * Checks to see if the commissions are set to be calculated on a per order basis.
+ * 
+ * @param int $affiliate_id
  *
  * @return bool
  *
  */
-function slicewp_is_commission_basis_per_order() {
+function slicewp_is_commission_basis_per_order( $affiliate_id = 0 ) {
 
 	$return = false;
 
@@ -392,7 +394,7 @@ function slicewp_is_commission_basis_per_order() {
 	 * @param bool $return
 	 *
 	 */
-	$return = apply_filters( 'slicewp_is_commission_basis_per_order', $return );
+	$return = apply_filters( 'slicewp_is_commission_basis_per_order', $return, $affiliate_id );
 
 	return $return;
 

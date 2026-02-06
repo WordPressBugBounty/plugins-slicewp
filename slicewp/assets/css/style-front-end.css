@@ -460,6 +460,9 @@ table.slicewp-list-table tbody.slicewp-active .slicewp-toggle-item-details svg {
 
 }
 
+/* Table: Commission Items */
+.slicewp-list-table-commission-items .slicewp-column-item-commission-amount { width: 30%; }
+
 /******************************************************************************************/
 /* Pagination Links
 /******************************************************************************************/

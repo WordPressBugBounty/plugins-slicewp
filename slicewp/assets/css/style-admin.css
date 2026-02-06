@@ -534,10 +534,11 @@ body.slicewp-pagestyles .postbox .inside { padding: 20px; margin: 0; }
 
 .slicewp-expandable-item .slicewp-expandable-item-header > * { padding: 20px; }
 .slicewp-expandable-item .slicewp-expandable-item-header .slicewp-expandable-item-actions { margin-left: auto; }
+.slicewp-expandable-item .slicewp-expandable-item-header .slicewp-expandable-item-actions a { text-decoration: none; }
 
 .slicewp-expandable-item-actions { display: flex; gap: 5px; }
 
-.slicewp-expand-item { display: inline-flex !important; align-items: center; box-shadow: none !important; text-decoration: none; }
+.slicewp-expand-item { display: inline-flex !important; align-items: center; box-shadow: none !important; }
 .slicewp-expand-item svg { width: 18px; transition: transform 0.15s ease-in-out; }
 .slicewp-expandable-item.slicewp-active .slicewp-expand-item svg,
 .slicewp-expandable-item.slicewp-is-expanded .slicewp-expand-item svg { transform: rotate( 180deg ); }

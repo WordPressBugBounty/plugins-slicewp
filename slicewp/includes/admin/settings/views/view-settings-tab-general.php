@@ -171,9 +171,9 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 		?>
 
 		<!-- Commission Rates -->
-		<?php foreach( $commission_types as $type => $details ): ?>
+		<?php foreach ( $commission_types as $type => $details ): ?>
 
-			<?php if( $type == 'recurring' || $type == 'lifetime_sale' ) continue; ?>
+			<?php if ( in_array( $type, array( 'recurring', 'lifetime_sale', 'product_revenue_share' ) ) ) continue; ?>
 
 			<?php 
 				$rate 	   = slicewp_get_setting( 'commission_rate_' . $type );
@@ -187,7 +187,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 						<?php echo sprintf( __( '%s Rate', 'slicewp' ), $details['label'] ); ?>
 					</label>
 				</div>
-				
+
 				<input id="slicewp-commission-rate-<?php echo str_replace( '_', '-', $type ); ?>" name="settings[commission_rate_<?php echo $type; ?>]" type="number" step="any" min="0" value="<?php echo ( ! empty( $_POST['settings']['commission_rate_' . $type] ) ? esc_attr( $_POST['settings']['commission_rate_' . $type] ) : $rate) ?>" />					
 
 				<select name="settings[commission_rate_type_<?php echo $type; ?>]" class="slicewp-select2" <?php echo ( count( $details['rate_types'] ) == 1 ? 'disabled' : '' ); ?>>
@@ -225,7 +225,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 			<div class="slicewp-field-label-wrapper">
 				<label for="slicewp-exclude-shipping">
 					<?php echo __( 'Exclude Shipping', 'slicewp' ); ?>
-					<?php echo slicewp_output_tooltip( __( 'The option is applicable only for WooCommerce and Easy Digital Downloads.', 'slicewp' ) ); ?>
+					<?php echo slicewp_output_tooltip( __( 'The option is applicable only for WooCommerce.', 'slicewp' ) ); ?>
 				</label>
 			</div>
 
@@ -634,8 +634,10 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				<?php
 
 					$pages = get_pages();
-					foreach( $pages as $page )
-						echo '<option value="' . absint( $page->ID ) . '"' . selected( ! empty( $_POST['settings']['page_affiliate_account'] ) ? absint( $_POST['settings']['page_affiliate_account'] ) : ( empty( $_POST ) ? slicewp_get_setting( 'page_affiliate_account' ) : '' ), $page->ID ) . '>' . $page->post_title . '</option>';
+
+					foreach ( $pages as $page ) {
+						echo '<option value="' . absint( $page->ID ) . '"' . selected( ! empty( $_POST['settings']['page_affiliate_account'] ) ? absint( $_POST['settings']['page_affiliate_account'] ) : ( empty( $_POST ) ? slicewp_get_setting( 'page_affiliate_account' ) : '' ), $page->ID, false ) . '>' . esc_html( $page->post_title ) . '</option>';
+					}
 
 				?>
 			</select>
@@ -658,8 +660,10 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				<?php
 
 					$pages = get_pages();
-					foreach( $pages as $page )
-						echo '<option value="' . absint( $page->ID ) . '"' . selected( ! empty( $_POST['settings']['page_affiliate_register'] ) ? absint( $_POST['settings']['page_affiliate_register'] ) : ( empty( $_POST ) ? slicewp_get_setting( 'page_affiliate_register' ) : '' ), $page->ID ) . '>' . $page->post_title . '</option>';
+
+					foreach ( $pages as $page ) {
+						echo '<option value="' . absint( $page->ID ) . '"' . selected( ! empty( $_POST['settings']['page_affiliate_register'] ) ? absint( $_POST['settings']['page_affiliate_register'] ) : ( empty( $_POST ) ? slicewp_get_setting( 'page_affiliate_register' ) : '' ), $page->ID, false ) . '>' . esc_html( $page->post_title ) . '</option>';
+					}
 
 				?>
 			</select>
@@ -682,8 +686,10 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				<?php
 
 					$pages = get_pages();
-					foreach( $pages as $page )
-						echo '<option value="' . absint( $page->ID ) . '"' . selected( ! empty( $_POST['settings']['page_affiliate_reset_password'] ) ? absint( $_POST['settings']['page_affiliate_reset_password'] ) : ( empty( $_POST ) ? slicewp_get_setting( 'page_affiliate_reset_password' ) : '' ), $page->ID ) . '>' . $page->post_title . '</option>';
+
+					foreach ( $pages as $page ) {
+						echo '<option value="' . absint( $page->ID ) . '"' . selected( ! empty( $_POST['settings']['page_affiliate_reset_password'] ) ? absint( $_POST['settings']['page_affiliate_reset_password'] ) : ( empty( $_POST ) ? slicewp_get_setting( 'page_affiliate_reset_password' ) : '' ), $page->ID, false ) . '>' . esc_html( $page->post_title ) . '</option>';
+					}
 
 				?>
 			</select>
@@ -705,8 +711,10 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				<?php
 
 					$pages = get_pages();
-					foreach( $pages as $page )
-						echo '<option value="' . absint( $page->ID ) . '"' . selected( ! empty( $_POST['settings']['page_terms_conditions'] ) ? absint( $_POST['settings']['page_terms_conditions'] ) : ( empty( $_POST ) ? slicewp_get_setting( 'page_terms_conditions' ) : '' ), $page->ID ) . '>' . $page->post_title . '</option>';
+
+					foreach ( $pages as $page ) {
+						echo '<option value="' . absint( $page->ID ) . '"' . selected( ! empty( $_POST['settings']['page_terms_conditions'] ) ? absint( $_POST['settings']['page_terms_conditions'] ) : ( empty( $_POST ) ? slicewp_get_setting( 'page_terms_conditions' ) : '' ), $page->ID, false ) . '>' . esc_html( $page->post_title ) . '</option>';
+					}
 
 				?>
 			</select>

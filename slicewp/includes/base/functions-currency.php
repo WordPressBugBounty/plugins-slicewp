@@ -79,6 +79,14 @@ function slicewp_get_currencies( $dataset = 'name' ) {
             'thousands_separator' => ',',
             'decimal_separator'   => '.'
         ),
+        'BOB' => array(
+            'name'                => __( 'Bolivian Boliviano', 'slicewp' ),
+            'symbol'              => '&#66;&#115;&#46;',
+            'symbol_position'     => 'before',
+            'decimal_places'      => 2,
+            'thousands_separator' => ',',
+            'decimal_separator'   => '.'
+        ),
         'BRL' => array(
             'name'                => __( 'Brazilian Real', 'slicewp' ),
             'symbol'              => '&#82;&#36;',
@@ -608,7 +616,7 @@ function slicewp_get_currency_symbol( $currency_code ) {
 
 
 /**
- * Formats the given amount and currency based on the saved settings
+ * Formats the given amount and currency based on the saved settings.
  *
  * @param string $amount
  * @param string $currency
@@ -618,24 +626,24 @@ function slicewp_get_currency_symbol( $currency_code ) {
  */
 function slicewp_format_amount( $amount, $currency, $show_currency = true ) {
 
-    // Get the currency decimal places
+    // Get the currency decimal places.
     $decimal_places = slicewp_get_currencies( 'decimal_places' );
     $decimal_places = ( isset( $decimal_places[$currency] ) ? absint( $decimal_places[$currency] ) : 2 );
 
-    // Format number to two decimals
+    // Format number to two decimals.
     $amount = number_format( (float)$amount, $decimal_places, slicewp_get_setting( 'currency_decimal_separator', '.' ), slicewp_get_setting( 'currency_thousands_separator', '' ) );
 
-    // If show currency is true, add the currency symbol to the appropiate position
+    // If show currency is true, add the currency symbol to the appropiate position.
     if ( $show_currency ) {
 
-        // Get the currency position set in the settings page
+        // Get the currency position set in the settings page.
         $currency_position = slicewp_get_setting( 'currency_symbol_position', 'before' );
 
-        // Get the currency symbol for the currency
+        // Get the currency symbol for the currency.
         $currency_symbol = slicewp_get_currency_symbol( $currency );
         $currency_symbol = ( ! empty( $currency_symbol ) ? $currency_symbol : $currency );
 
-        // Set the format for the amount
+        // Set the format for the amount.
         switch( $currency_position ) {
 
             case 'before':
@@ -661,17 +669,17 @@ function slicewp_format_amount( $amount, $currency, $show_currency = true ) {
         }
 
         /**
-         * Filter the amount format
+         * Filter the amount format.
          *
          * @param string $format
          *
          */
         $format = apply_filters( 'slicewp_amount_format', $format );
 
-        // Format the output
+        // Format the output.
         $formatted_amount = sprintf( $format, $currency_symbol, $amount );
 
-    // If show currency is false, just return the formatted amount, without the currency symbol
+    // If show currency is false, just return the formatted amount, without the currency symbol.
     } else {
 
         $formatted_amount = $amount;
@@ -684,15 +692,15 @@ function slicewp_format_amount( $amount, $currency, $show_currency = true ) {
 
 
 /**
- * Sanitizes and formats the given amount to be database ready
- * The preferred scenario would be to have the values saved with two decimals, separated by . (dot)
+ * Sanitizes and formats the given amount to be database ready.
  *
- * @param mixed $amount
+ * @param mixed  $amount
+ * @param string $currency
  *
  * @return string
  *
  */
-function slicewp_sanitize_amount( $amount ) {
+function slicewp_sanitize_amount( $amount, $currency = '' ) {
 
     // Set any possible separators into an array.
     $locale     = localeconv();
@@ -705,10 +713,10 @@ function slicewp_sanitize_amount( $amount ) {
     $amount = preg_replace( '/\.(?![^.]+$)|[^0-9.-]/', '', $amount );
 
     // Get the currency decimal places.
-    $active_currency = slicewp_get_setting( 'active_currency', 'USD' );
+    $currency = ( ! empty( $currency ) ? $currency : slicewp_get_setting( 'active_currency', 'USD' ) );
 
     $decimal_places = slicewp_get_currencies( 'decimal_places' );
-    $decimal_places = ( isset( $decimal_places[$active_currency] ) ? absint( $decimal_places[$active_currency] ) : 2 );
+    $decimal_places = ( isset( $decimal_places[$currency] ) ? absint( $decimal_places[$currency] ) : 2 );
 
     /**
      * Filter the number of decimals to be set when sanitizing the amount.
@@ -757,6 +765,41 @@ function slicewp_maybe_convert_amount( $amount, $currency_from, $currency_to ) {
     $rate = apply_filters( 'slicewp_maybe_convert_amount_exchange_rate', 1.00, $currency_from, $currency_to );
 
     return round( $amount * $rate, 2 );
+
+}
+
+
+/**
+ * Returns the conversion rate between the two given currencies.
+ * 
+ * @param string $currency_from
+ * @param string $currency_to
+ * 
+ * @return float
+ * 
+ */
+function slicewp_get_currency_conversion_rate( $currency_from, $currency_to ) {
+
+    $currency_from = trim( strtoupper( $currency_from ) );
+    $currency_to   = trim( strtoupper( $currency_to ) );
+
+    $rate = 1.000;
+
+    if ( $currency_from == $currency_to ) {
+        return $rate;
+    }
+
+    /**
+     * Filter the currency conversion rate between the two currencies.
+     * 
+     * @param float  $rate
+     * @param string $currency_from
+     * @param string $currency_to
+     * 
+     */
+    $rate = apply_filters( 'slicewp_get_currency_conversion_rate', $rate, $currency_from, $currency_to );
+
+    return (float)$rate;
 
 }
 

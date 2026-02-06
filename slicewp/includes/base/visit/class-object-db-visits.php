@@ -186,7 +186,7 @@ Class SliceWP_Object_DB_Visits extends SliceWP_Object_DB {
 
 			$affiliate_ids = ( ! empty( $affiliate_ids ) ? implode( ',', array_map( 'absint', $affiliate_ids ) ) : 0 );
 
-			$where .= " AND (affiliate_id IN({$affiliate_ids}) OR id LIKE '%%{$search}%%' OR ip_address LIKE '%%{$search}%%' OR landing_url LIKE '%%{$search}%%' OR referrer_url LIKE '%%{$search}%%')";
+			$where .= " AND (affiliate_id IN({$affiliate_ids}) OR id LIKE '%%{$search}%%' OR ip_address LIKE '%%{$search}%%' OR commission_id LIKE '%%{$search}%%' OR landing_url LIKE '%%{$search}%%' OR referrer_url LIKE '%%{$search}%%')";
 
 		}
 

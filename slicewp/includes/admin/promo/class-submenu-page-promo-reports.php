@@ -21,7 +21,8 @@ Class SliceWP_Submenu_Page_Promo_Reports extends SliceWP_Submenu_Page {
             </script>
 
             <style>
-                body .notice { display: none !important; }
+                body .notice,
+                body .error { display: none !important; }
                 
                 .slicewp-wrap-promo-reports { margin: -20px 0 0 -20px; padding: 20px 20px 0 20px; }
                 .slicewp-wrap-promo-reports img { max-width: 100%; height: auto; filter: blur( 4px ); }

@@ -185,9 +185,12 @@ function slicewp_insert_pending_commission_gpd( $invoice ) {
 
 	}
 
+	// Set currencies.
+	$active_currency = slicewp_get_setting( 'active_currency', 'USD' );
+	$order_currency  = $invoice->get_currency( 'edit' );
 
 	// Calculate the commission amount for each item in the invoice
-	if ( ! slicewp_is_commission_basis_per_order() ) {
+	if ( ! slicewp_is_commission_basis_per_order( $affiliate_id ) ) {
 
 		$commission_amount = 0;
 
@@ -210,7 +213,7 @@ function slicewp_insert_pending_commission_gpd( $invoice ) {
 				'customer_id'  => $customer_id
 			);
 
-			$commission_amount += slicewp_calculate_commission_amount( slicewp_maybe_convert_amount( $amount, $invoice->get_currency( 'edit' ), slicewp_get_setting( 'active_currency', 'USD' ) ), $args );
+			$commission_amount += slicewp_calculate_commission_amount( slicewp_maybe_convert_amount( $amount, $order_currency, $active_currency ), $args );
 
 			// Save the order commission types for future use
 			$order_commission_types[] = $args['type'];
@@ -249,16 +252,16 @@ function slicewp_insert_pending_commission_gpd( $invoice ) {
 	$commission_data = array(
 		'affiliate_id'		=> $affiliate_id,
 		'visit_id'			=> ( ! is_null( $visit_id ) ? $visit_id : 0 ),
-		'date_created'		=> slicewp_mysql_gmdate(),
-		'date_modified'		=> slicewp_mysql_gmdate(),
 		'type'				=> sizeof( $order_commission_types ) == 1 ? $order_commission_types[0] : 'sale',
 		'status'			=> 'pending',
 		'reference'			=> $invoice->get_id(),
-		'reference_amount'	=> slicewp_sanitize_amount( $invoice->get_total() ),
+		'reference_amount'	=> slicewp_sanitize_amount( slicewp_maybe_convert_amount( $invoice->get_total(), $order_currency, $active_currency ) ),
 		'customer_id'		=> $customer_id,
 		'origin'			=> 'gpd',
 		'amount'			=> slicewp_sanitize_amount( $commission_amount ),
-		'currency'			=> slicewp_get_setting( 'active_currency', 'USD' )
+		'currency'			=> $active_currency,
+		'date_created'		=> slicewp_mysql_gmdate(),
+		'date_modified'		=> slicewp_mysql_gmdate()
 	);
 
 	// Insert the commission

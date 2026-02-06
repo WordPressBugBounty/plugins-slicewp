@@ -110,7 +110,7 @@ function slicewp_insert_pending_commission_woo( $order ) {
 
 	$order_id = ( is_a( $order, 'WC_Order' ) ? $order->get_id() : $order );
 
-	// Get and check to see if referrer exists
+	// Get and check to see if referrer exists.
 	$affiliate_id = slicewp_get_referrer_affiliate_id();
 	$visit_id	  = slicewp_get_referrer_visit_id();
 
@@ -128,7 +128,7 @@ function slicewp_insert_pending_commission_woo( $order ) {
 		return;
 	}
 
-	// Verify if the affiliate is valid
+	// Verify if the affiliate is valid.
 	if ( ! slicewp_is_affiliate_valid( $affiliate_id ) ) {
 
 		slicewp_add_log( 'WOO: Pending commission was not created because the affiliate is not valid.' );
@@ -136,7 +136,7 @@ function slicewp_insert_pending_commission_woo( $order ) {
 
 	}
 	
-	// Check to see if a commission for this order has been registered
+	// Check to see if a commission for this order has been registered.
 	$commissions = slicewp_get_commissions( array( 'reference' => $order_id, 'origin' => 'woo' ) );
 
 	if ( ! empty( $commissions ) ) {
@@ -146,10 +146,10 @@ function slicewp_insert_pending_commission_woo( $order ) {
 
 	}
 
-	// Get order
+	// Get order.
 	$order = ( is_a( $order, 'WC_Order' ) ? $order : wc_get_order( $order_id ) );
 
-	// Check to see if the affiliate made the purchase
+	// Check to see if the affiliate made the purchase.
 	if ( empty( slicewp_get_setting( 'affiliate_own_commissions' ) ) ) {
 
 		$affiliate = slicewp_get_affiliate( $affiliate_id );
@@ -174,7 +174,7 @@ function slicewp_insert_pending_commission_woo( $order ) {
 	}
 
 
-	// Process the customer
+	// Process the customer.
 	$customer_args = array(
 		'email'   	   => $order->get_billing_email(),
 		'user_id' 	   => $order->get_user_id(),
@@ -192,80 +192,173 @@ function slicewp_insert_pending_commission_woo( $order ) {
 	}
 
 
-	// Get all cart items
-	$cart_items = $order->get_items();
-	
-	// Set cart shipping
-	$cart_shipping = $order->get_shipping_total( 'edit' );
+	// Get formatted order data.
+	$formatted_order_data = slicewp()->integrations['woo']->get_formatted_order_data( $order );
 
-	if ( ! slicewp_get_setting( 'exclude_tax', false ) ) {
-		$cart_shipping = $cart_shipping + $order->get_shipping_tax( 'edit' );
+	// Set currencies.
+	$active_currency = slicewp_get_setting( 'active_currency', 'USD' );
+	$order_currency  = $formatted_order_data['currency'];
+
+	// Prepare the transaction data.
+	$transaction_data = $formatted_order_data;
+
+	$transaction_data['original_currency'] = $transaction_data['currency'];
+	$transaction_data['original_subtotal'] = $transaction_data['subtotal'];
+	$transaction_data['original_total']    = $transaction_data['total'];
+	$transaction_data['original_tax'] 	   = $transaction_data['tax'];
+
+	$transaction_data['currency'] = $active_currency;
+	$transaction_data['subtotal'] = slicewp_sanitize_amount( slicewp_maybe_convert_amount( $transaction_data['subtotal'], $order_currency, $active_currency ) );
+	$transaction_data['total'] 	  = slicewp_sanitize_amount( slicewp_maybe_convert_amount( $transaction_data['total'], $order_currency, $active_currency ) );
+	$transaction_data['tax'] 	  = slicewp_sanitize_amount( slicewp_maybe_convert_amount( $transaction_data['tax'], $order_currency, $active_currency ) );
+
+	$transaction_data['customer_id'] = $customer_id;
+
+	$transaction_data['currency_conversion_rate'] = slicewp_get_currency_conversion_rate( $order_currency, $active_currency );
+
+	foreach ( $transaction_data['items'] as $key => $transaction_item_data ) {
+
+		$transaction_item_data['original_subtotal'] = $transaction_item_data['subtotal'];
+		$transaction_item_data['original_total']    = $transaction_item_data['total'];
+		$transaction_item_data['original_tax'] 	    = $transaction_item_data['tax'];
+
+		$transaction_item_data['subtotal'] = slicewp_sanitize_amount( slicewp_maybe_convert_amount( $transaction_item_data['subtotal'], $order_currency, $active_currency ) );
+		$transaction_item_data['total']    = slicewp_sanitize_amount( slicewp_maybe_convert_amount( $transaction_item_data['total'], $order_currency, $active_currency ) );
+		$transaction_item_data['tax'] 	   = slicewp_sanitize_amount( slicewp_maybe_convert_amount( $transaction_item_data['tax'], $order_currency, $active_currency ) );
+
+		// Move meta_data at the end for cleaner array.
+		if ( ! empty( $transaction_item_data['meta_data'] ) ) {
+			$transaction_item_data = array_merge( array_diff_key( $transaction_item_data, array( 'meta_data' => $transaction_item_data['meta_data'] ) ), array( 'meta_data' => $transaction_item_data['meta_data'] ) );
+		}
+
+		$transaction_data['items'][$key] = $transaction_item_data;
+
 	}
 
-	$order_commission_types = array();
+	// Move items at the end for cleaner array.
+	if ( ! empty( $transaction_data['items'] ) ) {
+		$transaction_data = array_merge( array_diff_key( $transaction_data, array( 'items' => $transaction_data['items'] ) ), array( 'items' => $transaction_data['items'] ) );
+	}
 
-    // Calculate the commission amount for each item in the cart
-    if ( ! slicewp_is_commission_basis_per_order() ) {
 
-        $commission_amount = 0;
+    // Build the commission items for each item in the cart.
+	$commission_amount 			   = 0;
+	$commission_items 			   = array();
+	$order_commission_types 	   = array();
+	$is_commission_basis_per_order = slicewp_is_commission_basis_per_order( $affiliate_id );
 
-        foreach ( $cart_items as $cart_item ) {
+    if ( ! $is_commission_basis_per_order ) {
 
-            // Get the product categories
-            $categories = get_the_terms( $cart_item->get_product_id(), 'product_cat' );
+		// Commission items for product transaction items.
+		foreach ( $transaction_data['items'] as $transaction_item_data ) {
 
-            // Verify if commissions are disabled for this product category
-            if ( ! empty( $categories[0]->term_id ) && get_term_meta( $categories[0]->term_id, 'slicewp_disable_commissions', true ) ) {
+			if ( $transaction_item_data['type'] != 'product' ) {
+				continue;
+			}
+			
+			// Get product and variation IDs.
+			$product_id   = absint( $transaction_item_data['meta_data']['product_id'] );
+			$variation_id = absint( $transaction_item_data['meta_data']['variation_id'] );
+
+			// Get the product categories.
+			$categories = get_the_terms( $product_id, 'product_cat' );
+
+			// Verify if commissions are disabled for this product category.
+			if ( ! empty( $categories[0]->term_id ) && get_term_meta( $categories[0]->term_id, 'slicewp_disable_commissions', true ) ) {
 				continue;
 			}
 
-            // Verify if commissions are disabled for this product
-            if ( get_post_meta( $cart_item->get_product_id(), 'slicewp_disable_commissions', true ) ) {
+			// Verify if commissions are disabled for this product.
+			if ( get_post_meta( $product_id, 'slicewp_disable_commissions', true ) ) {
 				continue;
 			}
 
-            // Verify if commissions are disabled for this product variation
-            if ( ! empty( $cart_item->get_variation_id() ) && get_post_meta( $cart_item->get_variation_id(), 'slicewp_disable_commissions', true ) ) {
+			// Verify if commissions are disabled for this product variation.
+			if ( ! empty( $variation_id ) && get_post_meta( $variation_id, 'slicewp_disable_commissions', true ) ) {
 				continue;
 			}
 
-            $amount = $cart_item->get_total( 'edit' );
+			$commissionable_amount = $transaction_item_data['total'];
 
-			// Include tax
-			if ( ! slicewp_get_setting( 'exclude_tax', false ) ) {
-				$amount = $amount + $cart_item->get_total_tax( 'edit' );
+			// Include tax.
+			if ( ! empty( slicewp_get_setting( 'exclude_tax', false ) ) ) {
+				$commissionable_amount -= $transaction_item_data['tax'];
 			}
 
-			// Include shipping
-			if ( ! slicewp_get_setting( 'exclude_shipping', false ) && $cart_shipping > 0 ) {
-				$amount = $amount + $cart_shipping / count( $cart_items );
-			}
+			// Get the product.
+			$product = wc_get_product( ! empty( $variation_id ) ? $variation_id : $product_id );
 
-			// Set product ID
-			$variation_id = $cart_item->get_variation_id( 'edit' );
-			$product_id   = ( ! empty( $variation_id ) ? $variation_id : $cart_item->get_product_id( 'edit' ) );
-
-            // Get the product
-            $product = wc_get_product( $product_id );
-
-            // Calculate commission amount
+			// Calculate commission amount.
 			$args = array(
 				'origin'	   => 'woo',
-				'type' 		   => $product->is_type( array( 'subscription', 'variable-subscription', 'subscription_variation' ) ) ? 'subscription' : 'sale',
+				'type' 		   => ( $product ? ( $product->is_type( array( 'subscription', 'variable-subscription', 'subscription_variation' ) ) ? 'subscription' : 'sale' ) : 'sale' ),
 				'affiliate_id' => $affiliate_id,
-				'product_id'   => $product_id,
-				'quantity'	   => $cart_item->get_quantity( 'edit' ),
+				'product_id'   => ( ! empty( $variation_id ) ? $variation_id : $product_id ),
+				'quantity'	   => $transaction_item_data['quantity'],
 				'customer_id'  => $customer_id
 			);
 
-            $commission_amount += slicewp_calculate_commission_amount( slicewp_maybe_convert_amount( $amount, $order->get_currency( 'edit' ), slicewp_get_setting( 'active_currency', 'USD' ) ), $args );
-            
-            // Save the order commission types for future use
-            $order_commission_types[] = $args['type'];
+			// Add commission item.
+			$commission_items[] = array(
+				'commissionable_amount'   => $commissionable_amount,
+				'commissionable_quantity' => $transaction_item_data['quantity'],
+				'amount'				  => slicewp_calculate_commission_amount( $commissionable_amount, $args ),
+				'transaction_item'		  => $transaction_item_data
+			);
+
+			// Save the order commission types for future use.
+			$order_commission_types[] = $args['type'];
 
 		}
 
-	// Calculate the commission amount for the entire order
+		// If we have commission items for products, build commission items for shipping.
+		// We do not want to have shipping commission items if no product commission items were generated.
+		if ( ! empty( $commission_items ) && empty( slicewp_get_setting( 'exclude_shipping', false ) ) ) {
+
+			foreach ( $transaction_data['items'] as $transaction_item_data ) {
+
+				if ( $transaction_item_data['type'] != 'shipping' ) {
+					continue;
+				}
+
+				// Skip saving free shipping options.
+				if ( empty( floatval( $transaction_item_data['total'] ) ) ) {
+					continue;
+				}
+
+				$commissionable_amount = $transaction_item_data['total'];
+
+				// Include tax.
+				if ( ! empty( slicewp_get_setting( 'exclude_tax', false ) ) ) {
+					$commissionable_amount -= $transaction_item_data['tax'];
+				}
+
+				// Prepare commission calculation arguments.
+				$args = array(
+					'origin'	   => 'woo',
+					'type' 		   => 'sale',
+					'affiliate_id' => $affiliate_id,
+					'customer_id'  => $customer_id
+				);
+
+				// Add commission item.
+				$commission_items[] = array(
+					'commissionable_amount'   => slicewp_sanitize_amount( $commissionable_amount ),
+					'commissionable_quantity' => $transaction_item_data['quantity'],
+					'amount'				  => slicewp_sanitize_amount( slicewp_calculate_commission_amount( $commissionable_amount, $args ) ),
+					'transaction_item'		  => $transaction_item_data
+				);
+
+			}
+
+		}
+
+		// Sum up the commission items' amounts.
+		if ( ! empty( $commission_items ) ) {
+			$commission_amount = array_sum( array_column( $commission_items, 'amount' ) );
+		}
+
+	// Calculate the commission amount for the entire order.
 	} else {
 
 		$args = array(
@@ -277,12 +370,12 @@ function slicewp_insert_pending_commission_woo( $order ) {
 
 		$commission_amount = slicewp_calculate_commission_amount( 0, $args );
 
-        // Save the order commission types for future use
+        // Save the order commission types for future use.
         $order_commission_types[] = $args['type'];
 
 	}
 
-    // Check that the commission amount is not zero
+    // Check that the commission amount is not zero.
     if ( ( $commission_amount == 0 ) && empty( slicewp_get_setting( 'zero_amount_commissions' ) ) ) {
 
         slicewp_add_log( 'WOO: Commission was not inserted because the commission amount is zero. Order: ' . absint( $order_id ) );
@@ -290,23 +383,26 @@ function slicewp_insert_pending_commission_woo( $order ) {
 
     }
 
-    // Remove duplicated order commission types
+    // Remove duplicated order commission types.
     $order_commission_types = array_unique( $order_commission_types );
 
-	// Prepare commission data
+	// Get the current referrer visit.
+	$visit = slicewp_get_visit( $visit_id );
+
+	// Prepare commission data.
 	$commission_data = array(
 		'affiliate_id'		=> $affiliate_id,
-		'visit_id'			=> ( ! is_null( $visit_id ) ? $visit_id : 0 ),
-		'date_created'		=> slicewp_mysql_gmdate(),
-		'date_modified'		=> slicewp_mysql_gmdate(),
+		'visit_id'			=> ( ! is_null( $visit ) && $visit->get( 'affiliate_id' ) == $affiliate_id ? $visit_id : 0 ),
 		'type'				=> sizeof( $order_commission_types ) == 1 ? $order_commission_types[0] : 'sale',
 		'status'			=> 'pending',
 		'reference'			=> $order_id,
-		'reference_amount'	=> slicewp_sanitize_amount( $order->get_total() ),
+		'reference_amount'	=> slicewp_sanitize_amount( $transaction_data['total'] ),
 		'customer_id'		=> $customer_id,
 		'origin'			=> 'woo',
 		'amount'			=> slicewp_sanitize_amount( $commission_amount ),
-		'currency'			=> slicewp_get_setting( 'active_currency', 'USD' )
+		'currency'			=> $active_currency,
+		'date_created'		=> slicewp_mysql_gmdate(),
+		'date_modified'		=> slicewp_mysql_gmdate()
 	);
 
 	// Insert the commission.
@@ -314,10 +410,36 @@ function slicewp_insert_pending_commission_woo( $order ) {
 
 	if ( ! empty( $commission_id ) ) {
 
-		// Update the visit with the newly inserted commission_id
-		if ( ! is_null( $visit_id ) ) {
+		// Add the transaction data as metadata.
+		if ( ! empty( $transaction_data ) ) {
 
-			slicewp_update_visit( $visit_id, array( 'date_modified' => slicewp_mysql_gmdate(), 'commission_id' => $commission_id ) );
+			slicewp_update_commission_meta( $commission_id, '__transaction_data', $transaction_data );
+
+		}
+
+		// Add commission items as metadata.
+		if ( ! empty( $commission_items ) ) {
+
+			slicewp_update_commission_meta( $commission_id, '__commission_items', $commission_items );
+
+		}
+
+		// Mark commission basis per order.
+		if ( $is_commission_basis_per_order ) {
+
+			slicewp_add_commission_meta( $commission_id, '_is_commission_basis_per_order', 1 );
+
+		}
+
+		// Update the visit with the newly inserted commission_id if the visit isn't already marked as converted and
+		// if the current referrer affiliate is the same as the visit's affiliate.
+		if ( ! is_null( $visit ) ) {
+
+			if ( $visit->get( 'affiliate_id' ) == $affiliate_id && empty( $visit->get( 'commission_id' ) ) ) {
+
+				slicewp_update_visit( $visit_id, array( 'date_modified' => slicewp_mysql_gmdate(), 'commission_id' => $commission_id ) );
+
+			}
 			
 		}
 
@@ -343,20 +465,23 @@ function slicewp_accept_pending_commission_woo( $order_id ) {
 	// Return if the order is processing and the payment method is cash on delivery.
 	$order = wc_get_order( $order_id );
 
-	if ( $order->get_status() == 'processing' && $order->get_payment_method() == 'cod' )
+	if ( $order->get_status() == 'processing' && $order->get_payment_method() == 'cod' ) {
 		return;
+	}
 
 	// Check to see if a commission for this order has been registered.
 	$commissions = slicewp_get_commissions( array( 'number' => -1, 'reference' => $order_id, 'origin' => 'woo', 'order' => 'ASC' ) );
 
-	if ( empty( $commissions ) )
+	if ( empty( $commissions ) ) {
 		return;
+	}
 
 	foreach ( $commissions as $commission ) {
 
 		// Return if the commission has already been paid.
-		if ( $commission->get('status') == 'paid' )
+		if ( $commission->get('status') == 'paid' ) {
 			continue;
+		}
 
 		// Prepare commission data.
 		$commission_data = array(
@@ -456,14 +581,16 @@ function slicewp_reject_commission_on_refund_woo( $order_id, $status_from, $stat
  */
 function slicewp_reject_commission_on_order_fail_woo( $order_id, $status_from, $status_to ) {
 
-	if ( $status_to != 'failed' && $status_to != 'cancelled' )
+	if ( $status_to != 'failed' && $status_to != 'cancelled' ) {
 		return;
+	}
 
 	// Check to see if a commission for this order has been registered.
 	$commissions = slicewp_get_commissions( array( 'number' => -1, 'reference' => $order_id, 'origin' => 'woo', 'order' => 'ASC' ) );
 
-	if ( empty( $commissions ) )
+	if ( empty( $commissions ) ) {
 		return;
+	}
 
 	foreach ( $commissions as $commission ) {
 
@@ -506,17 +633,20 @@ function slicewp_reject_commission_on_order_fail_woo( $order_id, $status_from, $
  */
 function slicewp_reject_commission_on_trash_woo( $order_id ) {
 
-	if ( is_a( $order_id, 'WP_Post' ) )
+	if ( is_a( $order_id, 'WP_Post' ) ) {
 		$order_id = $order_id->ID;
+	}
 
-	if ( get_post_type( $order_id ) != 'shop_order' )
+	if ( get_post_type( $order_id ) != 'shop_order' ) {
 		return;
+	}
 
 	// Check to see if a commission for this order has been registered.
 	$commissions = slicewp_get_commissions( array( 'number' => -1, 'reference' => $order_id, 'origin' => 'woo', 'order' => 'ASC' ) );
 
-	if ( empty( $commissions ) )
+	if ( empty( $commissions ) ) {
 		return;
+	}
 
 	foreach ( $commissions as $commission ) {
 
@@ -561,22 +691,26 @@ function slicewp_reject_commission_on_trash_woo( $order_id ) {
  */
 function slicewp_approve_rejected_commission_woo( $order_id, $status_from, $status_to ) {
 
-	if ( ! in_array( $status_from, array( 'failed', 'cancelled', 'refunded' ) ) )
+	if ( ! in_array( $status_from, array( 'failed', 'cancelled', 'refunded' ) ) ) {
 		return;
+	}
 
-	if ( in_array( $status_to, array( 'failed', 'cancelled', 'refunded', 'processing', 'completed' ) ) )
+	if ( in_array( $status_to, array( 'failed', 'cancelled', 'refunded', 'processing', 'completed' ) ) ) {
 		return;
+	}
 
 	// Check to see if a commission for this order has been registered.
 	$commissions = slicewp_get_commissions( array( 'number' => -1, 'reference' => $order_id, 'origin' => 'woo', 'order' => 'ASC' ) );
 
-	if ( empty( $commissions ) )
+	if ( empty( $commissions ) ) {
 		return;
+	}
 
 	foreach ( $commissions as $commission ) {
 
-		if ( $commission->get( 'status' ) != 'rejected' )
+		if ( $commission->get( 'status' ) != 'rejected' ) {
 			continue;
+		}
 
 		// Prepare commission data.
 		$commission_data = array(
@@ -722,14 +856,17 @@ function slicewp_add_product_commission_settings_woo() {
 function slicewp_save_product_commission_settings_woo( $post_id, $post ) {
 
 	// Verify for nonce
-    if ( empty( $_POST['slicewp_token'] ) || ! wp_verify_nonce( $_POST['slicewp_token'], 'slicewp_save_meta' ) )
-        return $post_id;
+    if ( empty( $_POST['slicewp_token'] ) || ! wp_verify_nonce( $_POST['slicewp_token'], 'slicewp_save_meta' ) ) {
+		return $post_id;
+	}
     
-    if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
-        return $post_id;
+    if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+		return $post_id;
+	}
 
-    if ( wp_is_post_revision( $post_id ) || wp_is_post_autosave( $post_id ) )
-        return $post_id;
+    if ( wp_is_post_revision( $post_id ) || wp_is_post_autosave( $post_id ) ) {
+		return $post_id;
+	}
 
     // Update the disable commissions settings
     if ( ! empty( $_POST['slicewp_disable_commissions'] ) ) {
@@ -862,8 +999,9 @@ function slicewp_add_product_variation_commission_settings_woo( $loop, $variatio
 function slicewp_save_product_variation_commission_settings_woo( $product_id = 0 ) {
 
     // Check for variations
-    if ( empty( $_POST['variable_post_id'] ) )
-        return;
+    if ( empty( $_POST['variable_post_id'] ) ) {
+		return;
+	}
     
     // Parse all the variations
     foreach( $_POST['variable_post_id'] as $variation_id ) {
@@ -1053,6 +1191,8 @@ function slicewp_add_order_note_woo( $commission_id, $commission_data ) {
 /**
  * Adds the reference amount in the commission data.
  * 
+ * @todo - This should only be updated if the commission has no reference amount data already saved.
+ * 
  * @param array $commission_data
  * 
  * @return array
@@ -1113,3 +1253,50 @@ function slicewp_add_rewrite_rules_woo() {
 	}
 
 }
+
+
+/**
+ * Returns an array of products data from WooCommerce to populate the "slicewp_action_ajax_get_products" AJAX callback.
+ * 
+ * @param array $products
+ * 
+ * @return array
+ * 
+ */
+function slicewp_action_ajax_get_products_woo( $products, $args = array() ) {
+
+	if ( empty( $args['origin'] ) || $args['origin'] != 'woo' ) {
+		return $products;
+	}
+
+	if ( empty( $args['search_term'] ) ) {
+		return $products;
+	}
+
+	/**
+	 * @todo - Filter to just a selected product types.
+	 * 
+	 */
+	$data_store = WC_Data_Store::load( 'product' );
+	$ids        = array_filter( $data_store->search_products( wc_clean( $args['search_term'] ), '', true, true ) );
+
+	if ( empty( $ids ) ) {
+		return $products;
+	}
+
+	$_products = wc_get_products( array( 'include' => $ids, 'limit' => -1, 'status' => 'publish' ) );
+
+	foreach ( $_products as $_product ) {
+
+		$products[] = array(
+			'origin' => 'woo',
+			'id'   	 => $_product->get_id(),
+			'name'   => $_product->get_name()
+		);
+
+	}
+
+	return $products;
+
+}
+add_filter( 'slicewp_action_ajax_get_products', 'slicewp_action_ajax_get_products_woo', 10, 2 );

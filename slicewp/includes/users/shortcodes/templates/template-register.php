@@ -41,7 +41,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 				?>
 
-				<input id="slicewp-terms-and-conditions" name="terms_conditions" type="checkbox" value="1" <?php checked( ! empty( $_POST['terms_conditions'] ), '1' ) ?>/>
+				<input id="slicewp-terms-and-conditions" name="terms_conditions" type="checkbox" value="1" required <?php checked( ! empty( $_POST['terms_conditions'] ), '1' ) ?> />
 				<label for="slicewp-terms-and-conditions"><?php echo wp_kses_post( $terms_label ); ?></label>
 
 			</div>

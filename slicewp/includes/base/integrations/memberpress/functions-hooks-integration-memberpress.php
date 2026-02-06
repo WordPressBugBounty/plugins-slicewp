@@ -158,6 +158,9 @@ function slicewp_insert_pending_commission_mepr( $transaction ) {
 		slicewp_add_log( 'MEPR: Customer could not be processed due to an unexpected error.' );
 	}
 
+	// Set currencies.
+	$active_currency = slicewp_get_setting( 'active_currency', 'USD' );
+	$order_currency  = $mepr_options->currency_code;
 
     // Get the order amount. Exclude tax.
     if ( slicewp_get_setting( 'exclude_tax', false ) ) {
@@ -186,7 +189,7 @@ function slicewp_insert_pending_commission_mepr( $transaction ) {
 		'customer_id'  => $customer_id
     );
 
-	$commission_amount = slicewp_calculate_commission_amount( slicewp_maybe_convert_amount( $amount, $mepr_options->currency_code, slicewp_get_setting( 'active_currency', 'USD' ) ), $args );
+	$commission_amount = slicewp_calculate_commission_amount( slicewp_maybe_convert_amount( $amount, $order_currency, $active_currency ), $args );
 
     // Check that the commission amount is not zero.
     if ( ( $commission_amount == 0 ) && empty( slicewp_get_setting( 'zero_amount_commissions' ) ) ) {
@@ -196,26 +199,26 @@ function slicewp_insert_pending_commission_mepr( $transaction ) {
 
     }
 
-    // Prepare commission data
+    // Prepare commission data.
 	$commission_data = array(
 		'affiliate_id'		=> $affiliate_id,
 		'visit_id'			=> ( ! is_null( $visit_id ) ? $visit_id : 0 ),
-		'date_created'		=> slicewp_mysql_gmdate(),
-		'date_modified'		=> slicewp_mysql_gmdate(),
 		'type'				=> 'subscription',
 		'status'			=> 'pending',
 		'reference'			=> $transaction->id,
-		'reference_amount'	=> slicewp_sanitize_amount( $transaction->total ),
+		'reference_amount'	=> slicewp_sanitize_amount( slicewp_maybe_convert_amount( $transaction->total, $order_currency, $active_currency ) ),
 		'customer_id'		=> $customer_id,
 		'origin'			=> 'mepr',
 		'amount'			=> slicewp_sanitize_amount( $commission_amount ),
-		'currency'			=> slicewp_get_setting( 'active_currency', 'USD' )
+		'currency'			=> $active_currency,
+		'date_created'		=> slicewp_mysql_gmdate(),
+		'date_modified'		=> slicewp_mysql_gmdate()
 	);
 
-	// Insert the commission
+	// Insert the commission.
 	$commission_id = slicewp_insert_commission( $commission_data );
 
-	if( ! empty( $commission_id ) ) {
+	if ( ! empty( $commission_id ) ) {
 
 		// Update the visit with the newly inserted commission_id
 		if ( ! is_null( $visit_id ) ) {

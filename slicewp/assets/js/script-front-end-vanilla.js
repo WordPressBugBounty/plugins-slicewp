@@ -893,15 +893,14 @@ var slicewp_front_end = function() {
 
         if ( range == 'last_week' ) {
 
-            var last_week_date = new Date( today - day_in_ms * 7 );
-            var day_of_week    = last_week_date.getDay();
-            var diff           = last_week_date.getDate() - day_of_week + ( day_of_week === 0 ? -6 : 1 );
+            var day_of_week       = today.getDay();
+            var days_since_monday = ( day_of_week + 6 ) % 7;
+
+            date_end = new Date();
+            date_end.setDate( today.getDate() - days_since_monday - 1 );
 
             date_start = new Date();
-            date_start = new Date( date_start.setDate( diff ) );
-
-            date_end   = new Date( date_start );
-            date_end   = new Date( date_end.setDate( date_end.getDate() + 6 ) );
+            date_start.setDate( date_end.getDate() - 6 );
 
         }
 

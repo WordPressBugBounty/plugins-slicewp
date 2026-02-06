@@ -157,12 +157,15 @@ function slicewp_insert_pending_commission_stc( $order ) {
 		slicewp_add_log( 'STC: Customer could not be processed due to an unexpected error.' );
 	}
 
+	// Set currencies.
+	$active_currency = slicewp_get_setting( 'active_currency', 'USD' );
+	$order_currency  = $order->currency;
 
 	// Check if we have a one time or a recurring payment.
 	$commission_type = ( $order->plan->type == 'recurring' ? 'subscription' : 'sale' );
 
 	// Calculate the commission amount for the ordered product.
-	if ( ! slicewp_is_commission_basis_per_order() ) {
+	if ( ! slicewp_is_commission_basis_per_order( $affiliate_id ) ) {
 
 		// Get the product categories.
 		$categories = get_the_terms( $order->product_id, 'sc_product_cat' );
@@ -193,7 +196,7 @@ function slicewp_insert_pending_commission_stc( $order ) {
 			'customer_id'  => $customer_id
 		);
 
-		$commission_amount = slicewp_calculate_commission_amount( slicewp_maybe_convert_amount( $amount, $order->currency, slicewp_get_setting( 'active_currency', 'USD' ) ), $args );
+		$commission_amount = slicewp_calculate_commission_amount( slicewp_maybe_convert_amount( $amount, $order_currency, $active_currency ), $args );
 
 	// Calculate the commission amount for the entire order.
 	} else {
@@ -222,16 +225,16 @@ function slicewp_insert_pending_commission_stc( $order ) {
 	$commission_data = array(
 		'affiliate_id'		=> $affiliate_id,
 		'visit_id'			=> ( ! is_null( $visit_id ) ? $visit_id : 0 ),
-		'date_created'		=> slicewp_mysql_gmdate(),
-		'date_modified'		=> slicewp_mysql_gmdate(),
 		'type'				=> $commission_type,
 		'status'			=> 'pending',
 		'reference'			=> absint( $order->id ),
-		'reference_amount'	=> slicewp_sanitize_amount( $order->amount ),
+		'reference_amount'	=> slicewp_sanitize_amount( slicewp_maybe_convert_amount( $order->amount, $order_currency, $active_currency ) ),
 		'customer_id'		=> $customer_id,
 		'origin'			=> 'stc',
 		'amount'			=> slicewp_sanitize_amount( $commission_amount ),
-		'currency'			=> slicewp_get_setting( 'active_currency', 'USD' )
+		'currency'			=> $active_currency,
+		'date_created'		=> slicewp_mysql_gmdate(),
+		'date_modified'		=> slicewp_mysql_gmdate()
 	);
 
 	// Insert the commission

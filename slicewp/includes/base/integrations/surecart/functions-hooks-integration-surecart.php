@@ -145,6 +145,9 @@ function slicewp_insert_pending_commission_surecart( $checkout ) {
         slicewp_add_log( 'SureCart: Customer could not be processed due to an unexpected error.' );
     }
 
+	// Set currencies.
+	$active_currency = slicewp_get_setting( 'active_currency', 'USD' );
+	$order_currency  = strtoupper( $checkout->currency );
 
 	if ( \SureCart\Support\Currency::isZeroDecimal( $checkout->currency ) ) {
         $order_amount = $checkout->amount_due;
@@ -160,7 +163,7 @@ function slicewp_insert_pending_commission_surecart( $checkout ) {
         'customer_id'  => $customer_id
     );
 
-	$commission_amount = slicewp_calculate_commission_amount( slicewp_maybe_convert_amount( $order_amount, strtoupper( $checkout->currency ), slicewp_get_setting( 'active_currency', 'USD' ) ), $args );
+	$commission_amount = slicewp_calculate_commission_amount( slicewp_maybe_convert_amount( $order_amount, $order_currency, $active_currency ), $args );
 
     // Check that the commission amount is not zero.
 	if ( ( $commission_amount == 0 ) && empty( slicewp_get_setting( 'zero_amount_commissions' ) ) ) {
@@ -174,16 +177,16 @@ function slicewp_insert_pending_commission_surecart( $checkout ) {
 	$commission_data = array(
 		'affiliate_id'		=> absint( $affiliate_id ),
 		'visit_id'			=> ( ! is_null( $visit_id ) ? $visit_id : 0 ),
-		'date_created'		=> slicewp_mysql_gmdate(),
-		'date_modified'		=> slicewp_mysql_gmdate(),
 		'type'				=> 'sale',
 		'status'			=> 'pending',
 		'reference'			=> sanitize_text_field( $order->id ),
-		'reference_amount'	=> slicewp_sanitize_amount( $order_amount ),
+		'reference_amount'	=> slicewp_sanitize_amount( slicewp_maybe_convert_amount( $order_amount, $order_currency, $active_currency ) ),
 		'customer_id'		=> absint( $customer_id ),
 		'origin'			=> 'surecart',
 		'amount'			=> slicewp_sanitize_amount( $commission_amount ),
-		'currency'			=> slicewp_get_setting( 'active_currency', 'USD' )
+		'currency'			=> $active_currency,
+		'date_created'		=> slicewp_mysql_gmdate(),
+		'date_modified'		=> slicewp_mysql_gmdate()
 	);
 
     // Insert the commission.

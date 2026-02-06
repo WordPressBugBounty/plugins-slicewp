@@ -153,9 +153,9 @@ function slicewp_promo_view_affiliates_add_affiliate_bottom_affiliate_commission
 				$count = 0;
 			?>
 
-			<?php foreach( $commission_types as $type => $details ): ?>
+			<?php foreach ( $commission_types as $type => $details ): ?>
 
-				<?php if( $type == 'recurring' || $type == 'lifetime_sale' ) continue; ?>
+				<?php if ( in_array( $type, array( 'recurring', 'lifetime_sale', 'product_revenue_share' ) ) ) continue; ?>
 
 				<?php
 					$rate 	   = slicewp_get_affiliate_meta( $affiliate_id, 'commission_rate_' . $type, true );

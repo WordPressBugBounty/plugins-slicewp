@@ -149,6 +149,8 @@ function slicewp_generate_csv( $header, $data, $filename = 'data.csv' ) {
  */
 function slicewp_generate_payout_payments_preview( $args ) {
 
+	global $wpdb;
+
 	$payments = array();
 
 	// Set up to date.
@@ -164,7 +166,7 @@ function slicewp_generate_payout_payments_preview( $args ) {
 
 		$date_min = ( ! empty( $args['date_min'] ) ? new DateTime( sanitize_text_field( $args['date_min'] ) . ' 00:00:00' ) : '' );
 		$date_max = ( ! empty( $args['date_max'] ) ? new DateTime( sanitize_text_field( $args['date_max'] ) . ' 23:59:59') : '' );
-		
+
 	}
 
 	// Set affiliates.
@@ -194,91 +196,81 @@ function slicewp_generate_payout_payments_preview( $args ) {
 
 	}
 
-	// Prepare the arguments to read the commissions.
-	$commission_args = array(
-		'fields'	   => 'affiliate_id',
-		'number'	   => -1,
-		'status'	   => 'unpaid',
-		'date_min' 	   => ( ! empty( $date_min ) ? get_gmt_from_date( $date_min->format( 'Y-m-d H:i:s' ) ) : '' ),
-		'date_max' 	   => ( ! empty( $date_max ) ? get_gmt_from_date( $date_max->format( 'Y-m-d H:i:s' ) ) : '' ),
-		'affiliate_id' => ( ! empty( $selected_affiliate_ids ) ? $selected_affiliate_ids : '' ),
-		'payment_id'   => 0
-	);
-
-	// Get the affiliate ids that generated the commissions.
-	$affiliate_ids = slicewp_get_commissions( $commission_args );
-
-	// Bail if we don't have any data for the queried commissions.
-	if ( empty( $affiliate_ids ) ) {
-		return $payments;
-	}
-
-	// Keep only the unique affiliate_ids.
-	$affiliate_ids = array_unique( $affiliate_ids );
-	$affiliate_ids = array_map( 'absint', $affiliate_ids );
-	$affiliate_ids = array_values( $affiliate_ids );
-
-	// Get the Payments Minimum Amount setting.
-	$minimum_payment_amount = slicewp_sanitize_amount( isset( $args['payments_minimum_amount'] ) ? esc_attr( $args['payments_minimum_amount'] ) : 0 );
-
-	// Get the currency setting.
+	// Get the currency.
 	$currency = slicewp_get_setting( 'active_currency', 'USD' );
 
-	// Get the commissions of each affiliate.
-	foreach ( $affiliate_ids as $i => $affiliate_id ) {
+	// Get the payments minimum amount setting.
+	$minimum_payment_amount = slicewp_sanitize_amount( isset( $args['payments_minimum_amount'] ) ? esc_attr( $args['payments_minimum_amount'] ) : 0 );
 
-		// Make sure affiliate exists.
-		$affiliate = slicewp_get_affiliate( $affiliate_id );
+	// Prepare the commissions query.
+	$table_name_affiliates  = slicewp()->db['affiliates']->table_name;
+	$table_name_commissions = slicewp()->db['commissions']->table_name;
 
-		if ( is_null( $affiliate ) ) {
-			continue;
+	// Prepare additional where clauses.
+	$where_clause = '';
+
+	if ( ! empty( $selected_affiliate_ids ) ) {
+		$where_clause .= "AND a.id IN(" . implode( ',', $selected_affiliate_ids ) . ")";
+	}
+
+	if ( ! empty( $date_min ) ) {
+		$where_clause .= "AND c.date_created >= '" . get_gmt_from_date( $date_min->format( 'Y-m-d H:i:s' ) ) . "'";
+	}
+
+	if ( ! empty( $date_max ) ) {
+		$where_clause .= "AND c.date_created <= '" . get_gmt_from_date( $date_max->format( 'Y-m-d H:i:s' ) ) . "'";
+	}
+
+	// Prepare query string.
+	$query = "SELECT 
+			c.id AS id,
+			c.affiliate_id,
+			CAST( c.amount AS DECIMAL( 26, 8 ) ) AS amount
+		FROM $table_name_commissions c
+		INNER JOIN $table_name_affiliates a
+				ON c.affiliate_id = a.id
+		WHERE 
+			a.status = 'active'
+			AND c.status = 'unpaid'
+			AND c.payment_id = 0
+			{$where_clause}
+		";
+
+	// Query the commissions results.
+	$commissions = $wpdb->get_results( $query, ARRAY_A );
+
+	// Prepare the commissions into the payments.
+	foreach ( $commissions as $commission ) {
+
+		$affiliate_id = $commission['affiliate_id'];
+
+		if ( ! isset( $payments[$affiliate_id] ) ) {
+
+			$payments[$affiliate_id] = array(
+				'affiliate_id'	 => $affiliate_id,
+				'amount'		 => 0,
+				'currency'		 => $currency,
+				'commission_ids' => array()
+			);
+
 		}
 
-		$commission_args['fields'] 		 = '';
-		$commission_args['affiliate_id'] = $affiliate_id;
-
-		$commissions = slicewp_get_commissions( $commission_args );
-
-		$payment_amount = 0;
-		$commission_ids = array();
-
-		// Save the Payment amount
-		foreach ( $commissions as $j => $commission ) {
-
-			$commission_amount = (float)$commission->get( 'amount' );
-
-			// Don't take into account zero values.
-			if ( empty( $commission_amount ) ) {
-				continue;
-			}
-
-			$payment_amount    += $commission_amount;
-			$commission_ids[$j] = $commission->get( 'id' );
-			
-		}
-
-		// Skip the payment if the amount is zero.
-		if ( empty( $payment_amount ) ) {
-			continue;
-		}
-
-		// Skip the payment if is less than the Payments Minimum Amount setting
-		if ( $payment_amount < $minimum_payment_amount ) {
-			continue;
-		}
-
-		// Prepare the Payout data
-		$payment_data = array(
-			'affiliate_id'		=> $affiliate_id,
-			'amount'			=> $payment_amount,
-			'currency'			=> $currency,
-			'commission_ids'	=> $commission_ids
-		);
-
-		// Save the Payment data.
-		$payments[] = $payment_data;
+		$payments[$affiliate_id]['amount'] 			+= (float)$commission['amount'];
+		$payments[$affiliate_id]['commission_ids'][] = $commission['id'];
 
 	}
+
+	// Make sure only payments that reach the minimum payment amount are taken into account.
+	foreach ( $payments as $affiliate_id => $payment ) {
+
+		if ( $payment['amount'] < $minimum_payment_amount ) {
+			unset( $payments[$affiliate_id] );
+		}
+
+	}
+
+	// Refresh the array keys.
+	$payments = array_values( $payments );
 
 	return $payments;
 

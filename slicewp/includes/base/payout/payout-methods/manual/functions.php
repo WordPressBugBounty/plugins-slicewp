@@ -72,10 +72,10 @@ add_filter( 'slicewp_can_do_bulk_payments', 'slicewp_can_do_bulk_payments_payout
  */
 function slicewp_do_bulk_payments_manual( $payout_id ) {
 
-	$payments = slicewp_get_payments( array( 'payout_id' => $payout_id, 'payout_method' => 'manual', 'status' => 'unpaid' ) );
+	$payments_ids = slicewp_get_payments( array( 'number' => -1, 'payout_id' => $payout_id, 'payout_method' => 'manual', 'status' => 'unpaid', 'fields' => 'id' ) );
 
 	// Go through each payment and mark it as paid.
-	foreach ( $payments as $payment ) {
+	foreach ( $payments_ids as $payment_id ) {
 
 		// Update payment.
 		$payment_data = array(
@@ -83,7 +83,7 @@ function slicewp_do_bulk_payments_manual( $payout_id ) {
 			'status' 		=> 'paid'
 		);
 
-		$updated = slicewp_update_payment( $payment->get( 'id' ), $payment_data );
+		$updated = slicewp_update_payment( $payment_id, $payment_data );
 
 		// If the payment wasn't updated, go to next payment
 		if ( ! $updated ) {
@@ -91,7 +91,7 @@ function slicewp_do_bulk_payments_manual( $payout_id ) {
 		}
 
 		// If the payment was updated, update each of the generated commissions.
-		$commission_ids = slicewp_get_commissions( array( 'number' => -1, 'payment_id' => $payment->get( 'id' ), 'fields' => 'id' ) );
+		$commission_ids = slicewp_get_commissions( array( 'number' => -1, 'payment_id' => $payment_id, 'fields' => 'id' ) );
 		$commission_ids = array_map( 'absint', $commission_ids );
 
 		$commission_data = array(

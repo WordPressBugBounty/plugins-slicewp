@@ -99,6 +99,15 @@ class SliceWP_List_Table {
     protected $table_filters = array();
 
     /**
+     * Boolean that specifies if the table should show the items details panels.
+     * 
+     * @access protected
+     * @var    bool
+     * 
+     */
+    protected $should_show_items_details = false;
+
+    /**
      * Array of extra arguments.
      * 
      * @access protected
@@ -139,6 +148,7 @@ class SliceWP_List_Table {
 
         $this->current_page = ( empty( $this->current_page ) ? ( ! empty( $_GET[$page_number_arg_slug] ) ? absint( $_GET[$page_number_arg_slug] ) : 1 ) : $this->current_page );
 
+        // Set if we should show the items details.
         $this->should_show_items_details = $this->should_show_items_details();
 
     }
