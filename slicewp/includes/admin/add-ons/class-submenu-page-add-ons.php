@@ -23,7 +23,7 @@ Class SliceWP_Submenu_Page_Add_Ons extends SliceWP_Submenu_Page {
 			$add_ons = $this->remote_get_add_ons();
 
 			if ( ! empty( $add_ons ) ) {
-				update_option( 'slicewp_remote_add_ons', array( 'add_ons' => $add_ons, 'time_updated' => time() ) );
+				update_option( 'slicewp_remote_add_ons', array( 'add_ons' => $add_ons, 'time_updated' => time() ), false );
 			}
 
 		} else {

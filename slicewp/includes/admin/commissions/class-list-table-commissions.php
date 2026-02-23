@@ -330,7 +330,7 @@ Class SliceWP_WP_List_Table_Commissions extends SliceWP_WP_List_Table {
 
 		$commission_types = slicewp_get_commission_types();
 
-		return ( ! empty( $commission_types[$item['type']] ) ? $commission_types[$item['type']]['label'] : ( ! empty( $item['type'] ) ? ucfirst( $item['type'] ) : '-' ) );
+		return ( ! empty( $commission_types[$item['type']] ) ? $commission_types[$item['type']]['label'] : ( ! empty( $item['type'] ) ? ucwords( str_replace( array( '_', '-' ), ' ', $item['type'] ) ) : '-' ) );
 
 	}
 

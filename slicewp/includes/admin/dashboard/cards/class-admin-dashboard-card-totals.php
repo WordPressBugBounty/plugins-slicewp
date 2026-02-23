@@ -1,6 +1,6 @@
 <?php
 
-// Exit if accessed directly
+// Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 
@@ -32,8 +32,8 @@ class SliceWP_Admin_Dashboard_Card_Totals extends SliceWP_Admin_Dashboard_Card {
 		$data = array();
 
 		// Last 7 days.
-		$commissions = slicewp_get_commissions( array( 'number' => -1, 'status' => array( 'paid', 'unpaid' ), 'fields' => 'amount', 'date_min' => get_gmt_from_date( date( 'Y-m-d H:i:s', time() - 7 * DAY_IN_SECONDS ) ) ) );
-		$revenue 	 = slicewp_get_commissions( array( 'number' => -1, 'status' => array( 'paid', 'unpaid' ), 'fields' => 'reference_amount', 'date_min' => get_gmt_from_date( date( 'Y-m-d H:i:s', time() - 7 * DAY_IN_SECONDS ) ) ) );
+		$commissions = slicewp_get_commissions( array( 'number' => -1, 'status' => array( 'paid', 'unpaid' ), 'fields' => 'amount', 'type' => array( 'sale', 'subscription', 'lifetime_sale', 'recurring', 'inherit' ), 'date_min' => get_gmt_from_date( date( 'Y-m-d H:i:s', time() - 7 * DAY_IN_SECONDS ) ) ) );
+		$revenue 	 = slicewp_get_commissions( array( 'number' => -1, 'status' => array( 'paid', 'unpaid' ), 'fields' => 'reference_amount', 'type' => array( 'sale', 'subscription', 'lifetime_sale', 'recurring' ), 'date_min' => get_gmt_from_date( date( 'Y-m-d H:i:s', time() - 7 * DAY_IN_SECONDS ) ) ) );
 
 		$data['last_7_days'] = array(
 			'revenue' 			 => array_sum( $revenue ),
@@ -45,8 +45,8 @@ class SliceWP_Admin_Dashboard_Card_Totals extends SliceWP_Admin_Dashboard_Card {
 		);
 
 		// Last 30 days.
-		$commissions = slicewp_get_commissions( array( 'number' => -1, 'status' => array( 'paid', 'unpaid' ), 'fields' => 'amount', 'date_min' => get_gmt_from_date( date( 'Y-m-d H:i:s', time() - 30 * DAY_IN_SECONDS ) ) ) );
-		$revenue 	 = slicewp_get_commissions( array( 'number' => -1, 'status' => array( 'paid', 'unpaid' ), 'fields' => 'reference_amount', 'date_min' => get_gmt_from_date( date( 'Y-m-d H:i:s', time() - 30 * DAY_IN_SECONDS ) ) ) );
+		$commissions = slicewp_get_commissions( array( 'number' => -1, 'status' => array( 'paid', 'unpaid' ), 'fields' => 'amount', 'type' => array( 'sale', 'subscription', 'lifetime_sale', 'recurring', 'inherit' ), 'date_min' => get_gmt_from_date( date( 'Y-m-d H:i:s', time() - 30 * DAY_IN_SECONDS ) ) ) );
+		$revenue 	 = slicewp_get_commissions( array( 'number' => -1, 'status' => array( 'paid', 'unpaid' ), 'fields' => 'reference_amount', 'type' => array( 'sale', 'subscription', 'lifetime_sale', 'recurring' ), 'date_min' => get_gmt_from_date( date( 'Y-m-d H:i:s', time() - 30 * DAY_IN_SECONDS ) ) ) );
 
 		$data['last_30_days'] = array(
 			'revenue' 			 => array_sum( $revenue ),
@@ -58,8 +58,8 @@ class SliceWP_Admin_Dashboard_Card_Totals extends SliceWP_Admin_Dashboard_Card {
 		);
 
 		// All time.
-		$commissions = slicewp_get_commissions( array( 'number' => -1, 'status' => array( 'paid', 'unpaid' ), 'fields' => 'amount' ) );
-		$revenue 	 = slicewp_get_commissions( array( 'number' => -1, 'status' => array( 'paid', 'unpaid' ), 'fields' => 'reference_amount' ) );
+		$commissions = slicewp_get_commissions( array( 'number' => -1, 'status' => array( 'paid', 'unpaid' ), 'fields' => 'amount', 'type' => array( 'sale', 'subscription', 'lifetime_sale', 'recurring', 'inherit' ) ) );
+		$revenue 	 = slicewp_get_commissions( array( 'number' => -1, 'status' => array( 'paid', 'unpaid' ), 'fields' => 'reference_amount', 'type' => array( 'sale', 'subscription', 'lifetime_sale', 'recurring' ) ) );
 
 		$data['all_time'] = array(
 			'revenue' 			 => array_sum( $revenue ),

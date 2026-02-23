@@ -85,7 +85,7 @@ function slicewp_output_list_table_commission_items_pmpro( $item ) {
 		return;
 	}
 
-	if ( ! in_array( $item['type'], array( 'sale', 'subscription', 'sale_lifetime', 'recurring' ) ) ) {
+	if ( ! in_array( $item['type'], array( 'sale', 'subscription', 'lifetime_sale', 'recurring' ) ) ) {
 		return;
 	}
 
