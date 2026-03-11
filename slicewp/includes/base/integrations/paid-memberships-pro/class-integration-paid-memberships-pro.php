@@ -103,4 +103,19 @@ Class SliceWP_Integration_Paid_Memberships_Pro extends SliceWP_Integration {
 
 	}
 
+
+	/**
+	 * Returns the admin edit page URL for the given coupon ID.
+	 * 
+	 * @param int $coupon_id
+	 * 
+	 * @return string
+	 * 
+	 */
+	public function get_coupon_admin_url( $coupon_id ) {
+
+		return add_query_arg( array( 'page' => 'pmpro-discountcodes', 'edit' => absint( $coupon_id ) ), admin_url( 'admin.php' ) );
+
+	}
+
 }

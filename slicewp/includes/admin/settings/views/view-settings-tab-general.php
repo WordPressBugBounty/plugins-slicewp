@@ -338,7 +338,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 			</div>
 
-			<label for="slicewp-affiliates-own-commissions"><?php echo __( 'Allow affiliates to earn commissions for their own orders.', 'slicewp' ); ?></label>
+			<label for="slicewp-affiliates-own-commissions"><?php echo __( "Allow affiliates to earn commissions on self-referred orders.", 'slicewp' ); ?></label>
 
 		</div><!-- / Affiliate Own Commissions -->
 		

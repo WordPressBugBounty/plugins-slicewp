@@ -96,7 +96,7 @@ class SliceWP_Merge_Tags {
 				'category'		=> 'affiliate'
 			),
 			'affiliate_first_name' => array(
-				'description'	=> __( "replaces the tag with the affiliate's first name", 'slicewp' ),
+				'description'	=> __( "Replaces the tag with the affiliate's first name", 'slicewp' ),
 				'callback'		=> array( $this, 'do_tag_affiliate_first_name' ),
 				'category'		=> 'affiliate'
 			),

@@ -26,7 +26,7 @@ add_action( 'pms_payment_update', 'slicewp_reject_commission_on_refund_pms', 10,
 add_action( 'pms_payment_delete', 'slicewp_reject_commission_on_delete_pms', 10, 1 );
 
 // Add the commission settings in download page.
-add_action( 'add_meta_boxes', 'slicewp_add_commission_settings_metabox_pms', 10, 2 );
+add_action( 'add_meta_boxes', 'slicewp_add_commission_settings_metabox_pms', 50, 2 );
 
 // Saves the commissions settings in download meta.
 add_action( 'pms_save_meta_box_pms-subscription', 'slicewp_save_product_commission_settings_pms', 10, 2 );

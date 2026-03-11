@@ -129,7 +129,7 @@ class SliceWP_List_Table_Affiliate_Account_Commissions extends SliceWP_List_Tabl
      */
     public function column_type( $item ) {
 
-        return ( ! empty( $this->commission_types[$item['type']]['label'] ) ? $this->commission_types[$item['type']]['label'] : $item['type'] );
+        return ( ! empty( $this->commission_types[$item['type']]['label'] ) ? $this->commission_types[$item['type']]['label'] : ( ! empty( $item['type'] ) ? ucwords( str_replace( array( '_', '-' ), ' ', $item['type'] ) ) : '-' ) );
 
     }
 

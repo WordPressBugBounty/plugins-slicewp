@@ -218,13 +218,19 @@ function slicewp_insert_pending_commission_woo( $order ) {
 
 	foreach ( $transaction_data['items'] as $key => $transaction_item_data ) {
 
-		$transaction_item_data['original_subtotal'] = $transaction_item_data['subtotal'];
-		$transaction_item_data['original_total']    = $transaction_item_data['total'];
-		$transaction_item_data['original_tax'] 	    = $transaction_item_data['tax'];
+		if ( isset( $transaction_item_data['subtotal'] ) ) {
+			$transaction_item_data['original_subtotal'] = $transaction_item_data['subtotal'];
+		}
 
-		$transaction_item_data['subtotal'] = slicewp_sanitize_amount( slicewp_maybe_convert_amount( $transaction_item_data['subtotal'], $order_currency, $active_currency ) );
-		$transaction_item_data['total']    = slicewp_sanitize_amount( slicewp_maybe_convert_amount( $transaction_item_data['total'], $order_currency, $active_currency ) );
-		$transaction_item_data['tax'] 	   = slicewp_sanitize_amount( slicewp_maybe_convert_amount( $transaction_item_data['tax'], $order_currency, $active_currency ) );
+		$transaction_item_data['original_total'] = $transaction_item_data['total'];
+		$transaction_item_data['original_tax'] 	 = $transaction_item_data['tax'];
+
+		if ( isset( $transaction_item_data['subtotal'] ) ) {
+			$transaction_item_data['subtotal'] = slicewp_sanitize_amount( slicewp_maybe_convert_amount( $transaction_item_data['subtotal'], $order_currency, $active_currency ) );
+		}
+
+		$transaction_item_data['total'] = slicewp_sanitize_amount( slicewp_maybe_convert_amount( $transaction_item_data['total'], $order_currency, $active_currency ) );
+		$transaction_item_data['tax'] 	= slicewp_sanitize_amount( slicewp_maybe_convert_amount( $transaction_item_data['tax'], $order_currency, $active_currency ) );
 
 		// Move meta_data at the end for cleaner array.
 		if ( ! empty( $transaction_item_data['meta_data'] ) ) {
