@@ -67,6 +67,21 @@ class SliceWP_List_Table_Affiliate_Account_Visits extends SliceWP_List_Table {
 
 
     /**
+     * Column "referrer_url".
+     * 
+     * @param array $item
+     * 
+     * @return string
+     * 
+     */
+    public function column_referrer_url( $item ) {
+
+        return esc_html( ! empty( $item['referrer_url'] ) ? $item['referrer_url'] : '-' );
+
+    }
+
+
+    /**
      * Column "date".
      * 
      * @param array $item
@@ -77,6 +92,30 @@ class SliceWP_List_Table_Affiliate_Account_Visits extends SliceWP_List_Table {
     public function column_date( $item ) {
 
         return slicewp_date_i18n( $item['date_created'] );
+
+    }
+
+
+    /**
+     * Outputs the HTML of the table.
+     * 
+     */
+    public function output_table() {
+
+        $this->output_table_before();
+
+        echo '<div class="slicewp-list-table-wrapper">';
+
+            echo '<table class="slicewp-list-table">';
+
+                $this->output_table_header();
+                $this->output_table_body();
+
+            echo '</table>';
+
+        echo '</div>';
+
+        $this->output_table_after();
 
     }
     

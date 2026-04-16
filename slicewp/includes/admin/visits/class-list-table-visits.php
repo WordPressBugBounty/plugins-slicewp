@@ -270,7 +270,7 @@ Class SliceWP_WP_List_Table_Visits extends SliceWP_WP_List_Table {
 	 */
 	public function column_landing_url( $item ) {
 
-		$output = '<a href="' . esc_url_raw( $item['landing_url'] ) . '" target="_blank">' . rawurldecode( $item['landing_url'] ) . '</a>';
+		$output = '<a href="' . esc_url_raw( $item['landing_url'] ) . '" target="_blank">' . esc_html( rawurldecode( $item['landing_url'] ) ) . '</a>';
 
 		return $output;
 
@@ -287,7 +287,7 @@ Class SliceWP_WP_List_Table_Visits extends SliceWP_WP_List_Table {
 	 */
 	public function column_referrer_url( $item ) {
 
-		$output = '<a href="' . esc_url_raw( $item['referrer_url'] ) . '" target="_blank">' . rawurldecode( $item['referrer_url'] ) . '</a>';
+		$output = '<a href="' . esc_url_raw( $item['referrer_url'] ) . '" target="_blank">' . esc_html( rawurldecode( $item['referrer_url'] ) ) . '</a>';
 
 		return $output;
 

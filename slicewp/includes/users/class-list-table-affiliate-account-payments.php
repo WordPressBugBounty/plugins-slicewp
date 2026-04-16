@@ -133,6 +133,30 @@ class SliceWP_List_Table_Affiliate_Account_Payments extends SliceWP_List_Table {
 
 
     /**
+     * Outputs the HTML of the table.
+     * 
+     */
+    public function output_table() {
+
+        $this->output_table_before();
+
+        echo '<div class="slicewp-list-table-wrapper">';
+
+            echo '<table class="slicewp-list-table">';
+
+                $this->output_table_header();
+                $this->output_table_body();
+
+            echo '</table>';
+
+        echo '</div>';
+
+        $this->output_table_after();
+
+    }
+
+
+    /**
      * Outputs the table row item details for the given item data.
      * 
      * @param array $item

@@ -327,6 +327,10 @@ function slicewp_output_list_table_commissions_visit( $item ) {
 
 	$visit = slicewp_get_visit( absint( $item['visit_id'] ) );
 
+	if ( is_null( $visit ) ) {
+		return;
+	}
+
 	if ( $visit->get( 'affiliate_id' ) != $item['affiliate_id'] ) {
 		return;
 	}
@@ -337,9 +341,9 @@ function slicewp_output_list_table_commissions_visit( $item ) {
 	
 		echo '<thead>';
 			echo '<tr>';
-				echo '<th class="slicewp-column-id" style="width: 85px;">' . __( 'Visit', 'slicewp' ) . '</th>';
-				echo '<th class="slicewp-column-landing_url" style="width: 35%">' . __( 'Landing URL', 'slicewp' ) . '</th>';
-				echo '<th class="slicewp-column-referrer_url" style="width: 35%">' . __( 'Referrer URL', 'slicewp' ) . '</th>';
+				echo '<th class="slicewp-column-id">' . __( 'Visit', 'slicewp' ) . '</th>';
+				echo '<th class="slicewp-column-landing_url">' . __( 'Landing URL', 'slicewp' ) . '</th>';
+				echo '<th class="slicewp-column-referrer_url">' . __( 'Referrer URL', 'slicewp' ) . '</th>';
 				echo '<th class="slicewp-column-date">' . __( 'Date', 'slicewp' ) . '</th>';
 			echo '</tr>';
 		echo '</thead>';

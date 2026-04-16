@@ -45,6 +45,7 @@ if ( ! empty( $_GET['payment_id'] ) ) {
     $table = new SliceWP_List_Table_Affiliate_Account_Commissions( array(
         'screen_base_url' => add_query_arg( array( 'affiliate-account-tab' => 'commissions' ), strtok( set_url_scheme( 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ), '?' ) )
     ));
+
     $table->output();
 
 }

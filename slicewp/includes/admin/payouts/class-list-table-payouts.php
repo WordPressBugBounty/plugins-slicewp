@@ -297,7 +297,7 @@ Class SliceWP_WP_List_Table_Payouts extends SliceWP_WP_List_Table {
 
 			// Allow CSV Generation only if the Payout has an amount greater than zero.
 			if ( $item['amount'] != 0 ) {
-				$output .= '<a href="' . esc_url( wp_nonce_url( add_query_arg( array( 'page' => 'slicewp-payouts', 'subpage' => 'payouts-history', 'slicewp_action' => 'generate_payouts_csv', 'payout_id' => $item['id'] ) , admin_url( 'admin.php' ) ), 'slicewp_generate_payouts_csv', 'slicewp_token' ) ) . '" class="slicewp-button-secondary">' . __( 'Generate CSV', 'slicewp' ) . '</a>';
+				$output .= '<a href="' . esc_url( wp_nonce_url( add_query_arg( array( 'page' => 'slicewp-payouts', 'slicewp_action' => 'generate_payouts_csv', 'payout_id' => $item['id'] ) , admin_url( 'admin.php' ) ), 'slicewp_generate_payouts_csv', 'slicewp_token' ) ) . '" class="slicewp-button-secondary">' . __( 'Generate CSV', 'slicewp' ) . '</a>';
 			} else {
 				$output .= '<a href="#" class="slicewp-button-secondary slicewp-disabled" onclick="return false;">' . __( 'Generate CSV', 'slicewp' ) . '</a>';
 			}
