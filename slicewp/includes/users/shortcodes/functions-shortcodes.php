@@ -482,6 +482,6 @@ function slicewp_shortcode_affiliate_url( $atts ) {
     // Get the affiliate's URL.
     $affiliate_url = slicewp_get_affiliate_url( absint( $atts['affiliate_id'] ), $atts['url'] );
 
-    return ( ! is_null( $affiliate_url ) ? $affiliate_url : '' );
+    return ( ! is_null( $affiliate_url ) ? esc_url( $affiliate_url ) : '' );
 
 }
