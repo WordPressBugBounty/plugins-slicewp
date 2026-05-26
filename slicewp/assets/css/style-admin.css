@@ -79,7 +79,7 @@ body.slicewp-pagestyles input[type=url],
 body.slicewp-pagestyles input[type=password],
 body.slicewp-pagestyles input[type=number],
 body.slicewp-pagestyles textarea,
-body.slicewp-pagestyles select { width: 100%; margin: 0; padding: 7px 10px; color: #2e4453; font-size: 16px; line-height: 26px; border-radius: 5px; border: 1px solid #cbd5e1; background: #fff; transition: all 0.05s ease-in-out; box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 4%) 0px 1px 2px 0px; box-sizing: border-box; }
+body.slicewp-pagestyles select { width: 100%; min-height: 1px; margin: 0; padding: 7px 10px; color: #2e4453; font-size: 16px; line-height: 26px; border-radius: 5px; border: 1px solid #cbd5e1; background: #fff; transition: all 0.05s ease-in-out; box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 4%) 0px 1px 2px 0px; box-sizing: border-box; }
 
 body.slicewp-pagestyles input[type=text]:disabled,
 body.slicewp-pagestyles input[type=email]:disabled,
@@ -359,7 +359,7 @@ body.slicewp-pagestyles .ui-autocomplete li .ui-state-active { border: 0; backgr
 /******************************************************************************************/
 /* Postbox Cards
 /******************************************************************************************/
-body.slicewp-pagestyles .postbox { border: 0; background: #fff; box-shadow: 0 0 0 1px rgb(200 215 225 / 50%), 0 1px 2px #e9eff3; }
+body.slicewp-pagestyles .postbox { border: 0; background: #fff; border-radius: 1px !important; box-shadow: 0 0 0 1px rgb(200 215 225 / 50%), 0 1px 2px #e9eff3; }
 body.slicewp-pagestyles .postbox .postbox-header { border: 0; padding: 20px; border-bottom: 1px solid rgba( 200, 215, 225, 0.5 ); font-weight: bold; }
 body.slicewp-pagestyles .postbox .postbox-header .hndle { padding: 0; margin: 0; font-size: inherit; font-weight: 500; font-size: 15px; }
 body.slicewp-pagestyles .postbox .postbox-header .handle-actions button { display: none; padding: 0; margin: 0; height: auto; }
@@ -765,7 +765,7 @@ body.slicewp-pagestyles .slicewp-list-table-data-filters .slicewp-list-table-dat
 body.slicewp-pagestyles .slicewp-list-table-data-filters .slicewp-list-table-data-filter-datepicker { max-width: 125px; }
 
 body.slicewp-pagestyles .search-box { margin-bottom: 8px; }
-body.slicewp-pagestyles .search-box input[type=search] { height: 34px; }
+body.slicewp-pagestyles .search-box input[type=search] { height: 34px; margin-right: 0; }
 body.slicewp-pagestyles .search-box input[type=submit] { display: inline-block; background: #fff; border-color: #c8d7e1; border-style: solid; border-width: 1px 1px 2px; color: #2e4453; cursor: pointer; margin: 0; outline: 0; overflow: hidden; font-size: 13px; font-weight: 500; text-overflow: ellipsis; text-decoration: none; vertical-align: top; box-sizing: border-box; line-height: 21px; height: 34px; border-radius: 4px; padding: 5px 10px; -webkit-appearance: none; -moz-appearance: none; appearance: none; box-shadow: none !important; }
 body.slicewp-pagestyles .search-box input[type=submit]:hover { color: #2e4453; border-color: #a8bece; }
 body.slicewp-pagestyles .search-box input[type=submit]:focus { color: #2e4453; }
@@ -901,7 +901,7 @@ body.slicewp-pagestyles .tablenav-pages .tablenav-paging-text { vertical-align: 
 
 .slicewp-card-table-full-width tr.slicewp-no-items td { padding: 20px; }
 
-.slicewp-card-table-full-width .slicewp-card-table-row-footer td { background: #f8f9fa; padding: 15px 20px; }
+.slicewp-card-table-full-width .slicewp-card-table-row-footer td { background: #f8f9fa; padding: 15px 20px; border-bottom-left-radius: 1px; border-bottom-right-radius: 1px; }
 
 /*******************************************************************************************/
 /* Simple Table

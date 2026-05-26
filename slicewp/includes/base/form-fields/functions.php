@@ -296,7 +296,7 @@ function slicewp_output_form_fields_affiliate( $form ) {
 		}
 
 		// Set field value for all fields, excluding password.
-		if ( is_null( $field->get( 'value' ) ) ) {
+		if ( is_null( $field->get( 'value' ) ) && ! empty( $field->get( 'name' ) ) ) {
 
 			if ( $field->get('type') != 'password' ) {
 
@@ -345,58 +345,71 @@ add_action( 'slicewp_form_fields', 'slicewp_output_form_fields_affiliate' );
  */
 function slicewp_output_admin_form_fields_affiliate( $form ) {
 
-	if( ! in_array( $form, array( 'add_affiliate', 'edit_affiliate', 'review_affiliate' ) ) )
+	if ( ! in_array( $form, array( 'add_affiliate', 'edit_affiliate', 'review_affiliate' ) ) ) {
 		return;
+	}
 
-	$affiliate_id 	  = ( ! empty( $_GET['affiliate_id'] ) ? absint( $_GET['affiliate_id'] ) : 0 );
-	$affiliate 		  = slicewp_get_affiliate( $affiliate_id );
+	$affiliate_id = ( ! empty( $_GET['affiliate_id'] ) ? absint( $_GET['affiliate_id'] ) : 0 );
+	$affiliate 	  = slicewp_get_affiliate( $affiliate_id );
 
 	$affiliate_fields = slicewp_get_affiliate_fields();
 
 	foreach ( $affiliate_fields as $affiliate_field ) {
 
-		// Create a field object
+		// Create a field object.
 		$field = slicewp_create_form_field_object( $affiliate_field );
 
-		if( is_null( $field ) )
+		if ( is_null( $field ) ) {
 			continue;
+		}
 
 		// Make sure WP_User specific fields are not taken into account.
-		if( in_array( $field->get('name'), array( 'user_login', 'user_email', 'first_name', 'last_name', 'password', 'password_confirm' ) ) )
+		if ( in_array( $field->get('name'), array( 'user_login', 'user_email', 'first_name', 'last_name', 'password', 'password_confirm' ) ) ) {
 			continue;
+		}
 
 		// Fields that are not set to appear on register shouldn't be outputted on the review affiliate form.
-		$output_conditionals = $field->get('output_conditionals');
+		$output_conditionals = $field->get( 'output_conditionals' );
 
-		if( $form == 'review_affiliate' && ( empty( $output_conditionals['form'] ) || ! in_array( 'affiliate_registration', $output_conditionals['form'] ) ) )
+		if ( $form == 'review_affiliate' && ( empty( $output_conditionals['form'] ) || ! in_array( 'affiliate_registration', $output_conditionals['form'] ) ) ) {
 			continue;
+		}
 
 		// For the review affiliate form, the fields should be disabled and not required.
 		// They are for presentation purposes only.
-		if( $form == 'review_affiliate' ) {
+		if ( $form == 'review_affiliate' ) {
 
-			$field->set( 'is_required', false );
-			$field->set( 'is_disabled', true );
+			if ( property_exists( $field, 'is_required' ) ) {
+				$field->set( 'is_required', false );
+			}
+
+			if ( property_exists( $field, 'is_disabled' ) ) {
+				$field->set( 'is_disabled', true );
+			}
 
 		}
 
 		// Set the field's value
-		if( ! empty( $_POST ) && ! $field->get( 'is_disabled' ) ) {
+		if ( ! empty( $field->get( 'name' ) ) ) {
 
-			$field->set( 'value', ( isset( $_POST[$field->get('name')] ) ? $_POST[$field->get('name')] : '' ) );
+			if ( ! empty( $_POST ) && ! $field->get( 'is_disabled' ) ) {
 
-		} else {
-
-			if( property_exists( 'SliceWP_Affiliate', $field->get('name') ) ) {
-
-				$field->set( 'value', ( ! is_null( $affiliate ) && ! is_null( $field->get('name') ) ? $affiliate->get( $field->get('name') ) : null ) );
+				$field->set( 'value', ( isset( $_POST[$field->get('name')] ) ? $_POST[$field->get('name')] : '' ) );
 
 			} else {
 
-				$field->set( 'value', ( ! empty( $affiliate_id ) && ! is_null( $field->get('name') ) ? slicewp_get_affiliate_meta( $affiliate_id, $field->get('name'), true ) : null ) );
+				if ( property_exists( 'SliceWP_Affiliate', $field->get('name') ) ) {
+
+					$field->set( 'value', ( ! is_null( $affiliate ) && ! is_null( $field->get('name') ) ? $affiliate->get( $field->get('name') ) : null ) );
+
+				} else {
+
+					$field->set( 'value', ( ! empty( $affiliate_id ) && ! is_null( $field->get('name') ) ? slicewp_get_affiliate_meta( $affiliate_id, $field->get('name'), true ) : null ) );
+
+				}
 
 			}
-
+			
 		}
 
 		// Output the field
@@ -416,14 +429,17 @@ add_action( 'slicewp_admin_form_fields', 'slicewp_output_admin_form_fields_affil
  */
 function slicewp_save_affiliate_fields_metadata( $affiliate_id ) {
 
-	if ( empty( $_POST ) )
+	if ( empty( $_POST ) ) {
 		return;
+	}
 
-	if ( empty( $_POST['slicewp_action'] ) )
+	if ( empty( $_POST['slicewp_action'] ) ) {
 		return;
+	}
 
-	if ( ! slicewp_verify_request_action( $_POST['slicewp_action'] ) )
+	if ( ! slicewp_verify_request_action( $_POST['slicewp_action'] ) ) {
 		return;
+	}
 
 	// Get affiliate.
 	$affiliate = slicewp_get_affiliate( $affiliate_id );
@@ -436,28 +452,34 @@ function slicewp_save_affiliate_fields_metadata( $affiliate_id ) {
 		// Create a field object.
 		$field = slicewp_create_form_field_object( $affiliate_field );
 
-		if ( is_null( $field ) )
+		if ( is_null( $field ) ) {
 			continue;
+		}
 
-		if ( empty( $field->get('name') ) )
+		if ( empty( $field->get('name') ) ) {
 			continue;
+		}
 
-		if ( ! isset( $_POST[$field->get('name')] ) )
+		if ( ! isset( $_POST[$field->get('name')] ) ) {
 			continue;
+		}
 
 		// Don't save SliceWP_Affiliate and WP_User object attributes as affiliate metadata.
-		if ( in_array( $field->get('name'), array( 'user_login', 'user_email', 'first_name', 'last_name', 'password', 'password_confirm', 'payment_email', 'website' ) ) )
+		if ( in_array( $field->get('name'), array( 'user_login', 'user_email', 'first_name', 'last_name', 'password', 'password_confirm', 'payment_email', 'website' ) ) ) {
 			continue;
+		}
 
 		// Don't save other metadata that is handled by custom actions
-		if ( in_array( $field->get('name'), array( 'reject_reason' ) ) )
+		if ( in_array( $field->get('name'), array( 'reject_reason' ) ) ) {
 			continue;
+		}
 
 		// Don't save metadata if the field isn't outputted when on front-end.
 		$output_conditionals = $field->get('output_conditionals');
 
-		if ( ! is_admin() && empty( $output_conditionals['form'] ) )
+		if ( ! is_admin() && empty( $output_conditionals['form'] ) ) {
 			continue;
+		}
 
 		// Set the user ID for the "file" field type.
 		if ( 'file' == $field->get( 'type' ) ) {
