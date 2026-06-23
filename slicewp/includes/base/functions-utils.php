@@ -323,6 +323,13 @@ function slicewp_get_kses_allowed_html() {
             'stroke-linecap'  => true,
             'stroke-linejoin' => true,
             'stroke-width'    => true
+        ),
+        'circle' => array(
+            'cx'              => true,
+            'cy'              => true,
+            'r'               => true,
+            'stroke-linecap'  => true,
+            'stroke-linejoin' => true
         )
     );
 

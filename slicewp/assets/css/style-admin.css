@@ -361,14 +361,14 @@ body.slicewp-pagestyles .ui-autocomplete li .ui-state-active { border: 0; backgr
 /******************************************************************************************/
 body.slicewp-pagestyles .postbox { border: 0; background: #fff; border-radius: 1px !important; box-shadow: 0 0 0 1px rgb(200 215 225 / 50%), 0 1px 2px #e9eff3; }
 body.slicewp-pagestyles .postbox .postbox-header { border: 0; padding: 20px; border-bottom: 1px solid rgba( 200, 215, 225, 0.5 ); font-weight: bold; }
-body.slicewp-pagestyles .postbox .postbox-header .hndle { padding: 0; margin: 0; font-size: inherit; font-weight: 500; font-size: 15px; }
+body.slicewp-pagestyles .postbox .postbox-header .hndle { padding: 0 !important; margin: 0; font-size: inherit; font-weight: 500; font-size: 15px; }
 body.slicewp-pagestyles .postbox .postbox-header .handle-actions button { display: none; padding: 0; margin: 0; height: auto; }
 body.slicewp-pagestyles .postbox .inside { padding: 20px; margin: 0; }
 
 /******************************************************************************************/
 /* General Buttons
 /******************************************************************************************/
-.slicewp-button-primary { display: inline-block; background: #00aadc; border-color: #0087be; border-style: solid; border-width: 1px 1px 2px; color: #fff; cursor: pointer; margin: 0; outline: 0; overflow: hidden; font-size: 13px; font-weight: 500; text-overflow: ellipsis; text-decoration: none; vertical-align: middle; box-sizing: border-box; line-height: 21px; border-radius: 4px; padding: 5px 11px; -webkit-appearance: none; -moz-appearance: none; appearance: none; box-shadow: none !important; }
+.slicewp-button-primary { display: inline-block; background: #00aadc; border-color: #0087be; border-style: solid; border-width: 1px 1px 2px; color: #fff; cursor: pointer; margin: 0; outline: 0; overflow: hidden; font-size: 13px; font-weight: 500; text-overflow: ellipsis; text-decoration: none; vertical-align: middle; box-sizing: border-box; line-height: 21px; border-radius: 4px !important; padding: 5px 11px; -webkit-appearance: none; -moz-appearance: none; appearance: none; box-shadow: none !important; }
 .slicewp-button-primary:hover { color: #fff; border-color: #005082; }
 .slicewp-button-primary:focus { color: #fff; }
 .slicewp-button-primary.slicewp-active,
@@ -376,7 +376,7 @@ body.slicewp-pagestyles .postbox .inside { padding: 20px; margin: 0; }
 .slicewp-button-primary:disabled,
 .slicewp-button-primary.slicewp-disabled { background: #bceefd; border-color: #8cc9e2; color: #fff !important; cursor: not-allowed; }
 
-.slicewp-button-secondary { display: inline-block; background: #fff; border-color: #c8d7e1; border-style: solid; border-width: 1px 1px 2px; color: #2e4453; cursor: pointer; margin: 0; outline: 0; overflow: hidden; font-size: 13px; font-weight: 500; text-overflow: ellipsis; text-decoration: none; vertical-align: middle; box-sizing: border-box; line-height: 21px; border-radius: 4px; padding: 5px 11px; -webkit-appearance: none; -moz-appearance: none; appearance: none; box-shadow: none !important; }
+.slicewp-button-secondary { display: inline-block; background: #fff; border-color: #c8d7e1; border-style: solid; border-width: 1px 1px 2px; color: #2e4453; cursor: pointer; margin: 0; outline: 0; overflow: hidden; font-size: 13px; font-weight: 500; text-overflow: ellipsis; text-decoration: none; vertical-align: middle; box-sizing: border-box; line-height: 21px; border-radius: 4px !important; padding: 5px 11px; -webkit-appearance: none; -moz-appearance: none; appearance: none; box-shadow: none !important; }
 .slicewp-button-secondary:hover { color: #2e4453; border-color: #a8bece; }
 .slicewp-button-secondary:focus { color: #2e4453; }
 .slicewp-button-secondary.slicewp-active,
@@ -384,11 +384,11 @@ body.slicewp-pagestyles .postbox .inside { padding: 20px; margin: 0; }
 .slicewp-button-secondary:disabled,
 .slicewp-button-secondary.slicewp-disabled { color: #e9eff3; background: #fff; border-color: #e9eff3; cursor: not-allowed; }
 
-.slicewp-button-tertiary { display: inline-block; background: transparent; border-color: transparent; border-style: solid; border-width: 1px 1px 2px; color: inherit; cursor: pointer; margin: 0; outline: 0; overflow: hidden; font-size: 13px; font-weight: 500; text-overflow: ellipsis; text-decoration: none; vertical-align: middle; box-sizing: border-box; line-height: 21px; border-radius: 4px; padding: 5px 11px; -webkit-appearance: none; -moz-appearance: none; appearance: none; box-shadow: none !important; }
+.slicewp-button-tertiary { display: inline-block; background: transparent; border-color: transparent; border-style: solid; border-width: 1px 1px 2px; color: inherit; cursor: pointer; margin: 0; outline: 0; overflow: hidden; font-size: 13px; font-weight: 500; text-overflow: ellipsis; text-decoration: none; vertical-align: middle; box-sizing: border-box; line-height: 21px; border-radius: 4px !important; padding: 5px 11px; -webkit-appearance: none; -moz-appearance: none; appearance: none; box-shadow: none !important; }
 .slicewp-button-tertiary:hover,
 .slicewp-button-tertiary:focus { color: inherit; border-color: transparent; box-shadow: none; }
 
-.slicewp-button-upgrade { display: inline-block; background: #e74c3c; border-color: #c0392b; border-style: solid; border-width: 1px 1px 2px; color: #fff; cursor: pointer; margin: 0; outline: 0; overflow: hidden; font-size: 13px; font-weight: 500; text-overflow: ellipsis; text-decoration: none; vertical-align: middle; box-sizing: border-box; line-height: 21px; border-radius: 4px; padding: 5px 11px; -webkit-appearance: none; -moz-appearance: none; appearance: none; box-shadow: none !important; }
+.slicewp-button-upgrade { display: inline-block; background: #e74c3c; border-color: #c0392b; border-style: solid; border-width: 1px 1px 2px; color: #fff; cursor: pointer; margin: 0; outline: 0; overflow: hidden; font-size: 13px; font-weight: 500; text-overflow: ellipsis; text-decoration: none; vertical-align: middle; box-sizing: border-box; line-height: 21px; border-radius: 4px !important; padding: 5px 11px; -webkit-appearance: none; -moz-appearance: none; appearance: none; box-shadow: none !important; }
 .slicewp-button-upgrade:hover { color: #fff; }
 .slicewp-button-upgrade:focus { color: #fff; }
 .slicewp-button-upgrade.slicewp-active,
@@ -538,7 +538,8 @@ body.slicewp-pagestyles .postbox .inside { padding: 20px; margin: 0; }
 
 .slicewp-expandable-item-actions { display: flex; gap: 5px; }
 
-.slicewp-expand-item { display: inline-flex !important; align-items: center; box-shadow: none !important; }
+.slicewp-expand-item { display: inline-flex !important; color: inherit; align-items: center; box-shadow: none !important; }
+.slicewp-expand-item:hover { color: inherit; }
 .slicewp-expand-item svg { width: 18px; transition: transform 0.15s ease-in-out; }
 .slicewp-expandable-item.slicewp-active .slicewp-expand-item svg,
 .slicewp-expandable-item.slicewp-is-expanded .slicewp-expand-item svg { transform: rotate( 180deg ); }
@@ -964,6 +965,134 @@ body.slicewp-pagestyles .tablenav-pages .tablenav-paging-text { vertical-align: 
 /*******************************************************************************************/
 /* Page: Settings
 /*******************************************************************************************/
+body.slicewp-page-settings #slicewp-header { position: fixed; top: 32px; left: 160px; right: 0; margin: 0; z-index: 200; }
+body.slicewp-page-settings.folded #slicewp-header { left: 36px; }
+body.slicewp-page-settings #wpfooter { display: none; }
+body.slicewp-page-settings #wpbody-content { padding-top: 56px; padding-bottom: 0; }
+
+/* Extend the sidebar's white background + separator line to the full page height via
+   #wpcontent, which already has height:100% in WP's own CSS so it fills #wpwrap/body.
+   This handles both a tall admin menu and short tab content without inflating the layout. */
+body.slicewp-page-settings [id="wpcontent"] {
+    background: linear-gradient(
+        to right,
+        #fff 240px,
+        rgba(200, 215, 225, 0.7) 240px,
+        rgba(200, 215, 225, 0.7) 241px,
+        #f3f6f8 241px
+    );
+}
+body.rtl.slicewp-page-settings [id="wpcontent"] {
+    background: linear-gradient(
+        to left,
+        #fff 240px,
+        rgba(200, 215, 225, 0.7) 240px,
+        rgba(200, 215, 225, 0.7) 241px,
+        #f3f6f8 241px
+    );
+}
+
+/* Remove .wrap margins so the layout bleeds to the edges of #wpcontent */
+.wrap.slicewp-wrap-settings { margin: 0; }
+
+/* wp-header-end is inside .slicewp-settings-content so WP's JS moves notices there */
+.slicewp-wrap-settings hr.wp-header-end { margin: 0; border: 0; height: 0; display: block; }
+
+/* Notices are server-rendered in #wpbody-content before JS runs.
+   Hide them in that initial position; the second rule makes them visible
+   the instant WP's JS relocates them inside .slicewp-settings-content. */
+body.slicewp-page-settings #wpbody-content .notice,
+body.slicewp-page-settings #wpbody-content .error { display: none; }
+body.slicewp-page-settings #wpbody-content .slicewp-settings-content .notice { display: block; margin-bottom: 16px; }
+
+/* Two-column layout. margin-left: -20px negates #wpcontent's padding-left: 20px.
+   min-height fills the viewport so the sidebar background stretches to the screen bottom
+   (88px = 32px WP admin bar + 56px SliceWP header). */
+.slicewp-settings-layout { display: flex; min-height: calc(100vh - 88px); margin-left: -20px; }
+
+/* Sidebar — sticky below the SliceWP header, stays in view while the user scrolls.
+   No explicit height: the sidebar is as tall as its nav content, which keeps it shorter
+   than the layout's min-height so the sticky bottom-boundary never triggers prematurely.
+   The full-height white visual is provided by the #wpcontent gradient, not this element. */
+.slicewp-settings-sidebar { position: sticky; top: 88px; width: 240px; display: flex; flex-shrink: 0; align-self: flex-start; background: #fff; flex-direction: column; overflow: hidden; box-sizing: border-box; box-shadow: 1px 0 0 rgba(200, 215, 225, 0.7); }
+
+/* Sidebar header — pinned, never scrolls */
+.slicewp-settings-sidebar-header { flex-shrink: 0; padding: 18px 20px 16px; border-bottom: 1px solid rgba(200, 215, 225, 0.5); }
+.slicewp-settings-sidebar-header h1 { margin: 0; padding: 0; font-size: 14px; font-weight: 600; color: #2e4453; line-height: 1.4; border: none; }
+
+/* Content column */
+.slicewp-settings-content { flex: 1; min-width: 0; padding: 24px; position: relative; }
+.slicewp-settings-content .slicewp-tab { margin-top: 0; }
+
+/* Active tab title above the cards */
+.slicewp-settings-content-title { margin: 0 0 20px 0; padding: 0; font-size: 20px; font-weight: 500; color: #2e4453; line-height: 1.3; border: none; }
+
+/* Tab transition — exit: fade + slide up; enter: fade + slide up from below.
+   .slicewp-tab-entering is added only by JS on actual tab clicks, so the
+   initially-active tab (set by PHP) never triggers the entrance animation. */
+@keyframes slicewp-tab-in {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.slicewp-settings-content .slicewp-tab.slicewp-tab-entering { animation: slicewp-tab-in 200ms cubic-bezier(0.2, 0, 0.2, 1) both; }
+.slicewp-settings-content .slicewp-tab.slicewp-tab-leaving { opacity: 0; transform: translateY(-8px); transition: opacity 100ms ease-in, transform 100ms ease-in; pointer-events: none; }
+
+/* Nav list — scrolls if items exceed the available space below the sidebar header.
+   max-height: viewport - 88px (fixed headers) - 55px (sidebar header). */
+.slicewp-settings-sidebar .slicewp-nav-tab-wrapper { overflow-y: auto; max-height: calc(100vh - 143px); margin: 0; padding: 6px 0; }
+.slicewp-settings-sidebar .slicewp-nav-tab-wrapper:after { display: none; }
+
+/* Nav items — rounded pills with margin, light gray active background, no border indicator */
+.slicewp-settings-sidebar .slicewp-nav-tab { float: none; display: block; border: none; margin: 3px 8px; border-radius: 5px; box-sizing: border-box; transition: background 0.12s ease; }
+.slicewp-settings-sidebar .slicewp-nav-tab:hover { background: #f5f7f8; }
+.slicewp-settings-sidebar .slicewp-nav-tab.slicewp-active { background: #e7edf1; }
+
+/* Nav links */
+.slicewp-settings-sidebar .slicewp-nav-tab a { display: flex; align-items: center; gap: 10px; width: 100%; padding: 12px 16px; box-sizing: border-box; font-size: 13px; text-decoration: none; box-shadow: none; transition: color 0.12s ease; }
+.slicewp-settings-sidebar .slicewp-nav-tab.slicewp-active a { color: #2e4453; font-weight: 600; }
+.slicewp-settings-sidebar .slicewp-nav-tab:not(.slicewp-active):hover a { color: #3c4a55; }
+
+/* Icons inherit text color via currentColor (SVG uses stroke="currentColor") */
+.slicewp-settings-sidebar .slicewp-nav-tab svg { width: 17px; height: 17px; flex-shrink: 0; }
+.slicewp-settings-sidebar .slicewp-nav-tab .dashicons { width: 17px; height: 17px; line-height: 17px; font-size: 17px; flex-shrink: 0; }
+
+/* RTL: sidebar flips to the right; header repositions */
+body.rtl .slicewp-settings-layout { margin-left: 0; margin-right: -20px; }
+body.rtl .slicewp-settings-sidebar { box-shadow: -1px 0 0 rgba(200, 215, 225, 0.7); }
+body.rtl.slicewp-page-settings #slicewp-header { left: 0; right: 160px; }
+body.rtl.slicewp-page-settings.folded #slicewp-header { right: 36px; }
+
+/* At 960px WP auto-folds the admin menu — reposition the fixed header to match */
+@media screen and ( max-width: 960px ) {
+
+    body.slicewp-page-settings.auto-fold #slicewp-header { left: 36px; }
+    body.rtl.slicewp-page-settings.auto-fold #slicewp-header { right: 36px; left: 0; }
+
+}
+
+/* Responsive: stack below WP's 782px mobile breakpoint */
+@media screen and ( max-width: 782px ) {
+
+    .slicewp-settings-layout { flex-direction: column; margin-left: -10px; margin-right: -12px; min-height: 0; }
+    
+	.slicewp-settings-sidebar { position: static; width: 100%; height: auto; box-shadow: 0 1px 0 rgba(200, 215, 225, 0.7); }
+    .slicewp-settings-sidebar .slicewp-nav-tab-wrapper { display: flex; flex-wrap: wrap; overflow-y: visible; padding: 4px; }
+    .slicewp-settings-sidebar .slicewp-nav-tab { margin: 2px 4px; }
+    
+	.slicewp-settings-content { padding: 16px; }
+    
+	body.slicewp-page-settings #slicewp-header { position: relative; z-index: 1; top: auto; left: auto; right: auto; margin-left: -10px; margin-right: -12px; }
+    body.slicewp-page-settings.auto-fold #slicewp-header { left: auto; }
+    body.rtl.slicewp-page-settings.auto-fold #slicewp-header { right: auto; left: auto; }
+    
+	body.slicewp-page-settings #wpbody-content { padding-top: 0; }
+    body.slicewp-page-settings [id="wpcontent"] { background: none; }
+    
+	body.rtl .slicewp-settings-layout { margin-right: 0; }
+
+}
+
 .slicewp-card-integration-row { position: relative; padding-left: 60px; border-bottom: 1px solid rgba(200, 215, 225, 0.5); }
 [data-tab="integrations"] .slicewp-card > :last-of-type { border-bottom: 0; }
 
@@ -1181,6 +1310,9 @@ body.slicewp-setup .notice { display: none !important; }
 /*******************************************************************************************/
 /* Page: Dashboard
 /*******************************************************************************************/
+#slicewp-dashboard-widgets-wrap #dashboard-widgets-wrap { margin: 0; }
+#slicewp-dashboard-widgets-wrap .metabox-holder { margin: 0 -7px; }
+
 #slicewp-dashboard-widgets-wrap .meta-box-sortables.empty-container { display: none; }
 
 #slicewp-dashboard-widgets-wrap #latest_affiliates .slicewp-column-status { width: 150px; }
@@ -1214,15 +1346,21 @@ body.slicewp-setup .notice { display: none !important; }
 #slicewp-card-notifications .slicewp-card-inner > div > :first-child { margin-top: 0; }
 #slicewp-card-notifications .slicewp-card-inner > div > :last-child { margin-bottom: 0; }
 
+@media screen and ( min-width: 1921px ) and ( max-width: 2560px ) {
+
+	#slicewp-dashboard-widgets-wrap .postbox-container { width: 33.3333% !important; }
+
+}
+
 @media screen and ( max-width: 1920px ) {
 
 	#slicewp-dashboard-widgets-wrap .postbox-container { width: 50% !important; }
 
 }
 
-@media screen and ( min-width: 1921px ) and ( max-width: 2560px ) {
+@media screen and ( max-width: 999px ) {
 
-	#slicewp-dashboard-widgets-wrap .postbox-container { width: 33.3333% !important; }
+	#slicewp-dashboard-widgets-wrap .postbox-container { width: 100% !important; }
 
 }
 

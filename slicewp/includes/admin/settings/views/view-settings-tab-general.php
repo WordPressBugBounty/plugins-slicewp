@@ -53,76 +53,34 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 </div>
 <!-- / Register website -->
 
-
-<!-- General Settings -->
+<!-- Referral Tracking -->
 <div class="slicewp-card">
 
+	<?php $affiliate_keyword = ( ! empty( $_POST['settings']['affiliate_keyword'] ) ? $_POST['settings']['affiliate_keyword'] : ( empty( $_POST ) ? slicewp_get_setting( 'affiliate_keyword' ) : '' ) ); ?>
+
 	<div class="slicewp-card-header">
-		<span class="slicewp-card-title"><?php echo __( 'General Settings', 'slicewp' ); ?></span>
+		<span class="slicewp-card-title"><?php echo __( 'Referral Tracking', 'slicewp' ); ?></span>
+
+		<div class="slicewp-card-actions">
+			<a href="https://slicewp.com/docs/affiliate-links/" target="_blank" class="slicewp-button-info" title="<?php echo esc_attr( __( 'Click to learn more...', 'slicewp' ) ); ?>"><svg height="18" width="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M13 9h-2V7h2v2zm0 2h-2v6h2v-6zm-1-7c-4.41 0-8 3.59-8 8s3.59 8 8 8 8-3.59 8-8-3.59-8-8-8m0-2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2z"></path></g></svg></a>
+		</div>
 	</div>
 
 	<div class="slicewp-card-inner">
 
-		<!-- Allow Affiliate Registration -->
-		<div class="slicewp-field-wrapper slicewp-field-wrapper-inline">
+		<!-- Affiliate Keyword -->
+		<div class="slicewp-field-wrapper slicewp-field-wrapper-inline slicewp-tooltip-wide">
 
 			<div class="slicewp-field-label-wrapper">
-				<label for="slicewp-allow-affiliate-registration">
-					<?php echo __( 'Allow Affiliate Registration', 'slicewp' ); ?>
+				<label for="slicewp-affiliate-keyword">
+					<?php echo __( 'Affiliate Keyword', 'slicewp' ); ?>
+					<?php echo slicewp_output_tooltip( '<p>' . __( 'The URL query parameter name used for affiliate identification.', 'slicewp' ) . '</p><p>' . sprintf( __( 'Example: %s', 'slicewp' ), '<code style="font-family: inherit;">' . trailingslashit( site_url() ) . '?' . '<strong>' . esc_html( $affiliate_keyword ) . '</strong>' . '=' . $affiliate_id ) . '</code>' . '</p>' . '<hr />' . '<a href="https://slicewp.com/docs/affiliate-links/" target="_blank">' . __( 'Click here to learn more', 'slicewp' ) . '</a>' ); ?>
 				</label>
 			</div>
 
-			<div class="slicewp-switch">
+			<input id="slicewp-affiliate-keyword" name="settings[affiliate_keyword]" type="text" value="<?php echo esc_attr( ! empty( $_POST['settings']['affiliate_keyword'] ) ? $_POST['settings']['affiliate_keyword'] : ( empty( $_POST ) ? slicewp_get_setting( 'affiliate_keyword' ) : '' ) ); ?>">
 
-				<input id="slicewp-allow-affiliate-registration" class="slicewp-toggle slicewp-toggle-round" name="settings[allow_affiliate_registration]" type="checkbox" value="1" <?php checked( ! empty( $_POST['settings']['allow_affiliate_registration'] ) ? '1' : ( empty( $_POST ) ? slicewp_get_setting( 'allow_affiliate_registration' ) : '' ), '1' ); ?> />
-				<label for="slicewp-allow-affiliate-registration"></label>
-
-			</div>
-
-			<label for="slicewp-allow-affiliate-registration"><?php echo __( 'Allow visitors to register as affiliates.', 'slicewp' ); ?></label>
-
-		</div><!-- / Allow Affiliates Registration -->
-		
-		<!-- Register new Affiliates with Active status -->
-		<div class="slicewp-field-wrapper slicewp-field-wrapper-inline">
-
-			<div class="slicewp-field-label-wrapper">
-				<label for="slicewp-affiliate-register-status-active">
-					<?php echo __( 'Register Affiliates as Active', 'slicewp' ); ?>
-				</label>
-			</div>
-
-			<div class="slicewp-switch">
-
-				<input id="slicewp-affiliate-register-status-active" class="slicewp-toggle slicewp-toggle-round" name="settings[affiliate_register_status_active]" type="checkbox" value="1" <?php checked( ! empty( $_POST['settings']['affiliate_register_status_active'] ) ? '1' : ( empty( $_POST ) ? slicewp_get_setting( 'affiliate_register_status_active' ) : '' ), '1' ); ?> />
-				<label for="slicewp-affiliate-register-status-active"></label>
-
-			</div>
-
-			<label for="slicewp-affiliate-register-status-active"><?php echo __( 'New affiliate accounts will be created with Active status.', 'slicewp' ); ?></label>
-
-		</div><!-- / Register new Affiliates with Active status -->
-
-		<!-- Auto Register Affiliates -->
-		<div class="slicewp-field-wrapper slicewp-field-wrapper-inline">
-
-			<div class="slicewp-field-label-wrapper">
-				<label for="slicewp-auto-register-affiliates">
-					<?php echo __( 'Auto Register Affiliates', 'slicewp' ); ?>
-				</label>
-			</div>
-
-			<div class="slicewp-switch">
-
-				<input id="slicewp-auto-register-affiliates" class="slicewp-toggle slicewp-toggle-round" name="settings[affiliate_auto_register]" type="checkbox" value="1" <?php checked( ! empty( $_POST['settings']['affiliate_auto_register'] ) ? '1' : ( empty( $_POST ) ? slicewp_get_setting( 'affiliate_auto_register' ) : '' ), '1' ); ?> />
-				<label for="slicewp-auto-register-affiliates"></label>
-
-			</div>
-
-			<label for="slicewp-auto-register-affiliates"><?php echo __( 'Automatically register new user accounts as affiliates.', 'slicewp' ); ?></label>
-
-		</div>
-		<!-- / Auto Register Affiliates -->
+		</div><!-- / Affiliate Keyword -->
 
 		<!-- Cookie Duration -->
 		<div class="slicewp-field-wrapper slicewp-field-wrapper-inline slicewp-tooltip-wide">
@@ -134,217 +92,88 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				</label>
 			</div>
 
-			<input id="slicewp-cookie-duration" name="settings[cookie_duration]" type="number" value="<?php echo ( ! empty( $_POST['settings']['cookie_duration'] ) ? esc_attr( $_POST['settings']['cookie_duration'] ) : ( slicewp_get_setting( 'cookie_duration' ) ) ); ?>">
+			<div style="display: flex; gap: 10px;">
+				<input id="slicewp-cookie-duration" name="settings[cookie_duration]" type="number" value="<?php echo ( ! empty( $_POST['settings']['cookie_duration'] ) ? esc_attr( $_POST['settings']['cookie_duration'] ) : ( slicewp_get_setting( 'cookie_duration' ) ) ); ?>">
+				<input type="text" value="<?php echo __( 'Days', 'slicewp' ); ?>" disabled />
+			</div>
 
 		</div><!-- / Cookie Duration -->
 
-		<?php
-		
-			/**
-			 * Hook to add extra fields if needed to the General Settings card.
-			 *
-			 */
-			do_action( 'slicewp_view_settings_section_general_settings_bottom' );
-		
-		?>
-
-	</div>
-
-</div><!-- / General Settings -->
-
-
-<!-- Commissions Settings -->
-<div id="slicewp-card-settings-commissions-settings" class="slicewp-card">
-
-	<div class="slicewp-card-header">
-		<span class="slicewp-card-title"><?php echo __( 'Commissions Settings', 'slicewp' ); ?></span>
-
-		<div class="slicewp-card-actions">
-			<a href="https://slicewp.com/docs/commission-rates/" target="_blank" class="slicewp-button-info" title="<?php echo esc_attr( __( 'Click to learn more...', 'slicewp' ) ); ?>"><svg height="18" width="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M13 9h-2V7h2v2zm0 2h-2v6h2v-6zm-1-7c-4.41 0-8 3.59-8 8s3.59 8 8 8 8-3.59 8-8-3.59-8-8-8m0-2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2z"></path></g></svg></a>
-		</div>
-	</div>
-
-	<div class="slicewp-card-inner">
-
-		<?php 
-			$commission_types = slicewp_get_available_commission_types();
-		?>
-
-		<!-- Commission Rates -->
-		<?php foreach ( $commission_types as $type => $details ): ?>
-
-			<?php if ( in_array( $type, array( 'recurring', 'lifetime_sale', 'product_revenue_share' ) ) ) continue; ?>
-
-			<?php 
-				$rate 	   = slicewp_get_setting( 'commission_rate_' . $type );
-				$rate_type = slicewp_get_setting( 'commission_rate_type_' . $type );
-			?>
-
-			<div class="slicewp-field-wrapper slicewp-field-wrapper-inline slicewp-field-wrapper-commission-rate" style="display: none;">
-
-				<div class="slicewp-field-label-wrapper">
-					<label for="slicewp-commission-rate-<?php echo str_replace( '_', '-', $type ); ?>">
-						<?php echo sprintf( __( '%s Rate', 'slicewp' ), $details['label'] ); ?>
-					</label>
-				</div>
-
-				<input id="slicewp-commission-rate-<?php echo str_replace( '_', '-', $type ); ?>" name="settings[commission_rate_<?php echo $type; ?>]" type="number" step="any" min="0" value="<?php echo ( ! empty( $_POST['settings']['commission_rate_' . $type] ) ? esc_attr( $_POST['settings']['commission_rate_' . $type] ) : $rate) ?>" />					
-
-				<select name="settings[commission_rate_type_<?php echo $type; ?>]" class="slicewp-select2" <?php echo ( count( $details['rate_types'] ) == 1 ? 'disabled' : '' ); ?>>
-					<?php $currency_symbol = slicewp_get_currency_symbol( slicewp_get_setting( 'active_currency', 'USD' ) ); ?>
-					<?php foreach( $details['rate_types'] as $details_rate_type ): ?>
-						<option value="<?php echo esc_attr( $details_rate_type ); ?>" <?php selected( $rate_type, $details_rate_type ); ?>><?php echo ( $details_rate_type == 'percentage' ? __( 'Percentage (%)', 'slicewp' ) : __( 'Fixed Amount', 'slicewp' ) . ' (' . esc_attr( $currency_symbol ) . ')' ); ?></option>
-					<?php endforeach; ?>
-				</select>
-
-			</div>
-
-		<?php endforeach; ?>
-		<!-- / Commission Rates -->
-
-		<!-- Sale Fixed Amount Commission Basis -->
-		<div class="slicewp-field-wrapper slicewp-field-wrapper-inline" style="display: none;">
+		<!-- Credit First/Last Affiliate -->
+		<div class="slicewp-field-wrapper slicewp-field-wrapper-inline">
 
 			<div class="slicewp-field-label-wrapper">
 				<label>
-					<?php echo __( 'Sale Commission Basis', 'slicewp' ); ?>
+					<?php echo __( 'Credit First/Last Affiliate', 'slicewp' ); ?>
 				</label>
 			</div>
 
-			<select id="slicewp-fixed-amount-commission-basis" name="settings[commission_fixed_amount_rate_basis]" class="slicewp-select2">
-				<option value="product" <?php echo ( slicewp_get_setting( 'commission_fixed_amount_rate_basis' ) == 'product' ? 'selected="selected"' : '' ); ?>><?php echo __( 'Fixed amount per product', 'slicewp' ); ?></option>
-				<option value="order" <?php echo ( slicewp_get_setting( 'commission_fixed_amount_rate_basis' ) == 'order' ? 'selected="selected"' : '' ); ?>><?php echo __( 'Fixed amount per order', 'slicewp' ); ?></option>
+			<select id="slicewp-affiliate-credit" name="settings[affiliate_credit]" class="slicewp-select2">
+				<option value="first" <?php echo selected( ( ! empty( $_POST['settings']['affiliate_credit'] ) ? $_POST['settings']['affiliate_credit'] : ( empty( $_POST ) ? slicewp_get_setting( 'affiliate_credit' ) : '' ) ) , 'first' ); ?>><?php echo __( 'First Affiliate', 'slicewp' ); ?></option>
+				<option value="last" <?php echo selected( ( ! empty( $_POST['settings']['affiliate_credit'] ) ? $_POST['settings']['affiliate_credit'] : ( empty( $_POST ) ? slicewp_get_setting( 'affiliate_credit' ) : '' ) ) , 'last' ); ?>><?php echo __( 'Last Affiliate', 'slicewp' ); ?></option>
 			</select>
 
-		</div>
-		<!-- / Sale Fixed Amount Commission Basis -->
+		</div><!-- / Credit First/Last Affiliate -->
 
-		<!-- Exclude Shipping -->
-		<div class="slicewp-field-wrapper slicewp-field-wrapper-inline">
+        <!-- Friendly Affiliate URLs -->
+        <div class="slicewp-field-wrapper slicewp-field-wrapper-inline slicewp-tooltip-wide">
+
+            <div class="slicewp-field-label-wrapper">
+                <label for="slicewp-friendly-affiliate-urls">
+                    <?php echo __( 'Friendly Affiliate URLs', 'slicewp' ); ?>
+					<?php echo slicewp_output_tooltip( '<p>' . __( 'When enabled, the affiliate referral links will look like this:', 'slicewp' ) . '<br />' . '<code style="display: inline-block; margin-top: 3px; font-family: inherit;">' . untrailingslashit( site_url() ) . '<strong>' . '/' . '<span>' . esc_html( $affiliate_keyword ) . '</span>' . '/' . $affiliate_id . '/' . '</strong>' . '</code>' . '</p><p>' . __( 'Instead of this:', 'slicewp' ) . '<br />' . '<code style="display: inline-block; margin-top: 3px; font-family: inherit;">' . untrailingslashit( site_url() ) . '<strong>' . '/?' . '<span>' . esc_html( $affiliate_keyword ) . '</span>' . '=' . $affiliate_id . '</strong>' . '</code>' . '</p>' . '<hr />' . '<a href="https://slicewp.com/docs/affiliate-links/" target="_blank">' . __( 'Click here to learn more', 'slicewp' ) . '</a>' ); ?>
+                </label>
+            </div>
+
+            <div class="slicewp-switch">
+
+                <input id="slicewp-friendly-affiliate-urls" class="slicewp-toggle slicewp-toggle-round" name="settings[friendly_affiliate_url]" type="checkbox" value="1" <?php checked( ! empty( $_POST['settings']['friendly_affiliate_url'] ) ? '1' : ( empty( $_POST ) ? slicewp_get_setting( 'friendly_affiliate_url' ) : '' ), '1' ); ?> />
+                <label for="slicewp-friendly-affiliate-urls"></label>
+
+            </div>
+
+            <label for="slicewp-friendly-affiliate-urls"><?php echo __( 'Use friendly affiliate URLs.', 'slicewp' ); ?></label>
+
+        </div><!-- / Friendly Affiliate URLs -->
+
+		<!-- Referral Links QR Code -->
+        <div class="slicewp-field-wrapper slicewp-field-wrapper-inline">
+
+            <div class="slicewp-field-label-wrapper">
+                <label for="slicewp-referral-link-qr-code">
+                    <?php echo __( 'Affiliate Link QR Code', 'slicewp' ); ?>
+                    <?php echo slicewp_output_tooltip( __( 'When enabled, your affiliates will have the option to view and download the QR code for their affiliate referral links.', 'slicewp' ) ); ?>
+                </label>
+            </div>
+
+            <div class="slicewp-switch">
+
+                <input id="slicewp-referral-link-qr-code" class="slicewp-toggle slicewp-toggle-round" name="settings[referral_link_qr_code]" type="checkbox" value="1" <?php checked( ! empty( $_POST['settings']['referral_link_qr_code'] ) ? '1' : ( empty( $_POST ) ? slicewp_get_setting( 'referral_link_qr_code' ) : '' ), '1' ); ?> />
+                <label for="slicewp-referral-link-qr-code"></label>
+
+            </div>
+
+            <label for="slicewp-referral-link-qr-code"><?php echo __( 'Show QR code for affiliate URLs in the affiliate account.', 'slicewp' ); ?></label>
+
+        </div><!-- Referral Links QR Code -->
+
+		<!-- Affiliate Default URL Override -->
+		<div class="slicewp-field-wrapper slicewp-field-wrapper-inline slicewp-last">
 
 			<div class="slicewp-field-label-wrapper">
-				<label for="slicewp-exclude-shipping">
-					<?php echo __( 'Exclude Shipping', 'slicewp' ); ?>
-					<?php echo slicewp_output_tooltip( __( 'The option is applicable only for WooCommerce.', 'slicewp' ) ); ?>
+				<label for="slicewp-affiliate-referral-url">
+					<?php echo __( 'Default URL Override', 'slicewp' ); ?>
+					<?php echo slicewp_output_tooltip( __( "The default affiliate referral URL shown in the affiliate account. If left empty, your website's home URL will be used.", 'slicewp' ) ); ?>
 				</label>
 			</div>
 
-			<div class="slicewp-switch">
+			<input id="slicewp-affiliate-referral-url" name="settings[affiliate_url_base]" type="url" value="<?php echo esc_attr( ! empty( $_POST['settings']['affiliate_url_base'] ) ? $_POST['settings']['affiliate_url_base'] : ( empty( $_POST ) ? slicewp_get_setting( 'affiliate_url_base' ) : '' ) ); ?>">
+			
+		</div><!-- / Affiliate Default URL Override -->
 
-				<input id="slicewp-exclude-shipping" class="slicewp-toggle slicewp-toggle-round" name="settings[exclude_shipping]" type="checkbox" value="1" <?php checked( ! empty( $_POST['settings']['exclude_shipping'] ) ? '1' : ( empty( $_POST ) ? slicewp_get_setting( 'exclude_shipping' ) : '' ), '1' ); ?> />
-				<label for="slicewp-exclude-shipping"></label>
-
-			</div>
-
-			<label for="slicewp-exclude-shipping"><?php echo __( 'Exclude shipping costs from commission calculations.', 'slicewp' ); ?></label>
-
-		</div><!-- / Exclude Shipping -->
-
-		<!-- Exclude Tax -->
-		<div class="slicewp-field-wrapper slicewp-field-wrapper-inline">
-
-			<div class="slicewp-field-label-wrapper">
-				<label for="slicewp-exclude-tax">
-					<?php echo __( 'Exclude Taxes', 'slicewp' ); ?>
-				</label>
-			</div>
-
-			<div class="slicewp-switch">
-
-				<input id="slicewp-exclude-tax" class="slicewp-toggle slicewp-toggle-round" name="settings[exclude_tax]" type="checkbox" value="1" <?php checked( ! empty( $_POST['settings']['exclude_tax'] ) ? '1' : ( empty( $_POST ) ? slicewp_get_setting( 'exclude_tax' ) : '' ), '1' ); ?> />
-				<label for="slicewp-exclude-tax"></label>
-
-			</div>
-
-			<label for="slicewp-exclude-tax"><?php echo __( 'Exclude taxes from commission calculations.', 'slicewp' ); ?></label>
-
-		</div><!-- / Exclude Tax -->
-
-		<!-- New Customers Only -->
-		<div class="slicewp-field-wrapper slicewp-field-wrapper-inline slicewp-tooltip-wide" style="display: none;">
-
-			<div class="slicewp-field-label-wrapper">
-				<label for="slicewp-new-customer-commissions-only">
-					<?php echo __( 'New Customers Only', 'slicewp' ); ?>
-					<?php echo slicewp_output_tooltip( '<p>' . __( "By default, affiliates earn a commission for every referred purchase. When this option is enabled, commissions will only be awarded for a customer's first purchase.", 'slicewp' ) . '</p><p>' . sprintf( __( "%sRecurring commissions%s and %slifetime commissions%s will not be affected by this option.", 'slicewp' ), '<a href="https://slicewp.com/products/recurring-commissions/" target="_blank">', '</a>', '<a href="https://slicewp.com/products/lifetime-commissions/" target="_blank">', '</a>' ) . '</p>' ); ?>
-				</label>
-			</div>
-
-			<div class="slicewp-switch">
-
-				<input id="slicewp-new-customer-commissions-only" class="slicewp-toggle slicewp-toggle-round" name="settings[new_customer_commissions_only]" type="checkbox" value="1" <?php checked( ! empty( $_POST['settings']['new_customer_commissions_only'] ) ? '1' : ( empty( $_POST ) ? slicewp_get_setting( 'new_customer_commissions_only' ) : '' ), '1' ); ?> />
-				<label for="slicewp-new-customer-commissions-only"></label>
-
-			</div>
-
-			<label for="slicewp-new-customer-commissions-only"><?php echo __( "Reward commissions only for customers' first purchase.", 'slicewp' ); ?></label>
-
-		</div><!-- / New Customers Only -->
-
-		<!-- Reject Unpaid Commissions on Refund -->
-		<div class="slicewp-field-wrapper slicewp-field-wrapper-inline">
-
-			<div class="slicewp-field-label-wrapper">
-				<label for="slicewp-reject-commissions-on-refund">
-					<?php echo __( 'Reject Commissions on Refund', 'slicewp' ); ?>
-				</label>
-			</div>
-
-			<div class="slicewp-switch">
-
-				<input id="slicewp-reject-commissions-on-refund" class="slicewp-toggle slicewp-toggle-round" name="settings[reject_commissions_on_refund]" type="checkbox" value="1" <?php checked( ! empty( $_POST['settings']['reject_commissions_on_refund'] ) ? '1' : ( empty( $_POST ) ? slicewp_get_setting( 'reject_commissions_on_refund' ) : '' ), '1' ); ?> />
-				<label for="slicewp-reject-commissions-on-refund"></label>
-
-			</div>
-
-			<label for="slicewp-reject-commissions-on-refund"><?php echo __( 'Mark unpaid commissions as rejected if the originating purchase is refunded.', 'slicewp' ); ?></label>
-
-		</div><!-- / Reject Unpaid Commissions on Refund -->
-
-		<!-- Zero Amount Commissions -->
-		<div class="slicewp-field-wrapper slicewp-field-wrapper-inline">
-
-			<div class="slicewp-field-label-wrapper">
-				<label for="slicewp-zero-amount-commissions">
-					<?php echo __( 'Zero Amount Commissions', 'slicewp' ); ?>
-					<?php echo slicewp_output_tooltip( __( 'Enable the registration of commisions that have the total amount equal to zero. This is useful if you want to track conversions for fully discounted products.', 'slicewp' ) ); ?>
-				</label>
-			</div>
-
-			<div class="slicewp-switch">
-
-				<input id="slicewp-zero-amount-commissions" class="slicewp-toggle slicewp-toggle-round" name="settings[zero_amount_commissions]" type="checkbox" value="1" <?php checked( ! empty( $_POST['settings']['zero_amount_commissions'] ) ? '1' : ( empty( $_POST ) ? slicewp_get_setting( 'zero_amount_commissions' ) : '' ), '1' ); ?> />
-				<label for="slicewp-zero-amount-commissions"></label>
-
-			</div>
-
-			<label for="slicewp-zero-amount-commissions"><?php echo __( 'Enable the registration of zero sum commisions.', 'slicewp' ); ?></label>
-
-		</div><!-- Zero Amount Commissions -->
-        
-        <!-- Affiliate Own Commissions -->
-		<div class="slicewp-field-wrapper slicewp-field-wrapper-inline">
-
-			<div class="slicewp-field-label-wrapper">
-				<label for="slicewp-affiliates-own-commissions">
-					<?php echo __( 'Affiliate Own Commissions', 'slicewp' ); ?>
-				</label>
-			</div>
-
-			<div class="slicewp-switch">
-
-				<input id="slicewp-affiliates-own-commissions" class="slicewp-toggle slicewp-toggle-round" name="settings[affiliate_own_commissions]" type="checkbox" value="1" <?php checked( ! empty( $_POST['settings']['affiliate_own_commissions'] ) ? '1' : ( empty( $_POST ) ? slicewp_get_setting( 'affiliate_own_commissions' ) : '' ), '1' ); ?> />
-				<label for="slicewp-affiliates-own-commissions"></label>
-
-			</div>
-
-			<label for="slicewp-affiliates-own-commissions"><?php echo __( "Allow affiliates to earn commissions on self-referred orders.", 'slicewp' ); ?></label>
-
-		</div><!-- / Affiliate Own Commissions -->
-		
 	</div>
 
-</div><!-- / Commisions Settings -->
+</div><!-- / Referral Tracking -->
 
 <!-- Payouts Settings -->
 <div id="slicewp-card-payouts-settings" class="slicewp-card">
@@ -434,98 +263,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 </div><!-- / Payouts Settings -->
 
-<!-- Affiliate Settings -->
-<div class="slicewp-card">
-
-	<?php $affiliate_keyword = ( ! empty( $_POST['settings']['affiliate_keyword'] ) ? $_POST['settings']['affiliate_keyword'] : ( empty( $_POST ) ? slicewp_get_setting( 'affiliate_keyword' ) : '' ) ); ?>
-
-	<div class="slicewp-card-header">
-		<span class="slicewp-card-title"><?php echo __( 'Affiliate URL Settings', 'slicewp' ); ?></span>
-
-		<div class="slicewp-card-actions">
-			<a href="https://slicewp.com/docs/affiliate-links/" target="_blank" class="slicewp-button-info" title="<?php echo esc_attr( __( 'Click to learn more...', 'slicewp' ) ); ?>"><svg height="18" width="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M13 9h-2V7h2v2zm0 2h-2v6h2v-6zm-1-7c-4.41 0-8 3.59-8 8s3.59 8 8 8 8-3.59 8-8-3.59-8-8-8m0-2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2z"></path></g></svg></a>
-		</div>
-	</div>
-
-	<div class="slicewp-card-inner">
-
-		<!-- Affiliate Keyword -->
-		<div class="slicewp-field-wrapper slicewp-field-wrapper-inline slicewp-tooltip-wide">
-
-			<div class="slicewp-field-label-wrapper">
-				<label for="slicewp-affiliate-keyword">
-					<?php echo __( 'Affiliate Keyword', 'slicewp' ); ?>
-					<?php echo slicewp_output_tooltip( '<p>' . __( 'The URL query parameter name used for affiliate identification.', 'slicewp' ) . '</p><p>' . sprintf( __( 'Example: %s', 'slicewp' ), '<code style="font-family: inherit;">' . trailingslashit( site_url() ) . '?' . '<strong>' . esc_html( $affiliate_keyword ) . '</strong>' . '=' . $affiliate_id ) . '</code>' . '</p>' . '<hr />' . '<a href="https://slicewp.com/docs/affiliate-links/" target="_blank">' . __( 'Click here to learn more', 'slicewp' ) . '</a>' ); ?>
-				</label>
-			</div>
-
-			<input id="slicewp-affiliate-keyword" name="settings[affiliate_keyword]" type="text" value="<?php echo esc_attr( ! empty( $_POST['settings']['affiliate_keyword'] ) ? $_POST['settings']['affiliate_keyword'] : ( empty( $_POST ) ? slicewp_get_setting( 'affiliate_keyword' ) : '' ) ); ?>">
-
-		</div><!-- / Affiliate Keyword -->
-
-        <!-- Friendly Affiliate URLs -->
-        <div class="slicewp-field-wrapper slicewp-field-wrapper-inline slicewp-tooltip-wide">
-
-            <div class="slicewp-field-label-wrapper">
-                <label for="slicewp-friendly-affiliate-urls">
-                    <?php echo __( 'Friendly Affiliate URLs', 'slicewp' ); ?>
-					<?php echo slicewp_output_tooltip( '<p>' . __( 'When enabled, the affiliate referral links will look like this:', 'slicewp' ) . '<br />' . '<code style="display: inline-block; margin-top: 3px; font-family: inherit;">' . untrailingslashit( site_url() ) . '<strong>' . '/' . '<span>' . esc_html( $affiliate_keyword ) . '</span>' . '/' . $affiliate_id . '/' . '</strong>' . '</code>' . '</p><p>' . __( 'Instead of this:', 'slicewp' ) . '<br />' . '<code style="display: inline-block; margin-top: 3px; font-family: inherit;">' . untrailingslashit( site_url() ) . '<strong>' . '/?' . '<span>' . esc_html( $affiliate_keyword ) . '</span>' . '=' . $affiliate_id . '</strong>' . '</code>' . '</p>' . '<hr />' . '<a href="https://slicewp.com/docs/affiliate-links/" target="_blank">' . __( 'Click here to learn more', 'slicewp' ) . '</a>' ); ?>
-                </label>
-            </div>
-
-            <div class="slicewp-switch">
-
-                <input id="slicewp-friendly-affiliate-urls" class="slicewp-toggle slicewp-toggle-round" name="settings[friendly_affiliate_url]" type="checkbox" value="1" <?php checked( ! empty( $_POST['settings']['friendly_affiliate_url'] ) ? '1' : ( empty( $_POST ) ? slicewp_get_setting( 'friendly_affiliate_url' ) : '' ), '1' ); ?> />
-                <label for="slicewp-friendly-affiliate-urls"></label>
-
-            </div>
-
-            <label for="slicewp-friendly-affiliate-urls"><?php echo __( 'Use friendly affiliate URLs.', 'slicewp' ); ?></label>
-
-        </div><!-- / Friendly Affiliate URLs -->
-
-		<!-- Credit First/Last Affiliate -->
-		<div class="slicewp-field-wrapper slicewp-field-wrapper-inline">
-
-			<div class="slicewp-field-label-wrapper">
-				<label>
-					<?php echo __( 'Credit First/Last Affiliate', 'slicewp' ); ?>
-				</label>
-			</div>
-
-			<select id="slicewp-affiliate-credit" name="settings[affiliate_credit]" class="slicewp-select2">
-				<option value="first" <?php echo selected( ( ! empty( $_POST['settings']['affiliate_credit'] ) ? $_POST['settings']['affiliate_credit'] : ( empty( $_POST ) ? slicewp_get_setting( 'affiliate_credit' ) : '' ) ) , 'first' ); ?>><?php echo __( 'First Affiliate', 'slicewp' ); ?></option>
-				<option value="last" <?php echo selected( ( ! empty( $_POST['settings']['affiliate_credit'] ) ? $_POST['settings']['affiliate_credit'] : ( empty( $_POST ) ? slicewp_get_setting( 'affiliate_credit' ) : '' ) ) , 'last' ); ?>><?php echo __( 'Last Affiliate', 'slicewp' ); ?></option>
-			</select>
-
-		</div><!-- / Credit First/Last Affiliate -->
-
-		<!-- Referral Links QR Code -->
-        <div class="slicewp-field-wrapper slicewp-field-wrapper-inline slicewp-last">
-
-            <div class="slicewp-field-label-wrapper">
-                <label for="slicewp-referral-link-qr-code">
-                    <?php echo __( 'Affiliate Link QR Code', 'slicewp' ); ?>
-                    <?php echo slicewp_output_tooltip( __( 'When enabled, your affiliates will have the option to view and download the QR code for their affiliate referral links.', 'slicewp' ) ); ?>
-                </label>
-            </div>
-
-            <div class="slicewp-switch">
-
-                <input id="slicewp-referral-link-qr-code" class="slicewp-toggle slicewp-toggle-round" name="settings[referral_link_qr_code]" type="checkbox" value="1" <?php checked( ! empty( $_POST['settings']['referral_link_qr_code'] ) ? '1' : ( empty( $_POST ) ? slicewp_get_setting( 'referral_link_qr_code' ) : '' ), '1' ); ?> />
-                <label for="slicewp-referral-link-qr-code"></label>
-
-            </div>
-
-            <label for="slicewp-referral-link-qr-code"><?php echo __( 'Show QR code for affiliate URLs in the affiliate account.', 'slicewp' ); ?></label>
-
-        </div><!-- Referral Links QR Code -->
-
-	</div>
-
-</div><!-- / Affiliate Settings -->
-
-
 <!-- Currency Settings -->
 <div id="slicewp-card-settings-currency" class="slicewp-card">
 
@@ -603,273 +340,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	</div>
 
 </div><!-- / Currency Settings -->
-
-
-<!-- Pages Settings -->
-<div class="slicewp-card">
-
-	<div class="slicewp-card-header">
-		<span class="slicewp-card-title"><?php echo __( 'Pages Settings', 'slicewp' ); ?></span>
-
-		<div class="slicewp-card-actions">
-			<a href="https://slicewp.com/docs/category/affiliate-area/" target="_blank" class="slicewp-button-info" title="<?php echo esc_attr( __( 'Click to learn more...', 'slicewp' ) ); ?>"><svg height="18" width="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M13 9h-2V7h2v2zm0 2h-2v6h2v-6zm-1-7c-4.41 0-8 3.59-8 8s3.59 8 8 8 8-3.59 8-8-3.59-8-8-8m0-2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2z"></path></g></svg></a>
-		</div>
-	</div>
-
-	<div class="slicewp-card-inner">
-
-		<!-- Affiliate Account Page -->
-		<div class="slicewp-field-wrapper slicewp-field-wrapper-inline">
-
-			<div class="slicewp-field-label-wrapper">
-				<label for="slicewp-affiliate-account-page">
-					<?php echo __( 'Affiliate Account Page', 'slicewp' ); ?>
-					<?php echo slicewp_output_tooltip( __( "Select the page you wish to be your affiliates' private area.", 'slicewp' ) . '<hr />' . '<a href="https://slicewp.com/docs/adding-an-affiliate-account-page/" target="_blank">' . __( 'Click here to learn more', 'slicewp' ) . '</a>' ); ?>
-				</label>
-			</div>
-
-			<select id="slicewp-affiliate-account-page" name="settings[page_affiliate_account]" class="slicewp-select2">
-				<option value=""><?php echo( __( 'Select...', 'slicewp' ) ); ?></option>
-
-				<?php
-
-					$pages = get_pages();
-
-					foreach ( $pages as $page ) {
-						echo '<option value="' . absint( $page->ID ) . '"' . selected( ! empty( $_POST['settings']['page_affiliate_account'] ) ? absint( $_POST['settings']['page_affiliate_account'] ) : ( empty( $_POST ) ? slicewp_get_setting( 'page_affiliate_account' ) : '' ), $page->ID, false ) . '>' . esc_html( $page->post_title ) . '</option>';
-					}
-
-				?>
-			</select>
-
-		</div><!-- / Affiliate Account Page -->
-
-		<!-- Affiliate Registration Page -->
-		<div class="slicewp-field-wrapper slicewp-field-wrapper-inline">
-
-			<div class="slicewp-field-label-wrapper">
-				<label for="slicewp-affiliate-register-page">
-					<?php echo __( 'Affiliate Registration Page', 'slicewp' ); ?>
-					<?php echo slicewp_output_tooltip( __( "Select the page where your visitors can register for your affiliate program.", 'slicewp' ) . '<hr />' . '<a href="https://slicewp.com/docs/adding-affiliate-registration-page/" target="_blank">' . __( 'Click here to learn more', 'slicewp' ) . '</a>' ); ?>
-				</label>
-			</div>
-
-			<select id="slicewp-affiliate-register-page" name="settings[page_affiliate_register]" class="slicewp-select2">
-				<option value=""><?php echo( __( 'Select...', 'slicewp' ) ); ?></option>
-				
-				<?php
-
-					$pages = get_pages();
-
-					foreach ( $pages as $page ) {
-						echo '<option value="' . absint( $page->ID ) . '"' . selected( ! empty( $_POST['settings']['page_affiliate_register'] ) ? absint( $_POST['settings']['page_affiliate_register'] ) : ( empty( $_POST ) ? slicewp_get_setting( 'page_affiliate_register' ) : '' ), $page->ID, false ) . '>' . esc_html( $page->post_title ) . '</option>';
-					}
-
-				?>
-			</select>
-
-		</div><!-- / Affiliate Registration Page -->
-
-		<!-- Reset Password Page -->
-		<div class="slicewp-field-wrapper slicewp-field-wrapper-inline">
-
-			<div class="slicewp-field-label-wrapper">
-				<label for="slicewp-reset-password-page">
-					<?php echo __( 'Reset Password Page', 'slicewp' ); ?>
-					<?php echo slicewp_output_tooltip( __( 'Select the page where your affiliates can reset their password in case they lost it.', 'slicewp' ) ); ?>
-				</label>
-			</div>
-
-			<select id="slicewp-reset-password-page" name="settings[page_affiliate_reset_password]" class="slicewp-select2">
-				<option value=""><?php echo( __( 'Select...', 'slicewp' ) ); ?></option>
-
-				<?php
-
-					$pages = get_pages();
-
-					foreach ( $pages as $page ) {
-						echo '<option value="' . absint( $page->ID ) . '"' . selected( ! empty( $_POST['settings']['page_affiliate_reset_password'] ) ? absint( $_POST['settings']['page_affiliate_reset_password'] ) : ( empty( $_POST ) ? slicewp_get_setting( 'page_affiliate_reset_password' ) : '' ), $page->ID, false ) . '>' . esc_html( $page->post_title ) . '</option>';
-					}
-
-				?>
-			</select>
-
-		</div><!-- / Reset Password Page -->
-
-		<!-- Terms and Conditions Page -->
-		<div class="slicewp-field-wrapper slicewp-field-wrapper-inline">
-
-			<div class="slicewp-field-label-wrapper">
-				<label for="slicewp-terms-conditions-page">
-					<?php echo __( 'Terms and Conditions Page', 'slicewp' ); ?>
-				</label>
-			</div>
-
-			<select id="slicewp-terms-conditions-page" name="settings[page_terms_conditions]" class="slicewp-select2">
-				<option value=""><?php echo( __( 'Select...', 'slicewp' ) ); ?></option>
-
-				<?php
-
-					$pages = get_pages();
-
-					foreach ( $pages as $page ) {
-						echo '<option value="' . absint( $page->ID ) . '"' . selected( ! empty( $_POST['settings']['page_terms_conditions'] ) ? absint( $_POST['settings']['page_terms_conditions'] ) : ( empty( $_POST ) ? slicewp_get_setting( 'page_terms_conditions' ) : '' ), $page->ID, false ) . '>' . esc_html( $page->post_title ) . '</option>';
-					}
-
-				?>
-			</select>
-
-		</div><!-- / Terms and Conditions Page -->
-
-		<!-- Terms and Conditions Checkbox -->
-		<div class="slicewp-field-wrapper slicewp-field-wrapper-inline">
-
-			<div class="slicewp-field-label-wrapper">
-				<label for="slicewp-terms-label">
-					<?php echo __( 'Terms and Conditions Label', 'slicewp' ); ?>
-					<?php echo slicewp_output_tooltip( __( 'This label will acompanion the Terms and Conditions checkbox.', 'slicewp' ) ); ?>
-				</label>
-			</div>
-
-			<input id="slicewp-terms-label" name="settings[terms_label]" type="text" value="<?php echo esc_attr( ! empty( $_POST['settings']['terms_label'] ) ? $_POST['settings']['terms_label'] : ( empty( $_POST ) ? slicewp_get_setting( 'terms_label' ) : '' ) ); ?>">
-			
-		</div><!-- / Terms and Conditions Checkbox -->
-
-		<!-- Affiliate Account Logout -->
-		<div class="slicewp-field-wrapper slicewp-field-wrapper-inline">
-
-			<div class="slicewp-field-label-wrapper">
-				<label for="slicewp-affiliate-account-logout">
-					<?php echo __( 'Affiliate Account Logout', 'slicewp' ); ?>
-				</label>
-			</div>
-
-			<div class="slicewp-switch">
-
-				<input id="slicewp-affiliate-account-logout" class="slicewp-toggle slicewp-toggle-round" name="settings[affiliate_account_logout]" type="checkbox" value="1" <?php checked( ! empty( $_POST['settings']['affiliate_account_logout'] ) ? esc_attr( $_POST['settings']['affiliate_account_logout'] ) : ( empty( $_POST ) ? slicewp_get_setting( 'affiliate_account_logout' ) : '' ), '1' ); ?> />
-				<label for="slicewp-affiliate-account-logout"></label>
-
-			</div>
-
-			<label for="slicewp-affiliate-account-logout"><?php echo __( 'Enable to add a logout link in the affiliate account page.', 'slicewp' ); ?></label>
-
-		</div><!-- Affiliate Account Logout -->
-
-		<!-- Affiliate Default Referral URL -->
-		<div class="slicewp-field-wrapper slicewp-field-wrapper-inline">
-
-			<div class="slicewp-field-label-wrapper">
-				<label for="slicewp-affiliate-referral-url">
-					<?php echo __( 'Affiliate Default Referral URL', 'slicewp' ); ?>
-					<?php echo slicewp_output_tooltip( __( "The default affiliate referral URL shown in the affiliate account. If left empty, your website's home URL will be used.", 'slicewp' ) ); ?>
-				</label>
-			</div>
-
-			<input id="slicewp-affiliate-referral-url" name="settings[affiliate_url_base]" type="url" value="<?php echo esc_attr( ! empty( $_POST['settings']['affiliate_url_base'] ) ? $_POST['settings']['affiliate_url_base'] : ( empty( $_POST ) ? slicewp_get_setting( 'affiliate_url_base' ) : '' ) ); ?>">
-			
-		</div><!-- / Affiliate Default Referral URL -->
-
-		<!-- Required registration fields -->
-		<div class="slicewp-field-wrapper slicewp-field-wrapper-inline">
-
-			<div class="slicewp-field-label-wrapper">
-				<label>
-					<?php echo __( 'Required Affiliate Fields', 'slicewp' ); ?>
-					<?php echo slicewp_output_tooltip( __( 'Set which fields should be required for the affiliate to complete on the registration and affiliate account pages.', 'slicewp' ) ); ?>
-				</label>
-			</div>
-
-			<div style="margin-bottom: 10px;">
-
-				<div class="slicewp-switch">
-
-					<input id="slicewp-required-field-payment-email" class="slicewp-toggle slicewp-toggle-round" name="settings[required_field_payment_email]" type="checkbox" value="1" <?php checked( ! empty( $_POST['settings']['required_field_payment_email'] ) ? '1' : ( empty( $_POST ) ? slicewp_get_setting( 'required_field_payment_email' ) : '' ), '1' ); ?> />
-					<label for="slicewp-required-field-payment-email"></label>
-
-				</div>
-
-				<label for="slicewp-required-field-payment-email"><?php echo __( 'Payment Email', 'slicewp' ); ?></label>							
-
-			</div>
-
-			<div style="margin-bottom: 10px;">
-
-				<div class="slicewp-switch">
-
-					<input id="slicewp-required-field-website" class="slicewp-toggle slicewp-toggle-round" name="settings[required_field_website]" type="checkbox" value="1" <?php checked( ! empty( $_POST['settings']['required_field_website'] ) ? '1' : ( empty( $_POST ) ? slicewp_get_setting( 'required_field_website' ) : '' ), '1' ); ?> />
-					<label for="slicewp-required-field-website"></label>
-
-				</div>
-
-				<label for="slicewp-required-field-website"><?php echo __( 'Website', 'slicewp' ); ?></label>							
-			
-			</div>
-
-			<div>
-
-				<div class="slicewp-switch">
-
-					<input id="slicewp-required-field-promotional-methods" class="slicewp-toggle slicewp-toggle-round" name="settings[required_field_promotional_methods]" type="checkbox" value="1" <?php checked( ! empty( $_POST['settings']['required_field_promotional_methods'] ) ? '1' : ( empty( $_POST ) ? slicewp_get_setting( 'required_field_promotional_methods' ) : '' ), '1' ); ?> />
-					<label for="slicewp-required-field-promotional-methods"></label>
-
-				</div>
-
-				<label for="slicewp-required-field-promotional-methods"><?php echo __( 'How will you promote us?', 'slicewp' ); ?></label>							
-			
-			</div>
-
-		</div>
-		<!-- / Required registration fields -->
-
-		<!-- Commission Statuses Display -->
-		<div class="slicewp-field-wrapper slicewp-field-wrapper-inline slicewp-tooltip-wide slicewp-last">
-
-			<?php
-
-				/**
-				 * @todo - Add a link to the documentation article in the tooltip, explaining this setting and it's customizability features.
-				 * 
-				 */
-
-			?>
-			<div class="slicewp-field-label-wrapper">
-				<label>
-					<?php echo __( 'Commission Statuses Display', 'slicewp' ); ?>
-					<?php echo slicewp_output_tooltip( __( 'Choose the commission statuses to display in the commissions table of the affiliate account page.', 'slicewp' ) ); ?>
-				</label>
-			</div>
-
-			<?php
-				$commission_statuses 		 = slicewp_get_commission_available_statuses();
-				$account_commission_statuses = slicewp_get_setting( 'affiliate_account_commission_statuses', array() );
-			?>
-
-			<?php foreach ( $commission_statuses as $status_slug => $status_name ): ?>
-
-				<div <?php echo ( $status_slug != key( array_slice( $commission_statuses, -1, 1, true) ) ? 'style="margin-bottom: 10px;"' : '' ); ?>>
-
-					<?php $is_disabled = ( in_array( $status_slug, array( 'paid', 'unpaid' ) ) ? true : false ); ?>
-					<?php $is_checked  = ( in_array( $status_slug, array( 'paid', 'unpaid' ) ) ? true : ( ! empty( $_POST['settings']['affiliate_account_commission_statuses'] ) && in_array( $status_slug, $_POST['settings']['affiliate_account_commission_statuses'] ) ? true : ( empty( $_POST ) ? ( in_array( $status_slug, $account_commission_statuses ) ? true : false ) : false ) ) ); ?>
-
-					<div class="slicewp-switch <?php echo ( $is_disabled ? 'slicewp-disabled' : '' ); ?>" <?php echo ( $is_disabled ? 'title="' . __( 'This commission status will always be shown to affiliates.', 'slicewp' ) . '"' : '' ); ?>>
-
-						<input id="slicewp-commission-status-<?php echo esc_attr( $status_slug ); ?>" class="slicewp-toggle slicewp-toggle-round" name="settings[affiliate_account_commission_statuses][]" type="checkbox" value="<?php echo esc_attr( $status_slug ); ?>" <?php echo ( $is_checked ? 'checked' : '' ); ?> <?php echo ( $is_disabled ? 'disabled' : '' ); ?> />
-						<label for="slicewp-commission-status-<?php echo esc_attr( $status_slug ); ?>"></label>
-
-					</div>
-
-					<label for="slicewp-commission-status-<?php echo esc_attr( $status_slug ); ?>"><?php echo esc_html( $status_name ); ?></label>							
-
-				</div>
-				
-			<?php endforeach; ?>
-
-		</div>
-		<!-- / Commission Statuses Display -->
-
-	</div>
-
-</div><!-- / Pages Settings -->
 
 <?php 
 

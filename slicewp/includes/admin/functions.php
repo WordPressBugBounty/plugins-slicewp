@@ -698,4 +698,70 @@ function slicewp_admin_notice_version_1_2_2() {
 	<?php
 
 }
-add_action( 'admin_notices', 'slicewp_admin_notice_version_1_2_2' );
+// add_action( 'admin_notices', 'slicewp_admin_notice_version_1_2_2' );
+
+
+/**
+ * Outputs a promo notice for version 1.2.10.
+ *
+ */
+function slicewp_admin_notice_version_1_2_10() {
+
+	if ( empty( $_GET['page'] ) || ! is_string( $_GET['page'] ) || false === strpos( $_GET['page'], 'slicewp' ) ) {
+		return;
+	}
+
+	if ( version_compare( SLICEWP_VERSION, '1.2.14', '>' ) ) {
+		return;
+	}
+
+	if ( time() - absint( slicewp_get_option( 'first_activation', 0 ) ) < DAY_IN_SECONDS ) {
+		return;
+	}
+
+	$dismissed_admin_notices = get_option( 'slicewp_dismissed_admin_notices', array() );
+
+	if ( in_array( 'version_1_2_10', $dismissed_admin_notices ) ) {
+		return;
+	}
+
+	?>
+
+		<style>
+			.slicewp-admin-notice { position: relative; padding: 0 !important; border-left: 0 !important; }
+			.slicewp-admin-notice:before { content: ''; display: block; position: absolute; top: -1px; left: 0; bottom: -1px; width: 4px; background: rgba( 248, 79, 141, 1 ); }
+
+			.slicewp-admin-notice-inner { display: flex; }
+
+			.slicewp-admin-notice-icon-wrapper { background: rgba( 248, 79, 141, 0.05 ); padding: 15px 13px; margin-left: 4px; }
+			.slicewp-admin-notice-icon-wrapper img { max-width: 24px; height: auto; }
+
+			.slicewp-admin-notice-content { padding: 15px; }
+			.slicewp-admin-notice-content > :first-child { margin-top: 0; }
+			.slicewp-admin-notice-content > :last-child { margin-bottom: 0; }
+		</style>
+
+		<div class="slicewp-admin-notice notice notice-info">
+
+			<div class="slicewp-admin-notice-inner">
+
+				<div class="slicewp-admin-notice-icon-wrapper">
+					<img src="<?php echo SLICEWP_PLUGIN_DIR_URL; ?>assets/img/slicewp-logo-icon-350x350.png" />
+				</div>
+
+				<div class="slicewp-admin-notice-content">
+					<h3><strong><?php echo __( 'Settings just got a major upgrade!', 'slicewp' ); ?></strong></h3>
+					<p style="font-size: 14px;"><?php echo sprintf( __( "We've completely redesigned the SliceWP settings page with a sleek vertical layout and logical grouping, making it faster and easier than ever to manage your affiliate program.", 'slicewp' ), '<strong>', '</strong>', '<strong>', '</strong>' ); ?></p>
+
+					<a target="_blank" style="margin-top: 10px; margin-right: 10px;" href="<?php echo esc_url( 'https://slicewp.com/blog/product-update-rethinking-the-settings-page/' ); ?>" class="button-primary"><?php echo __( 'See what changed', 'slicewp' ); ?></a>
+					<a href="<?php echo wp_nonce_url( add_query_arg( array( 'slicewp_action' => 'dismiss_notice', 'notice_slug' => 'version_1_2_10' ) ), 'slicewp_dismiss_notice', 'slicewp_token' ); ?>"><?php echo __( 'Dismiss notice', 'slicewp' ); ?></a>
+				</div>
+
+			</div>
+
+		</div>
+
+	<?php
+
+}
+add_action( 'admin_notices', 'slicewp_admin_notice_version_1_2_10' );

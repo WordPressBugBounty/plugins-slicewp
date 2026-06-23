@@ -197,54 +197,12 @@ add_action( 'slicewp_view_affiliates_edit_affiliate_bottom', 'slicewp_promo_view
 
 
 /**
- * Adds a new "affiliate_fields" tab in the Settings page, just after the "tools" tab
- *
- * @param array $tabs
- *
- * @return array
+ * Outputs the "Affiliate Fields" promo in the "Affiliate Area" tab of the "Settings" page.
  *
  */
-function slicewp_promo_submenu_page_settings_tabs_affiliate_fields( $tabs ) {
+function slicewp_promo_view_settings_tab_affiliate_area_bottom_affiliate_fields() {
 
 	if ( slicewp_is_website_registered() ) {
-		return $tabs;
-	}
-
-	if ( slicewp_add_ons_exist() ) {
-		return $tabs;
-	}
-
-	if ( class_exists( 'SliceWP_Pro' ) ) {
-		return $tabs;
-	}
-
-	$tabs = array_merge( 
-		array_slice( $tabs, 0, array_search( 'tools', array_keys( $tabs ) ) ),
-		array( 
-			'affiliate_fields' => array( 
-				'label' => __( 'Affiliate Fields', 'slicewp' ), 
-				'icon' => '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-6"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25ZM6.75 12h.008v.008H6.75V12Zm0 3h.008v.008H6.75V15Zm0 3h.008v.008H6.75V18Z" /></svg>'
-			)),
-		array_slice( $tabs, array_search( 'tools', array_keys( $tabs ) ), count( $tabs ) )
-	);
-
-	return $tabs;
-
-}
-add_filter( 'slicewp_submenu_page_settings_tabs', 'slicewp_promo_submenu_page_settings_tabs_affiliate_fields' );
-
-
-/**
- * Outputs the content for the "affiliate_fields" tab in the Settings page
- *
- */
-function slicewp_promo_view_settings_tab_affiliate_fields() {
-
-	if ( slicewp_is_website_registered() ) {
-		return;
-	}
-
-	if ( slicewp_add_ons_exist() ) {
 		return;
 	}
 
@@ -253,6 +211,14 @@ function slicewp_promo_view_settings_tab_affiliate_fields() {
 	}
 
 	?>
+
+	<style>
+		.slicewp-promo-tagline { margin: 0 0 16px; font-weight: 500; color: #2e4453; }
+		.slicewp-promo-features { margin: 0; padding: 0; list-style: none; }
+		.slicewp-promo-features li { position: relative; padding: 10px 0 5px 26px; color: #444; margin-top: 5px !important; }
+		.slicewp-promo-features li + li { border-top: 1px solid rgba(200, 215, 225, 0.4); }
+		.slicewp-promo-features li::before { content: ''; position: absolute; left: 0; top: 50%; margin-top: -5px; width: 16px; height: 16px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='2.5' stroke='%2316a085'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M5 13l4 4L19 7'/%3E%3C/svg%3E"); background-size: contain; background-repeat: no-repeat; background-position: center; }
+	</style>
 
 	<div class="slicewp-card slicewp-card-promo">
 
@@ -263,17 +229,19 @@ function slicewp_promo_view_settings_tab_affiliate_fields() {
 
 		<div class="slicewp-card-inner">
 
-			<h4 style="margin-top: 0;"><?php echo __( 'Customize your affiliate registration and affiliate account forms:', 'slicewp' ); ?></h4>
-			<ul style="margin-bottom: 0;">
-				<li><span class="dashicons dashicons-yes-alt" style="color: #16a085; margin-right: 5px;"></span><?php echo __( 'Add custom text fields, checkboxes, radio buttons, selects and more.', 'slicewp' ); ?></li>
-				<li><span class="dashicons dashicons-yes-alt" style="color: #16a085; margin-right: 5px;"></span><?php echo __( 'Display these fields on the affiliate register form, affiliate account form or just in the admin area.', 'slicewp' ); ?></li>
-				<li><span class="dashicons dashicons-yes-alt" style="color: #16a085; margin-right: 5px;"></span><?php echo __( 'Customize each field! Change the label, placeholder, description and much more.', 'slicewp' ); ?></li>
-				<li><span class="dashicons dashicons-yes-alt" style="color: #16a085; margin-right: 5px;"></span><?php echo __( 'Lastly, re-order the fields to create the perfect affiliate onboarding form.', 'slicewp' ) ?></li>				
+			<p class="slicewp-promo-tagline"><?php echo __( 'Gather exactly the information your affiliate program needs.', 'slicewp' ); ?></p>
+
+			<ul class="slicewp-promo-features">
+				<li><?php echo __( 'Add text fields, checkboxes, radio buttons, dropdowns and more to your forms.', 'slicewp' ); ?></li>
+				<li><?php echo __( 'Choose where each field appears: registration form, affiliate account or admin-only.', 'slicewp' ); ?></li>
+				<li><?php echo __( 'Mark fields as required or optional and add labels, placeholders and descriptions.', 'slicewp' ); ?></li>
+				<li><?php echo __( 'Reorder fields by dragging them to build the perfect affiliate onboarding flow.', 'slicewp' ); ?></li>
 			</ul>
+
 		</div>
 
 		<div class="slicewp-card-footer">
-			<a class="slicewp-button-primary" href="https://slicewp.com/products/custom-affiliate-fields/" target="_blank"><?php echo __( 'Learn how to customize your affiliate registration form', 'slicewp' ); ?></a>
+			<a class="slicewp-button-secondary" href="https://slicewp.com/products/custom-affiliate-fields/" target="_blank"><?php echo __( 'Learn More', 'slicewp' ); ?></a>
 		</div>
 
 	</div>
@@ -281,7 +249,63 @@ function slicewp_promo_view_settings_tab_affiliate_fields() {
 	<?php
 
 }
-add_action( 'slicewp_view_settings_tab_affiliate_fields', 'slicewp_promo_view_settings_tab_affiliate_fields' );
+add_action( 'slicewp_view_settings_tab_affiliate_area_bottom', 'slicewp_promo_view_settings_tab_affiliate_area_bottom_affiliate_fields' );
+
+
+/**
+ * Outputs the "Commission Types" promo in the "Commissions" tab of the "Settings" page.
+ *
+ */
+function slicewp_promo_view_settings_tab_commissions_bottom_commission_types() {
+
+	if ( slicewp_is_website_registered() ) {
+		return;
+	}
+
+	if ( class_exists( 'SliceWP_Pro' ) ) {
+		return;
+	}
+
+	?>
+
+	<style>
+		.slicewp-promo-tagline { margin: 0 0 16px; font-weight: 500; color: #2e4453; }
+		.slicewp-promo-features { margin: 0; padding: 0; list-style: none; }
+		.slicewp-promo-features li { position: relative; padding: 10px 0 5px 26px; color: #444; margin-top: 5px !important; }
+		.slicewp-promo-features li + li { border-top: 1px solid rgba(200, 215, 225, 0.4); }
+		.slicewp-promo-features li::before { content: ''; position: absolute; left: 0; top: 50%; margin-top: -5px; width: 16px; height: 16px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='2.5' stroke='%2316a085'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M5 13l4 4L19 7'/%3E%3C/svg%3E"); background-size: contain; background-repeat: no-repeat; background-position: center; }
+	</style>
+
+	<div class="slicewp-card slicewp-card-promo">
+
+		<div class="slicewp-card-header">
+			<span class="slicewp-card-title"><?php echo __( 'More Commission Types', 'slicewp' ); ?></span>
+			<a class="slicewp-promo-pill" href="https://slicewp.com/add-ons/" target="_blank"><?php echo __( 'Pro Feature', 'slicewp' ); ?></a>
+		</div>
+
+		<div class="slicewp-card-inner">
+
+			<p class="slicewp-promo-tagline"><?php echo __( 'Unlock powerful commission models that go beyond a flat rate and keep affiliates motivated.', 'slicewp' ); ?></p>
+
+			<ul class="slicewp-promo-features">
+				<li><?php echo __( 'Recurring Commissions — automatically reward affiliates for every subscription renewal, not just the first sale.', 'slicewp' ); ?></li>
+				<li><?php echo __( 'Lifetime Commissions — tie customers to affiliates permanently and pay a commission on every future purchase they make.', 'slicewp' ); ?></li>
+				<li><?php echo __( 'Lead Commissions — pay affiliates for form submissions and leads, not just completed orders.', 'slicewp' ); ?></li>
+				<li><?php echo __( 'Performance Bonuses — automatically reward top performers when they hit defined sales or referral targets.', 'slicewp' ); ?></li>
+			</ul>
+
+		</div>
+
+		<div class="slicewp-card-footer">
+			<a class="slicewp-button-secondary" href="https://slicewp.com/add-ons/" target="_blank"><?php echo __( 'View All Add-ons', 'slicewp' ); ?></a>
+		</div>
+
+	</div>
+
+	<?php
+
+}
+// add_action( 'slicewp_view_settings_tab_commissions_bottom', 'slicewp_promo_view_settings_tab_commissions_bottom_commission_types' );
 
 
 /**

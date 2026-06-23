@@ -29,7 +29,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 			<div class="slicewp-field-label-wrapper slicewp-tooltip-wide">
 				<label for="slicewp-affiliate-registration-blocklist">
 					<?php echo __( 'Affiliate Registration Blocklist', 'slicewp' ); ?>
-					<?php echo slicewp_output_tooltip( __( '<p>' . "Add a list of email addresses or domains (one per line), that you'd like to block from creating affiliate accounts on your website." . '</p><p>' . __( 'For example:', 'slicewp' ) . '</p><ul><li>' . sprintf( __( '%ssomething@website.com%s - If you add a full email address, this email address cannot be used to create an affiliate account on your website. The attempt will be blocked.', 'slicewp' ), '<strong>', '</strong>' ) . '</li><li>' . sprintf( __( '%swebsite.com%s - If you add a domain, all email addresses associated with this domain will be blocked from being able to create an affiliate account.', 'slicewp' ), '<strong>', '</strong>' ) . '</li></ul>', 'slicewp' ) ); ?>
+					<?php echo slicewp_output_tooltip( '<p>' . __( "Add a list of email addresses or domains (one per line), that you'd like to block from creating affiliate accounts on your website.", 'slicewp' ) . '</p><p>' . __( 'For example:', 'slicewp' ) . '</p><ul><li>' . sprintf( __( '%ssomething@website.com%s - If you add a full email address, this email address cannot be used to create an affiliate account on your website. The attempt will be blocked.', 'slicewp' ), '<strong>', '</strong>' ) . '</li><li>' . sprintf( __( '%swebsite.com%s - If you add a domain, all email addresses associated with this domain will be blocked from being able to create an affiliate account.', 'slicewp' ), '<strong>', '</strong>' ) . '</li></ul>' ); ?>
 				</label>
 			</div>
 

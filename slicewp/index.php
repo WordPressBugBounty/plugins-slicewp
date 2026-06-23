@@ -3,7 +3,7 @@
  * Plugin Name: SliceWP
  * Plugin URI: https://slicewp.com/
  * Description: The fastest and easiest way to set up an affiliate program for your store or membership site.
- * Version: 1.2.9
+ * Version: 1.2.10
  * Author: SliceWP
  * Author URI: https://slicewp.com/
  * Text Domain: slicewp
@@ -103,7 +103,7 @@ Class SliceWP {
 	public function __construct() {
 
 		// Defining constants.
-		define( 'SLICEWP_VERSION', 		   '1.2.9' );
+		define( 'SLICEWP_VERSION', 		   '1.2.10' );
 		define( 'SLICEWP_BASENAME',  	   plugin_basename( __FILE__ ) );
 		define( 'SLICEWP_PLUGIN_DIR', 	   plugin_dir_path( __FILE__ ) );
 		define( 'SLICEWP_PLUGIN_DIR_URL',  plugin_dir_url( __FILE__ ) );
@@ -853,7 +853,7 @@ Class SliceWP {
 	 */
 	public function admin_body_class( $classes ) {
 
-		if ( empty( $_GET['page'] ) ) {
+		if ( empty( $_GET['page'] ) || ! is_string( $_GET['page'] ) ) {
 			return $classes;
 		}
 
@@ -861,7 +861,7 @@ Class SliceWP {
 			return $classes;
 		}
 
-		return $classes . ' slicewp-pagestyles ';
+		return $classes . ' slicewp-pagestyles ' . str_replace( 'slicewp-', 'slicewp-page-', sanitize_html_class( $_GET['page'] ) ) . ' ';
 
 	}
 

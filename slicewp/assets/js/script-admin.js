@@ -543,10 +543,48 @@ jQuery( function($) {
             $(this).addClass('slicewp-active');
 
             // Show tab
-            $('.slicewp-tab').removeClass('slicewp-active');
+            var nav_tab           = $(this).attr( 'data-tab' );
+            var $settings_content = $(this).closest( '.slicewp-settings-layout' ).find( '.slicewp-settings-content' );
 
-            var nav_tab = $(this).attr('data-tab');
-            $('.slicewp-tab[data-tab="' + nav_tab + '"]').addClass('slicewp-active');
+            if ( $settings_content.length ) {
+
+                var $leaving_tab  = $settings_content.find( '.slicewp-tab.slicewp-active' );
+                var $entering_tab = $settings_content.find( '.slicewp-tab[data-tab="' + nav_tab + '"]' );
+
+                if ( $leaving_tab.length && $leaving_tab.attr( 'data-tab' ) !== nav_tab ) {
+
+                    $leaving_tab.addClass( 'slicewp-tab-leaving' );
+
+                    setTimeout( function() {
+
+                        $leaving_tab.removeClass( 'slicewp-active slicewp-tab-leaving' );
+
+                        window.scrollTo( 0, 0 );
+
+                        $entering_tab.addClass( 'slicewp-active slicewp-tab-entering' );
+
+                        setTimeout( function() {
+
+                            $entering_tab.removeClass( 'slicewp-tab-entering' );
+                            window.dispatchEvent( new Event('resize') );
+
+                        }, 210);
+
+                    }, 110);
+
+                } else {
+
+                    $entering_tab.addClass( 'slicewp-active' );
+
+                }
+
+            } else {
+
+                $('.slicewp-tab').removeClass( 'slicewp-active' );
+                $('.slicewp-tab[data-tab="' + nav_tab + '"]').addClass( 'slicewp-active' );
+
+            }
+
             $('input[name=active_tab]').val( nav_tab );
 
 
@@ -574,6 +612,60 @@ jQuery( function($) {
         }
 
 	});
+
+
+    /**
+     * Page: Settings — scroll to a #fragment target card, activating its tab first if needed.
+     *
+     */
+    function slicewp_settings_scroll_to_hash( hash ) {
+
+        if ( ! hash || ! $( '.slicewp-settings-layout' ).length ) {
+            return;
+        }
+
+        var $target = $( hash );
+
+        if ( ! $target.length ) {
+            return;
+        }
+
+        var $tab_panel    = $target.closest( '.slicewp-tab' );
+        var tab_is_active = ! $tab_panel.length || $tab_panel.hasClass( 'slicewp-active' );
+
+        if ( $tab_panel.length && ! tab_is_active ) {
+            $( '.slicewp-nav-tab[data-tab="' + $tab_panel.attr( 'data-tab' ) + '"]' ).trigger( 'click' );
+        }
+
+        setTimeout( function() {
+
+            var offset = 0;
+
+            var $admin_bar = $( '#wpadminbar' );
+            if ( $admin_bar.length ) {
+                offset += $admin_bar.outerHeight();
+            }
+
+            var $header = $( '#slicewp-header' );
+            if ( $header.length && $header.css( 'position' ) === 'fixed' ) {
+                offset += $header.outerHeight();
+            }
+
+            offset += 25;
+
+            $( 'html, body' ).stop( true ).animate( { scrollTop: $target.offset().top - offset }, 0 );
+
+        }, tab_is_active ? 0 : 320 );
+
+    }
+
+    if ( window.location.hash ) {
+        slicewp_settings_scroll_to_hash( window.location.hash );
+    }
+
+    $( window ).on( 'hashchange', function() {
+        slicewp_settings_scroll_to_hash( window.location.hash );
+    });
 
 
     /**
@@ -1228,7 +1320,9 @@ jQuery( function($) {
         e.preventDefault();
 
         $(this).closest( '.slicewp-expandable-item' ).toggleClass( 'slicewp-active' );
-        $(this).closest( '.slicewp-expandable-item' ).find( '.slicewp-expandable-item-panel' ).slideToggle( 200 );
+        $(this).closest( '.slicewp-expandable-item' ).find( '.slicewp-expandable-item-panel' ).slideToggle( 200, function() {
+            window.dispatchEvent( new Event('resize') );
+        });
 
         $(this).blur();
 
@@ -1244,7 +1338,9 @@ jQuery( function($) {
         e.preventDefault();
 
         $(this).closest( '.slicewp-email-notification-settings-wrapper' ).toggleClass( 'slicewp-active' );
-        $(this).closest( '.slicewp-email-notification-settings-wrapper' ).find( '.slicewp-email-notification-setting-panel' ).slideToggle( 200 );
+        $(this).closest( '.slicewp-email-notification-settings-wrapper' ).find( '.slicewp-email-notification-setting-panel' ).slideToggle( 200, function() {
+            window.dispatchEvent( new Event('resize') );
+        });
 
         $(this).blur();
 

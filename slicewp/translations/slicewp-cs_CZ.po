@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SliceWP\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-07 15:52+0200\n"
-"PO-Revision-Date: 2025-11-07 15:58+0200\n"
+"POT-Creation-Date: 2026-06-22 11:26+0300\n"
+"PO-Revision-Date: 2026-06-22 11:28+0300\n"
 "Last-Translator: \n"
 "Language-Team: Čeština\n"
 "Language: cs_CZ\n"
@@ -12,48 +12,25 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=( n == 1 ) ? 0 : ( n >= 2 && n <= 4 ) ? 1 : "
 "2;\n"
-"X-Generator: Poedit 3.8\n"
+"X-Generator: Poedit 3.9\n"
 "X-Loco-Version: 2.4.3; wp-5.5.1\n"
 
-#: slicewp-pro/add-ons/affiliate-coupons/includes/base/functions.php:58
-msgid "Coupons"
-msgstr ""
+#: slicewp-pro/add-ons/affiliate-coupons/includes/admin/functions.php:29
+#, fuzzy
+#| msgid "Paid Commissions"
+msgid "Linked Coupons"
+msgstr "Proplacené provize"
 
-#: slicewp-pro/add-ons/affiliate-coupons/includes/base/functions.php:89
-msgid ""
-"The following coupons have been linked to your account. You will receive a "
-"commission for each purchase made using these coupons."
-msgstr ""
-
-#: slicewp-pro/add-ons/affiliate-coupons/includes/base/functions.php:95
-#: slicewp-pro/add-ons/performance-bonuses/includes/users/class-outputter-affiliate-bonuses.php:196
-msgid "Coupon Code"
-msgstr ""
-
-#: slicewp-pro/add-ons/affiliate-coupons/includes/base/functions.php:96
-#: slicewp-pro/add-ons/import-export/includes/base/class-batch-export-commissions.php:37
-#: slicewp-pro/add-ons/import-export/includes/base/class-batch-export-payments.php:38
-#: slicewp-pro/add-ons/lead-commissions/includes/admin/leads/views/view-add-lead-commission.php:71
-#: slicewp/includes/admin/commissions/class-list-table-commissions.php:114
-#: slicewp/includes/admin/commissions/views/view-add-commission.php:46
-#: slicewp/includes/admin/commissions/views/view-edit-commission.php:76
-#: slicewp/includes/admin/dashboard/cards/class-admin-dashboard-card-latest-commissions.php:42
-#: slicewp/includes/admin/payouts/class-list-table-payment-commissions.php:98
-#: slicewp/includes/admin/payouts/class-list-table-payments.php:90
-#: slicewp/includes/admin/payouts/class-list-table-payout-payments-preview.php:46
-#: slicewp/includes/admin/payouts/class-list-table-payout-payments.php:82
-#: slicewp/includes/admin/payouts/views/view-payout.php:92
-#: slicewp/includes/admin/payouts/views/view-review-payment.php:87
-#: slicewp/includes/users/class-list-table-affiliate-account-commissions.php:51
-#: slicewp/includes/users/class-list-table-affiliate-account-payment-commissions.php:51
-#: slicewp/includes/users/class-list-table-affiliate-account-payments.php:42
-msgid "Amount"
-msgstr "Částka"
+#: slicewp-pro/add-ons/affiliate-coupons/includes/admin/functions.php:93
+#, fuzzy
+#| msgid "Affiliates"
+msgid "Affiliate Coupon Used"
+msgstr "Affiliate partneři"
 
 #: slicewp-pro/add-ons/affiliate-coupons/includes/base/integrations/easy-digital-downloads/functions-hooks-integration-easy-digital-downloads.php:46
 #: slicewp-pro/add-ons/affiliate-coupons/includes/base/integrations/getpaid/functions-hooks-integration-getpaid.php:46
 #: slicewp-pro/add-ons/affiliate-coupons/includes/base/integrations/paid-member-subscriptions/functions-hooks-integration-paid-member-subscriptions.php:42
-#: slicewp-pro/add-ons/affiliate-coupons/includes/base/integrations/paid-memberships-pro/functions-hooks-integration-paid-memberships-pro.php:55
+#: slicewp-pro/add-ons/affiliate-coupons/includes/base/integrations/paid-memberships-pro/functions-hooks-integration-paid-memberships-pro.php:58
 #: slicewp-pro/add-ons/affiliate-coupons/includes/base/integrations/restrict-content-pro/functions-hooks-integration-restrict-content-pro.php:53
 #: slicewp-pro/add-ons/affiliate-coupons/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:45
 #: slicewp-pro/add-ons/affiliate-landing-pages/includes/admin/landing-pages/class-list-table-landing-pages.php:71
@@ -66,14 +43,14 @@ msgstr "Affiliate jméno"
 #: slicewp-pro/add-ons/affiliate-coupons/includes/base/integrations/easy-digital-downloads/functions-hooks-integration-easy-digital-downloads.php:52
 #: slicewp-pro/add-ons/affiliate-coupons/includes/base/integrations/getpaid/functions-hooks-integration-getpaid.php:54
 #: slicewp-pro/add-ons/affiliate-coupons/includes/base/integrations/paid-member-subscriptions/functions-hooks-integration-paid-member-subscriptions.php:48
-#: slicewp-pro/add-ons/affiliate-coupons/includes/base/integrations/paid-memberships-pro/functions-hooks-integration-paid-memberships-pro.php:61
+#: slicewp-pro/add-ons/affiliate-coupons/includes/base/integrations/paid-memberships-pro/functions-hooks-integration-paid-memberships-pro.php:64
 #: slicewp-pro/add-ons/affiliate-coupons/includes/base/integrations/restrict-content-pro/functions-hooks-integration-restrict-content-pro.php:59
 msgid ""
 "Enter the affiliate name that you want to be associated with this discount."
 msgstr ""
 
 #: slicewp-pro/add-ons/affiliate-coupons/includes/base/integrations/memberpress/functions-hooks-integration-memberpress.php:22
-#: slicewp/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:750
+#: slicewp/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:756
 msgid "SliceWP"
 msgstr ""
 
@@ -99,6 +76,70 @@ msgstr ""
 msgid ""
 "Enter the affiliate name that you want to be associated with this coupon "
 "code."
+msgstr ""
+
+#: slicewp-pro/add-ons/affiliate-coupons/includes/users/functions.php:31
+msgid "Coupons"
+msgstr ""
+
+#: slicewp-pro/add-ons/affiliate-coupons/includes/users/functions.php:70
+msgid ""
+"The following coupons have been linked to your account. You will receive a "
+"commission for each purchase made using these coupons."
+msgstr ""
+
+#: slicewp-pro/add-ons/affiliate-coupons/includes/users/functions.php:76
+#: slicewp-pro/add-ons/performance-bonuses/includes/users/class-outputter-affiliate-bonuses.php:196
+msgid "Coupon Code"
+msgstr ""
+
+#: slicewp-pro/add-ons/affiliate-coupons/includes/users/functions.php:79
+#: slicewp-pro/add-ons/import-export/includes/base/class-batch-export-commissions.php:37
+#: slicewp-pro/add-ons/import-export/includes/base/class-batch-export-payments.php:38
+#: slicewp-pro/add-ons/lead-commissions/includes/admin/leads/views/view-add-lead-commission.php:71
+#: slicewp/includes/admin/commissions/class-list-table-commissions.php:114
+#: slicewp/includes/admin/commissions/views/view-add-commission.php:46
+#: slicewp/includes/admin/commissions/views/view-edit-commission.php:76
+#: slicewp/includes/admin/dashboard/cards/class-admin-dashboard-card-latest-commissions.php:42
+#: slicewp/includes/admin/payouts/class-list-table-payment-commissions.php:98
+#: slicewp/includes/admin/payouts/class-list-table-payments.php:90
+#: slicewp/includes/admin/payouts/class-list-table-payout-payments-preview.php:46
+#: slicewp/includes/admin/payouts/class-list-table-payout-payments.php:82
+#: slicewp/includes/admin/payouts/views/view-payout.php:92
+#: slicewp/includes/admin/payouts/views/view-review-payment.php:87
+#: slicewp/includes/users/class-list-table-affiliate-account-commissions.php:51
+#: slicewp/includes/users/class-list-table-affiliate-account-payment-commissions.php:51
+#: slicewp/includes/users/class-list-table-affiliate-account-payments.php:42
+msgid "Amount"
+msgstr "Částka"
+
+#: slicewp-pro/add-ons/affiliate-coupons/includes/users/functions.php:83
+#: slicewp-pro/add-ons/import-export/includes/admin/views/view-card-export.php:31
+#: slicewp-pro/add-ons/multi-level-affiliates/templates/affiliate-area/affiliates-tree-affiliate-card-root.php:36
+#: slicewp-pro/add-ons/multi-level-affiliates/templates/affiliate-area/affiliates-tree-affiliate-card.php:36
+#: slicewp-pro/includes/admin/reports/views/view-reports-commissions.php:184
+#: slicewp-pro/includes/admin/reports/views/view-reports.php:49
+#: slicewp/includes/admin/commissions/functions.php:48
+#: slicewp/includes/admin/commissions/functions.php:49
+#: slicewp/includes/admin/commissions/views/view-commissions.php:13
+#: slicewp/includes/admin/dashboard/cards/class-admin-dashboard-card-totals.php:138
+#: slicewp/includes/admin/payouts/class-list-table-payout-payments-preview.php:47
+#: slicewp/includes/admin/payouts/views/view-review-payment.php:169
+#: slicewp/includes/admin/settings/views/view-settings.php:12
+#: slicewp/includes/users/functions.php:103
+#: slicewp/includes/users/functions.php:303
+#: slicewp/templates/affiliate-area/affiliate-account-tab-dashboard.php:27
+#: slicewp/templates/affiliate-area/affiliate-account-tab-dashboard.php:88
+#: slicewp/templates/affiliate-area/affiliate-account-tab-dashboard.php:180
+msgid "Commissions"
+msgstr "Provize"
+
+#: slicewp-pro/add-ons/affiliate-coupons/includes/users/functions.php:126
+msgid "Coupon Used"
+msgstr ""
+
+#: slicewp-pro/add-ons/affiliate-coupons/includes/users/functions.php:132
+msgid "Code"
 msgstr ""
 
 #: slicewp-pro/add-ons/affiliate-landing-pages/includes/admin/functions-actions-ajax.php:46
@@ -522,14 +563,14 @@ msgstr "Potvrzení hesla"
 #: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:123
 #: slicewp-pro/add-ons/custom-affiliate-fields/index.php:147
 #: slicewp-pro/add-ons/import-export/includes/base/class-batch-export-affiliates.php:46
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:791
+#: slicewp/includes/admin/settings/views/view-settings-tab-affiliate-area.php:97
 #: slicewp/includes/base/form-fields/functions.php:176
 msgid "Payment Email"
 msgstr "PayPal email"
 
 #: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:130
 #: slicewp-pro/add-ons/custom-affiliate-fields/index.php:157
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:804
+#: slicewp/includes/admin/settings/views/view-settings-tab-affiliate-area.php:110
 #: slicewp/includes/base/form-fields/class-form-field-url.php:66
 #: slicewp/includes/base/form-fields/functions.php:185
 msgid "Website"
@@ -586,134 +627,150 @@ msgstr "Částka"
 msgid "State"
 msgstr "Stav"
 
-#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:249
-#: slicewp/includes/admin/settings/views/view-settings-tab-emails.php:287
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:895
-#: slicewp/includes/admin/settings/views/view-settings-tab-integrations.php:256
-#: slicewp/includes/admin/settings/views/view-settings-tab-tools.php:221
-msgid "Save Settings"
-msgstr "Uložit nastavení"
+#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:244
+#: slicewp/includes/admin/promo/functions.php:226
+#, fuzzy
+#| msgid "Affiliate Details"
+msgid "Affiliate Fields"
+msgstr "Affiliate detaily"
 
-#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:270
+#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:248
+#: slicewp-pro/add-ons/multi-level-affiliates/includes/admin/views/view-multi-level-general-settings.php:14
+#: slicewp-pro/add-ons/paypal-payouts/includes/admin/views/view-settings-paypal-credentials.php:14
+#: slicewp-pro/includes/admin/affiliates/views/view-add-affiliate-group.php:67
+#: slicewp-pro/includes/admin/affiliates/views/view-affiliate-commission-rates.php:16
+#: slicewp-pro/includes/admin/affiliates/views/view-edit-affiliate-group.php:79
+#: slicewp/includes/admin/payouts/views/view-create-payout.php:30
+#: slicewp/includes/admin/settings/views/view-settings-tab-affiliate-area.php:141
+#: slicewp/includes/admin/settings/views/view-settings-tab-commissions.php:15
+#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:65
+#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:185
+#: slicewp/includes/admin/settings/views/view-settings-tab-integrations.php:57
+#, fuzzy
+#| msgid "Click here to learn more"
+msgid "Click to learn more..."
+msgstr "Dozvědět se více"
+
+#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:279
 #, fuzzy
 #| msgid "Delete affiliate"
 msgid "Select a new field to add..."
 msgstr "Vymazat affiliate partnera"
 
-#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:274
+#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:283
 #, php-format
 msgid "%s Fields"
 msgstr ""
 
-#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:291
+#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:300
 #, fuzzy
 #| msgid "Add Affiliate"
 msgid "Add Field"
 msgstr "Přidat partnera"
 
-#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:389
+#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:398
 #, fuzzy
 #| msgid "Default Template"
 msgid "Default Value"
 msgstr "Výchozí šablona"
 
-#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:407
+#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:416
 msgid "Field Label"
 msgstr ""
 
-#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:425
+#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:434
 #, fuzzy
 #| msgid "Description"
 msgid "Field Description"
 msgstr "Popis"
 
-#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:443
+#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:452
 msgid "Required"
 msgstr ""
 
-#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:470
+#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:479
 msgid "Option 1"
 msgstr ""
 
-#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:474
+#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:483
 msgid "Option 2"
 msgstr ""
 
-#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:478
+#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:487
 msgid "Option 3"
 msgstr ""
 
-#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:491
+#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:500
 #, fuzzy
 #| msgid "Action"
 msgid "Options"
 msgstr "Akce"
 
-#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:512
-#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:686
+#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:521
+#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:695
 #, php-format
 msgid ""
 "%sImportant note%s: Keys can only contain lower case alphanumeric "
 "characters, underscores and hyphens."
 msgstr ""
 
-#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:539
+#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:548
 #, fuzzy
 #| msgid "Pending"
 msgid "Heading Level"
 msgstr "Čekající"
 
-#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:563
-#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:586
+#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:572
+#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:595
 #, fuzzy
 #| msgid "Amount"
 msgid "Default Country"
 msgstr "Částka"
 
-#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:609
+#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:618
 #, fuzzy
 #| msgid "Pay Affiliates"
 msgid "Multiple Files"
 msgstr "Vyplatit affiliate partnery"
 
-#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:634
+#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:643
 msgid "Allowed File Extensions"
 msgstr ""
 
-#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:635
+#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:644
 msgid ""
 "Enter the allowed file extensions for file uploads, separated with commas "
 "(i.e. jpg, gif, png, pdf). This will limit the type of files a user may "
 "upload."
 msgstr ""
 
-#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:639
+#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:648
 msgid "i.e jpg, gif, png, pdf"
 msgstr ""
 
-#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:653
+#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:662
 msgid "Maximum File Size"
 msgstr ""
 
-#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:658
+#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:667
 #, php-format
 msgid "Maximum allowed on this server: %s"
 msgstr ""
 
-#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:672
+#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:681
 #, fuzzy
 #| msgid "Site Key"
 msgid "Field Key"
 msgstr "Kód stránky"
 
-#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:687
+#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:696
 #, php-format
 msgid ""
 "%sImportant note%s: Field keys cannot be empty. Please add a value for the "
 "field key."
 msgstr ""
 
-#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:688
+#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:697
 #, php-format
 msgid ""
 "%sImportant note%s: If you already have affiliates, it's recommended to "
@@ -721,59 +778,51 @@ msgid ""
 "saved for this field."
 msgstr ""
 
-#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:708
+#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:717
 msgid "Show in form"
 msgstr ""
 
-#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:760
+#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:769
 msgid "Placeholder"
 msgstr ""
 
-#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:778
+#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:787
 #, fuzzy
 #| msgid "Description"
 msgid "Description Placement"
 msgstr "Popis"
 
-#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:783
+#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:792
 #, fuzzy
 #| msgid "After amount"
 msgid "After input"
 msgstr "Po částce"
 
-#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:784
+#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:793
 #, fuzzy
 #| msgid "Before amount"
 msgid "Before input"
 msgstr "Před částkou"
 
-#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:799
+#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:808
 msgid "Input CSS Classes"
 msgstr ""
 
-#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:817
+#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:826
 msgid "Wrapper CSS Classes"
 msgstr ""
 
-#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:843
+#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:852
 msgid "Field Admin Label"
 msgstr ""
 
-#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:861
+#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:870
 msgid "Admin Default Value"
 msgstr ""
 
-#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:879
+#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/class-affiliate-fields-editor.php:888
 msgid "Hide on Admin Pages"
 msgstr ""
-
-#: slicewp-pro/add-ons/custom-affiliate-fields/includes/admin/functions.php:21
-#: slicewp/includes/admin/promo/functions.php:225
-#: slicewp/includes/admin/promo/functions.php:260
-#, fuzzy
-#| msgid "Affiliate Details"
-msgid "Affiliate Fields"
-msgstr "Affiliate detaily"
 
 #: slicewp-pro/add-ons/custom-affiliate-fields/index.php:123
 #: slicewp-pro/add-ons/import-export/includes/base/class-batch-export-affiliates.php:43
@@ -786,7 +835,7 @@ msgid "Email"
 msgstr ""
 
 #: slicewp-pro/add-ons/custom-affiliate-fields/index.php:167
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:817
+#: slicewp/includes/admin/settings/views/view-settings-tab-affiliate-area.php:123
 #: slicewp/includes/base/form-fields/functions.php:195
 msgid "How will you promote us?"
 msgstr "Jakým způsobem nás budete propagovat?"
@@ -856,19 +905,19 @@ msgstr ""
 #: slicewp-pro/add-ons/recurring-commissions/includes/admin/views/view-recurring-commissions-affiliate.php:76
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/easy-digital-downloads/class-integration-easy-digital-downloads.php:532
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/easy-digital-downloads/class-integration-easy-digital-downloads.php:547
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/getpaid/class-integration-getpaid.php:266
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/getpaid/class-integration-getpaid.php:272
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/getpaid/class-integration-getpaid.php:336
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/getpaid/class-integration-getpaid.php:342
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/getpaid/class-integration-getpaid.php:270
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/getpaid/class-integration-getpaid.php:276
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/getpaid/class-integration-getpaid.php:340
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/getpaid/class-integration-getpaid.php:346
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-memberships-pro/class-integration-paid-memberships-pro.php:411
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-memberships-pro/class-integration-paid-memberships-pro.php:430
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/restrict-content-pro/class-integration-restrict-content-pro.php:275
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/restrict-content-pro/class-integration-restrict-content-pro.php:298
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/woocommerce/class-integration-woocommerce.php:571
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/woocommerce/class-integration-woocommerce.php:583
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/woocommerce/class-integration-woocommerce.php:604
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/woocommerce/class-integration-woocommerce.php:669
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/woocommerce/class-integration-woocommerce.php:693
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/restrict-content-pro/class-integration-restrict-content-pro.php:279
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/restrict-content-pro/class-integration-restrict-content-pro.php:302
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/woocommerce/class-integration-woocommerce.php:577
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/woocommerce/class-integration-woocommerce.php:589
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/woocommerce/class-integration-woocommerce.php:612
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/woocommerce/class-integration-woocommerce.php:678
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/woocommerce/class-integration-woocommerce.php:702
 #: slicewp-pro/includes/admin/affiliates/views/view-add-affiliate-group.php:93
 #: slicewp-pro/includes/admin/affiliates/views/view-edit-affiliate-group.php:110
 #, fuzzy
@@ -886,15 +935,15 @@ msgstr ""
 #: slicewp-pro/add-ons/recurring-commissions/includes/admin/views/view-recurring-commissions-affiliate-group.php:30
 #: slicewp-pro/add-ons/recurring-commissions/includes/admin/views/view-recurring-commissions-affiliate.php:30
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/easy-digital-downloads/class-integration-easy-digital-downloads.php:525
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/getpaid/class-integration-getpaid.php:274
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/memberpress/class-integration-memberpress.php:279
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-member-subscriptions/class-integration-paid-member-subscriptions.php:268
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/getpaid/class-integration-getpaid.php:278
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/memberpress/class-integration-memberpress.php:283
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-member-subscriptions/class-integration-paid-member-subscriptions.php:270
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-memberships-pro/class-integration-paid-memberships-pro.php:402
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/restrict-content-pro/class-integration-restrict-content-pro.php:264
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/studiocart/class-integration-studiocart.php:265
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/restrict-content-pro/class-integration-restrict-content-pro.php:268
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/studiocart/class-integration-studiocart.php:269
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/upsell/class-integration-upsell.php:239
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/woocommerce/class-integration-woocommerce.php:571
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/woocommerce/class-integration-woocommerce.php:671
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/woocommerce/class-integration-woocommerce.php:577
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/woocommerce/class-integration-woocommerce.php:680
 msgid "Disabled"
 msgstr ""
 
@@ -1120,25 +1169,6 @@ msgstr "Vyberte stránku, kterou chcete mít jako soukromou."
 #: slicewp/includes/admin/dashboard/cards/class-admin-dashboard-card-totals.php:143
 msgid "Affiliates"
 msgstr "Affiliate partneři"
-
-#: slicewp-pro/add-ons/import-export/includes/admin/views/view-card-export.php:31
-#: slicewp-pro/add-ons/multi-level-affiliates/templates/affiliate-area/affiliates-tree-affiliate-card-root.php:36
-#: slicewp-pro/add-ons/multi-level-affiliates/templates/affiliate-area/affiliates-tree-affiliate-card.php:36
-#: slicewp-pro/includes/admin/reports/views/view-reports-commissions.php:184
-#: slicewp-pro/includes/admin/reports/views/view-reports.php:49
-#: slicewp/includes/admin/commissions/functions.php:48
-#: slicewp/includes/admin/commissions/functions.php:49
-#: slicewp/includes/admin/commissions/views/view-commissions.php:13
-#: slicewp/includes/admin/dashboard/cards/class-admin-dashboard-card-totals.php:138
-#: slicewp/includes/admin/payouts/class-list-table-payout-payments-preview.php:47
-#: slicewp/includes/admin/payouts/views/view-review-payment.php:169
-#: slicewp/includes/users/functions.php:103
-#: slicewp/includes/users/functions.php:303
-#: slicewp/templates/affiliate-area/affiliate-account-tab-dashboard.php:27
-#: slicewp/templates/affiliate-area/affiliate-account-tab-dashboard.php:88
-#: slicewp/templates/affiliate-area/affiliate-account-tab-dashboard.php:180
-msgid "Commissions"
-msgstr "Provize"
 
 #: slicewp-pro/add-ons/import-export/includes/admin/views/view-card-export.php:32
 #: slicewp-pro/includes/admin/reports/views/view-reports-payments.php:158
@@ -1371,7 +1401,7 @@ msgstr "Affiliate jméno"
 
 #: slicewp-pro/add-ons/import-export/includes/base/class-batch-export-commissions.php:38
 #: slicewp-pro/add-ons/import-export/includes/base/class-batch-export-payments.php:39
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:543
+#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:280
 #: slicewp/includes/admin/setup-wizard/views/view-setup-wizard.php:158
 msgid "Currency"
 msgstr "Měna"
@@ -1418,7 +1448,7 @@ msgstr "Typ"
 #: slicewp/includes/users/class-list-table-affiliate-account-payment-commissions.php:54
 #: slicewp/includes/users/class-list-table-affiliate-account-payments.php:43
 #: slicewp/includes/users/class-list-table-affiliate-account-visits.php:35
-#: slicewp/includes/users/functions.php:343
+#: slicewp/includes/users/functions.php:347
 msgid "Date"
 msgstr "Datum"
 
@@ -1503,14 +1533,14 @@ msgstr "Návštěvy"
 #: slicewp/includes/admin/creatives/views/view-edit-creative.php:139
 #: slicewp/includes/admin/visits/class-list-table-visits.php:78
 #: slicewp/includes/users/class-list-table-affiliate-account-visits.php:33
-#: slicewp/includes/users/functions.php:341
+#: slicewp/includes/users/functions.php:345
 msgid "Landing URL"
 msgstr "Přistávací odkaz stránky"
 
 #: slicewp-pro/add-ons/import-export/includes/base/class-batch-export-visits.php:44
 #: slicewp/includes/admin/visits/class-list-table-visits.php:79
 #: slicewp/includes/users/class-list-table-affiliate-account-visits.php:34
-#: slicewp/includes/users/functions.php:342
+#: slicewp/includes/users/functions.php:346
 msgid "Referrer URL"
 msgstr "Ze stránky"
 
@@ -1858,15 +1888,15 @@ msgstr "Upravit provize"
 #: slicewp-pro/add-ons/recurring-commissions/includes/admin/views/view-recurring-commissions-affiliate-group.php:29
 #: slicewp-pro/add-ons/recurring-commissions/includes/admin/views/view-recurring-commissions-affiliate.php:29
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/easy-digital-downloads/class-integration-easy-digital-downloads.php:524
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/getpaid/class-integration-getpaid.php:273
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/memberpress/class-integration-memberpress.php:278
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-member-subscriptions/class-integration-paid-member-subscriptions.php:267
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/getpaid/class-integration-getpaid.php:277
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/memberpress/class-integration-memberpress.php:282
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-member-subscriptions/class-integration-paid-member-subscriptions.php:269
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-memberships-pro/class-integration-paid-memberships-pro.php:401
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/restrict-content-pro/class-integration-restrict-content-pro.php:263
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/studiocart/class-integration-studiocart.php:264
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/restrict-content-pro/class-integration-restrict-content-pro.php:267
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/studiocart/class-integration-studiocart.php:268
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/upsell/class-integration-upsell.php:238
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/woocommerce/class-integration-woocommerce.php:571
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/woocommerce/class-integration-woocommerce.php:670
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/woocommerce/class-integration-woocommerce.php:577
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/woocommerce/class-integration-woocommerce.php:679
 #: slicewp-pro/includes/admin/reports/views/view-reports.php:318
 #: slicewp/includes/users/functions.php:222
 msgid "Custom"
@@ -1915,7 +1945,7 @@ msgstr ""
 #: slicewp-pro/includes/admin/affiliates/views/view-affiliate-commission-rates.php:67
 #: slicewp-pro/includes/admin/affiliates/views/view-edit-affiliate-group.php:112
 #: slicewp/includes/admin/promo/functions.php:177
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:196
+#: slicewp/includes/admin/settings/views/view-settings-tab-commissions.php:48
 #: slicewp/includes/admin/setup-wizard/views/view-setup-wizard.php:144
 #: slicewp/includes/base/commission/functions.php:302
 msgid "Percentage (%)"
@@ -1937,7 +1967,7 @@ msgstr "Procent (%)"
 #: slicewp-pro/add-ons/recurring-commissions/includes/admin/views/view-recurring-commissions-general-settings.php:59
 #: slicewp-pro/includes/admin/affiliates/views/view-affiliate-commission-rates.php:67
 #: slicewp/includes/admin/promo/functions.php:177
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:196
+#: slicewp/includes/admin/settings/views/view-settings-tab-commissions.php:48
 #: slicewp/includes/admin/setup-wizard/views/view-setup-wizard.php:144
 msgid "Fixed Amount"
 msgstr "Fixní výše"
@@ -1964,15 +1994,15 @@ msgstr ""
 #: slicewp-pro/add-ons/recurring-commissions/includes/admin/views/view-recurring-commissions-affiliate.php:77
 #: slicewp-pro/add-ons/recurring-commissions/includes/admin/views/view-recurring-commissions-general-settings.php:77
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/easy-digital-downloads/class-integration-easy-digital-downloads.php:548
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/getpaid/class-integration-getpaid.php:343
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/memberpress/class-integration-memberpress.php:308
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-member-subscriptions/class-integration-paid-member-subscriptions.php:293
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/getpaid/class-integration-getpaid.php:347
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/memberpress/class-integration-memberpress.php:312
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-member-subscriptions/class-integration-paid-member-subscriptions.php:295
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-memberships-pro/class-integration-paid-memberships-pro.php:431
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/restrict-content-pro/class-integration-restrict-content-pro.php:299
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/studiocart/class-integration-studiocart.php:333
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/restrict-content-pro/class-integration-restrict-content-pro.php:303
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/studiocart/class-integration-studiocart.php:337
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/upsell/class-integration-upsell.php:336
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/woocommerce/class-integration-woocommerce.php:604
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/woocommerce/class-integration-woocommerce.php:694
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/woocommerce/class-integration-woocommerce.php:612
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/woocommerce/class-integration-woocommerce.php:703
 msgid "Unlimited"
 msgstr ""
 
@@ -1983,15 +2013,15 @@ msgstr ""
 #: slicewp-pro/add-ons/recurring-commissions/includes/admin/views/view-recurring-commissions-affiliate.php:78
 #: slicewp-pro/add-ons/recurring-commissions/includes/admin/views/view-recurring-commissions-general-settings.php:78
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/easy-digital-downloads/class-integration-easy-digital-downloads.php:549
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/getpaid/class-integration-getpaid.php:344
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/memberpress/class-integration-memberpress.php:309
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-member-subscriptions/class-integration-paid-member-subscriptions.php:294
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/getpaid/class-integration-getpaid.php:348
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/memberpress/class-integration-memberpress.php:313
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-member-subscriptions/class-integration-paid-member-subscriptions.php:296
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-memberships-pro/class-integration-paid-memberships-pro.php:432
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/restrict-content-pro/class-integration-restrict-content-pro.php:300
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/studiocart/class-integration-studiocart.php:334
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/restrict-content-pro/class-integration-restrict-content-pro.php:304
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/studiocart/class-integration-studiocart.php:338
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/upsell/class-integration-upsell.php:337
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/woocommerce/class-integration-woocommerce.php:604
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/woocommerce/class-integration-woocommerce.php:695
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/woocommerce/class-integration-woocommerce.php:612
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/woocommerce/class-integration-woocommerce.php:704
 msgid "Limited"
 msgstr ""
 
@@ -2292,33 +2322,33 @@ msgid "Disconnect"
 msgstr ""
 
 #: slicewp-pro/add-ons/multi-level-affiliates/includes/admin/class-admin-affiliates-tree-diagram.php:86
-#: slicewp-pro/add-ons/multi-level-affiliates/includes/admin/functions.php:157
+#: slicewp-pro/add-ons/multi-level-affiliates/includes/admin/functions.php:156
 msgid "Parent"
 msgstr ""
 
-#: slicewp-pro/add-ons/multi-level-affiliates/includes/admin/functions.php:74
+#: slicewp-pro/add-ons/multi-level-affiliates/includes/admin/functions.php:73
 #, fuzzy
 #| msgid "The selected type in not allowed."
 msgid "The selected parent affiliate does not exist."
 msgstr "Vybraný typ není povolen."
 
-#: slicewp-pro/add-ons/multi-level-affiliates/includes/admin/functions.php:82
+#: slicewp-pro/add-ons/multi-level-affiliates/includes/admin/functions.php:81
 msgid "You cannot set the current affiliate as the parent affiliate."
 msgstr ""
 
-#: slicewp-pro/add-ons/multi-level-affiliates/includes/admin/functions.php:93
+#: slicewp-pro/add-ons/multi-level-affiliates/includes/admin/functions.php:92
 msgid ""
 "The selected parent affiliate cannot be set because it is a sub-affiliate of "
 "the current affiliate."
 msgstr ""
 
-#: slicewp-pro/add-ons/multi-level-affiliates/includes/admin/functions.php:205
+#: slicewp-pro/add-ons/multi-level-affiliates/includes/admin/functions.php:204
 #, fuzzy
 #| msgid "Affiliate Pages"
 msgid "Affiliate Parent"
 msgstr "Affiliate stránky"
 
-#: slicewp-pro/add-ons/multi-level-affiliates/includes/admin/functions.php:207
+#: slicewp-pro/add-ons/multi-level-affiliates/includes/admin/functions.php:206
 #, fuzzy
 #| msgid "Delete affiliate"
 msgid "Select affiliate parent..."
@@ -2349,22 +2379,6 @@ msgstr "Affiliate označení odkazu"
 msgid "Multi-level Affiliates"
 msgstr "Vyplatit affiliate partnery"
 
-#: slicewp-pro/add-ons/multi-level-affiliates/includes/admin/views/view-multi-level-general-settings.php:14
-#: slicewp-pro/add-ons/paypal-payouts/includes/admin/views/view-settings-paypal-credentials.php:14
-#: slicewp-pro/includes/admin/affiliates/views/view-add-affiliate-group.php:67
-#: slicewp-pro/includes/admin/affiliates/views/view-affiliate-commission-rates.php:16
-#: slicewp-pro/includes/admin/affiliates/views/view-edit-affiliate-group.php:79
-#: slicewp/includes/admin/payouts/views/view-create-payout.php:30
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:163
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:356
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:446
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:615
-#: slicewp/includes/admin/settings/views/view-settings-tab-integrations.php:57
-#, fuzzy
-#| msgid "Click here to learn more"
-msgid "Click to learn more..."
-msgstr "Dozvědět se více"
-
 #: slicewp-pro/add-ons/multi-level-affiliates/includes/admin/views/view-multi-level-general-settings.php:25
 #, fuzzy
 #| msgid "Add Affiliate"
@@ -2392,17 +2406,17 @@ msgid ""
 msgstr ""
 
 #: slicewp-pro/add-ons/multi-level-affiliates/includes/admin/views/view-multi-level-general-settings.php:59
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:133
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:398
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:415
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:458
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:472
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:627
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:653
+#: slicewp/includes/admin/settings/views/view-settings-tab-affiliate-area.php:153
+#: slicewp/includes/admin/settings/views/view-settings-tab-affiliate-area.php:179
+#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:77
+#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:91
+#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:124
+#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:227
+#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:244
 #: slicewp/includes/admin/setup-wizard/views/view-setup-wizard.php:177
-#: slicewp/includes/base/functions-utils.php:544
-#: slicewp/includes/base/functions-utils.php:546
-#: slicewp/includes/base/functions-utils.php:547
+#: slicewp/includes/base/functions-utils.php:551
+#: slicewp/includes/base/functions-utils.php:553
+#: slicewp/includes/base/functions-utils.php:554
 msgid "Click here to learn more"
 msgstr "Dozvědět se více"
 
@@ -2854,23 +2868,23 @@ msgid "PayPal payout could not be generated. The payment was not processed."
 msgstr ""
 
 #: slicewp-pro/add-ons/paypal-payouts/includes/base/functions.php:151
-#: slicewp-pro/add-ons/paypal-payouts/includes/base/functions.php:244
+#: slicewp-pro/add-ons/paypal-payouts/includes/base/functions.php:249
 #, php-format
 msgid "The following error was returned by PayPal: %s"
 msgstr ""
 
-#: slicewp-pro/add-ons/paypal-payouts/includes/base/functions.php:228
+#: slicewp-pro/add-ons/paypal-payouts/includes/base/functions.php:233
 msgid "PayPal payout could not be generated. There are no eligible payments."
 msgstr ""
 
-#: slicewp-pro/add-ons/paypal-payouts/includes/base/functions.php:244
+#: slicewp-pro/add-ons/paypal-payouts/includes/base/functions.php:249
 msgid "PayPal payout could not be generated. No payments were processed."
 msgstr ""
 
 #: slicewp-pro/add-ons/performance-bonuses/includes/admin/bonuses/class-list-table-performance-bonuses.php:65
 #: slicewp-pro/add-ons/performance-bonuses/includes/admin/bonuses/views/view-add-bonus.php:36
 #: slicewp-pro/add-ons/performance-bonuses/includes/admin/bonuses/views/view-edit-bonus.php:49
-#: slicewp-pro/add-ons/product-revenue-share/includes/base/users/functions.php:108
+#: slicewp-pro/add-ons/product-revenue-share/includes/users/functions.php:108
 #: slicewp-pro/add-ons/rest-api/includes/admin/views/view-card-api-keys.php:41
 #: slicewp-pro/add-ons/rest-api/includes/admin/views/view-card-api-keys.php:86
 #: slicewp-pro/add-ons/rest-api/includes/admin/views/view-card-api-keys.php:161
@@ -3512,54 +3526,54 @@ msgstr ""
 msgid "Your rewards"
 msgstr ""
 
-#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/easy-digital-downloads/functions-hooks-integration-easy-digital-downloads.php:75
-#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/studiocart/functions-hooks-integration-studiocart.php:92
+#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/easy-digital-downloads/functions-hooks-integration-easy-digital-downloads.php:74
+#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/studiocart/functions-hooks-integration-studiocart.php:93
 #, fuzzy, php-format
 #| msgid "%s Commission Rate"
 msgid "%s Commission Rate Type:"
 msgstr "%s provizní sazba"
 
-#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/easy-digital-downloads/functions-hooks-integration-easy-digital-downloads.php:80
-#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/easy-digital-downloads/functions-hooks-integration-easy-digital-downloads.php:188
-#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/easy-digital-downloads/functions-hooks-integration-easy-digital-downloads.php:233
+#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/easy-digital-downloads/functions-hooks-integration-easy-digital-downloads.php:78
+#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/easy-digital-downloads/functions-hooks-integration-easy-digital-downloads.php:184
+#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/easy-digital-downloads/functions-hooks-integration-easy-digital-downloads.php:229
 #: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/memberpress/functions-hooks-integration-memberpress.php:50
 #: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/paid-member-subscriptions/functions-hooks-integration-paid-member-subscriptions.php:47
 #: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/paid-memberships-pro/functions-hooks-integration-paid-memberships-pro.php:51
 #: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/restrict-content-pro/functions-hooks-integration-restrict-content-pro.php:49
-#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/studiocart/functions-hooks-integration-studiocart.php:83
-#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/studiocart/functions-hooks-integration-studiocart.php:212
-#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/studiocart/functions-hooks-integration-studiocart.php:257
+#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/studiocart/functions-hooks-integration-studiocart.php:84
+#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/studiocart/functions-hooks-integration-studiocart.php:213
+#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/studiocart/functions-hooks-integration-studiocart.php:258
 #: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/upsell/functions-hooks-integration-upsell.php:40
 #: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:77
-#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:301
-#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:346
+#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:303
+#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:348
 #, fuzzy
 #| msgid "General Settings"
 msgid "General Settings Default"
 msgstr "Obecné nastavení"
 
-#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/easy-digital-downloads/functions-hooks-integration-easy-digital-downloads.php:92
-#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/studiocart/functions-hooks-integration-studiocart.php:111
+#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/easy-digital-downloads/functions-hooks-integration-easy-digital-downloads.php:89
+#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/studiocart/functions-hooks-integration-studiocart.php:112
 #, fuzzy, php-format
 #| msgid "%s Commission Rate"
 msgid "%s Commission Rate:"
 msgstr "%s provizní sazba"
 
-#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/easy-digital-downloads/functions-hooks-integration-easy-digital-downloads.php:186
-#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/studiocart/functions-hooks-integration-studiocart.php:210
-#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:299
-#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:342
+#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/easy-digital-downloads/functions-hooks-integration-easy-digital-downloads.php:182
+#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/studiocart/functions-hooks-integration-studiocart.php:211
+#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:301
+#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:344
 #, fuzzy
 #| msgid "Commission Rate"
 msgid "Commission rate type"
 msgstr "Provizní sazba"
 
-#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/easy-digital-downloads/functions-hooks-integration-easy-digital-downloads.php:193
-#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/easy-digital-downloads/functions-hooks-integration-easy-digital-downloads.php:238
-#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/studiocart/functions-hooks-integration-studiocart.php:217
-#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/studiocart/functions-hooks-integration-studiocart.php:262
-#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:306
-#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:351
+#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/easy-digital-downloads/functions-hooks-integration-easy-digital-downloads.php:189
+#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/easy-digital-downloads/functions-hooks-integration-easy-digital-downloads.php:234
+#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/studiocart/functions-hooks-integration-studiocart.php:218
+#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/studiocart/functions-hooks-integration-studiocart.php:263
+#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:308
+#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:353
 #, fuzzy
 #| msgid ""
 #| "When checked, commissions will not be generated for this product category."
@@ -3568,8 +3582,8 @@ msgstr ""
 "Je-li toto políčko zaškrtnuto, provize se pro tuto kategorii produktů "
 "generovat nebudou."
 
-#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/easy-digital-downloads/functions-hooks-integration-easy-digital-downloads.php:202
-#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/studiocart/functions-hooks-integration-studiocart.php:226
+#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/easy-digital-downloads/functions-hooks-integration-easy-digital-downloads.php:198
+#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/studiocart/functions-hooks-integration-studiocart.php:227
 #, fuzzy
 #| msgid ""
 #| "When checked, commissions will not be generated for this product category."
@@ -3578,19 +3592,19 @@ msgstr ""
 "Je-li toto políčko zaškrtnuto, provize se pro tuto kategorii produktů "
 "generovat nebudou."
 
-#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/easy-digital-downloads/functions-hooks-integration-easy-digital-downloads.php:229
+#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/easy-digital-downloads/functions-hooks-integration-easy-digital-downloads.php:225
 #: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/paid-member-subscriptions/functions-hooks-integration-paid-member-subscriptions.php:43
 #: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/paid-memberships-pro/functions-hooks-integration-paid-memberships-pro.php:47
-#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/studiocart/functions-hooks-integration-studiocart.php:253
+#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/studiocart/functions-hooks-integration-studiocart.php:254
 #, fuzzy
 #| msgid "Commission Rate"
 msgid "Commission Rate Type"
 msgstr "Provizní sazba"
 
-#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/easy-digital-downloads/functions-hooks-integration-easy-digital-downloads.php:248
-#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/studiocart/functions-hooks-integration-studiocart.php:272
-#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:315
-#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:361
+#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/easy-digital-downloads/functions-hooks-integration-easy-digital-downloads.php:244
+#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/studiocart/functions-hooks-integration-studiocart.php:273
+#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:317
+#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:363
 #, fuzzy
 #| msgid ""
 #| "When checked, commissions will not be generated for this product category."
@@ -3647,7 +3661,7 @@ msgstr "Popis"
 msgid "Subscription Rate"
 msgstr "Popis"
 
-#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/studiocart/functions-hooks-integration-studiocart.php:66
+#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/studiocart/functions-hooks-integration-studiocart.php:67
 #: slicewp-pro/includes/admin/affiliates/views/view-add-affiliate-group.php:64
 #: slicewp-pro/includes/admin/affiliates/views/view-affiliate-commission-rates.php:13
 #: slicewp-pro/includes/admin/affiliates/views/view-affiliate-commission-rates.php:26
@@ -3659,8 +3673,8 @@ msgstr "Provizní sazby"
 
 #: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/upsell/functions-hooks-integration-upsell.php:49
 #: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:75
-#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:203
-#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:213
+#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:205
+#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:215
 #, fuzzy, php-format
 #| msgid "%s Rate"
 msgid "%s Rate Type"
@@ -3669,7 +3683,7 @@ msgstr "%s sazba"
 #: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/upsell/functions-hooks-integration-upsell.php:53
 #: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:79
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/upsell/class-integration-upsell.php:281
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/woocommerce/class-integration-woocommerce.php:585
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/woocommerce/class-integration-woocommerce.php:591
 #, fuzzy
 #| msgid ""
 #| "Here you can make commission customizations for this product. These "
@@ -3683,7 +3697,7 @@ msgstr ""
 
 #: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/upsell/functions-hooks-integration-upsell.php:82
 #: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:86
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:187
+#: slicewp/includes/admin/settings/views/view-settings-tab-commissions.php:39
 #, php-format
 msgid "%s Rate"
 msgstr "%s sazba"
@@ -3691,7 +3705,7 @@ msgstr "%s sazba"
 #: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/upsell/functions-hooks-integration-upsell.php:85
 #: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:89
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/upsell/class-integration-upsell.php:308
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/woocommerce/class-integration-woocommerce.php:595
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/woocommerce/class-integration-woocommerce.php:601
 #, fuzzy
 #| msgid ""
 #| "Here you can make commission customizations for this product. These "
@@ -3701,14 +3715,14 @@ msgstr ""
 "Zde můžete provést upravení provize pro tento produkt. Tato nastavení budou "
 "použita k výpočtu provizí pro tento produkt."
 
-#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:205
+#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:207
 #, fuzzy
 #| msgid "Pages Settings"
 msgid "Product Settings Default"
 msgstr "Nastavení stránek"
 
-#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:313
-#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:357
+#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:315
+#: slicewp-pro/add-ons/product-commission-rates/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:359
 #, fuzzy
 #| msgid "Commission Rate"
 msgid "Commission rate"
@@ -3918,7 +3932,7 @@ msgstr "Detaily výplat"
 #: slicewp-pro/add-ons/product-revenue-share/includes/admin/revenue-share/views/view-add-revenue-share-rule.php:203
 #: slicewp-pro/add-ons/product-revenue-share/includes/admin/revenue-share/views/view-edit-revenue-share-rule.php:167
 #: slicewp-pro/add-ons/product-revenue-share/includes/admin/revenue-share/views/view-edit-revenue-share-rule.php:220
-#: slicewp-pro/add-ons/product-revenue-share/includes/base/users/functions.php:32
+#: slicewp-pro/add-ons/product-revenue-share/includes/users/functions.php:32
 msgid "Revenue Share Rate"
 msgstr ""
 
@@ -3975,15 +3989,15 @@ msgstr "Vymazat poznámku"
 msgid "Revenue Share Rules"
 msgstr ""
 
-#: slicewp-pro/add-ons/product-revenue-share/includes/base/users/functions.php:22
+#: slicewp-pro/add-ons/product-revenue-share/includes/users/functions.php:22
 msgid "Linked Products"
 msgstr ""
 
-#: slicewp-pro/add-ons/product-revenue-share/includes/base/users/functions.php:31
+#: slicewp-pro/add-ons/product-revenue-share/includes/users/functions.php:31
 msgid "Product"
 msgstr ""
 
-#: slicewp-pro/add-ons/product-revenue-share/includes/base/users/functions.php:102
+#: slicewp-pro/add-ons/product-revenue-share/includes/users/functions.php:102
 #: slicewp/includes/base/integrations/easy-digital-downloads/functions.php:121
 #: slicewp/includes/base/integrations/easy-digital-downloads/functions.php:174
 #: slicewp/includes/base/integrations/paid-memberships-pro/functions.php:99
@@ -3992,7 +4006,7 @@ msgstr ""
 msgid "Items"
 msgstr ""
 
-#: slicewp-pro/add-ons/product-revenue-share/includes/base/users/functions.php:102
+#: slicewp-pro/add-ons/product-revenue-share/includes/users/functions.php:102
 #: slicewp/includes/admin/commissions/functions.php:157
 #: slicewp/includes/admin/commissions/functions.php:210
 #: slicewp/includes/base/integrations/easy-digital-downloads/functions.php:121
@@ -4003,7 +4017,7 @@ msgstr ""
 msgid "Item"
 msgstr ""
 
-#: slicewp-pro/add-ons/product-revenue-share/includes/base/users/functions.php:109
+#: slicewp-pro/add-ons/product-revenue-share/includes/users/functions.php:109
 #: slicewp/includes/admin/commissions/functions.php:159
 #: slicewp/includes/base/class-merge-tags.php:52
 #: slicewp/includes/base/integrations/easy-digital-downloads/functions.php:128
@@ -4020,16 +4034,16 @@ msgstr "Provize"
 #: slicewp-pro/add-ons/recurring-commissions/includes/admin/views/view-recurring-commissions-affiliate.php:23
 #: slicewp-pro/add-ons/recurring-commissions/includes/admin/views/view-recurring-commissions-general-settings.php:11
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/easy-digital-downloads/class-integration-easy-digital-downloads.php:521
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/getpaid/class-integration-getpaid.php:255
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/memberpress/class-integration-memberpress.php:274
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-member-subscriptions/class-integration-paid-member-subscriptions.php:264
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/getpaid/class-integration-getpaid.php:259
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/memberpress/class-integration-memberpress.php:278
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-member-subscriptions/class-integration-paid-member-subscriptions.php:266
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-memberships-pro/class-integration-paid-memberships-pro.php:397
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/restrict-content-pro/class-integration-restrict-content-pro.php:258
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/studiocart/class-integration-studiocart.php:248
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/studiocart/class-integration-studiocart.php:259
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/restrict-content-pro/class-integration-restrict-content-pro.php:262
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/studiocart/class-integration-studiocart.php:252
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/studiocart/class-integration-studiocart.php:263
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/upsell/class-integration-upsell.php:233
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/woocommerce/class-integration-woocommerce.php:569
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/woocommerce/class-integration-woocommerce.php:667
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/woocommerce/class-integration-woocommerce.php:575
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/woocommerce/class-integration-woocommerce.php:676
 #, fuzzy
 #| msgid "Search Commissions"
 msgid "Recurring Commissions"
@@ -4069,15 +4083,15 @@ msgstr ""
 #: slicewp-pro/add-ons/recurring-commissions/includes/admin/views/view-recurring-commissions-affiliate-group.php:71
 #: slicewp-pro/add-ons/recurring-commissions/includes/admin/views/view-recurring-commissions-affiliate.php:70
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/easy-digital-downloads/class-integration-easy-digital-downloads.php:545
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/getpaid/class-integration-getpaid.php:326
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/memberpress/class-integration-memberpress.php:304
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-member-subscriptions/class-integration-paid-member-subscriptions.php:290
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/getpaid/class-integration-getpaid.php:330
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/memberpress/class-integration-memberpress.php:308
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-member-subscriptions/class-integration-paid-member-subscriptions.php:292
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-memberships-pro/class-integration-paid-memberships-pro.php:427
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/restrict-content-pro/class-integration-restrict-content-pro.php:294
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/studiocart/class-integration-studiocart.php:328
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/restrict-content-pro/class-integration-restrict-content-pro.php:298
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/studiocart/class-integration-studiocart.php:332
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/upsell/class-integration-upsell.php:331
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/woocommerce/class-integration-woocommerce.php:602
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/woocommerce/class-integration-woocommerce.php:691
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/woocommerce/class-integration-woocommerce.php:610
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/woocommerce/class-integration-woocommerce.php:700
 #, fuzzy
 #| msgid "Commission Rate"
 msgid "Commissions Recurrence"
@@ -4094,14 +4108,14 @@ msgstr ""
 #: slicewp-pro/add-ons/recurring-commissions/includes/admin/views/view-recurring-commissions-affiliate.php:89
 #: slicewp-pro/add-ons/recurring-commissions/includes/admin/views/view-recurring-commissions-general-settings.php:89
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/easy-digital-downloads/class-integration-easy-digital-downloads.php:554
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/getpaid/class-integration-getpaid.php:357
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/memberpress/class-integration-memberpress.php:315
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-member-subscriptions/class-integration-paid-member-subscriptions.php:300
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/getpaid/class-integration-getpaid.php:361
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/memberpress/class-integration-memberpress.php:319
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-member-subscriptions/class-integration-paid-member-subscriptions.php:302
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-memberships-pro/class-integration-paid-memberships-pro.php:438
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/restrict-content-pro/class-integration-restrict-content-pro.php:307
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/studiocart/class-integration-studiocart.php:352
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/woocommerce/class-integration-woocommerce.php:613
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/woocommerce/class-integration-woocommerce.php:700
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/restrict-content-pro/class-integration-restrict-content-pro.php:311
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/studiocart/class-integration-studiocart.php:356
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/woocommerce/class-integration-woocommerce.php:621
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/woocommerce/class-integration-woocommerce.php:709
 msgid "Recurrence Limit"
 msgstr ""
 
@@ -4170,58 +4184,58 @@ msgid "Recurring"
 msgstr ""
 
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/easy-digital-downloads/class-integration-easy-digital-downloads.php:523
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/memberpress/class-integration-memberpress.php:277
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/memberpress/class-integration-memberpress.php:288
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/memberpress/class-integration-memberpress.php:307
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-member-subscriptions/class-integration-paid-member-subscriptions.php:266
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-member-subscriptions/class-integration-paid-member-subscriptions.php:275
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-member-subscriptions/class-integration-paid-member-subscriptions.php:292
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/memberpress/class-integration-memberpress.php:281
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/memberpress/class-integration-memberpress.php:292
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/memberpress/class-integration-memberpress.php:311
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-member-subscriptions/class-integration-paid-member-subscriptions.php:268
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-member-subscriptions/class-integration-paid-member-subscriptions.php:277
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-member-subscriptions/class-integration-paid-member-subscriptions.php:294
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-memberships-pro/class-integration-paid-memberships-pro.php:400
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/restrict-content-pro/class-integration-restrict-content-pro.php:262
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/studiocart/class-integration-studiocart.php:263
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/studiocart/class-integration-studiocart.php:281
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/studiocart/class-integration-studiocart.php:332
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/restrict-content-pro/class-integration-restrict-content-pro.php:266
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/studiocart/class-integration-studiocart.php:267
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/studiocart/class-integration-studiocart.php:285
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/studiocart/class-integration-studiocart.php:336
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/upsell/class-integration-upsell.php:237
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/upsell/class-integration-upsell.php:268
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/upsell/class-integration-upsell.php:335
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/upsell/class-integration-upsell.php:354
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/woocommerce/class-integration-woocommerce.php:678
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/woocommerce/class-integration-woocommerce.php:687
 #, fuzzy
 #| msgid "Site Key"
 msgid "Site Default"
 msgstr "Kód stránky"
 
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/easy-digital-downloads/class-integration-easy-digital-downloads.php:530
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/getpaid/class-integration-getpaid.php:287
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/memberpress/class-integration-memberpress.php:285
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-member-subscriptions/class-integration-paid-member-subscriptions.php:273
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/getpaid/class-integration-getpaid.php:291
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/memberpress/class-integration-memberpress.php:289
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-member-subscriptions/class-integration-paid-member-subscriptions.php:275
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-memberships-pro/class-integration-paid-memberships-pro.php:408
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/restrict-content-pro/class-integration-restrict-content-pro.php:271
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/studiocart/class-integration-studiocart.php:290
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/restrict-content-pro/class-integration-restrict-content-pro.php:275
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/studiocart/class-integration-studiocart.php:294
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/upsell/class-integration-upsell.php:277
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/woocommerce/class-integration-woocommerce.php:581
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/woocommerce/class-integration-woocommerce.php:676
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/woocommerce/class-integration-woocommerce.php:587
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/woocommerce/class-integration-woocommerce.php:685
 msgid "Recurring Rate Type"
 msgstr ""
 
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/easy-digital-downloads/class-integration-easy-digital-downloads.php:540
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/getpaid/class-integration-getpaid.php:314
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/memberpress/class-integration-memberpress.php:297
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-member-subscriptions/class-integration-paid-member-subscriptions.php:284
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/getpaid/class-integration-getpaid.php:318
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/memberpress/class-integration-memberpress.php:301
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-member-subscriptions/class-integration-paid-member-subscriptions.php:286
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-memberships-pro/class-integration-paid-memberships-pro.php:420
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/restrict-content-pro/class-integration-restrict-content-pro.php:285
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/studiocart/class-integration-studiocart.php:309
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/restrict-content-pro/class-integration-restrict-content-pro.php:289
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/studiocart/class-integration-studiocart.php:313
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/upsell/class-integration-upsell.php:305
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/woocommerce/class-integration-woocommerce.php:592
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/woocommerce/class-integration-woocommerce.php:686
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/woocommerce/class-integration-woocommerce.php:598
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/woocommerce/class-integration-woocommerce.php:695
 msgid "Recurring Rate"
 msgstr ""
 
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/getpaid/class-integration-getpaid.php:297
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/getpaid/class-integration-getpaid.php:301
 msgid "Select rate type"
 msgstr ""
 
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-member-subscriptions/class-integration-paid-member-subscriptions.php:280
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-member-subscriptions/class-integration-paid-member-subscriptions.php:282
 #, fuzzy
 #| msgid ""
 #| "Here you can make commission customizations for this product. These "
@@ -4233,7 +4247,7 @@ msgstr ""
 "Zde můžete provést upravení provize pro tento produkt. Tato nastavení budou "
 "použita k výpočtu provizí pro tento produkt."
 
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-member-subscriptions/class-integration-paid-member-subscriptions.php:286
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-member-subscriptions/class-integration-paid-member-subscriptions.php:288
 #, fuzzy
 #| msgid "Disable all commissions for this subscription plan."
 msgid ""
@@ -4241,13 +4255,13 @@ msgid ""
 "plan."
 msgstr "Zakázat všechny provize pro tento plán předplatného."
 
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-member-subscriptions/class-integration-paid-member-subscriptions.php:296
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-member-subscriptions/class-integration-paid-member-subscriptions.php:298
 msgid ""
 "Select whether the affiliate should be rewarded for all recurring payments "
 "for this subscription plan or for a limited number of recurring payments."
 msgstr ""
 
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-member-subscriptions/class-integration-paid-member-subscriptions.php:302
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/paid-member-subscriptions/class-integration-paid-member-subscriptions.php:304
 #, fuzzy
 #| msgid ""
 #| "Set custom commission rates for recurring payments and reward your "
@@ -4267,8 +4281,8 @@ msgid ""
 msgstr "Zakázat všechny provize pro tento plán předplatného."
 
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/upsell/class-integration-upsell.php:339
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/woocommerce/class-integration-woocommerce.php:574
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/woocommerce/class-integration-woocommerce.php:606
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/woocommerce/class-integration-woocommerce.php:580
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/woocommerce/class-integration-woocommerce.php:614
 msgid ""
 "Select whether the affiliate should be rewarded for all recurring payments "
 "for this subscription product or for a limited number of recurring payments."
@@ -4281,7 +4295,7 @@ msgid "Recurring Limit"
 msgstr "Vyhledat provize"
 
 #: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/upsell/class-integration-upsell.php:366
-#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/woocommerce/class-integration-woocommerce.php:616
+#: slicewp-pro/add-ons/recurring-commissions/includes/base/integrations/woocommerce/class-integration-woocommerce.php:624
 #, fuzzy
 #| msgid ""
 #| "Set custom commission rates for recurring payments and reward your "
@@ -5296,10 +5310,10 @@ msgstr "Zaslat uvítací email novému affiliate partnerovi po registraci."
 #: slicewp-pro/includes/admin/affiliates/functions-affiliate-groups.php:158
 #: slicewp-pro/includes/admin/affiliates/functions-affiliate-groups.php:205
 #: slicewp-pro/includes/admin/affiliates/views/view-modal-add-affiliates-to-group.php:44
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:632
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:658
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:684
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:709
+#: slicewp/includes/admin/settings/views/view-settings-tab-affiliate-area.php:158
+#: slicewp/includes/admin/settings/views/view-settings-tab-affiliate-area.php:184
+#: slicewp/includes/admin/settings/views/view-settings-tab-affiliate-area.php:210
+#: slicewp/includes/admin/settings/views/view-settings-tab-affiliate-area.php:235
 #: slicewp/includes/base/form-fields/class-form-field-country.php:128
 #: slicewp/includes/base/form-fields/class-form-field-country.php:179
 #: slicewp/includes/base/form-fields/class-form-field-state.php:159
@@ -5355,6 +5369,7 @@ msgstr "Nejsou zde žádní affiliate partneři."
 
 #: slicewp-pro/includes/admin/affiliates/functions.php:113
 #: slicewp/includes/admin/functions.php:693
+#: slicewp/includes/admin/functions.php:757
 msgid "Dismiss notice"
 msgstr ""
 
@@ -5393,21 +5408,21 @@ msgstr "Fixní výše"
 #: slicewp-pro/includes/admin/affiliates/views/view-add-affiliate-group.php:107
 #: slicewp-pro/includes/admin/affiliates/views/view-affiliate-commission-rates.php:85
 #: slicewp-pro/includes/admin/affiliates/views/view-edit-affiliate-group.php:124
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:210
+#: slicewp/includes/admin/settings/views/view-settings-tab-commissions.php:62
 msgid "Sale Commission Basis"
 msgstr "Základ provize z prodeje"
 
 #: slicewp-pro/includes/admin/affiliates/views/view-add-affiliate-group.php:112
 #: slicewp-pro/includes/admin/affiliates/views/view-affiliate-commission-rates.php:90
 #: slicewp-pro/includes/admin/affiliates/views/view-edit-affiliate-group.php:129
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:215
+#: slicewp/includes/admin/settings/views/view-settings-tab-commissions.php:67
 msgid "Fixed amount per product"
 msgstr "Fixní částka za produkt"
 
 #: slicewp-pro/includes/admin/affiliates/views/view-add-affiliate-group.php:113
 #: slicewp-pro/includes/admin/affiliates/views/view-affiliate-commission-rates.php:91
 #: slicewp-pro/includes/admin/affiliates/views/view-edit-affiliate-group.php:130
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:216
+#: slicewp/includes/admin/settings/views/view-settings-tab-commissions.php:68
 msgid "Fixed amount per order"
 msgstr "Fixní částka za objednávku"
 
@@ -5881,7 +5896,7 @@ msgstr ""
 msgid "All visits"
 msgstr "Návštěvy"
 
-#: slicewp-pro/index.php:320
+#: slicewp-pro/index.php:324
 #, php-format
 msgid ""
 "%sYour SliceWP license has expired.%s This means that you no longer receive "
@@ -5889,168 +5904,168 @@ msgid ""
 "to date and to get back access to support."
 msgstr ""
 
-#: slicewp-pro/index.php:322 slicewp-pro/index.php:357
+#: slicewp-pro/index.php:326 slicewp-pro/index.php:361
 msgid "Renew your license"
 msgstr ""
 
-#: slicewp-pro/index.php:356
+#: slicewp-pro/index.php:360
 #, php-format
 msgid ""
 "Your SliceWP license has expired on %s. This means that you no longer "
 "receive plugin updates or support."
 msgstr ""
 
-#: slicewp-pro/index.php:392
+#: slicewp-pro/index.php:396
 #, php-format
 msgid ""
 "%sSliceWP Pro%s requires the SliceWP core plugin to be installed and active. "
 "Without the core plugin, the Pro extension cannot work."
 msgstr ""
 
-#: slicewp-pro/index.php:398
+#: slicewp-pro/index.php:402
 msgid "Activate core plugin"
 msgstr ""
 
-#: slicewp-pro/index.php:400
+#: slicewp-pro/index.php:404
 msgid "Install & Activate core plugin"
 msgstr ""
 
-#: slicewp-pro/index.php:444 slicewp-pro/index.php:492
+#: slicewp-pro/index.php:448 slicewp-pro/index.php:496
 msgid "SliceWP Pro cannot be loaded!"
 msgstr ""
 
-#: slicewp-pro/index.php:445
+#: slicewp-pro/index.php:449
 msgid ""
 "It looks like SliceWP Pro is not compatible with the SliceWP core plugin "
 "that you currently have active. Please update SliceWP core to the latest "
 "version to ensure compatibility."
 msgstr ""
 
-#: slicewp-pro/index.php:493
+#: slicewp-pro/index.php:497
 msgid ""
 "It looks like you have some of SliceWP's legacy add-ons installed. Because "
 "of this, the new SliceWP Pro plugin cannot be loaded, as it would clash with "
 "the single legacy add-ons."
 msgstr ""
 
-#: slicewp-pro/index.php:494
+#: slicewp-pro/index.php:498
 msgid "But, don't worry. The solution is easy!"
 msgstr ""
 
-#: slicewp-pro/index.php:495
+#: slicewp-pro/index.php:499
 msgid ""
 "Because, all of the legacy add-ons are now included in the SliceWP Pro "
 "plugin, there's no need to keep each legacy add-on active."
 msgstr ""
 
-#: slicewp-pro/index.php:496
+#: slicewp-pro/index.php:500
 msgid ""
 "So, let's deactivate all single legacy add-ons and reactivate them in the "
 "SliceWP Pro plugin."
 msgstr ""
 
-#: slicewp-pro/index.php:497
+#: slicewp-pro/index.php:501
 msgid ""
 "Below you have all the active legacy add-ons that we'll deactivate. Just "
 "click on the migration button at the bottom and we'll do the rest."
 msgstr ""
 
-#: slicewp-pro/index.php:497
+#: slicewp-pro/index.php:501
 #, fuzzy
 #| msgid "Click here to learn more"
 msgid "Click here to learn more about this migration."
 msgstr "Dozvědět se více"
 
-#: slicewp-pro/index.php:505
+#: slicewp-pro/index.php:509
 msgid "Migrate to Pro main plugin"
 msgstr ""
 
-#: slicewp-pro/index.php:587
+#: slicewp-pro/index.php:591
 msgid "Welcome to the new SliceWP Pro experience!"
 msgstr ""
 
-#: slicewp-pro/index.php:589
+#: slicewp-pro/index.php:593
 msgid ""
 "It looks like you have some of SliceWP's individual Pro add-ons installed."
 msgstr ""
 
-#: slicewp-pro/index.php:590
+#: slicewp-pro/index.php:594
 msgid "Going forward you will no longer need them."
 msgstr ""
 
-#: slicewp-pro/index.php:591
+#: slicewp-pro/index.php:595
 msgid ""
 "All the individual add-ons are now packaged into the single, unified, "
 "SliceWP Pro plugin."
 msgstr ""
 
-#: slicewp-pro/index.php:591
+#: slicewp-pro/index.php:595
 #, fuzzy
 #| msgid "Click here to learn more"
 msgid "Click here to learn more."
 msgstr "Dozvědět se více"
 
-#: slicewp-pro/index.php:592
+#: slicewp-pro/index.php:596
 msgid ""
 "So, let's deactivate these add-ons and migrate you over to the Pro plugin."
 msgstr ""
 
-#: slicewp-pro/index.php:594
+#: slicewp-pro/index.php:598
 msgid "Sweet, let's start the migration..."
 msgstr ""
 
-#: slicewp-pro/index.php:600
+#: slicewp-pro/index.php:604
 msgid "Awesome! Here's what the migration process will do..."
 msgstr ""
 
-#: slicewp-pro/index.php:602
+#: slicewp-pro/index.php:606
 msgid ""
 "Firstly, it will deactivate all active SliceWP individual add-ons. Here's "
 "the complete list:"
 msgstr ""
 
-#: slicewp-pro/index.php:610
+#: slicewp-pro/index.php:614
 msgid ""
 "Once the individual add-ons are deactivated, the corresponding settings will "
 "be migrated over to the SliceWP Pro plugin."
 msgstr ""
 
-#: slicewp-pro/index.php:611
+#: slicewp-pro/index.php:615
 #, php-format
 msgid ""
 "The individual add-ons will not be deleted automatically. You'll still find "
 "them in your %sadmin Plugins page%s."
 msgstr ""
 
-#: slicewp-pro/index.php:613
+#: slicewp-pro/index.php:617
 #, fuzzy
 #| msgid "Migrate"
 msgid "Migrate to Pro"
 msgstr "Přemístit"
 
-#: slicewp-pro/index.php:643
+#: slicewp-pro/index.php:647
 #, fuzzy
 #| msgid "Creative updated successfully."
 msgid "SliceWP core plugin activated successfully!"
 msgstr "Aktualizace kampaně úspěšně proběhla."
 
-#: slicewp-pro/index.php:647
+#: slicewp-pro/index.php:651
 #, fuzzy
 #| msgid "The debug log could not be cleared. Please try again."
 msgid "SliceWP core plugin could not be activated! Please try again."
 msgstr "Protokol ladění se nepodařilo vymazat. Prosím zkuste to znovu."
 
-#: slicewp-pro/index.php:651 slicewp-pro/index.php:671
+#: slicewp-pro/index.php:655 slicewp-pro/index.php:675
 msgid ""
 "Single SliceWP add-ons deactivated successfully and migrated to the single "
 "SliceWP Pro plugin."
 msgstr ""
 
-#: slicewp-pro/index.php:668
+#: slicewp-pro/index.php:672
 msgid "Success!"
 msgstr ""
 
-#: slicewp-pro/index.php:672
+#: slicewp-pro/index.php:676
 #, php-format
 msgid ""
 "%sClick here to review your active add-ons%s, just to make sure everything "
@@ -6090,7 +6105,6 @@ msgstr "Dozvědět se více"
 #: slicewp/includes/admin/add-ons/views/view-add-ons.php:91
 #: slicewp/includes/admin/settings/functions.php:43
 #: slicewp/includes/admin/settings/functions.php:44
-#: slicewp/includes/admin/settings/views/view-settings.php:62
 #: slicewp/includes/users/functions.php:119 slicewp/index.php:883
 msgid "Settings"
 msgstr "Nastavení"
@@ -7046,9 +7060,9 @@ msgid "Last 30 days"
 msgstr "Posledních 30 dní"
 
 #: slicewp/includes/admin/dashboard/cards/class-admin-dashboard-card-totals.php:91
-#: slicewp/includes/users/class-list-table-affiliate-account-commissions.php:175
-#: slicewp/includes/users/class-list-table-affiliate-account-payments.php:166
-#: slicewp/includes/users/class-list-table-affiliate-account-visits.php:92
+#: slicewp/includes/users/class-list-table-affiliate-account-commissions.php:199
+#: slicewp/includes/users/class-list-table-affiliate-account-payments.php:190
+#: slicewp/includes/users/class-list-table-affiliate-account-visits.php:131
 #: slicewp/templates/affiliate-area/affiliate-account-tab-dashboard.php:161
 #, fuzzy
 #| msgid "All Time"
@@ -7172,6 +7186,21 @@ msgstr ""
 
 #: slicewp/includes/admin/functions.php:692
 msgid "Explore new features"
+msgstr ""
+
+#: slicewp/includes/admin/functions.php:753
+msgid "Settings just got a major upgrade!"
+msgstr ""
+
+#: slicewp/includes/admin/functions.php:754
+msgid ""
+"We've completely redesigned the SliceWP settings page with a sleek vertical "
+"layout and logical grouping, making it faster and easier than ever to manage "
+"your affiliate program."
+msgstr ""
+
+#: slicewp/includes/admin/functions.php:756
+msgid "See what changed"
 msgstr ""
 
 #: slicewp/includes/admin/payouts/class-list-table-payment-commissions.php:270
@@ -7491,7 +7520,7 @@ msgid "Pay commissions that are in the grace period."
 msgstr ""
 
 #: slicewp/includes/admin/payouts/views/view-create-payout.php:102
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:397
+#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:226
 msgid "Payments Minimum Amount"
 msgstr "Minimální částka pro provizi"
 
@@ -7664,46 +7693,89 @@ msgid "Affiliate Commission Rates"
 msgstr "Sazby provize affiliate partnerů"
 
 #: slicewp/includes/admin/promo/functions.php:126
-#: slicewp/includes/admin/promo/functions.php:261
+#: slicewp/includes/admin/promo/functions.php:227
+#: slicewp/includes/admin/promo/functions.php:283
 msgid "Pro Feature"
 msgstr "Pro"
 
-#: slicewp/includes/admin/promo/functions.php:266
+#: slicewp/includes/admin/promo/functions.php:232
+msgid "Gather exactly the information your affiliate program needs."
+msgstr ""
+
+#: slicewp/includes/admin/promo/functions.php:235
+msgid ""
+"Add text fields, checkboxes, radio buttons, dropdowns and more to your forms."
+msgstr ""
+
+#: slicewp/includes/admin/promo/functions.php:236
 #, fuzzy
 #| msgid ""
 #| "Set which fields should be required for the affiliate to complete on the "
 #| "registration and affiliate account pages."
-msgid "Customize your affiliate registration and affiliate account forms:"
+msgid ""
+"Choose where each field appears: registration form, affiliate account or "
+"admin-only."
 msgstr ""
 "Na stránkách registrace a účtu nastavte, která pole mají být pro affiliate "
 "partnery vyplněna."
 
-#: slicewp/includes/admin/promo/functions.php:268
-msgid "Add custom text fields, checkboxes, radio buttons, selects and more."
-msgstr ""
-
-#: slicewp/includes/admin/promo/functions.php:269
+#: slicewp/includes/admin/promo/functions.php:237
 msgid ""
-"Display these fields on the affiliate register form, affiliate account form "
-"or just in the admin area."
+"Mark fields as required or optional and add labels, placeholders and "
+"descriptions."
 msgstr ""
 
-#: slicewp/includes/admin/promo/functions.php:270
+#: slicewp/includes/admin/promo/functions.php:238
 msgid ""
-"Customize each field! Change the label, placeholder, description and much "
-"more."
+"Reorder fields by dragging them to build the perfect affiliate onboarding "
+"flow."
 msgstr ""
 
-#: slicewp/includes/admin/promo/functions.php:271
-msgid ""
-"Lastly, re-order the fields to create the perfect affiliate onboarding form."
+#: slicewp/includes/admin/promo/functions.php:244
+msgid "Learn More"
 msgstr ""
 
-#: slicewp/includes/admin/promo/functions.php:276
+#: slicewp/includes/admin/promo/functions.php:282
 #, fuzzy
-#| msgid "Enable Google reCAPTCHA on the affiliate registration form."
-msgid "Learn how to customize your affiliate registration form"
-msgstr "Povolte Google reCAPTCHA v registračním formuláři affiliate partnera."
+#| msgid "Commission Rate"
+msgid "More Commission Types"
+msgstr "Provizní sazba"
+
+#: slicewp/includes/admin/promo/functions.php:288
+msgid ""
+"Unlock powerful commission models that go beyond a flat rate and keep "
+"affiliates motivated."
+msgstr ""
+
+#: slicewp/includes/admin/promo/functions.php:291
+msgid ""
+"Recurring Commissions — automatically reward affiliates for every "
+"subscription renewal, not just the first sale."
+msgstr ""
+
+#: slicewp/includes/admin/promo/functions.php:292
+msgid ""
+"Lifetime Commissions — tie customers to affiliates permanently and pay a "
+"commission on every future purchase they make."
+msgstr ""
+
+#: slicewp/includes/admin/promo/functions.php:293
+msgid ""
+"Lead Commissions — pay affiliates for form submissions and leads, not just "
+"completed orders."
+msgstr ""
+
+#: slicewp/includes/admin/promo/functions.php:294
+msgid ""
+"Performance Bonuses — automatically reward top performers when they hit "
+"defined sales or referral targets."
+msgstr ""
+
+#: slicewp/includes/admin/promo/functions.php:300
+#, fuzzy
+#| msgid "All Payments"
+msgid "View All Add-ons"
+msgstr "Všechny platby"
 
 #: slicewp/includes/admin/settings/class-submenu-page-settings.php:31
 msgid "Settings saved successfully."
@@ -7838,8 +7910,8 @@ msgstr ""
 #: slicewp/includes/admin/settings/functions-actions-settings.php:21
 #, php-format
 msgid ""
-"Please set a value greater than 0 (zero) for the %sGeneral > General "
-"Settings > Tracking Cookie Duration%s setting."
+"Please set a value greater than 0 (zero) for the %sGeneral > Referral "
+"Tracking > Tracking Cookie Duration%s setting."
 msgstr ""
 
 #: slicewp/includes/admin/settings/functions-actions-settings.php:31
@@ -7852,7 +7924,7 @@ msgstr ""
 #: slicewp/includes/admin/settings/functions-actions-settings.php:41
 #, php-format
 msgid ""
-"Please complete the %sGeneral > Affiliate URL Settings > Affiliate Keyword%s "
+"Please complete the %sGeneral > Referral Tracking > Affiliate Keyword%s "
 "setting."
 msgstr ""
 
@@ -7915,8 +7987,232 @@ msgstr "Napište něco do obsahu emailu."
 msgid "Default Template"
 msgstr "Výchozí šablona"
 
+#: slicewp/includes/admin/settings/views/view-settings-tab-affiliate-area.php:12
+#, fuzzy
+#| msgid "Registration Date"
+msgid "Registration"
+msgstr "Datum registrace"
+
+#: slicewp/includes/admin/settings/views/view-settings-tab-affiliate-area.php:22
+msgid "Allow Affiliate Registration"
+msgstr "Povolit registraci affiliate partnera"
+
+#: slicewp/includes/admin/settings/views/view-settings-tab-affiliate-area.php:33
+msgid "Allow visitors to register as affiliates."
+msgstr "Povolit návštěvníkům registraci jako affiliate partneři."
+
+#: slicewp/includes/admin/settings/views/view-settings-tab-affiliate-area.php:42
+msgid "Register Affiliates as Active"
+msgstr "Registrace partnera jako schváleného"
+
+#: slicewp/includes/admin/settings/views/view-settings-tab-affiliate-area.php:53
+msgid "New affiliate accounts will be created with Active status."
+msgstr "Nový účet bude vytvořen hned jako schválený."
+
+#: slicewp/includes/admin/settings/views/view-settings-tab-affiliate-area.php:62
+msgid "Auto Register Affiliates"
+msgstr "Automaticky registrovaný affiliate partneři"
+
+#: slicewp/includes/admin/settings/views/view-settings-tab-affiliate-area.php:73
+msgid "Automatically register new user accounts as affiliates."
+msgstr "Automaticky registrovat nového uživatele jako affiliate partnera."
+
+#: slicewp/includes/admin/settings/views/view-settings-tab-affiliate-area.php:83
+msgid "Required Affiliate Fields"
+msgstr "Pole, která jsou vyžadována"
+
+#: slicewp/includes/admin/settings/views/view-settings-tab-affiliate-area.php:84
+msgid ""
+"Set which fields should be required for the affiliate to complete on the "
+"registration and affiliate account pages."
+msgstr ""
+"Na stránkách registrace a účtu nastavte, která pole mají být pro affiliate "
+"partnery vyplněna."
+
+#: slicewp/includes/admin/settings/views/view-settings-tab-affiliate-area.php:138
+msgid "Pages"
+msgstr ""
+
+#: slicewp/includes/admin/settings/views/view-settings-tab-affiliate-area.php:152
+#: slicewp/includes/admin/setup-wizard/views/view-setup-wizard.php:260
+msgid "Affiliate Account Page"
+msgstr "Stránka affiliate účtu"
+
+#: slicewp/includes/admin/settings/views/view-settings-tab-affiliate-area.php:153
+msgid "Select the page you wish to be your affiliates' private area."
+msgstr "Vyberte stránku, kterou chcete mít jako soukromou."
+
+#: slicewp/includes/admin/settings/views/view-settings-tab-affiliate-area.php:178
+#, fuzzy
+#| msgid "Affiliate Registration"
+msgid "Affiliate Registration Page"
+msgstr "Affiliate registrace"
+
+#: slicewp/includes/admin/settings/views/view-settings-tab-affiliate-area.php:179
+#, fuzzy
+#| msgid "Select the page you wish to be your affiliates' private area."
+msgid ""
+"Select the page where your visitors can register for your affiliate program."
+msgstr "Vyberte stránku, kterou chcete mít jako soukromou."
+
+#: slicewp/includes/admin/settings/views/view-settings-tab-affiliate-area.php:204
+msgid "Reset Password Page"
+msgstr ""
+
+#: slicewp/includes/admin/settings/views/view-settings-tab-affiliate-area.php:205
+#, fuzzy
+#| msgid "Select the page you wish to be your affiliates' private area."
+msgid ""
+"Select the page where your affiliates can reset their password in case they "
+"lost it."
+msgstr "Vyberte stránku, kterou chcete mít jako soukromou."
+
+#: slicewp/includes/admin/settings/views/view-settings-tab-affiliate-area.php:230
+msgid "Terms and Conditions Page"
+msgstr "Stránka podmínek služby"
+
+#: slicewp/includes/admin/settings/views/view-settings-tab-affiliate-area.php:255
+msgid "Terms and Conditions Label"
+msgstr "Políčko podmínek služby"
+
+#: slicewp/includes/admin/settings/views/view-settings-tab-affiliate-area.php:256
+msgid "This label will acompanion the Terms and Conditions checkbox."
+msgstr "Tento štítek bude zahrnovat zaškrtávací políčko Smluvních podmínek."
+
+#: slicewp/includes/admin/settings/views/view-settings-tab-affiliate-area.php:272
+#, fuzzy
+#| msgid "Pages Settings"
+msgid "Account Settings"
+msgstr "Nastavení stránek"
+
+#: slicewp/includes/admin/settings/views/view-settings-tab-affiliate-area.php:282
+#, fuzzy
+#| msgid "Affiliate Account"
+msgid "Affiliate Account Logout"
+msgstr "Účet partnera"
+
+#: slicewp/includes/admin/settings/views/view-settings-tab-affiliate-area.php:293
+#, fuzzy
+#| msgid "Replaces the tag with the link to the Affiliate Account Page"
+msgid "Enable to add a logout link in the affiliate account page."
+msgstr "Nahradí značku odkazem na stránku affiliate účtu"
+
+#: slicewp/includes/admin/settings/views/view-settings-tab-affiliate-area.php:310
+#, fuzzy
+#| msgid "Commission Rates"
+msgid "Commission Statuses Display"
+msgstr "Provizní sazby"
+
+#: slicewp/includes/admin/settings/views/view-settings-tab-affiliate-area.php:311
+msgid ""
+"Choose the commission statuses to display in the commissions table of the "
+"affiliate account page."
+msgstr ""
+
+#: slicewp/includes/admin/settings/views/view-settings-tab-affiliate-area.php:327
+msgid "This commission status will always be shown to affiliates."
+msgstr ""
+
+#: slicewp/includes/admin/settings/views/view-settings-tab-affiliate-area.php:358
+#: slicewp/includes/admin/settings/views/view-settings-tab-commissions.php:212
+#: slicewp/includes/admin/settings/views/view-settings-tab-emails.php:287
+#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:365
+#: slicewp/includes/admin/settings/views/view-settings-tab-integrations.php:256
+#: slicewp/includes/admin/settings/views/view-settings-tab-tools.php:221
+msgid "Save Settings"
+msgstr "Uložit nastavení"
+
+#: slicewp/includes/admin/settings/views/view-settings-tab-commissions.php:12
+msgid "Commissions Settings"
+msgstr "Nastavení provize"
+
+#: slicewp/includes/admin/settings/views/view-settings-tab-commissions.php:79
+msgid "Exclude Shipping"
+msgstr "Bez poštovného"
+
+#: slicewp/includes/admin/settings/views/view-settings-tab-commissions.php:80
+msgid "The option is applicable only for WooCommerce."
+msgstr ""
+
+#: slicewp/includes/admin/settings/views/view-settings-tab-commissions.php:91
+msgid "Exclude shipping costs from commission calculations."
+msgstr "Do výpočtů provizí nezahrnujte náklady na dopravu."
+
+#: slicewp/includes/admin/settings/views/view-settings-tab-commissions.php:100
+msgid "Exclude Taxes"
+msgstr "Bez daně"
+
+#: slicewp/includes/admin/settings/views/view-settings-tab-commissions.php:111
+msgid "Exclude taxes from commission calculations."
+msgstr "Do výpočtů provizí nezahrnujte daně."
+
+#: slicewp/includes/admin/settings/views/view-settings-tab-commissions.php:120
+#, fuzzy
+#| msgid "Your Email"
+msgid "New Customers Only"
+msgstr "Váš email"
+
+#: slicewp/includes/admin/settings/views/view-settings-tab-commissions.php:121
+msgid ""
+"By default, affiliates earn a commission for every referred purchase. When "
+"this option is enabled, commissions will only be awarded for a customer's "
+"first purchase."
+msgstr ""
+
+#: slicewp/includes/admin/settings/views/view-settings-tab-commissions.php:121
+#, fuzzy, php-format
+#| msgid "When checked, commissions will not be generated for this product."
+msgid ""
+"%sRecurring commissions%s and %slifetime commissions%s will not be affected "
+"by this option."
+msgstr ""
+"Je-li toto políčko zaškrtnuto, nebudou pro tento produkt generovány provize."
+
+#: slicewp/includes/admin/settings/views/view-settings-tab-commissions.php:132
+#, fuzzy
+#| msgid "Unpaid Commissions"
+msgid "Reward commissions only for customers' first purchase."
+msgstr "Neproplacené provize"
+
+#: slicewp/includes/admin/settings/views/view-settings-tab-commissions.php:141
+msgid "Reject Commissions on Refund"
+msgstr "Storno objednávky"
+
+#: slicewp/includes/admin/settings/views/view-settings-tab-commissions.php:152
+msgid ""
+"Mark unpaid commissions as rejected if the originating purchase is refunded."
+msgstr ""
+"Pokud budou vráceny původní objednávky, označte nevyplacené provize jako "
+"odmítnuté."
+
+#: slicewp/includes/admin/settings/views/view-settings-tab-commissions.php:161
+msgid "Zero Amount Commissions"
+msgstr "Žádné provize"
+
+#: slicewp/includes/admin/settings/views/view-settings-tab-commissions.php:162
+msgid ""
+"Enable the registration of commisions that have the total amount equal to "
+"zero. This is useful if you want to track conversions for fully discounted "
+"products."
+msgstr ""
+"Povolte registraci provizí, jejichž celková částka se rovná nule. To je "
+"užitečné, pokud chcete sledovat převody u plně zlevněných produktů."
+
+#: slicewp/includes/admin/settings/views/view-settings-tab-commissions.php:173
+msgid "Enable the registration of zero sum commisions."
+msgstr "Povolit registraci provizí s nulovou částkou."
+
+#: slicewp/includes/admin/settings/views/view-settings-tab-commissions.php:182
+msgid "Affiliate Own Commissions"
+msgstr "Vlastní provize"
+
+#: slicewp/includes/admin/settings/views/view-settings-tab-commissions.php:193
+#, fuzzy
+#| msgid "Allow affiliates to earn commissions for their own orders."
+msgid "Allow affiliates to earn commissions on self-referred orders."
+msgstr "Povolit partnerovi zvolit si provizi dle vlastní volby."
+
 #: slicewp/includes/admin/settings/views/view-settings-tab-emails.php:12
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:61
 msgid "General Settings"
 msgstr "Obecné nastavení"
 
@@ -7969,7 +8265,7 @@ msgid "The Admin Email Notifications will be sent to these email addresses."
 msgstr "Na tyto emailové adresy budou zasílána emailová oznámení správce."
 
 #: slicewp/includes/admin/settings/views/view-settings-tab-emails.php:104
-#: slicewp/includes/admin/settings/views/view-settings.php:16
+#: slicewp/includes/admin/settings/views/view-settings.php:24
 msgid "Email Notifications"
 msgstr "Emailová upozornění"
 
@@ -8059,162 +8355,138 @@ msgid ""
 "advanced functionality, %sa license key is required%s."
 msgstr ""
 
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:71
-msgid "Allow Affiliate Registration"
-msgstr "Povolit registraci affiliate partnera"
+#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:62
+#, fuzzy
+#| msgid "Usage Tracking"
+msgid "Referral Tracking"
+msgstr "Sledování využití"
 
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:82
-msgid "Allow visitors to register as affiliates."
-msgstr "Povolit návštěvníkům registraci jako affiliate partneři."
+#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:76
+msgid "Affiliate Keyword"
+msgstr "Affiliate označení odkazu"
 
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:91
-msgid "Register Affiliates as Active"
-msgstr "Registrace partnera jako schváleného"
+#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:77
+#, fuzzy
+#| msgid "The URL keyword for affiliate identification: <b>%s/?%s=%s</b>"
+msgid "The URL query parameter name used for affiliate identification."
+msgstr ""
+"Klíčové slovo k odkazu pro identifikaci affiliate partnera: <b>%s/?%s=%s</b>"
 
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:102
-msgid "New affiliate accounts will be created with Active status."
-msgstr "Nový účet bude vytvořen hned jako schválený."
+#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:77
+#, php-format
+msgid "Example: %s"
+msgstr ""
 
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:111
-msgid "Auto Register Affiliates"
-msgstr "Automaticky registrovaný affiliate partneři"
-
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:122
-msgid "Automatically register new user accounts as affiliates."
-msgstr "Automaticky registrovat nového uživatele jako affiliate partnera."
-
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:132
+#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:90
 #: slicewp/includes/admin/setup-wizard/views/view-setup-wizard.php:176
 #, fuzzy
 #| msgid "Cookie Duration"
 msgid "Tracking Cookie Duration"
 msgstr "Uchování cookie souborů"
 
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:133
+#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:91
 #: slicewp/includes/admin/setup-wizard/views/view-setup-wizard.php:177
 #, fuzzy
 #| msgid "The number of days a referral is valid."
 msgid "The number of days a referred visitor is being tracked."
 msgstr "Počet dní, kdy je sledován doporučující odkaz."
 
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:133
+#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:91
 #: slicewp/includes/admin/setup-wizard/views/view-setup-wizard.php:177
 msgid ""
 "If the referred visitor makes a purchase in this timeframe, the referring "
 "affiliate will be rewarded a commission."
 msgstr ""
 
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:160
-msgid "Commissions Settings"
-msgstr "Nastavení provize"
-
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:227
-msgid "Exclude Shipping"
-msgstr "Bez poštovného"
-
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:228
-msgid "The option is applicable only for WooCommerce."
+#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:97
+msgid "Days"
 msgstr ""
 
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:239
-msgid "Exclude shipping costs from commission calculations."
-msgstr "Do výpočtů provizí nezahrnujte náklady na dopravu."
+#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:107
+msgid "Credit First/Last Affiliate"
+msgstr "Jak přiřadit partnera"
 
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:248
-msgid "Exclude Taxes"
-msgstr "Bez daně"
+#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:112
+msgid "First Affiliate"
+msgstr "Nejdříve partner"
 
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:259
-msgid "Exclude taxes from commission calculations."
-msgstr "Do výpočtů provizí nezahrnujte daně."
+#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:113
+msgid "Last Affiliate"
+msgstr "Nakonec partner"
 
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:268
+#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:123
 #, fuzzy
-#| msgid "Your Email"
-msgid "New Customers Only"
-msgstr "Váš email"
+#| msgid "Pay Affiliates"
+msgid "Friendly Affiliate URLs"
+msgstr "Vyplatit affiliate partnery"
 
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:269
-msgid ""
-"By default, affiliates earn a commission for every referred purchase. When "
-"this option is enabled, commissions will only be awarded for a customer's "
-"first purchase."
+#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:124
+msgid "When enabled, the affiliate referral links will look like this:"
 msgstr ""
 
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:269
-#, fuzzy, php-format
-#| msgid "When checked, commissions will not be generated for this product."
-msgid ""
-"%sRecurring commissions%s and %slifetime commissions%s will not be affected "
-"by this option."
+#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:124
+msgid "Instead of this:"
 msgstr ""
-"Je-li toto políčko zaškrtnuto, nebudou pro tento produkt generovány provize."
 
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:280
+#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:135
 #, fuzzy
-#| msgid "Unpaid Commissions"
-msgid "Reward commissions only for customers' first purchase."
-msgstr "Neproplacené provize"
+#| msgid "Users Affiliate User Role"
+msgid "Use friendly affiliate URLs."
+msgstr "Role affiliate partnerů"
 
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:289
-msgid "Reject Commissions on Refund"
-msgstr "Storno objednávky"
+#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:144
+#, fuzzy
+#| msgid "Affiliate Links"
+msgid "Affiliate Link QR Code"
+msgstr "Affiliate odkazy"
 
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:300
+#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:145
 msgid ""
-"Mark unpaid commissions as rejected if the originating purchase is refunded."
+"When enabled, your affiliates will have the option to view and download the "
+"QR code for their affiliate referral links."
 msgstr ""
-"Pokud budou vráceny původní objednávky, označte nevyplacené provize jako "
-"odmítnuté."
 
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:309
-msgid "Zero Amount Commissions"
-msgstr "Žádné provize"
+#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:156
+#, fuzzy
+#| msgid "Replaces the tag with the link to the Affiliate Account Page"
+msgid "Show QR code for affiliate URLs in the affiliate account."
+msgstr "Nahradí značku odkazem na stránku affiliate účtu"
 
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:310
+#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:165
+#, fuzzy
+#| msgid "Default Template"
+msgid "Default URL Override"
+msgstr "Výchozí šablona"
+
+#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:166
 msgid ""
-"Enable the registration of commisions that have the total amount equal to "
-"zero. This is useful if you want to track conversions for fully discounted "
-"products."
+"The default affiliate referral URL shown in the affiliate account. If left "
+"empty, your website's home URL will be used."
 msgstr ""
-"Povolte registraci provizí, jejichž celková částka se rovná nule. To je "
-"užitečné, pokud chcete sledovat převody u plně zlevněných produktů."
 
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:321
-msgid "Enable the registration of zero sum commisions."
-msgstr "Povolit registraci provizí s nulovou částkou."
-
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:330
-msgid "Affiliate Own Commissions"
-msgstr "Vlastní provize"
-
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:341
-msgid "Allow affiliates to earn commissions for their own orders."
-msgstr "Povolit partnerovi zvolit si provizi dle vlastní volby."
-
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:353
+#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:182
 #, fuzzy
 #| msgid "Pages Settings"
 msgid "Payouts Settings"
 msgstr "Nastavení stránek"
 
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:371
+#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:200
 #, fuzzy
 #| msgid "Payout Method"
 msgid "Default Payout Method"
 msgstr "Způsob výplaty"
 
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:398
+#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:227
 msgid ""
 "Set a minimum commissions total amount that your affiliates need to reach to "
 "be eligible for payment."
 msgstr ""
 
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:414
+#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:243
 msgid "Refund Grace Period"
 msgstr ""
 
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:415
+#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:244
 msgid ""
 "The grace period (set in number of days) is used when generating payouts for "
 "your affiliates. It helps you filter out commissions that could still be "
@@ -8222,226 +8494,54 @@ msgid ""
 "this equal to your store refund policy."
 msgstr ""
 
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:443
-msgid "Affiliate URL Settings"
-msgstr "Nastavení partnerova odkazu"
-
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:457
-msgid "Affiliate Keyword"
-msgstr "Affiliate označení odkazu"
-
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:458
-#, fuzzy
-#| msgid "The URL keyword for affiliate identification: <b>%s/?%s=%s</b>"
-msgid "The URL query parameter name used for affiliate identification."
-msgstr ""
-"Klíčové slovo k odkazu pro identifikaci affiliate partnera: <b>%s/?%s=%s</b>"
-
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:458
-#, php-format
-msgid "Example: %s"
-msgstr ""
-
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:471
-#, fuzzy
-#| msgid "Pay Affiliates"
-msgid "Friendly Affiliate URLs"
-msgstr "Vyplatit affiliate partnery"
-
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:472
-msgid "When enabled, the affiliate referral links will look like this:"
-msgstr ""
-
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:472
-msgid "Instead of this:"
-msgstr ""
-
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:483
-#, fuzzy
-#| msgid "Users Affiliate User Role"
-msgid "Use friendly affiliate URLs."
-msgstr "Role affiliate partnerů"
-
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:492
-msgid "Credit First/Last Affiliate"
-msgstr "Jak přiřadit partnera"
-
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:497
-msgid "First Affiliate"
-msgstr "Nejdříve partner"
-
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:498
-msgid "Last Affiliate"
-msgstr "Nakonec partner"
-
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:508
-#, fuzzy
-#| msgid "Affiliate Links"
-msgid "Affiliate Link QR Code"
-msgstr "Affiliate odkazy"
-
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:509
-msgid ""
-"When enabled, your affiliates will have the option to view and download the "
-"QR code for their affiliate referral links."
-msgstr ""
-
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:520
-#, fuzzy
-#| msgid "Replaces the tag with the link to the Affiliate Account Page"
-msgid "Show QR code for affiliate URLs in the affiliate account."
-msgstr "Nahradí značku odkazem na stránku affiliate účtu"
-
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:533
+#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:270
 msgid "Currency Settings"
 msgstr "Nastavení měny"
 
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:561
+#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:298
 msgid "Currency Symbol Position"
 msgstr "Pozice zkratky měny"
 
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:562
+#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:299
 msgid ""
 "The position of the currency symbol in relation with the amount value, when "
 "displaying amounts."
 msgstr "Poloha symbolu měny při zobrazení částky."
 
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:567
+#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:304
 msgid "Before amount"
 msgstr "Před částkou"
 
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:568
+#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:305
 msgid "After amount"
 msgstr "Po částce"
 
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:569
+#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:306
 msgid "Before amount with space"
 msgstr "Před částkou s mezerou"
 
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:570
+#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:307
 msgid "After amount with space"
 msgstr "Po částce s mezerou"
 
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:580
+#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:317
 msgid "Thousands Separator"
 msgstr "Oddělovač tisíců"
 
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:581
+#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:318
 msgid ""
 "The symbol to separate thousands. This is usually a , (comma) or a . (dot)."
 msgstr "Symbol k oddělení tisíců. Je to obvykle čárka nebo tečka."
 
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:594
+#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:331
 msgid "Decimal Separator"
 msgstr "Oddělovač desítek"
 
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:595
+#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:332
 msgid ""
 "The symbol to separate decimal points. This is usually a , (comma) or a . "
 "(dot)."
 msgstr "Symbol oddělující desetinná místa. Je to obvykle čárka nebo tečka."
-
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:612
-msgid "Pages Settings"
-msgstr "Nastavení stránek"
-
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:626
-#: slicewp/includes/admin/setup-wizard/views/view-setup-wizard.php:260
-msgid "Affiliate Account Page"
-msgstr "Stránka affiliate účtu"
-
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:627
-msgid "Select the page you wish to be your affiliates' private area."
-msgstr "Vyberte stránku, kterou chcete mít jako soukromou."
-
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:652
-#, fuzzy
-#| msgid "Affiliate Registration"
-msgid "Affiliate Registration Page"
-msgstr "Affiliate registrace"
-
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:653
-#, fuzzy
-#| msgid "Select the page you wish to be your affiliates' private area."
-msgid ""
-"Select the page where your visitors can register for your affiliate program."
-msgstr "Vyberte stránku, kterou chcete mít jako soukromou."
-
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:678
-msgid "Reset Password Page"
-msgstr ""
-
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:679
-#, fuzzy
-#| msgid "Select the page you wish to be your affiliates' private area."
-msgid ""
-"Select the page where your affiliates can reset their password in case they "
-"lost it."
-msgstr "Vyberte stránku, kterou chcete mít jako soukromou."
-
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:704
-msgid "Terms and Conditions Page"
-msgstr "Stránka podmínek služby"
-
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:729
-msgid "Terms and Conditions Label"
-msgstr "Políčko podmínek služby"
-
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:730
-msgid "This label will acompanion the Terms and Conditions checkbox."
-msgstr "Tento štítek bude zahrnovat zaškrtávací políčko Smluvních podmínek."
-
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:743
-#, fuzzy
-#| msgid "Affiliate Account"
-msgid "Affiliate Account Logout"
-msgstr "Účet partnera"
-
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:754
-#, fuzzy
-#| msgid "Replaces the tag with the link to the Affiliate Account Page"
-msgid "Enable to add a logout link in the affiliate account page."
-msgstr "Nahradí značku odkazem na stránku affiliate účtu"
-
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:763
-#, fuzzy
-#| msgid "Affiliate Details"
-msgid "Affiliate Default Referral URL"
-msgstr "Affiliate detaily"
-
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:764
-msgid ""
-"The default affiliate referral URL shown in the affiliate account. If left "
-"empty, your website's home URL will be used."
-msgstr ""
-
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:777
-msgid "Required Affiliate Fields"
-msgstr "Pole, která jsou vyžadována"
-
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:778
-msgid ""
-"Set which fields should be required for the affiliate to complete on the "
-"registration and affiliate account pages."
-msgstr ""
-"Na stránkách registrace a účtu nastavte, která pole mají být pro affiliate "
-"partnery vyplněna."
-
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:837
-#, fuzzy
-#| msgid "Commission Rates"
-msgid "Commission Statuses Display"
-msgstr "Provizní sazby"
-
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:838
-msgid ""
-"Choose the commission statuses to display in the commissions table of the "
-"affiliate account page."
-msgstr ""
-
-#: slicewp/includes/admin/settings/views/view-settings-tab-general.php:854
-msgid "This commission status will always be shown to affiliates."
-msgstr ""
 
 #: slicewp/includes/admin/settings/views/view-settings-tab-integrations.php:54
 msgid "Captcha"
@@ -8508,6 +8608,12 @@ msgid "Affiliate Registration Blocklist"
 msgstr "Affiliate registrace"
 
 #: slicewp/includes/admin/settings/views/view-settings-tab-tools.php:32
+msgid ""
+"Add a list of email addresses or domains (one per line), that you'd like to "
+"block from creating affiliate accounts on your website."
+msgstr ""
+
+#: slicewp/includes/admin/settings/views/view-settings-tab-tools.php:32
 msgid "For example:"
 msgstr ""
 
@@ -8524,12 +8630,6 @@ msgstr ""
 msgid ""
 "%swebsite.com%s - If you add a domain, all email addresses associated with "
 "this domain will be blocked from being able to create an affiliate account."
-msgstr ""
-
-#: slicewp/includes/admin/settings/views/view-settings-tab-tools.php:32
-msgid ""
-"<p>Add a list of email addresses or domains (one per line), that you'd like "
-"to block from creating affiliate accounts on your website.</p><p>"
 msgstr ""
 
 #: slicewp/includes/admin/settings/views/view-settings-tab-tools.php:49
@@ -8643,12 +8743,18 @@ msgstr "Zjistěte více o tom, co sledujeme a co ne."
 msgid "General"
 msgstr "Obecné"
 
-#: slicewp/includes/admin/settings/views/view-settings.php:12
+#: slicewp/includes/admin/settings/views/view-settings.php:16
+#, fuzzy
+#| msgid "Affiliate Pages"
+msgid "Affiliate Area"
+msgstr "Affiliate stránky"
+
+#: slicewp/includes/admin/settings/views/view-settings.php:20
 #: slicewp/includes/admin/setup-wizard/class-submenu-page-setup-wizard.php:59
 msgid "Integrations"
 msgstr "Integrace"
 
-#: slicewp/includes/admin/settings/views/view-settings.php:20
+#: slicewp/includes/admin/settings/views/view-settings.php:28
 msgid "Tools"
 msgstr "Nástroje"
 
@@ -9070,7 +9176,9 @@ msgid "Replaces the tag with the affiliate's email"
 msgstr "Nahradí značku emailem přidruženého subjektu"
 
 #: slicewp/includes/base/class-merge-tags.php:99
-msgid "replaces the tag with the affiliate's first name"
+#, fuzzy
+#| msgid "replaces the tag with the affiliate's first name"
+msgid "Replaces the tag with the affiliate's first name"
 msgstr "nahradí značku křestním jménem affiliate partnera"
 
 #: slicewp/includes/base/class-merge-tags.php:104
@@ -9306,8 +9414,8 @@ msgid "Your website has been successfully registered."
 msgstr "Vaše webové stránky byly úspěšně zaregistrovány."
 
 #: slicewp/includes/base/functions-actions-ajax.php:203
-#: slicewp/includes/base/functions-utils.php:548
-#: slicewp/includes/base/functions-utils.php:553
+#: slicewp/includes/base/functions-utils.php:555
+#: slicewp/includes/base/functions-utils.php:560
 msgid "Something went wrong. Could not activate the website. Please try again."
 msgstr "Něco se pokazilo. Web se nepodařilo aktivovat. Prosím zkuste to znovu."
 
@@ -16806,36 +16914,36 @@ msgstr ""
 msgid "West African CFA franc"
 msgstr ""
 
-#: slicewp/includes/base/functions-utils.php:544
 #: slicewp/includes/base/functions-utils.php:551
+#: slicewp/includes/base/functions-utils.php:558
 msgid "The provided license key does not exist or is invalid."
 msgstr "Poskytnutý licenční klíč neexistuje nebo je neplatný."
 
-#: slicewp/includes/base/functions-utils.php:545
+#: slicewp/includes/base/functions-utils.php:552
 msgid "The provided license key is inactive."
 msgstr "Poskytnutý licenční klíč je neaktivní."
 
-#: slicewp/includes/base/functions-utils.php:546
+#: slicewp/includes/base/functions-utils.php:553
 msgid "The provided license key is expired."
 msgstr "Platnost poskytnutého licenčního klíče vypršela."
 
-#: slicewp/includes/base/functions-utils.php:547
+#: slicewp/includes/base/functions-utils.php:554
 msgid "The activation limit for this license key has been reached."
 msgstr ""
 
-#: slicewp/includes/base/functions-utils.php:552
+#: slicewp/includes/base/functions-utils.php:559
 msgid "This website is not registered on our system."
 msgstr "Tato webová stránka není v našem systému zaregistrována."
 
 #: slicewp/includes/base/integrations/easy-digital-downloads/functions-hooks-integration-easy-digital-downloads.php:523
-#: slicewp/includes/base/integrations/getpaid/functions-hooks-integration-getpaid.php:367
-#: slicewp/includes/base/integrations/memberpress/functions-hooks-integration-memberpress.php:370
-#: slicewp/includes/base/integrations/paid-member-subscriptions/functions-hooks-integration-paid-member-subscriptions.php:396
+#: slicewp/includes/base/integrations/getpaid/functions-hooks-integration-getpaid.php:370
+#: slicewp/includes/base/integrations/memberpress/functions-hooks-integration-memberpress.php:373
+#: slicewp/includes/base/integrations/paid-member-subscriptions/functions-hooks-integration-paid-member-subscriptions.php:399
 #: slicewp/includes/base/integrations/paid-memberships-pro/functions-hooks-integration-paid-memberships-pro.php:463
-#: slicewp/includes/base/integrations/restrict-content-pro/functions-hooks-integration-restrict-content-pro.php:365
-#: slicewp/includes/base/integrations/studiocart/functions-hooks-integration-studiocart.php:337
-#: slicewp/includes/base/integrations/surecart/functions-hooks-integration-surecart.php:297
-#: slicewp/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:548
+#: slicewp/includes/base/integrations/restrict-content-pro/functions-hooks-integration-restrict-content-pro.php:368
+#: slicewp/includes/base/integrations/studiocart/functions-hooks-integration-studiocart.php:340
+#: slicewp/includes/base/integrations/surecart/functions-hooks-integration-surecart.php:300
+#: slicewp/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:554
 #, fuzzy, php-format
 #| msgid ""
 #| "Mark unpaid commissions as rejected if the originating purchase is "
@@ -16853,8 +16961,8 @@ msgid "%1$s Commission Settings"
 msgstr "%1$s nastavení provizí"
 
 #: slicewp/includes/base/integrations/easy-digital-downloads/functions-hooks-integration-easy-digital-downloads.php:654
-#: slicewp/includes/base/integrations/studiocart/functions-hooks-integration-studiocart.php:459
-#: slicewp/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:796
+#: slicewp/includes/base/integrations/studiocart/functions-hooks-integration-studiocart.php:462
+#: slicewp/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:802
 msgid ""
 "The product commission rate settings are not available because the "
 "commissions for this product category are disabled."
@@ -16869,52 +16977,52 @@ msgstr "Zakázat provize pro %s"
 
 #: slicewp/includes/base/integrations/easy-digital-downloads/functions-hooks-integration-easy-digital-downloads.php:761
 #: slicewp/includes/base/integrations/easy-digital-downloads/functions-hooks-integration-easy-digital-downloads.php:799
-#: slicewp/includes/base/integrations/getpaid/functions-hooks-integration-getpaid.php:606
-#: slicewp/includes/base/integrations/memberpress/functions-hooks-integration-memberpress.php:506
-#: slicewp/includes/base/integrations/paid-member-subscriptions/functions-hooks-integration-paid-member-subscriptions.php:528
+#: slicewp/includes/base/integrations/getpaid/functions-hooks-integration-getpaid.php:609
+#: slicewp/includes/base/integrations/memberpress/functions-hooks-integration-memberpress.php:509
+#: slicewp/includes/base/integrations/paid-member-subscriptions/functions-hooks-integration-paid-member-subscriptions.php:531
 #: slicewp/includes/base/integrations/paid-memberships-pro/functions-hooks-integration-paid-memberships-pro.php:585
-#: slicewp/includes/base/integrations/studiocart/functions-hooks-integration-studiocart.php:575
-#: slicewp/includes/base/integrations/studiocart/functions-hooks-integration-studiocart.php:613
+#: slicewp/includes/base/integrations/studiocart/functions-hooks-integration-studiocart.php:578
+#: slicewp/includes/base/integrations/studiocart/functions-hooks-integration-studiocart.php:616
 msgid "Disable Commissions"
 msgstr "Zakázat provize"
 
 #: slicewp/includes/base/integrations/easy-digital-downloads/functions-hooks-integration-easy-digital-downloads.php:763
 #: slicewp/includes/base/integrations/easy-digital-downloads/functions-hooks-integration-easy-digital-downloads.php:803
-#: slicewp/includes/base/integrations/studiocart/functions-hooks-integration-studiocart.php:577
-#: slicewp/includes/base/integrations/studiocart/functions-hooks-integration-studiocart.php:617
-#: slicewp/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:1046
-#: slicewp/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:1086
+#: slicewp/includes/base/integrations/studiocart/functions-hooks-integration-studiocart.php:580
+#: slicewp/includes/base/integrations/studiocart/functions-hooks-integration-studiocart.php:620
+#: slicewp/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:1052
+#: slicewp/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:1092
 msgid ""
 "When checked, commissions will not be generated for this product category."
 msgstr ""
 "Je-li toto políčko zaškrtnuto, provize se pro tuto kategorii produktů "
 "generovat nebudou."
 
-#: slicewp/includes/base/integrations/getpaid/functions-hooks-integration-getpaid.php:560
+#: slicewp/includes/base/integrations/getpaid/functions-hooks-integration-getpaid.php:563
 #, fuzzy
 #| msgid "Commissions Settings"
 msgid "Commission settings"
 msgstr "Nastavení provize"
 
-#: slicewp/includes/base/integrations/getpaid/functions-hooks-integration-getpaid.php:617
+#: slicewp/includes/base/integrations/getpaid/functions-hooks-integration-getpaid.php:620
 #, fuzzy
 #| msgid "Disable commissions for this %s"
 msgid "Disable commissions for this item"
 msgstr "Zakázat provize pro %s"
 
-#: slicewp/includes/base/integrations/memberpress/functions-hooks-integration-memberpress.php:463
-#: slicewp/includes/base/integrations/paid-member-subscriptions/functions-hooks-integration-paid-member-subscriptions.php:485
+#: slicewp/includes/base/integrations/memberpress/functions-hooks-integration-memberpress.php:466
+#: slicewp/includes/base/integrations/paid-member-subscriptions/functions-hooks-integration-paid-member-subscriptions.php:488
 #: slicewp/includes/base/integrations/paid-memberships-pro/functions-hooks-integration-paid-memberships-pro.php:556
 msgid "Subscription Commission Settings"
 msgstr "Nastavení provize za předplatné"
 
-#: slicewp/includes/base/integrations/memberpress/functions-hooks-integration-memberpress.php:509
+#: slicewp/includes/base/integrations/memberpress/functions-hooks-integration-memberpress.php:512
 #, fuzzy
 #| msgid "Disable commissions for this %s"
 msgid "Disable commissions for this membership."
 msgstr "Zakázat provize pro %s"
 
-#: slicewp/includes/base/integrations/paid-member-subscriptions/functions-hooks-integration-paid-member-subscriptions.php:531
+#: slicewp/includes/base/integrations/paid-member-subscriptions/functions-hooks-integration-paid-member-subscriptions.php:534
 msgid "Disable all commissions for this subscription plan."
 msgstr "Zakázat všechny provize pro tento plán předplatného."
 
@@ -16922,24 +17030,24 @@ msgstr "Zakázat všechny provize pro tento plán předplatného."
 msgid "Disable commissions for this subscription."
 msgstr "Zakázat provize pro toto předplatné."
 
-#: slicewp/includes/base/integrations/restrict-content-pro/functions-hooks-integration-restrict-content-pro.php:452
-#: slicewp/includes/base/integrations/studiocart/functions-hooks-integration-studiocart.php:420
+#: slicewp/includes/base/integrations/restrict-content-pro/functions-hooks-integration-restrict-content-pro.php:455
+#: slicewp/includes/base/integrations/studiocart/functions-hooks-integration-studiocart.php:423
 #: slicewp/includes/base/integrations/upsell/functions-hooks-integration-upsell.php:400
 #, fuzzy
 #| msgid "Commissions Settings"
 msgid "Commission Settings"
 msgstr "Nastavení provize"
 
-#: slicewp/includes/base/integrations/restrict-content-pro/functions-hooks-integration-restrict-content-pro.php:479
-#: slicewp/includes/base/integrations/studiocart/functions-hooks-integration-studiocart.php:479
+#: slicewp/includes/base/integrations/restrict-content-pro/functions-hooks-integration-restrict-content-pro.php:482
+#: slicewp/includes/base/integrations/studiocart/functions-hooks-integration-studiocart.php:482
 #: slicewp/includes/base/integrations/upsell/functions-hooks-integration-upsell.php:429
-#: slicewp/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:810
-#: slicewp/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:1044
-#: slicewp/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:1082
+#: slicewp/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:816
+#: slicewp/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:1050
+#: slicewp/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:1088
 msgid "Disable commissions"
 msgstr "Zakázat provize"
 
-#: slicewp/includes/base/integrations/restrict-content-pro/functions-hooks-integration-restrict-content-pro.php:483
+#: slicewp/includes/base/integrations/restrict-content-pro/functions-hooks-integration-restrict-content-pro.php:486
 #, fuzzy
 #| msgid "Disable commissions for this %s"
 msgid "Disable commissions for this membership level."
@@ -16953,7 +17061,7 @@ msgid ""
 msgstr ""
 "Je-li toto políčko zaškrtnuto, nebudou pro tento produkt generovány provize."
 
-#: slicewp/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:785
+#: slicewp/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:791
 msgid ""
 "Here you can make commission customizations for this product. These settings "
 "will be used to calculate the commissions for this product."
@@ -16961,16 +17069,16 @@ msgstr ""
 "Zde můžete provést upravení provize pro tento produkt. Tato nastavení budou "
 "použita k výpočtu provizí pro tento produkt."
 
-#: slicewp/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:811
+#: slicewp/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:817
 msgid "When checked, commissions will not be generated for this product."
 msgstr ""
 "Je-li toto políčko zaškrtnuto, nebudou pro tento produkt generovány provize."
 
-#: slicewp/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:913
+#: slicewp/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:919
 msgid "SliceWP Commission Settings"
 msgstr "SliceWP nastavení provizí"
 
-#: slicewp/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:930
+#: slicewp/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:936
 msgid ""
 "The product variation commission rate settings are not available because the "
 "commissions for this product category are disabled."
@@ -16978,7 +17086,7 @@ msgstr ""
 "Nastavení míry provize pro variace produktu není k dispozici, protože "
 "provize pro tuto kategorii produktů jsou deaktivovány."
 
-#: slicewp/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:939
+#: slicewp/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:945
 msgid ""
 "The product variation commission rate settings are not available because the "
 "commissions for this product are disabled."
@@ -16986,11 +17094,11 @@ msgstr ""
 "Nastavení sazby provize pro variace produktu není k dispozici, protože "
 "provize pro tento produkt jsou deaktivovány."
 
-#: slicewp/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:957
+#: slicewp/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:963
 msgid "Disable commissions for this product variation"
 msgstr "Zakázat provize pro tuto variantu produktů"
 
-#: slicewp/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:1181
+#: slicewp/includes/base/integrations/woocommerce/functions-hooks-integration-woocommerce.php:1187
 #, php-format
 msgid "A %s commission (%s) has been registered for affiliate %s (%s)"
 msgstr ""
@@ -17196,8 +17304,8 @@ msgstr ""
 msgid "The following commissions have been included in this payout."
 msgstr ""
 
-#: slicewp/includes/users/functions.php:334
-#: slicewp/includes/users/functions.php:340
+#: slicewp/includes/users/functions.php:338
+#: slicewp/includes/users/functions.php:344
 #, fuzzy
 #| msgid "Visits"
 msgid "Visit"
@@ -17675,6 +17783,23 @@ msgstr ""
 msgid "Save new password"
 msgstr ""
 
+#, fuzzy
+#~| msgid "Enable Google reCAPTCHA on the affiliate registration form."
+#~ msgid "Learn how to customize your affiliate registration form"
+#~ msgstr ""
+#~ "Povolte Google reCAPTCHA v registračním formuláři affiliate partnera."
+
+#~ msgid "Affiliate URL Settings"
+#~ msgstr "Nastavení partnerova odkazu"
+
+#~ msgid "Pages Settings"
+#~ msgstr "Nastavení stránek"
+
+#, fuzzy
+#~| msgid "Affiliate Details"
+#~ msgid "Affiliate Default Referral URL"
+#~ msgstr "Affiliate detaily"
+
 #, fuzzy, php-format
 #~| msgid "Last 30 Days"
 #~ msgid "Last %s Days"
@@ -17751,11 +17876,6 @@ msgstr ""
 #~ msgid "Enable Google reCAPTCHA on affiliate forms."
 #~ msgstr ""
 #~ "Povolte Google reCAPTCHA v registračním formuláři affiliate partnera."
-
-#, fuzzy
-#~| msgid "Default Template"
-#~ msgid "Default Tweet"
-#~ msgstr "Výchozí šablona"
 
 #, fuzzy
 #~| msgid "Learn how to use SliceWP"

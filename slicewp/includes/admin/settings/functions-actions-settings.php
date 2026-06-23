@@ -18,7 +18,7 @@ function slicewp_admin_action_save_settings() {
 	// Verify for Cookie Duration.
 	if ( empty( $_POST['settings']['cookie_duration'] ) || $_POST['settings']['cookie_duration'] < 0 ) {
 
-		slicewp_admin_notices()->register_notice( 'settings_cookie_duration_error', '<p>' . sprintf( __( 'Please set a value greater than 0 (zero) for the %sGeneral > General Settings > Tracking Cookie Duration%s setting.', 'slicewp' ), '<strong>', '</strong>' ) . '</p>', 'error' );
+		slicewp_admin_notices()->register_notice( 'settings_cookie_duration_error', '<p>' . sprintf( __( 'Please set a value greater than 0 (zero) for the %sGeneral > Referral Tracking > Tracking Cookie Duration%s setting.', 'slicewp' ), '<strong>', '</strong>' ) . '</p>', 'error' );
 		slicewp_admin_notices()->display_notice( 'settings_cookie_duration_error' );
 
 		return;
@@ -38,7 +38,7 @@ function slicewp_admin_action_save_settings() {
 	// Verify for Affiliate Keyword.
 	if ( empty( $_POST['settings']['affiliate_keyword'] ) ) {
 
-		slicewp_admin_notices()->register_notice( 'settings_affiliate_keyword_error', '<p>' . sprintf( __( 'Please complete the %sGeneral > Affiliate URL Settings > Affiliate Keyword%s setting.', 'slicewp' ), '<strong>', '</strong>' ) . '</p>', 'error' );
+		slicewp_admin_notices()->register_notice( 'settings_affiliate_keyword_error', '<p>' . sprintf( __( 'Please complete the %sGeneral > Referral Tracking > Affiliate Keyword%s setting.', 'slicewp' ), '<strong>', '</strong>' ) . '</p>', 'error' );
 		slicewp_admin_notices()->display_notice( 'settings_affiliate_keyword_error' );	
 
 		return;
@@ -100,7 +100,7 @@ function slicewp_admin_action_save_settings() {
 	// Verify that if Email Notifications are enabled, the Subject and Content fields are filled.
 	$email_notifications = slicewp_get_available_email_notifications();
 	
-	foreach( $email_notifications as $email_notification_slug => $email ) {
+	foreach ( $email_notifications as $email_notification_slug => $email ) {
 
 		if ( ! empty( $_POST['settings']['email_notifications'][$email_notification_slug]['enabled'] ) && empty( $_POST['settings']['email_notifications'][$email_notification_slug]['subject'] ) ) {
 
