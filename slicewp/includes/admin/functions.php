@@ -690,7 +690,7 @@ function slicewp_admin_notice_version_1_2_2() {
 				<p style="font-size: 14px;"><?php echo sprintf( __( "SliceWP's reports page just got a big upgrade, featuring a new referral sales tab, a smarter date picker, and improved KPIs for easier performance tracking.", 'slicewp' ), '<strong>', '</strong>', '<strong>', '</strong>' ); ?></p>
 
 				<a target="_blank" style="margin-top: 10px; margin-right: 10px;" href="<?php echo esc_url( 'https://slicewp.com/blog/product-update-improved-reports/' ); ?>" class="button-primary"><?php echo __( 'Explore new features', 'slicewp' ); ?></a>
-				<a href="<?php echo wp_nonce_url( add_query_arg( array( 'slicewp_action' => 'dismiss_notice', 'notice_slug' => 'version_1_2_2' ) ), 'slicewp_dismiss_notice', 'slicewp_token' ); ?>"><?php echo __( 'Dismiss notice', 'slicewp' ); ?></a>
+				<a href="<?php echo esc_url( wp_nonce_url( add_query_arg( array( 'slicewp_action' => 'dismiss_notice', 'notice_slug' => 'version_1_2_2' ) ), 'slicewp_dismiss_notice', 'slicewp_token' ) ); ?>"><?php echo __( 'Dismiss notice', 'slicewp' ); ?></a>
 			</div>
 
 		</div>
@@ -754,7 +754,7 @@ function slicewp_admin_notice_version_1_2_10() {
 					<p style="font-size: 14px;"><?php echo sprintf( __( "We've completely redesigned the SliceWP settings page with a sleek vertical layout and logical grouping, making it faster and easier than ever to manage your affiliate program.", 'slicewp' ), '<strong>', '</strong>', '<strong>', '</strong>' ); ?></p>
 
 					<a target="_blank" style="margin-top: 10px; margin-right: 10px;" href="<?php echo esc_url( 'https://slicewp.com/blog/product-update-rethinking-the-settings-page/' ); ?>" class="button-primary"><?php echo __( 'See what changed', 'slicewp' ); ?></a>
-					<a href="<?php echo wp_nonce_url( add_query_arg( array( 'slicewp_action' => 'dismiss_notice', 'notice_slug' => 'version_1_2_10' ) ), 'slicewp_dismiss_notice', 'slicewp_token' ); ?>"><?php echo __( 'Dismiss notice', 'slicewp' ); ?></a>
+					<a href="<?php echo esc_url( wp_nonce_url( add_query_arg( array( 'slicewp_action' => 'dismiss_notice', 'notice_slug' => 'version_1_2_10' ) ), 'slicewp_dismiss_notice', 'slicewp_token' ) ); ?>"><?php echo __( 'Dismiss notice', 'slicewp' ); ?></a>
 				</div>
 
 			</div>

@@ -53,8 +53,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 		<p style="margin-top: 0;"><?php echo __( 'If you want to add or remove the Affiliate user role in bulk, to or from all affiliates, please click the corresponding button below.', 'slicewp' ); ?></p>
 
-		<a href="<?php echo wp_nonce_url( add_query_arg( array( 'slicewp_action' => 'bulk_add_affiliate_user_role' ) ), 'slicewp_bulk_add_affiliate_user_role', 'slicewp_token' ); ?>" onclick="return confirm( '<?php echo __( 'Are you sure you want to add the user role Affiliate to all users that are also affiliates in SliceWP?', 'slicewp' ); ?>')" class="slicewp-button-secondary"><?php echo __( 'Bulk Add Affiliate User Role', 'slicewp' ); ?></a>
-		<a href="<?php echo wp_nonce_url( add_query_arg( array( 'slicewp_action' => 'bulk_remove_affiliate_user_role' ) ), 'slicewp_bulk_remove_affiliate_user_role', 'slicewp_token' ); ?>" onclick="return confirm( '<?php echo __( 'Are you sure you want to remove the user role Affiliate from all users?', 'slicewp' ); ?>')" class="slicewp-button-secondary"><?php echo __( 'Bulk Remove Affiliate User Role', 'slicewp' ); ?></a>
+		<a href="<?php echo esc_url( wp_nonce_url( add_query_arg( array( 'slicewp_action' => 'bulk_add_affiliate_user_role' ) ), 'slicewp_bulk_add_affiliate_user_role', 'slicewp_token' ) ); ?>" onclick="return confirm( '<?php echo __( 'Are you sure you want to add the user role Affiliate to all users that are also affiliates in SliceWP?', 'slicewp' ); ?>')" class="slicewp-button-secondary"><?php echo __( 'Bulk Add Affiliate User Role', 'slicewp' ); ?></a>
+		<a href="<?php echo esc_url( wp_nonce_url( add_query_arg( array( 'slicewp_action' => 'bulk_remove_affiliate_user_role' ) ), 'slicewp_bulk_remove_affiliate_user_role', 'slicewp_token' ) ); ?>" onclick="return confirm( '<?php echo __( 'Are you sure you want to remove the user role Affiliate from all users?', 'slicewp' ); ?>')" class="slicewp-button-secondary"><?php echo __( 'Bulk Remove Affiliate User Role', 'slicewp' ); ?></a>
 
 	</div>
 
@@ -91,7 +91,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 		</div><!-- / Enable Logging -->
 
 		<!-- Debug Log Textarea -->
-		<?php if( slicewp_get_setting( 'enable_logging' ) == '1' ): ?>
+		<?php if ( slicewp_get_setting( 'enable_logging' ) == '1' ): ?>
 
 			<div class="slicewp-field-wrapper slicewp-last">
 				<textarea disabled style="min-height: 300px;"><?php echo esc_attr( slicewp_get_log() ); ?></textarea>
@@ -102,11 +102,11 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	</div>
 
 	<!-- Card Footer -->
-	<?php if( slicewp_get_setting( 'enable_logging' ) == '1' ): ?>
+	<?php if ( slicewp_get_setting( 'enable_logging' ) == '1' ): ?>
 
 		<div class="slicewp-card-footer">
-			<a href="<?php echo wp_nonce_url( add_query_arg( array( 'slicewp_action' => 'download_debug_log' ) ), 'slicewp_download_debug_log', 'slicewp_token' ); ?>" class="slicewp-button-primary"><?php echo __( 'Download Debug Log', 'slicewp' ); ?></a>
-			<a href="<?php echo wp_nonce_url( add_query_arg( array( 'slicewp_action' => 'clear_debug_log' ) ), 'slicewp_clear_debug_log', 'slicewp_token' ); ?>" onclick="return confirm( '<?php echo __( 'Are you sure you want to clear the debug log?', 'slicewp' ); ?>')" class="slicewp-button-secondary"><?php echo __( 'Clear Debug Log', 'slicewp' ); ?></a>
+			<a href="<?php echo esc_url( wp_nonce_url( add_query_arg( array( 'slicewp_action' => 'download_debug_log' ) ), 'slicewp_download_debug_log', 'slicewp_token' ) ); ?>" class="slicewp-button-primary"><?php echo __( 'Download Debug Log', 'slicewp' ); ?></a>
+			<a href="<?php echo esc_url( wp_nonce_url( add_query_arg( array( 'slicewp_action' => 'clear_debug_log' ) ), 'slicewp_clear_debug_log', 'slicewp_token' ) ); ?>" onclick="return confirm( '<?php echo __( 'Are you sure you want to clear the debug log?', 'slicewp' ); ?>')" class="slicewp-button-secondary"><?php echo __( 'Clear Debug Log', 'slicewp' ); ?></a>
 		</div>
 
 	<?php endif; ?><!-- / Card Footer -->

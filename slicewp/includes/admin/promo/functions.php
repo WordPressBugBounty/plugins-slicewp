@@ -348,8 +348,8 @@ function slicewp_admin_notice_review_request() {
 			<p><strong><?php esc_html_e( '~ Iova Mihai, SliceWP co-founder', 'slicewp' ); ?></strong></p>
 			<p>
 				<a href="https://wordpress.org/support/plugin/slicewp/reviews/?filter=5#new-post" target="_blank" rel="noopener noreferrer" style="display: inline-block; margin-bottom: 3px;"><?php esc_html_e( 'Ok, you deserve it', 'slicewp' ); ?></a><br />
-				<a href="<?php echo wp_nonce_url( add_query_arg( array( 'slicewp_action' => 'dismiss_notice_review_request', 'temp' => 1 ) ), 'slicewp_dismiss_notice_review_request', 'slicewp_token' ); ?>" rel="noopener noreferrer" style="display: inline-block; margin-bottom: 5px;"><?php esc_html_e( 'Nope, maybe later', 'slicewp' ); ?></a><br />
-				<a href="<?php echo wp_nonce_url( add_query_arg( array( 'slicewp_action' => 'dismiss_notice_review_request', 'temp' => 0 ) ), 'slicewp_dismiss_notice_review_request', 'slicewp_token' ); ?>" rel="noopener noreferrer" style="display: inline-block; margin-bottom: 5px;"><?php esc_html_e( 'I already did', 'slicewp' ); ?></a>
+				<a href="<?php echo esc_url( wp_nonce_url( add_query_arg( array( 'slicewp_action' => 'dismiss_notice_review_request', 'temp' => 1 ) ), 'slicewp_dismiss_notice_review_request', 'slicewp_token' ) ); ?>" rel="noopener noreferrer" style="display: inline-block; margin-bottom: 5px;"><?php esc_html_e( 'Nope, maybe later', 'slicewp' ); ?></a><br />
+				<a href="<?php echo esc_url( wp_nonce_url( add_query_arg( array( 'slicewp_action' => 'dismiss_notice_review_request', 'temp' => 0 ) ), 'slicewp_dismiss_notice_review_request', 'slicewp_token' ) ); ?>" rel="noopener noreferrer" style="display: inline-block; margin-bottom: 5px;"><?php esc_html_e( 'I already did', 'slicewp' ); ?></a>
 			</p>
 		</div>
 

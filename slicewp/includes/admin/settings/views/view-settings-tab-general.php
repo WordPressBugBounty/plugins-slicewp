@@ -204,7 +204,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				<select class="slicewp-select2" name="settings[default_payout_method]">
 
 					<?php foreach ( $payout_methods as $method_slug => $method_data ): ?>
-						<option value="<?php echo esc_attr( $method_slug ); ?>" <?php echo selected( ( ! empty( $_POST['settings']['default_payout_method'] ) ? $_POST['settings']['default_payout_method'] : ( empty( $_POST ) ? slicewp_get_setting( 'default_payout_method' ) : '' ) ) , $method_slug ); ?>><?php echo $method_data['label']; ?></option>
+						<option value="<?php echo esc_attr( $method_slug ); ?>" <?php echo selected( ( ! empty( $_POST['settings']['default_payout_method'] ) ? $_POST['settings']['default_payout_method'] : ( empty( $_POST ) ? slicewp_get_setting( 'default_payout_method' ) : '' ) ) , $method_slug ); ?>><?php echo esc_html( $method_data['label'] ); ?></option>
 					<?php endforeach; ?>
 
 				</select>

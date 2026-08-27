@@ -199,7 +199,7 @@ if ( is_null( $creative ) ) {
 		</div>
 
 		<!-- Hidden creative id field -->
-		<input type="hidden" name="creative_id" value="<?php echo $creative_id; ?>" />
+		<input type="hidden" name="creative_id" value="<?php echo esc_attr( $creative_id ); ?>" />
 
 		<!-- Action and nonce -->
 		<input type="hidden" name="slicewp_action" value="update_creative" />

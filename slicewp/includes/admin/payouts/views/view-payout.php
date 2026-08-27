@@ -129,7 +129,7 @@ $paid_percentage = ( $payments_count != 0 ? round( $payments_paid_count / $payme
 							<?php if ( ! $originator_user ): ?>
 								<span><?php echo __( '(inexistent admin)', 'slicewp' ); ?></span>
 							<?php else: ?>
-								<a href="<?php echo add_query_arg( array( 'user_id' => $payout->get( 'originator_user_id' ) ), admin_url( 'user-edit.php' ) ); ?>"><?php echo esc_html( $originator_user->first_name . ' ' . $originator_user->last_name . ' ('. $originator_user->user_login . ')' ); ?></a>
+								<a href="<?php echo esc_url( add_query_arg( array( 'user_id' => $payout->get( 'originator_user_id' ) ), admin_url( 'user-edit.php' ) ) ); ?>"><?php echo esc_html( $originator_user->first_name . ' ' . $originator_user->last_name . ' ('. $originator_user->user_login . ')' ); ?></a>
 							<?php endif; ?>
 						</div>
 
@@ -266,7 +266,7 @@ $paid_percentage = ( $payments_count != 0 ? round( $payments_paid_count / $payme
 					<span class="slicewp-card-title"><?php echo __( 'Payments', 'slicewp' ); ?></span>
 
 					<div class="slicewp-card-actions">
-						<a href="<?php echo wp_nonce_url( add_query_arg( array( 'slicewp_action' => 'generate_payouts_csv', 'payout_id' => absint( $payout->get( 'id' ) ) ), slicewp_get_filtered_admin_url() ), 'slicewp_generate_payouts_csv', 'slicewp_token' ); ?>" class="slicewp-button-secondary"><?php echo __( 'Generate CSV', 'slicewp' ); ?></a>
+						<a href="<?php echo esc_url( wp_nonce_url( add_query_arg( array( 'slicewp_action' => 'generate_payouts_csv', 'payout_id' => absint( $payout->get( 'id' ) ) ), slicewp_get_filtered_admin_url() ), 'slicewp_generate_payouts_csv', 'slicewp_token' ) ); ?>" class="slicewp-button-secondary"><?php echo __( 'Generate CSV', 'slicewp' ); ?></a>
 					</div>
 
 				</div>

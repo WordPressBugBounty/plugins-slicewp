@@ -958,9 +958,9 @@ function slicewp_add_product_variation_commission_settings_woo( $loop, $variatio
 
 		    	?>
 
-		        <p class="slicewp-option-field-wrapper form-row form-row-full options slicewp_variation_disable_commissions[<?php echo $variation->ID?>]">
-		            <label for="slicewp_variation_disable_commissions[<?php echo $variation->ID?>]">
-		                <input type="checkbox" class="slicewp-option-field-disable-commissions checkbox" name="slicewp_variation_disable_commissions[<?php echo $variation->ID; ?>]" id="slicewp_variation_disable_commissions[<?php echo $variation->ID; ?>]" <?php checked( $disable_commissions, true ); ?> /> <?php echo __( 'Disable commissions for this product variation', 'slicewp' ); ?>
+		        <p class="slicewp-option-field-wrapper form-row form-row-full options slicewp_variation_disable_commissions[<?php echo esc_attr( $variation->ID ); ?>]">
+		            <label for="slicewp_variation_disable_commissions[<?php echo esc_attr( $variation->ID ); ?>]">
+		                <input type="checkbox" class="slicewp-option-field-disable-commissions checkbox" name="slicewp_variation_disable_commissions[<?php echo esc_attr( $variation->ID ); ?>]" id="slicewp_variation_disable_commissions[<?php echo esc_attr( $variation->ID ); ?>]" <?php checked( $disable_commissions, true ); ?> /> <?php echo __( 'Disable commissions for this product variation', 'slicewp' ); ?>
 		            </label>
 		        </p>
 

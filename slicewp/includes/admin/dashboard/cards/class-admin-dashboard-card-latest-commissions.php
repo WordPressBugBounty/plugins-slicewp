@@ -63,7 +63,7 @@ class SliceWP_Admin_Dashboard_Card_Latest_Commissions extends SliceWP_Admin_Dash
 							?>
 
 							<tr>
-								<td class="slicewp-column-affiliate"><a href="<?php echo add_query_arg( array( 'page' => 'slicewp-affiliates', 'subpage' => ( $affiliate->get( 'status' ) == 'pending' ? 'review-affiliate' : 'edit-affiliate' ), 'affiliate_id' => $affiliate->get( 'id' ) ), admin_url( 'admin.php' ) ); ?>"><?php echo slicewp_get_affiliate_name( $affiliate->get( 'id' ) ); ?></a></td>
+								<td class="slicewp-column-affiliate"><a href="<?php echo esc_url( add_query_arg( array( 'page' => 'slicewp-affiliates', 'subpage' => ( $affiliate->get( 'status' ) == 'pending' ? 'review-affiliate' : 'edit-affiliate' ), 'affiliate_id' => $affiliate->get( 'id' ) ), admin_url( 'admin.php' ) ) ); ?>"><?php echo esc_html( slicewp_get_affiliate_name( $affiliate->get( 'id' ) ) ); ?></a></td>
 								<td class="slicewp-column-amount"><?php echo slicewp_format_amount( $commission->get( 'amount' ), slicewp_get_setting( 'active_currency', 'USD' ) ); ?></td>
 								<td class="slicewp-column-reference"><?php echo apply_filters( 'slicewp_list_table_commissions_column_reference', $commission->get( 'reference' ), $commission->to_array() ); ?></td>
 								<td class="slicewp-column-status"><span class="slicewp-status-pill slicewp-status-<?php echo esc_attr( $commission->get( 'status' ) ); ?>"><?php echo ( isset( $statuses[$commission->get( 'status' )] ) ? $statuses[$commission->get( 'status' )] : $commission->get( 'status' ) ); ?></span></td>

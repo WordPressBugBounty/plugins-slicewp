@@ -63,7 +63,7 @@ if ( is_null( $commission ) ) {
 								<?php if ( null === $affiliate_name ): ?>
 									<span><?php echo __( '(inexistent affiliate)', 'slicewp' ); ?></span>
 								<?php else: ?>
-									<a href="<?php echo add_query_arg( array( 'page' => 'slicewp-affiliates', 'subpage' => 'edit-affiliate', 'affiliate_id' => $commission->get('affiliate_id') ) , admin_url( 'admin.php' ) ); ?>"><?php echo $affiliate_name; ?></a>
+									<a href="<?php echo esc_url( add_query_arg( array( 'page' => 'slicewp-affiliates', 'subpage' => 'edit-affiliate', 'affiliate_id' => $commission->get( 'affiliate_id' ) ) , admin_url( 'admin.php' ) ) ); ?>"><?php echo esc_html( $affiliate_name ); ?></a>
 								<?php endif; ?>
 							</div>
 

@@ -1,43 +1,35 @@
 <?php
 
-// Exit if accessed directly
+// Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-$affiliate_id = ( ! empty( $_GET['affiliate_id'] ) ? sanitize_text_field( $_GET['affiliate_id'] ) : 0 );
+$affiliate_id = ( ! empty( $_GET['affiliate_id'] ) ? absint( $_GET['affiliate_id'] ) : 0 );
 
-// Verify for affiliate id
+// Verify for affiliate id.
 if ( empty( $affiliate_id ) ) {
 	return;
 }
 
-// Verify if affiliate exits
+// Verify if affiliate exits.
 $affiliate = slicewp_get_affiliate( $affiliate_id );
 
 if ( is_null( $affiliate ) ) {
 	return;
 }
 
-// Verify if affiliate status is 'pending'
+// Verify if affiliate status is 'pending'.
 if ( $affiliate->get( 'status' ) != 'pending' ) {
 	return;
 }
 
-// Get the affiliate information
+// Get the affiliate information.
 $user = get_user_by( 'id', $affiliate->get('user_id') );
 
 if ( ! $user ) {
 	return;
 }
 
-$affiliate_username = $user->user_login;
-$affiliate_email 	= $user->user_email;
-$affiliate_message 	= slicewp_get_affiliate_meta( $affiliate_id, 'promotional_methods', true );
-
-if ( empty( $affiliate_message ) ) {
-	$affiliate_message = __( 'No message provided.' , 'slicewp' );
-}
-
-// Prepare the warnings in case the Approve/Reject Account email notifications are empty
+// Prepare the warnings in case the Approve/Reject Account email notifications are empty.
 $email_notifications = slicewp_get_available_email_notifications();
 
 $approve_notification_settings = slicewp_get_email_notification_settings( 'affiliate_account_approved' );
@@ -71,7 +63,7 @@ if ( empty( $reject_notification_settings['subject'] ) || empty( $reject_notific
 				if ( ! empty( $approve_email_notification_warning ) ) {
 
 					echo '<div class="notice notice-warning">';
-					echo '<p>' . $approve_email_notification_warning . '</p>';
+						echo '<p>' . $approve_email_notification_warning . '</p>';
 					echo '</div>';
 				
 				}
@@ -79,7 +71,7 @@ if ( empty( $reject_notification_settings['subject'] ) || empty( $reject_notific
 				if ( ! empty( $reject_email_notification_warning ) ) {
 
 					echo '<div class="notice notice-warning">';
-					echo '<p>' . $reject_email_notification_warning . '</p>';
+						echo '<p>' . $reject_email_notification_warning . '</p>';
 					echo '</div>';
 				
 				}
@@ -99,7 +91,7 @@ if ( empty( $reject_notification_settings['subject'] ) || empty( $reject_notific
 						<label for="slicewp-affiliate-affiliate-name"><?php echo __( 'Affiliate Username', 'slicewp' ); ?></label>
 					</div>
 					
-					<input id="slicewp-affiliate-affiliate-name" name="affiliate_name" disabled type="text" value="<?php echo esc_attr( $affiliate_username ); ?>" />
+					<input id="slicewp-affiliate-affiliate-name" name="affiliate_name" disabled type="text" value="<?php echo esc_attr( $user->user_login ); ?>" />
 
 				</div>
 
@@ -122,7 +114,7 @@ if ( empty( $reject_notification_settings['subject'] ) || empty( $reject_notific
 						<label for="slicewp-affiliate-affiliate-email"><?php echo __( 'Affiliate Email', 'slicewp' ); ?></label>
 					</div>
 					
-					<input id="slicewp-affiliate-affiliate-email" name="affiliate_email" disabled type="text" value="<?php echo esc_attr( $affiliate_email ); ?>" />
+					<input id="slicewp-affiliate-affiliate-email" name="affiliate_email" disabled type="text" value="<?php echo esc_attr( $user->user_email ); ?>" />
 
 				</div>
 				
@@ -220,7 +212,7 @@ if ( empty( $reject_notification_settings['subject'] ) || empty( $reject_notific
 		</div>
 
 		<!-- Hidden Affiliate ID field -->
-		<input type="hidden" name="affiliate_id" value="<?php echo $affiliate_id; ?>" />
+		<input type="hidden" name="affiliate_id" value="<?php echo esc_attr( $affiliate_id ); ?>" />
 
 		<!-- Action and nonce -->
 		<input type="hidden" name="slicewp_action" value="review_affiliate" />

@@ -110,7 +110,7 @@ function slicewp_generate_csv( $header, $data, $filename = 'data.csv' ) {
 	header( "Expires: 0" );
 
 	$output = fopen( 'php://output', 'w' );
-	fputcsv( $output, $header );
+	fputcsv( $output, $header, ',', '"', '\\' );
 
 	foreach ( $data as $row ) {
 
@@ -125,7 +125,7 @@ function slicewp_generate_csv( $header, $data, $filename = 'data.csv' ) {
 			}
 		}
 
-		fputcsv( $output, $csv_line );
+		fputcsv( $output, $csv_line, ',', '"', '\\' );
 
 	}
 	

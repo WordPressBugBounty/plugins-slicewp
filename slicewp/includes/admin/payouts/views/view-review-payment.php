@@ -200,14 +200,14 @@ $payout_methods = slicewp_get_payout_methods();
 		</div>
 
 		<!-- Hidden Payment ID field -->
-		<input type="hidden" name="payment_id" value="<?php echo $payment_id; ?>" />
+		<input type="hidden" name="payment_id" value="<?php echo esc_attr( $payment_id ); ?>" />
 
 		<!-- Action and nonce -->
 		<input type="hidden" name="slicewp_action" value="review_payment" />
 		<?php wp_nonce_field( 'slicewp_review_payment', 'slicewp_token', false ); ?>
 
 		<!-- Submit -->
-		<input type="submit" id="slicewp-review-payment-button" class="slicewp-form-submit slicewp-button-primary" name="slicewp_review_payment" value="<?php echo __( 'Save Payment', 'slicewp' ); ?>" data-confirmation-message="<?php echo sprintf( __( 'Are you sure you want to mark the payment as %s?', 'slicewp' ), $status ); ?>" />
+		<input type="submit" id="slicewp-review-payment-button" class="slicewp-form-submit slicewp-button-primary" name="slicewp_review_payment" value="<?php echo __( 'Save Payment', 'slicewp' ); ?>" data-confirmation-message="<?php echo sprintf( __( 'Are you sure you want to mark the payment as %s?', 'slicewp' ), esc_attr( $status ) ); ?>" />
 
 	</form>
 

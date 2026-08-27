@@ -224,7 +224,7 @@ if ( ! $user ) {
 		</div>
 
 		<!-- Hidden affiliate id field -->
-		<input type="hidden" name="affiliate_id" value="<?php echo $affiliate_id; ?>" />
+		<input type="hidden" name="affiliate_id" value="<?php echo esc_attr( $affiliate_id ); ?>" />
 
 		<!-- Action and nonce -->
 		<input type="hidden" name="slicewp_action" value="update_affiliate" />

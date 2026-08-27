@@ -60,8 +60,8 @@ class SliceWP_Admin_Dashboard_Card_Latest_Visits extends SliceWP_Admin_Dashboard
 							?>
 
 							<tr>
-								<td class="slicewp-column-affiliate"><a href="<?php echo add_query_arg( array( 'page' => 'slicewp-affiliates', 'subpage' => ( $affiliate->get( 'status' ) == 'pending' ? 'review-affiliate' : 'edit-affiliate' ), 'affiliate_id' => $affiliate->get( 'id' ) ), admin_url( 'admin.php' ) ); ?>"><?php echo slicewp_get_affiliate_name( $affiliate->get( 'id' ) ); ?></a></td>
-								<td class="slicewp-column-landing-url"><a href="<?php echo esc_url( $visit->get( 'landing_url' ) ); ?>" target="_blank"><?php echo $visit->get( 'landing_url' ); ?></a></td>
+								<td class="slicewp-column-affiliate"><a href="<?php echo esc_url( add_query_arg( array( 'page' => 'slicewp-affiliates', 'subpage' => ( $affiliate->get( 'status' ) == 'pending' ? 'review-affiliate' : 'edit-affiliate' ), 'affiliate_id' => $affiliate->get( 'id' ) ), admin_url( 'admin.php' ) ) ); ?>"><?php echo esc_html( slicewp_get_affiliate_name( $affiliate->get( 'id' ) ) ); ?></a></td>
+								<td class="slicewp-column-landing-url"><a href="<?php echo esc_url( $visit->get( 'landing_url' ) ); ?>" target="_blank"><?php echo esc_html( $visit->get( 'landing_url' ) ); ?></a></td>
 								<td class="slicewp-column-status">
 									<?php if ( empty( $visit->get( 'commission_id' ) ) ): ?>
 										<span class="slicewp-status-icon"><?php echo slicewp_get_svg( 'outline-x' ); ?></span>
