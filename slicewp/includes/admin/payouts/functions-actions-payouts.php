@@ -77,6 +77,18 @@ function slicewp_admin_action_create_payout() {
 
 	$payments_preview = slicewp_generate_payout_payments_preview( $_GET );
 
+	// Hard-exclude affiliates who haven't completed the payout setup required by their selected
+	// method, so no unpayable payment is created (and the summed payout amount below stays correct).
+	foreach ( $payments_preview as $key => $_payment_data ) {
+
+		if ( ! slicewp_affiliate_has_completed_payout_setup( absint( $_payment_data['affiliate_id'] ) ) ) {
+			unset( $payments_preview[ $key ] );
+		}
+
+	}
+
+	$payments_preview = array_values( $payments_preview );
+
 	// Bail if no potential payments were generated.
 	if ( empty( $payments_preview ) ) {
 
@@ -196,8 +208,9 @@ function slicewp_admin_action_generate_payouts_csv() {
 		'affiliate_name' => 'Name',
 		'payment_email'  => 'Email',
 		'amount' 		 => 'Amount',
-		'currency' 		 => 'Currency'
-	));
+		'currency' 		 => 'Currency',
+		'payout_method'  => 'Payout Method',
+	), $payments );
 	
 	// Prepare the CSV data.
 	$data = array();
@@ -206,12 +219,16 @@ function slicewp_admin_action_generate_payouts_csv() {
 
 		$affiliate = slicewp_get_affiliate( $payment->get('affiliate_id') );
 
+		$payout_methods = slicewp_get_payout_methods();
+		$payout_method  = $payment->get( 'payout_method' );
+
 		$data[$key] = apply_filters( 'slicewp_mas_pay_csv_item_data', array(
 			'id' 			 => $payment->get('id'),
 			'affiliate_name' => slicewp_get_affiliate_name( $affiliate ),
 			'payment_email'  => $affiliate->get( 'payment_email' ),
 			'amount' 		 => $payment->get( 'amount' ),
 			'currency' 		 => $payment->get( 'currency' ),
+			'payout_method'  => isset( $payout_methods[ $payout_method ] ) ? $payout_methods[ $payout_method ]['label'] : $payout_method,
 		), $payment );
 
 	}

@@ -361,3 +361,73 @@ function slicewp_output_list_table_commissions_visit( $item ) {
 
 }
 add_action( 'slicewp_list_table_output_item_details_affiliate_account_commissions', 'slicewp_output_list_table_commissions_visit', 100 );
+
+
+/**
+ * Fires the payout method setup action within the affiliate account settings form.
+ *
+ * @param string $form
+ *
+ */
+function slicewp_affiliate_account_payout_method_setup( $form ) {
+
+	if ( 'affiliate_account' !== $form ) {
+		return;
+	}
+
+	$affiliate_id   = slicewp_get_current_affiliate_id();
+	$payout_method  = slicewp_get_affiliate_payout_method( $affiliate_id );
+	$payout_methods = slicewp_get_payout_methods();
+	$method_label   = ! empty( $payout_methods[ $payout_method ]['label'] ) ? $payout_methods[ $payout_method ]['label'] : '';
+
+	ob_start();
+
+	if ( $payout_method != 'manual' ) {
+
+		?>
+
+		<div class="slicewp-field-wrapper">
+
+			<div class="slicewp-field-inner">
+				<?php echo wp_kses_post( sprintf( __( "Payout method: %s", 'slicewp' ), $method_label ) ); ?>
+			</div>
+
+		</div>
+
+		<?php
+
+	}
+
+	/**
+	 * Action to output payout method setup sections within the affiliate account settings form.
+	 * Each registered callback is responsible for checking the affiliate's payout method
+	 * before rendering. All callbacks receive $affiliate_id only — no payout method parameter —
+	 * so that in a future update (payout method selector) all callbacks can render simultaneously.
+	 *
+	 * @param int $affiliate_id
+	 *
+	 */
+	do_action( 'slicewp_affiliate_account_payout_method_setup', $affiliate_id );
+
+	$inner_content = ob_get_clean();
+
+	if ( '' === trim( $inner_content ) ) {
+		return;
+	}
+
+	?>
+
+		<div class="slicewp-affiliate-account-payout-details">
+
+			<div class="slicewp-field-section-heading">
+				<h3><?php echo esc_html__( 'Payout Details', 'slicewp' ); ?></h3>
+			</div>
+
+			<?php echo $inner_content; ?>
+
+		</div>
+
+	<?php
+
+}
+add_action( 'slicewp_form_fields', 'slicewp_affiliate_account_payout_method_setup', 20 );

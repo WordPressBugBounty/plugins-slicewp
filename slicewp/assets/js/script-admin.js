@@ -1000,6 +1000,53 @@ jQuery( function($) {
 
 
     /**
+     * Page: Add/Edit Affiliate — Payout Details card
+     * 
+     * Show/hide the payout-method-specific field sections based on the selected payout method.
+     * 
+     */
+    (function() {
+
+        var $select = $( '#slicewp-affiliate-payout-method' );
+
+        if ( ! $select.length ) {
+            return;
+        }
+
+        function syncPayoutFields( method ) {
+
+            var effective = method || $select.data( 'default-method' ) || '';
+
+            $( '[data-payout-method]' ).each( function() {
+
+                var $section = $( this );
+                var isActive = $section.data( 'payout-method' ) === effective;
+
+                if ( isActive ) {
+                    $section.find( '[data-outer-disabled]' ).prop( 'disabled', false ).removeAttr( 'data-outer-disabled' );
+                    $section.show();
+                    $section.trigger( 'slicewp:payout_section_shown' );
+                } else {
+                    $section.find( 'input:not([disabled]), select:not([disabled]), textarea:not([disabled])' )
+                        .attr( 'data-outer-disabled', '1' )
+                        .prop( 'disabled', true );
+                    $section.hide();
+                }
+
+            } );
+
+        }
+
+        $select.on( 'change', function() {
+            syncPayoutFields( $( this ).val() );
+        } );
+
+        syncPayoutFields( $select.val() );
+
+    })();
+
+
+    /**
      * Page: Add/Update Commission
      * 
      */
@@ -1320,7 +1367,9 @@ jQuery( function($) {
         e.preventDefault();
 
         $(this).closest( '.slicewp-expandable-item' ).toggleClass( 'slicewp-active' );
-        $(this).closest( '.slicewp-expandable-item' ).find( '.slicewp-expandable-item-panel' ).slideToggle( 200, function() {
+        // Toggle only this item's own panel (direct child), so nested expandable items
+        // aren't opened along with their parent.
+        $(this).closest( '.slicewp-expandable-item' ).children( '.slicewp-expandable-item-panel' ).slideToggle( 200, function() {
             window.dispatchEvent( new Event('resize') );
         });
 
@@ -1632,7 +1681,7 @@ jQuery( function($) {
         // Set the button's label.
         $submit.find('.slicewp-button-label').hide();
 
-        if ( $(this).val() == '' || $(this).val() == 'manual' ) {
+        if ( $(this).find(':selected').attr( 'data-integrated-payment-processing' ) == '' || $(this).find(':selected').attr( 'data-integrated-payment-processing' ) == 'false' ) {
             $submit.find('.slicewp-button-label-manual').show();
         } else {
             $submit.find('.slicewp-button-label-other').show();
@@ -1654,15 +1703,16 @@ jQuery( function($) {
      * Handles the payout Pay Affiliates button confirmation.
      *
      */
-    $(document).on( 'click', '#slicewp-card-payout-progress .slicewp-button-primary, #slicewp-card-do-single-payment .slicewp-button-primary', function() {
+    $(document).on( 'click', '#slicewp-card-payout-progress .slicewp-button-primary, #slicewp-card-do-single-payment .slicewp-button-primary, #slicewp-card-retry-single-payment .slicewp-button-primary', function() {
 
-        if( $(this).hasClass( 'slicewp-disabled' ) )
+        if ( $(this).hasClass( 'slicewp-disabled' ) ) {
             return false;
+        }
 
         var confirmation = confirm( $(this).attr( 'data-confirmation-message' ) );
 
         // Disable button and show loading spinner.
-        if( confirmation ) {
+        if ( confirmation ) {
 
             $(this).addClass( 'slicewp-disabled' );
             $(this).after( '<div class="spinner"></div>' );

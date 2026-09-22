@@ -122,8 +122,13 @@ function slicewp_promo_view_affiliates_add_affiliate_bottom_affiliate_commission
 	<div class="slicewp-card slicewp-card-promo">
 
 		<div class="slicewp-card-header">
+
 			<span class="slicewp-card-title"><?php echo __( 'Affiliate Commission Rates', 'slicewp' ); ?></span>
-			<a class="slicewp-promo-pill" href="https://slicewp.com/" target="_blank"><?php echo __( 'Pro Feature', 'slicewp' ); ?></a>
+
+			<div class="slicewp-card-actions">
+				<a class="slicewp-promo-pill" href="https://slicewp.com/" target="_blank"><?php echo __( 'Pro Feature', 'slicewp' ); ?></a>
+			</div>
+
 		</div>
 
 		<div class="slicewp-card-inner">
@@ -223,8 +228,13 @@ function slicewp_promo_view_settings_tab_affiliate_area_bottom_affiliate_fields(
 	<div class="slicewp-card slicewp-card-promo">
 
 		<div class="slicewp-card-header">
+
 			<span class="slicewp-card-title"><?php echo __( 'Affiliate Fields', 'slicewp' ); ?></span>
-			<a class="slicewp-promo-pill" href="https://slicewp.com/products/custom-affiliate-fields/" target="_blank"><?php echo __( 'Pro Feature', 'slicewp' ); ?></a>
+
+			<div class="slicewp-card-actions">
+				<a class="slicewp-promo-pill" href="https://slicewp.com/products/custom-affiliate-fields/" target="_blank"><?php echo __( 'Pro Feature', 'slicewp' ); ?></a>
+			</div>
+
 		</div>
 
 		<div class="slicewp-card-inner">
@@ -279,8 +289,13 @@ function slicewp_promo_view_settings_tab_commissions_bottom_commission_types() {
 	<div class="slicewp-card slicewp-card-promo">
 
 		<div class="slicewp-card-header">
+
 			<span class="slicewp-card-title"><?php echo __( 'More Commission Types', 'slicewp' ); ?></span>
-			<a class="slicewp-promo-pill" href="https://slicewp.com/add-ons/" target="_blank"><?php echo __( 'Pro Feature', 'slicewp' ); ?></a>
+
+			<div class="slicewp-card-actions">
+				<a class="slicewp-promo-pill" href="https://slicewp.com/add-ons/" target="_blank"><?php echo __( 'Pro Feature', 'slicewp' ); ?></a>
+			</div>
+
 		</div>
 
 		<div class="slicewp-card-inner">
@@ -387,3 +402,75 @@ function slicewp_admin_action_dismiss_notice_review_request() {
 
 }
 add_action( 'slicewp_admin_action_dismiss_notice_review_request', 'slicewp_admin_action_dismiss_notice_review_request' );
+
+
+/**
+ * Outputs pro payout method upsell items at the bottom of the Payout Methods settings card.
+ * Skips any method that is already registered (e.g. when SliceWP Pro is active).
+ *
+ */
+function slicewp_view_settings_tab_payouts_payout_methods_upsell() {
+
+	if ( slicewp_is_website_registered() ) {
+		return;
+	}
+
+	if ( class_exists( 'SliceWP_Pro' ) ) {
+		return;
+	}
+
+	$upsell_methods = array(
+		'paypal_payouts' => array(
+			'label'    => __( 'PayPal Payouts', 'slicewp' ),
+			'icon'     => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="#002991" d="M 5.028,0.038 C 5.028,0.062 2.066,19.101 2.055,19.156 L 2.044,19.204 L 4.524,19.204 L 7.006,19.204 L 7.569,15.615 L 8.13,12.024 L 10.396,12.015 C 12.873,12.004 12.851,12.007 13.536,11.867 C 14.769,11.62 15.896,11.039 16.842,10.164 C 18.02,9.074 18.811,7.576 18.983,6.108 C 19.021,5.777 19.028,5.198 18.992,4.888 C 18.86,3.664 18.294,2.522 17.392,1.662 C 16.438,0.749 15.162,0.186 13.737,0.044 C 13.476,0.02 5.028,0.011 5.028,0.038"/><path fill="#60CDFF" d="M 9.262,4.877 C 9.255,4.91 8.747,8.146 8.133,12.066 C 7.262,17.618 6.435,22.782 6.232,23.929 L 6.219,24 L 8.69,24 L 11.162,24 L 11.733,20.449 C 12.046,18.493 12.307,16.88 12.312,16.857 C 12.32,16.824 12.46,16.822 13.962,16.811 C 15.697,16.8 15.83,16.793 16.387,16.683 C 18.833,16.206 20.811,14.491 21.6,12.161 C 22.117,10.641 22.055,9.246 21.417,7.945 C 20.608,6.301 19.028,5.209 16.972,4.88 L 16.663,4.831 L 12.968,4.824 L 9.275,4.815 L 9.262,4.877"/><path fill="#008CFF" d="M18.983,6.108c-0.172,1.468 -0.963,2.966 -2.141,4.056c-0.946,0.875 -2.073,1.456 -3.306,1.703c-0.685,0.14 -0.663,0.137 -3.14,0.148l-2.256,0.009c0.611,-3.901 1.115,-7.114 1.122,-7.147l0.013,-0.062l3.693,0.009l3.695,0.007l0.309,0.049c0.749,0.12 1.434,0.341 2.043,0.653c-0.003,0.211 -0.014,0.42 -0.032,0.575zM7.006,19.204h-0.003c0.051,-0.316 0.103,-0.643 0.156,-0.98z"/></svg>',
+			'supports' => array( 'single_payment', 'bulk_payments', 'payout_request_invoice', 'integrated_payment_processing' ),
+		),
+		'stripe' => array(
+			'label'    => __( 'Stripe', 'slicewp' ),
+			'icon'     => '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="3" fill="#533AFD"/><path fill-rule="evenodd" clip-rule="evenodd" d="M5.625 18.375L18.375 15.6711V5.625L5.625 8.3595V18.375Z" fill="white"/></svg>',
+			'supports' => array( 'single_payment', 'bulk_payments', 'payout_request_invoice', 'integrated_payment_processing' ),
+		),
+		'store_credit' => array(
+			'label'    => __( 'Store Credit', 'slicewp' ),
+			'icon'     => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M128 96C92.7 96 64 124.7 64 160L64 448C64 483.3 92.7 512 128 512L512 512C547.3 512 576 483.3 576 448L576 256C576 220.7 547.3 192 512 192L136 192C122.7 192 112 181.3 112 168C112 154.7 122.7 144 136 144L520 144C533.3 144 544 133.3 544 120C544 106.7 533.3 96 520 96L128 96zM480 320C497.7 320 512 334.3 512 352C512 369.7 497.7 384 480 384C462.3 384 448 369.7 448 352C448 334.3 462.3 320 480 320z"/></svg>',
+			'supports' => array( 'single_payment', 'bulk_payments', 'integrated_payment_processing' ),
+		)
+	);
+
+	foreach ( $upsell_methods as $method_slug => $method_data ) {
+
+		?>
+
+			<div class="slicewp-expandable-item slicewp-payout-method-upsell">
+
+				<div class="slicewp-expandable-item-header">
+
+					<div>
+						<?php if ( ! empty( $method_data['icon'] ) ) echo '<div class="slicewp-payout-method-icon">' . wp_kses( $method_data['icon'], slicewp_get_kses_allowed_html() ) . '</div>'; ?>
+					</div>
+
+					<div>
+
+						<label>
+							<?php echo esc_html( $method_data['label'] ); ?>
+							<?php if ( ! in_array( 'integrated_payment_processing', (array) $method_data['supports'] ) ): ?>
+								<span class="slicewp-payout-method-badge"><?php echo esc_html__( 'Manual', 'slicewp' ); ?></span>
+							<?php endif; ?>
+						</label>
+
+					</div>
+
+					<div class="slicewp-expandable-item-actions">
+						<span class="slicewp-promo-pill slicewp-small"><?php echo esc_html__( 'Pro Feature', 'slicewp' ); ?></span>
+					</div>
+
+				</div>
+
+			</div>
+
+		<?php
+
+	}
+
+}
+add_action( 'slicewp_view_settings_tab_payouts_payout_methods_bottom', 'slicewp_view_settings_tab_payouts_payout_methods_upsell' );

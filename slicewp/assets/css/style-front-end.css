@@ -60,6 +60,7 @@
 .slicewp-user-notice.slicewp-error { background: #ffebeb; border-color: #dc3232; }
 .slicewp-user-notice.slicewp-warning { background: #fff7ea; border-color: #f39c12; }
 .slicewp-user-notice.slicewp-updated { background: #e0ffe3; border-color: #46b450; }
+.slicewp-user-notice.slicewp-info { background: #eef6ff; border-color: #8cc1ff; }
 .slicewp-user-notice > :first-child { margin-top: 0; }
 .slicewp-user-notice > :last-child { margin-bottom: 0; }
 
@@ -126,7 +127,7 @@
 .slicewp-field-wrapper input[type=url],
 .slicewp-field-wrapper input[type=password],
 .slicewp-field-wrapper textarea,
-.slicewp-field-wrapper select { width: 100%; max-width: 100%; }
+.slicewp-field-wrapper select { width: 100%; max-width: 100%; box-sizing: border-box; }
 
 .slicewp-field-wrapper input[type=password] { padding-right: 2.5rem; }
 .slicewp-field-wrapper select { padding: 0.25rem; }

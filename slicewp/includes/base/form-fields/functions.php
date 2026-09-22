@@ -272,6 +272,19 @@ function slicewp_output_form_fields_affiliate( $form ) {
 		if ( $form != 'affiliate_registration' && in_array( $field->get('name'), array( 'user_login', 'user_email', 'first_name', 'last_name', 'password', 'password_confirm' ) ) )
 			continue;
 
+		// Skip payment_email on the affiliate account form when it belongs in the Payout Details section instead.
+		if ( 'affiliate_account' === $form && 'payment_email' === $field->get( 'name' ) ) {
+
+			$_affiliate    = slicewp_get_affiliate_by_user_id( get_current_user_id() );
+			$_affiliate_id = $_affiliate ? $_affiliate->get( 'id' ) : 0;
+
+			// Skip when default fields are active — each method's hook renders payment_email in the Payout Details section.
+			if ( has_filter( 'slicewp_register_affiliate_fields', 'slicewp_register_default_affiliate_fields' ) ) {
+				continue;
+			}
+
+		}
+
 		// WP_User specific fields on the "affiliate_registration" form.
 		if ( $form == 'affiliate_registration' && is_user_logged_in() ) {
 
@@ -365,6 +378,11 @@ function slicewp_output_admin_form_fields_affiliate( $form ) {
 
 		// Make sure WP_User specific fields are not taken into account.
 		if ( in_array( $field->get('name'), array( 'user_login', 'user_email', 'first_name', 'last_name', 'password', 'password_confirm' ) ) ) {
+			continue;
+		}
+
+		// payment_email is now rendered inside the Payout Details card, method-specific.
+		if ( 'payment_email' === $field->get('name') ) {
 			continue;
 		}
 

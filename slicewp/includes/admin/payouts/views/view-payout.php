@@ -219,7 +219,7 @@ $paid_percentage = ( $payments_count != 0 ? round( $payments_paid_count / $payme
 
 										<?php foreach( $payout_methods as $payout_method_slug => $payout_method ): ?>
 
-											<option value="<?php echo esc_attr( $payout_method_slug ); ?>"><?php echo sprintf( __( '%s payments', 'slicewp' ), $payout_method['label'] ); ?></option>
+											<option value="<?php echo esc_attr( $payout_method_slug ); ?>" data-integrated-payment-processing="<?php echo esc_attr( in_array( 'integrated_payment_processing', $payout_method['supports'] ) ? 'true' : 'false' ); ?>"><?php echo sprintf( __( '%s payments', 'slicewp' ), $payout_method['label'] ); ?></option>
 
 										<?php endforeach; ?>
 

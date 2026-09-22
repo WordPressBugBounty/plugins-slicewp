@@ -344,7 +344,7 @@ function slicewp_admin_action_update_affiliate() {
 	// Prepare affiliate data to be updated
 	$affiliate_data = array(
 		'date_modified' => slicewp_mysql_gmdate(),
-		'payment_email'	=> ( ! empty( $_POST['payment_email'] ) ? sanitize_text_field( $_POST['payment_email'] ) : '' ),
+		'payment_email'	=> isset( $_POST['payment_email'] ) ? sanitize_email( $_POST['payment_email'] ) : $affiliate->get( 'payment_email' ),
         'website'       => ( ! empty( $_POST['website'] ) ? esc_url( $_POST['website'] ) : '' ),
 		'status'		=> sanitize_text_field( $_POST['status'] )
 	);

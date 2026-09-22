@@ -3,11 +3,12 @@
  * Plugin Name: SliceWP
  * Plugin URI: https://slicewp.com/
  * Description: The fastest and easiest way to set up an affiliate program for your store or membership site.
- * Version: 1.2.11
+ * Version: 1.2.12
  * Author: SliceWP
  * Author URI: https://slicewp.com/
  * Text Domain: slicewp
  * License: GPL2
+ * Requires PHP: 7.3
  *
  * == Copyright ==
  * Copyright 2024 SliceWP
@@ -103,7 +104,7 @@ Class SliceWP {
 	public function __construct() {
 
 		// Defining constants.
-		define( 'SLICEWP_VERSION', 		   '1.2.11' );
+		define( 'SLICEWP_VERSION', 		   '1.2.12' );
 		define( 'SLICEWP_BASENAME',  	   plugin_basename( __FILE__ ) );
 		define( 'SLICEWP_PLUGIN_DIR', 	   plugin_dir_path( __FILE__ ) );
 		define( 'SLICEWP_PLUGIN_DIR_URL',  plugin_dir_url( __FILE__ ) );

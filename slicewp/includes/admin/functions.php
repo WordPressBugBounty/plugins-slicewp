@@ -702,16 +702,16 @@ function slicewp_admin_notice_version_1_2_2() {
 
 
 /**
- * Outputs a promo notice for version 1.2.10.
+ * Outputs a promo notice for version 1.2.12.
  *
  */
-function slicewp_admin_notice_version_1_2_10() {
+function slicewp_admin_notice_version_1_2_12() {
 
 	if ( empty( $_GET['page'] ) || ! is_string( $_GET['page'] ) || false === strpos( $_GET['page'], 'slicewp' ) ) {
 		return;
 	}
 
-	if ( version_compare( SLICEWP_VERSION, '1.2.14', '>' ) ) {
+	if ( version_compare( SLICEWP_VERSION, '1.2.15', '>' ) ) {
 		return;
 	}
 
@@ -721,7 +721,7 @@ function slicewp_admin_notice_version_1_2_10() {
 
 	$dismissed_admin_notices = get_option( 'slicewp_dismissed_admin_notices', array() );
 
-	if ( in_array( 'version_1_2_10', $dismissed_admin_notices ) ) {
+	if ( in_array( 'version_1_2_12', $dismissed_admin_notices ) ) {
 		return;
 	}
 
@@ -750,11 +750,11 @@ function slicewp_admin_notice_version_1_2_10() {
 				</div>
 
 				<div class="slicewp-admin-notice-content">
-					<h3><strong><?php echo __( 'Settings just got a major upgrade!', 'slicewp' ); ?></strong></h3>
-					<p style="font-size: 14px;"><?php echo sprintf( __( "We've completely redesigned the SliceWP settings page with a sleek vertical layout and logical grouping, making it faster and easier than ever to manage your affiliate program.", 'slicewp' ), '<strong>', '</strong>', '<strong>', '</strong>' ); ?></p>
+					<h3><strong><?php echo __( 'Stripe affiliate payouts are here!', 'slicewp' ); ?></strong></h3>
+					<p style="font-size: 14px;"><?php echo sprintf( __( "You can now pay your affiliates through Stripe, directly from your WordPress dashboard.", 'slicewp' ), '<strong>', '</strong>', '<strong>', '</strong>' ); ?></p>
 
-					<a target="_blank" style="margin-top: 10px; margin-right: 10px;" href="<?php echo esc_url( 'https://slicewp.com/blog/product-update-rethinking-the-settings-page/' ); ?>" class="button-primary"><?php echo __( 'See what changed', 'slicewp' ); ?></a>
-					<a href="<?php echo esc_url( wp_nonce_url( add_query_arg( array( 'slicewp_action' => 'dismiss_notice', 'notice_slug' => 'version_1_2_10' ) ), 'slicewp_dismiss_notice', 'slicewp_token' ) ); ?>"><?php echo __( 'Dismiss notice', 'slicewp' ); ?></a>
+					<a target="_blank" style="margin-top: 10px; margin-right: 10px;" href="<?php echo esc_url( 'https://slicewp.com/blog/product-update-pay-affiliates-with-stripe/' ); ?>" class="button-primary"><?php echo __( 'Explore new features', 'slicewp' ); ?></a>
+					<a href="<?php echo esc_url( wp_nonce_url( add_query_arg( array( 'slicewp_action' => 'dismiss_notice', 'notice_slug' => 'version_1_2_12' ) ), 'slicewp_dismiss_notice', 'slicewp_token' ) ); ?>"><?php echo __( 'Dismiss notice', 'slicewp' ); ?></a>
 				</div>
 
 			</div>
@@ -764,4 +764,4 @@ function slicewp_admin_notice_version_1_2_10() {
 	<?php
 
 }
-add_action( 'admin_notices', 'slicewp_admin_notice_version_1_2_10' );
+add_action( 'admin_notices', 'slicewp_admin_notice_version_1_2_12' );

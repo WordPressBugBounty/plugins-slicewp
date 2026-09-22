@@ -28,7 +28,7 @@ function slicewp_admin_action_save_settings() {
 	// Verify for Payments Minimum Amount.
 	if ( $_POST['settings']['payments_minimum_amount'] < 0 ) {
 
-		slicewp_admin_notices()->register_notice( 'settings_payments_minimum_amount_error', '<p>' . sprintf( __( 'Please set a value equal or greater than 0 (zero) for the %sGeneral > Payouts Settings > Payments Minimum Amount%s setting.', 'slicewp' ), '<strong>', '</strong>' ) . '</p>', 'error' );
+		slicewp_admin_notices()->register_notice( 'settings_payments_minimum_amount_error', '<p>' . sprintf( __( 'Please set a value equal or greater than 0 (zero) for the %sPayouts > General Settings > Payments Minimum Amount%s setting.', 'slicewp' ), '<strong>', '</strong>' ) . '</p>', 'error' );
 		slicewp_admin_notices()->display_notice( 'settings_payments_minimum_amount_error' );	
 
 		return;
@@ -122,6 +122,11 @@ function slicewp_admin_action_save_settings() {
 
 	}
 
+	// Snapshot the raw submitted settings before the commission-rate loop below injects
+	// commission_rate_* keys for every available type. Those injected keys would otherwise fool the
+	// Pro-field detection further down into thinking Pro fields were present on the submitted form.
+	$submitted_settings = $_POST['settings'];
+
 	// Add commission rates.
 	$commission_types = slicewp_get_available_commission_types();
 	
@@ -158,7 +163,127 @@ function slicewp_admin_action_save_settings() {
 	// Prevent email notifications settings from being completely overwritten.
 	$new_settings['email_notifications'] = array_merge( ( ! empty( $current_settings['email_notifications'] ) ? $current_settings['email_notifications'] : array() ), ( ! empty( $new_settings['email_notifications'] ) ? $new_settings['email_notifications'] : array() ) );
 
+	/**
+	 * When SliceWP Pro is inactive its settings fields aren't rendered, so on save they'd be dropped
+	 * from the shared settings array and lost on reactivation. Preserve them from the stored settings.
+	 * 
+	 * Temporary, hardcoded stopgap: this list must be maintained by hand and can't be extended by add-ons.
+	 * 
+	 */
+	$preserved_pro_settings = array(
+
+		// PayPal payouts.
+		'paypal_api_test_mode',
+		'paypal_api_client_id_live',
+		'paypal_api_client_id_test',
+		'paypal_api_secret_live',
+		'paypal_api_secret_test',
+
+		// Stripe payouts.
+		'stripe_test_mode',
+		'stripe_live_secret_key',
+		'stripe_test_secret_key',
+		'stripe_cross_border',
+
+		// Payout requests.
+		'payout_request_require_invoice',
+
+		// Recurring commissions.
+		'recurring_commissions',
+		'commission_rate_recurring',
+		'commission_rate_type_recurring',
+		'commissions_recurrence',
+		'commissions_recurrence_limit',
+
+		// Lifetime commissions.
+		'lifetime_commissions',
+		'commission_rate_lifetime_sale',
+		'commission_rate_type_lifetime_sale',
+		'commissions_lifetime_duration',
+		'commissions_lifetime_limit',
+		'link_customer_on_registration',
+
+		// Multi-level affiliates.
+		'multi_level_affiliates',
+		'affiliate_levels',
+
+		// Custom affiliate slug.
+		'custom_affiliate_slug_creation',
+		'custom_affiliate_slug_auto_random',
+		'custom_affiliate_slug_random_type',
+		'custom_affiliate_slug_random_length',
+		'custom_affiliate_slug_referral_link_display',
+
+		// Affiliate social share.
+		'affiliate_social_share',
+		'asos_default_tweet',
+		'asos_platforms_order',
+
+		// Mailchimp.
+		'mailchimp_enabled',
+		'mailchimp_api_key',
+		'mailchimp_audience',
+		'mailchimp_double_optin',
+		'mailchimp_mailing_list_agreement_label',
+		'mailchimp_tags',
+
+		// MailerLite.
+		'mailerlite_enabled',
+		'mailerlite_api_key',
+		'mailerlite_group',
+		'mailerlite_mailing_list_agreement_label',
+
+		// ConvertKit.
+		'convertkit_enabled',
+		'convertkit_api_key',
+		'convertkit_tags',
+		'convertkit_mailing_list_agreement_label',
+
+		// Other Pro settings.
+		'affiliate_referral_link_format',
+		'affiliate_start_id',
+		'default_affiliate_group'
+
+	);
+
+	// Determine whether the submitted form actually carried any Pro fields.
+	$submission_has_pro_fields = false;
+
+	foreach ( $preserved_pro_settings as $key ) {
+
+		if ( isset( $submitted_settings[ $key ] ) ) {
+			$submission_has_pro_fields = true;
+			break;
+		}
+
+	}
+
+	// No Pro fields in the submission means they weren't rendered, so preserve the stored values.
+	if ( ! $submission_has_pro_fields ) {
+
+		foreach ( $preserved_pro_settings as $key ) {
+
+			if ( isset( $current_settings[ $key ] ) ) {
+				$new_settings[ $key ] = $current_settings[ $key ];
+			}
+
+		}
+
+	}
+
 	slicewp_update_option( 'settings', _slicewp_array_wp_kses_post( $new_settings ) );
+
+	/**
+	 * Fires after the admin has saved the settings, once they are persisted and immediately
+	 * before the redirect. Scoped to this admin save (not programmatic settings writes), so
+	 * handlers can read the just-saved values via slicewp_get_setting() without them being
+	 * passed in. Deliberately not named slicewp_admin_action_* — that namespace is firable
+	 * from a request via ?slicewp_action=… and this hook must run only inside the save flow.
+	 *
+	 * @param array $new_settings The settings that were just saved.
+	 *
+	 */
+	do_action( 'slicewp_admin_saved_settings', $new_settings );
 
 	// Redirect to the edit page of the settings with a success message.
 	wp_redirect( add_query_arg( array( 'page' => 'slicewp-settings', 'slicewp_message' => 'save_settings_success', 'tab' => ( ! empty( $_POST['active_tab'] ) ? $_POST['active_tab'] : 'general' ), 'email_notification' => ( ! empty( $_POST['email_notification'] ) ? $_POST['email_notification'] : '' ) ), admin_url( 'admin.php' ) ) );
@@ -166,6 +291,32 @@ function slicewp_admin_action_save_settings() {
 
 }
 add_action( 'slicewp_admin_action_save_settings', 'slicewp_admin_action_save_settings', 50 );
+
+
+/**
+ * Saves the enabled payout methods option when the settings form is submitted.
+ * 
+ * @todo - In a future update, when affiliates will have the option to select their preferred payout method, this switch will be added.
+ * 		   Until then, it isn't needed, as we don't have any affiliate facing functionality when it comes to payout methods.
+ * 		   The affiliate's selected payout method is either the default, or the one selected by the admin from the affiliate's edit page.
+ * 		   Once the affiliate is able to select their preferred payout method themselves, from their affiliate account, we will need to offer admins the option to select which payout methods are available for use and selection.
+ *
+ */
+function slicewp_admin_action_save_settings_payout_methods_enabled() {
+
+	// Verify for nonce.
+	if ( empty( $_POST['slicewp_token'] ) || ! wp_verify_nonce( $_POST['slicewp_token'], 'slicewp_save_settings' ) ) {
+		return;
+	}
+
+	$submitted   = ! empty( $_POST['payout_methods_enabled'] ) && is_array( $_POST['payout_methods_enabled'] ) ? $_POST['payout_methods_enabled'] : array();
+	$all_methods = slicewp_get_payout_methods();
+	$enabled     = array_values( array_intersect( array_map( 'sanitize_key', array_keys( $submitted ) ), array_keys( $all_methods ) ) );
+
+	update_option( 'slicewp_payout_methods_enabled', $enabled );
+
+}
+// add_action( 'slicewp_admin_action_save_settings', 'slicewp_admin_action_save_settings_payout_methods_enabled', 40 );
 
 
 /**

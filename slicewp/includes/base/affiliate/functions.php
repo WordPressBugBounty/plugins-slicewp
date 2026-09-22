@@ -682,6 +682,52 @@ function slicewp_get_affiliate_payout_method( $affiliate_id ) {
 
 
 /**
+ * Whether an affiliate has completed the payout setup required by a payout method.
+ *
+ * Methods that need the affiliate to set something up (e.g. connect Stripe, enter a PayPal email)
+ * declare 'requires_affiliate_payout_setup' in their supports array and answer through the
+ * per-method filter. Methods that need no setup (e.g. manual) are always considered ready.
+ *
+ * @param int    $affiliate_id
+ * @param string $payout_method  Method slug. Defaults to the affiliate's selected method.
+ *
+ * @return bool
+ *
+ */
+function slicewp_affiliate_has_completed_payout_setup( $affiliate_id, $payout_method = '' ) {
+
+	if ( empty( $payout_method ) ) {
+		$payout_method = slicewp_get_affiliate_payout_method( $affiliate_id );
+	}
+
+	$payout_methods = slicewp_get_payout_methods();
+
+	// A method that doesn't require setup has nothing to gate on.
+	if ( empty( $payout_methods[ $payout_method ]['supports'] ) || ! in_array( 'requires_affiliate_payout_setup', (array) $payout_methods[ $payout_method ]['supports'], true ) ) {
+		return true;
+	}
+
+	/**
+	 * Filters whether an affiliate has completed the payout setup required by their payout method.
+	 *
+	 * The dynamic portion of the hook name, $payout_method, is the affiliate's payout method slug
+	 * (e.g. 'stripe', 'paypal_payouts'). A payout method that declares 'requires_affiliate_payout_setup'
+	 * in its supports array hooks this filter to report whether the affiliate is ready to be paid
+	 * through it — for example, that they've connected a Stripe account able to receive transfers, or
+	 * that they've set a PayPal email. Affiliates that fail this check are left out when a payout is
+	 * generated, so no unpayable payment is created for them.
+	 *
+	 * @param bool $has_completed_setup  Whether the affiliate has completed setup. Defaults to false,
+	 *                                   so a method that requires setup must affirmatively confirm it.
+	 * @param int  $affiliate_id         The ID of the affiliate being checked.
+	 *
+	 */
+	return (bool) apply_filters( 'slicewp_affiliate_has_completed_payout_setup_' . $payout_method, false, $affiliate_id );
+
+}
+
+
+/**
  * Returns the status of the given affiliate.
  *
  * @param int $affiliate_id

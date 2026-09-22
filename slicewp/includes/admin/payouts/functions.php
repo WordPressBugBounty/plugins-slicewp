@@ -99,7 +99,7 @@ add_action( 'slicewp_enqueue_admin_scripts', 'slicewp_enqueue_admin_scripts_payo
 
 
 /**
- * Generates a csv with the provided data
+ * Generates a csv with the provided data.
  *
  */
 function slicewp_generate_csv( $header, $data, $filename = 'data.csv' ) {
@@ -117,7 +117,7 @@ function slicewp_generate_csv( $header, $data, $filename = 'data.csv' ) {
 		unset( $csv_line );
 
 		foreach ( $header as $key => $value ) {
-			
+
 			if ( isset( $row[$key] ) ) {
 
 		 		$csv_line[] = $row[$key];

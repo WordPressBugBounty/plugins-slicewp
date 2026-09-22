@@ -2,10 +2,10 @@
 Contributors: iova.mihai
 Donate link: https://slicewp.com/
 Tags: affiliate, affiliates, affiliate program, affiliates program, woocommerce affiliates, affiliates plugin, affiliates manager program, affiliates manager plugin
-Requires at least: 5.0
-Tested up to: 7.1.0
-Stable tag: 1.2.11
-Requires PHP: 5.6
+Requires at least: 6.0
+Tested up to: 7.1.1
+Stable tag: 1.2.12
+Requires PHP: 7.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -152,6 +152,11 @@ Yes! You can set a custom cookie lifespan for your affiliates.
 
 
 == Changelog ==
+
+= 1.2.12 =
+* New: Moved the payouts settings to a new "Payouts" tab.
+* New: Added "Payout Details" panel to the affiliate add/edit admin pages.
+* Misc: Small design improvements.
 
 = 1.2.11 =
 * Misc: Variable escaping.
