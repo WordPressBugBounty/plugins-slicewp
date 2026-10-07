@@ -490,6 +490,32 @@ function slicewp_user_action_update_affiliate_settings() {
     $affiliate_fields = array_values( $affiliate_fields );
 
 
+    // The payment email is only shown for payout methods that use it (e.g. Manual, PayPal Payouts).
+    // When the default affiliate fields are active it's rendered per payout method, so skip validating
+    // it for methods that don't display it. Under Custom Affiliate Fields the admin arranges the field
+    // themselves, so its validation is left in place.
+    if ( has_filter( 'slicewp_register_affiliate_fields', 'slicewp_register_default_affiliate_fields' ) ) {
+
+        $slicewp_affiliate      = slicewp_get_affiliate_by_user_id( get_current_user_id() );
+        $slicewp_payout_methods = slicewp_get_payout_methods();
+        $slicewp_payout_method  = $slicewp_affiliate ? slicewp_get_affiliate_payout_method( $slicewp_affiliate->get('id') ) : '';
+
+        if ( empty( $slicewp_payout_methods[ $slicewp_payout_method ]['supports'] ) || ! in_array( 'payment_email', (array) $slicewp_payout_methods[ $slicewp_payout_method ]['supports'], true ) ) {
+
+            foreach ( $affiliate_fields as $key => $field ) {
+
+                if ( 'payment_email' === $field->get('name') ) {
+                    unset( $affiliate_fields[$key] );
+                }
+
+            }
+
+            $affiliate_fields = array_values( $affiliate_fields );
+
+        }
+
+    }
+
     // Validate fields
     foreach ( $affiliate_fields as $field ) {
 

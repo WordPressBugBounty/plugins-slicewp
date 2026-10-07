@@ -70,10 +70,16 @@ function slicewp_send_email_notification_affiliate_commission_rejected( $commiss
 	$notification_settings = slicewp_get_email_notification_settings( 'affiliate_commission_rejected' );
 
 	if ( empty( $notification_settings['enabled'] ) ) {
+
 		return;
+
 	} else {
 
-        if ( doing_action( 'slicewp_insert_commission' ) || doing_action( 'slicewp_update_commission' ) || doing_action( 'slicewp_reject_commission' ) ) {
+        // Respect the admin's per-rejection "send email" choice only when the rejection comes from a
+        // commission admin form (add, edit, or reject). Programmatic rejections — e.g. a refunded or
+        // deleted reference order — don't carry these request actions and should notify based on the
+        // enabled setting alone.
+        if ( slicewp_verify_request_action( 'add_commission' ) || slicewp_verify_request_action( 'update_commission' ) || slicewp_verify_request_action( 'reject_commission' ) ) {
 
             if ( empty( $_POST['send_rejection_email_notification'] ) ) {
                 return;

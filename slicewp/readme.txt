@@ -3,18 +3,18 @@ Contributors: iova.mihai
 Donate link: https://slicewp.com/
 Tags: affiliate, affiliates, affiliate program, affiliates program, woocommerce affiliates, affiliates plugin, affiliates manager program, affiliates manager plugin
 Requires at least: 6.0
-Tested up to: 7.1.1
-Stable tag: 1.2.12
+Tested up to: 7.1.3
+Stable tag: 1.2.13
 Requires PHP: 7.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-SliceWP is the quickest and easiest WordPress affiliates plugin for building your affiliate program. Track affiliate commissions, easily pay your affiliates and connect to WooCommerce in seconds.
+SliceWP is the powerful WordPress affiliate plugin that makes running your own affiliate program effortless. Track affiliate commissions, easily pay your affiliates and connect to WooCommerce in seconds.
 
 == Description ==
-**SliceWP slice by slice — What makes SliceWP such an easy to use affiliates plugin?**
+**SliceWP slice by slice — What makes SliceWP such a great affiliates plugin for WordPress?**
 
-We’re powered by personal experience, having worked on numerous affiliate projects every time we found the current solutions lacking. So we built SliceWP to be easy to use, quick to set up and have a beautiful interface.
+We're powered by personal experience, having worked on numerous affiliate projects every time we found the current solutions lacking. So we built SliceWP to be powerful, easy to use, quick to set up, have a beautiful interface and to integrate deeply with your WordPress plugin toolstack.
 
 = SliceWP Affiliate Plugin — In a nutshell =
 
@@ -66,7 +66,7 @@ Simple. SliceWP was built from the ground-up to work seamlessly with your WordPr
 
 = Affiliates plugin for WooCommerce =
 
-When building a WooCommerce affiliates program, few plugins can do for you what SliceWP does. From accurate affiliates and commissions tracking, to affiliate coupon codes. Set product affiliate commission rates per product, disable commissions per product, connect affiliates to coupon codes, pay affiliates through PayPal. All done from your WordPress dashboard. An affiliates plugin for WooCommerce that integrates seamlessly.
+When building a WooCommerce affiliates program, few plugins can do for you what SliceWP does. From accurate affiliates and commissions tracking, to affiliate coupon codes. Set product affiliate commission rates per product, disable commissions per product, connect affiliates to coupon codes, pay affiliates through Stripe and PayPal. All done from your WordPress dashboard. An affiliates plugin for WooCommerce that integrates seamlessly.
 
 = Want an extra slice? Check out SliceWP Premium. =
 
@@ -118,7 +118,7 @@ Yes! SliceWP is the perfect WooCommerce affiliates plugin with the ability to tr
 
 = How do I pay my affiliates? =
 
-Anyway you want! You can pay via wire transfer, PayPal or any other payment method. SliceWP makes it easy to generate affiliates payouts so you know exactly who you need to pay and how much.
+Anyway you want! You can pay via wire transfer, Stripe, PayPal or any other payment method. SliceWP makes it easy to generate affiliates payouts so you know exactly who you need to pay and how much.
 
 = Does SliceWP work with any membership plugins? =
 
@@ -152,6 +152,13 @@ Yes! You can set a custom cookie lifespan for your affiliates.
 
 
 == Changelog ==
+
+= 1.2.13 =
+* Enhancement: Renamed the "Affiliate Area" tab into "Affiliates".
+* Enhancement: Renamed the "Credit First/Last Affiliate" field into "Affiliate Attribution".
+* Fixed: Administrators being unable to update affiliates because the "Payment Email" field was incorrectly required for payout methods that don't use it.
+* Fixed: Commission rejected email notification not being sent when the commission's reference order was refunded or deleted.
+* Misc: Small design improvements.
 
 = 1.2.12 =
 * New: Moved the payouts settings to a new "Payouts" tab.

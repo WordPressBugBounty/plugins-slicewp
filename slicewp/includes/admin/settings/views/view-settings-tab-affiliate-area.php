@@ -131,6 +131,129 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 </div><!-- / Registration -->
 
+<!-- Referral Tracking -->
+<div class="slicewp-card">
+
+	<?php $affiliate_keyword = ( ! empty( $_POST['settings']['affiliate_keyword'] ) ? $_POST['settings']['affiliate_keyword'] : ( empty( $_POST ) ? slicewp_get_setting( 'affiliate_keyword' ) : '' ) ); ?>
+
+	<div class="slicewp-card-header">
+		<span class="slicewp-card-title"><?php echo __( 'Referral Tracking', 'slicewp' ); ?></span>
+
+		<div class="slicewp-card-actions">
+			<a href="https://slicewp.com/docs/affiliate-links/" target="_blank" class="slicewp-button-info" title="<?php echo esc_attr( __( 'Click to learn more...', 'slicewp' ) ); ?>"><svg height="18" width="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M13 9h-2V7h2v2zm0 2h-2v6h2v-6zm-1-7c-4.41 0-8 3.59-8 8s3.59 8 8 8 8-3.59 8-8-3.59-8-8-8m0-2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2z"></path></g></svg></a>
+		</div>
+	</div>
+
+	<div class="slicewp-card-inner">
+
+		<!-- Affiliate Keyword -->
+		<div class="slicewp-field-wrapper slicewp-field-wrapper-inline slicewp-tooltip-wide">
+
+			<div class="slicewp-field-label-wrapper">
+				<label for="slicewp-affiliate-keyword">
+					<?php echo __( 'Affiliate Keyword', 'slicewp' ); ?>
+					<?php echo slicewp_output_tooltip( '<p>' . __( 'The URL query parameter name used for affiliate identification.', 'slicewp' ) . '</p><p>' . sprintf( __( 'Example: %s', 'slicewp' ), '<code style="font-family: inherit;">' . trailingslashit( site_url() ) . '?' . '<strong>' . esc_html( $affiliate_keyword ) . '</strong>' . '=' . $affiliate_id ) . '</code>' . '</p>' . '<hr />' . '<a href="https://slicewp.com/docs/affiliate-links/" target="_blank">' . __( 'Click here to learn more', 'slicewp' ) . '</a>' ); ?>
+				</label>
+			</div>
+
+			<input id="slicewp-affiliate-keyword" name="settings[affiliate_keyword]" type="text" value="<?php echo esc_attr( ! empty( $_POST['settings']['affiliate_keyword'] ) ? $_POST['settings']['affiliate_keyword'] : ( empty( $_POST ) ? slicewp_get_setting( 'affiliate_keyword' ) : '' ) ); ?>">
+
+		</div><!-- / Affiliate Keyword -->
+
+		<!-- Cookie Duration -->
+		<div class="slicewp-field-wrapper slicewp-field-wrapper-inline slicewp-tooltip-wide">
+
+			<div class="slicewp-field-label-wrapper">
+				<label for="slicewp-cookie-duration">
+					<?php echo __( 'Tracking Cookie Duration', 'slicewp' ); ?>
+					<?php echo slicewp_output_tooltip( '<p>' . __( 'The number of days a referred visitor is being tracked.' , 'slicewp' ) . '</p><p>' . __( 'If the referred visitor makes a purchase in this timeframe, the referring affiliate will be rewarded a commission.', 'slicewp' ) . '</p>' . '<hr />' . '<a href="https://slicewp.com/docs/cookie-duration/" target="_blank">' . __( 'Click here to learn more', 'slicewp' ) . '</a>' ); ?>
+				</label>
+			</div>
+
+			<div style="display: flex; gap: 10px;">
+				<input id="slicewp-cookie-duration" name="settings[cookie_duration]" type="number" value="<?php echo ( ! empty( $_POST['settings']['cookie_duration'] ) ? esc_attr( $_POST['settings']['cookie_duration'] ) : ( slicewp_get_setting( 'cookie_duration' ) ) ); ?>">
+				<input type="text" value="<?php echo __( 'Days', 'slicewp' ); ?>" disabled />
+			</div>
+
+		</div><!-- / Cookie Duration -->
+
+		<!-- Credit First/Last Affiliate -->
+		<div class="slicewp-field-wrapper slicewp-field-wrapper-inline slicewp-tooltip-wide">
+
+			<div class="slicewp-field-label-wrapper">
+				<label>
+					<?php echo __( 'Affiliate Attribution', 'slicewp' ); ?>
+					<?php echo slicewp_output_tooltip( '<p>' . __( 'Sets which affiliate is rewarded the commission when a visitor clicks more than one affiliate\'s referral link before converting.', 'slicewp' ) . '</p>' . '<p>' . sprintf( __( '%1$sFirst Affiliate%2$s - the affiliate whose link was clicked first keeps the credit. Their tracking cookie stays in place until it expires, even if the visitor later clicks another affiliate\'s link.', 'slicewp' ), '<strong>', '</strong>' ) . '</p>' . '<p>' . sprintf( __( '%1$sLast Affiliate%2$s - the affiliate whose link was clicked last gets the credit, replacing the previous tracking cookie.', 'slicewp' ), '<strong>', '</strong>' ) . '</p>' . '<hr /><a href="https://slicewp.com/docs/referral-tracking/" target="_blank">' . __( 'Click here to learn more', 'slicewp' ) . '</a>' ); ?>
+				</label>
+			</div>
+
+			<select id="slicewp-affiliate-credit" name="settings[affiliate_credit]" class="slicewp-select2">
+				<option value="first" <?php echo selected( ( ! empty( $_POST['settings']['affiliate_credit'] ) ? $_POST['settings']['affiliate_credit'] : ( empty( $_POST ) ? slicewp_get_setting( 'affiliate_credit' ) : '' ) ) , 'first' ); ?>><?php echo __( 'First Affiliate', 'slicewp' ); ?></option>
+				<option value="last" <?php echo selected( ( ! empty( $_POST['settings']['affiliate_credit'] ) ? $_POST['settings']['affiliate_credit'] : ( empty( $_POST ) ? slicewp_get_setting( 'affiliate_credit' ) : '' ) ) , 'last' ); ?>><?php echo __( 'Last Affiliate', 'slicewp' ); ?></option>
+			</select>
+
+		</div><!-- / Credit First/Last Affiliate -->
+
+        <!-- Friendly Affiliate URLs -->
+        <div class="slicewp-field-wrapper slicewp-field-wrapper-inline slicewp-tooltip-wide">
+
+            <div class="slicewp-field-label-wrapper">
+                <label for="slicewp-friendly-affiliate-urls">
+                    <?php echo __( 'Friendly Affiliate URLs', 'slicewp' ); ?>
+					<?php echo slicewp_output_tooltip( '<p>' . __( 'When enabled, the affiliate referral links will look like this:', 'slicewp' ) . '<br />' . '<code style="display: inline-block; margin-top: 3px; font-family: inherit;">' . untrailingslashit( site_url() ) . '<strong>' . '/' . '<span>' . esc_html( $affiliate_keyword ) . '</span>' . '/' . $affiliate_id . '/' . '</strong>' . '</code>' . '</p><p>' . __( 'Instead of this:', 'slicewp' ) . '<br />' . '<code style="display: inline-block; margin-top: 3px; font-family: inherit;">' . untrailingslashit( site_url() ) . '<strong>' . '/?' . '<span>' . esc_html( $affiliate_keyword ) . '</span>' . '=' . $affiliate_id . '</strong>' . '</code>' . '</p>' . '<hr />' . '<a href="https://slicewp.com/docs/affiliate-links/" target="_blank">' . __( 'Click here to learn more', 'slicewp' ) . '</a>' ); ?>
+                </label>
+            </div>
+
+            <div class="slicewp-switch">
+
+                <input id="slicewp-friendly-affiliate-urls" class="slicewp-toggle slicewp-toggle-round" name="settings[friendly_affiliate_url]" type="checkbox" value="1" <?php checked( ! empty( $_POST['settings']['friendly_affiliate_url'] ) ? '1' : ( empty( $_POST ) ? slicewp_get_setting( 'friendly_affiliate_url' ) : '' ), '1' ); ?> />
+                <label for="slicewp-friendly-affiliate-urls"></label>
+
+            </div>
+
+            <label for="slicewp-friendly-affiliate-urls"><?php echo __( 'Use friendly affiliate URLs.', 'slicewp' ); ?></label>
+
+        </div><!-- / Friendly Affiliate URLs -->
+
+		<!-- Referral Links QR Code -->
+        <div class="slicewp-field-wrapper slicewp-field-wrapper-inline">
+
+            <div class="slicewp-field-label-wrapper">
+                <label for="slicewp-referral-link-qr-code">
+                    <?php echo __( 'Affiliate Link QR Code', 'slicewp' ); ?>
+                    <?php echo slicewp_output_tooltip( __( 'When enabled, your affiliates will have the option to view and download the QR code for their affiliate referral links.', 'slicewp' ) ); ?>
+                </label>
+            </div>
+
+            <div class="slicewp-switch">
+
+                <input id="slicewp-referral-link-qr-code" class="slicewp-toggle slicewp-toggle-round" name="settings[referral_link_qr_code]" type="checkbox" value="1" <?php checked( ! empty( $_POST['settings']['referral_link_qr_code'] ) ? '1' : ( empty( $_POST ) ? slicewp_get_setting( 'referral_link_qr_code' ) : '' ), '1' ); ?> />
+                <label for="slicewp-referral-link-qr-code"></label>
+
+            </div>
+
+            <label for="slicewp-referral-link-qr-code"><?php echo __( 'Show QR code for affiliate URLs in the affiliate account.', 'slicewp' ); ?></label>
+
+        </div><!-- Referral Links QR Code -->
+
+		<!-- Affiliate Default URL Override -->
+		<div class="slicewp-field-wrapper slicewp-field-wrapper-inline slicewp-last">
+
+			<div class="slicewp-field-label-wrapper">
+				<label for="slicewp-affiliate-referral-url">
+					<?php echo __( 'Default URL Override', 'slicewp' ); ?>
+					<?php echo slicewp_output_tooltip( __( "The default affiliate referral URL shown in the affiliate account. If left empty, your website's home URL will be used.", 'slicewp' ) ); ?>
+				</label>
+			</div>
+
+			<input id="slicewp-affiliate-referral-url" name="settings[affiliate_url_base]" type="url" value="<?php echo esc_attr( ! empty( $_POST['settings']['affiliate_url_base'] ) ? $_POST['settings']['affiliate_url_base'] : ( empty( $_POST ) ? slicewp_get_setting( 'affiliate_url_base' ) : '' ) ); ?>">
+			
+		</div><!-- / Affiliate Default URL Override -->
+
+	</div>
+
+</div><!-- / Referral Tracking -->
+
 <!-- Pages -->
 <div class="slicewp-card">
 

@@ -51,6 +51,27 @@ function slicewp_admin_action_add_affiliate() {
     $affiliate_fields = array_values( $affiliate_fields );
 
 
+    // The payment email is only shown for payout methods that use it (e.g. Manual, PayPal Payouts),
+    // based on the payout method selected in this request. Don't validate it for methods that don't
+    // display it (e.g. Stripe, Store Credit), otherwise saving the affiliate would be blocked by a
+    // required field the admin never sees.
+    $slicewp_payout_methods = slicewp_get_payout_methods();
+    $slicewp_payout_method  = ! empty( $_POST['payout_method'] ) ? sanitize_text_field( $_POST['payout_method'] ) : slicewp_get_default_payout_method();
+
+    if ( empty( $slicewp_payout_methods[ $slicewp_payout_method ]['supports'] ) || ! in_array( 'payment_email', (array) $slicewp_payout_methods[ $slicewp_payout_method ]['supports'], true ) ) {
+
+        foreach ( $affiliate_fields as $key => $field ) {
+
+            if ( 'payment_email' === $field->get('name') ) {
+                unset( $affiliate_fields[$key] );
+            }
+
+        }
+
+        $affiliate_fields = array_values( $affiliate_fields );
+
+    }
+
     // Validate fields
     foreach ( $affiliate_fields as $field ) {
 
@@ -231,6 +252,27 @@ function slicewp_admin_action_update_affiliate() {
     // Reset array values and keys
     $affiliate_fields = array_values( $affiliate_fields );
 
+
+    // The payment email is only shown for payout methods that use it (e.g. Manual, PayPal Payouts),
+    // based on the payout method selected in this request. Don't validate it for methods that don't
+    // display it (e.g. Stripe, Store Credit), otherwise saving the affiliate would be blocked by a
+    // required field the admin never sees.
+    $slicewp_payout_methods = slicewp_get_payout_methods();
+    $slicewp_payout_method  = ! empty( $_POST['payout_method'] ) ? sanitize_text_field( $_POST['payout_method'] ) : slicewp_get_default_payout_method();
+
+    if ( empty( $slicewp_payout_methods[ $slicewp_payout_method ]['supports'] ) || ! in_array( 'payment_email', (array) $slicewp_payout_methods[ $slicewp_payout_method ]['supports'], true ) ) {
+
+        foreach ( $affiliate_fields as $key => $field ) {
+
+            if ( 'payment_email' === $field->get('name') ) {
+                unset( $affiliate_fields[$key] );
+            }
+
+        }
+
+        $affiliate_fields = array_values( $affiliate_fields );
+
+    }
 
     // Validate fields
     foreach ( $affiliate_fields as $field ) {

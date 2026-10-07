@@ -222,7 +222,7 @@ function slicewp_promo_view_settings_tab_affiliate_area_bottom_affiliate_fields(
 		.slicewp-promo-features { margin: 0; padding: 0; list-style: none; }
 		.slicewp-promo-features li { position: relative; padding: 10px 0 5px 26px; color: #444; margin-top: 5px !important; }
 		.slicewp-promo-features li + li { border-top: 1px solid rgba(200, 215, 225, 0.4); }
-		.slicewp-promo-features li::before { content: ''; position: absolute; left: 0; top: 50%; margin-top: -5px; width: 16px; height: 16px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='2.5' stroke='%2316a085'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M5 13l4 4L19 7'/%3E%3C/svg%3E"); background-size: contain; background-repeat: no-repeat; background-position: center; }
+		.slicewp-promo-features li::before { content: ''; position: absolute; left: 0; top: 11px; width: 16px; height: 16px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='2.5' stroke='%2316a085'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M5 13l4 4L19 7'/%3E%3C/svg%3E"); background-size: contain; background-repeat: no-repeat; background-position: center; }
 	</style>
 
 	<div class="slicewp-card slicewp-card-promo">
@@ -283,7 +283,7 @@ function slicewp_promo_view_settings_tab_commissions_bottom_commission_types() {
 		.slicewp-promo-features { margin: 0; padding: 0; list-style: none; }
 		.slicewp-promo-features li { position: relative; padding: 10px 0 5px 26px; color: #444; margin-top: 5px !important; }
 		.slicewp-promo-features li + li { border-top: 1px solid rgba(200, 215, 225, 0.4); }
-		.slicewp-promo-features li::before { content: ''; position: absolute; left: 0; top: 50%; margin-top: -5px; width: 16px; height: 16px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='2.5' stroke='%2316a085'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M5 13l4 4L19 7'/%3E%3C/svg%3E"); background-size: contain; background-repeat: no-repeat; background-position: center; }
+		.slicewp-promo-features li::before { content: ''; position: absolute; left: 0; top: 11px; width: 16px; height: 16px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='2.5' stroke='%2316a085'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M5 13l4 4L19 7'/%3E%3C/svg%3E"); background-size: contain; background-repeat: no-repeat; background-position: center; }
 	</style>
 
 	<div class="slicewp-card slicewp-card-promo">
@@ -300,13 +300,13 @@ function slicewp_promo_view_settings_tab_commissions_bottom_commission_types() {
 
 		<div class="slicewp-card-inner">
 
-			<p class="slicewp-promo-tagline"><?php echo __( 'Unlock powerful commission models that go beyond a flat rate and keep affiliates motivated.', 'slicewp' ); ?></p>
+			<p class="slicewp-promo-tagline"><?php echo __( 'Reward affiliates in smarter ways with powerful commission models designed to keep them motivated.', 'slicewp' ); ?></p>
 
 			<ul class="slicewp-promo-features">
-				<li><?php echo __( 'Recurring Commissions — automatically reward affiliates for every subscription renewal, not just the first sale.', 'slicewp' ); ?></li>
-				<li><?php echo __( 'Lifetime Commissions — tie customers to affiliates permanently and pay a commission on every future purchase they make.', 'slicewp' ); ?></li>
-				<li><?php echo __( 'Lead Commissions — pay affiliates for form submissions and leads, not just completed orders.', 'slicewp' ); ?></li>
-				<li><?php echo __( 'Performance Bonuses — automatically reward top performers when they hit defined sales or referral targets.', 'slicewp' ); ?></li>
+				<li><?php echo __( 'Recurring Commissions - automatically reward affiliates for every subscription renewal, not just the first sale.', 'slicewp' ); ?></li>
+				<li><?php echo __( 'Lifetime Commissions - tie customers to affiliates permanently and pay a commission on every future purchase they make.', 'slicewp' ); ?></li>
+				<li><?php echo __( 'Lead Commissions - pay affiliates for form submissions and leads, not just completed orders.', 'slicewp' ); ?></li>
+				<li><?php echo __( 'Performance Bonuses - automatically reward top performers when they hit defined sales or referral targets.', 'slicewp' ); ?></li>
 			</ul>
 
 		</div>
@@ -320,7 +320,7 @@ function slicewp_promo_view_settings_tab_commissions_bottom_commission_types() {
 	<?php
 
 }
-// add_action( 'slicewp_view_settings_tab_commissions_bottom', 'slicewp_promo_view_settings_tab_commissions_bottom_commission_types' );
+add_action( 'slicewp_view_settings_tab_commissions_bottom', 'slicewp_promo_view_settings_tab_commissions_bottom_commission_types' );
 
 
 /**
@@ -358,7 +358,7 @@ function slicewp_admin_notice_review_request() {
 
 	?>
 
-		<div class="notice notice-info">
+		<div class="slicewp-notice notice notice-info">
 			<p><?php esc_html_e( "Hey, I noticed you've been using SliceWP for a few weeks now - that’s awesome! Could you please do me a BIG favor and give the plugin a 5-star rating on WordPress to help us spread the word? It would mean the world to us!", 'slicewp' ); ?></p>
 			<p><strong><?php esc_html_e( '~ Iova Mihai, SliceWP co-founder', 'slicewp' ); ?></strong></p>
 			<p>
