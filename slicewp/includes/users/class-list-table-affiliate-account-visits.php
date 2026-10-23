@@ -67,16 +67,31 @@ class SliceWP_List_Table_Affiliate_Account_Visits extends SliceWP_List_Table {
 
 
     /**
-     * Column "referrer_url".
-     * 
+     * Column "landing_url".
+     *
      * @param array $item
-     * 
+     *
      * @return string
-     * 
+     *
+     */
+    public function column_landing_url( $item ) {
+
+        return esc_html( ! empty( $item['landing_url'] ) ? rawurldecode( $item['landing_url'] ) : '-' );
+
+    }
+
+
+    /**
+     * Column "referrer_url".
+     *
+     * @param array $item
+     *
+     * @return string
+     *
      */
     public function column_referrer_url( $item ) {
 
-        return esc_html( ! empty( $item['referrer_url'] ) ? $item['referrer_url'] : '-' );
+        return esc_html( ! empty( $item['referrer_url'] ) ? rawurldecode( $item['referrer_url'] ) : '-' );
 
     }
 

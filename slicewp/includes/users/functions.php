@@ -351,8 +351,8 @@ function slicewp_output_list_table_commissions_visit( $item ) {
 		echo '<tbody>';
 			echo '<tr>';
 				echo '<td class="slicewp-column-id">' . esc_html( $visit->get( 'id' ) ) . '</td>';
-				echo '<td class="slicewp-column-landing_url">' . esc_html( $visit->get( 'landing_url' ) ) . '</td>';
-				echo '<td class="slicewp-column-referrer_url">' . esc_html( ! empty( $visit->get( 'referrer_url' ) ) ? $visit->get( 'referrer_url' ) : '-' ) . '</td>';
+				echo '<td class="slicewp-column-landing_url">' . esc_html( rawurldecode( $visit->get( 'landing_url' ) ) ) . '</td>';
+				echo '<td class="slicewp-column-referrer_url">' . esc_html( ! empty( $visit->get( 'referrer_url' ) ) ? rawurldecode( $visit->get( 'referrer_url' ) ) : '-' ) . '</td>';
 				echo '<td class="slicewp-column-date">' . esc_html( slicewp_date_i18n( $visit->get( 'date_created' ) ) ) . '</td>';
 			echo '</tr>';
 		echo '</tbody>';

@@ -4,7 +4,7 @@ Donate link: https://slicewp.com/
 Tags: affiliate, affiliates, affiliate program, affiliates program, woocommerce affiliates, affiliates plugin, affiliates manager program, affiliates manager plugin
 Requires at least: 6.0
 Tested up to: 7.1.3
-Stable tag: 1.2.13
+Stable tag: 1.2.14
 Requires PHP: 7.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -152,6 +152,10 @@ Yes! You can set a custom cookie lifespan for your affiliates.
 
 
 == Changelog ==
+
+= 1.2.14 =
+* Misc: Variable escaping.
+* Misc: Small formatting improvements.
 
 = 1.2.13 =
 * Enhancement: Renamed the "Affiliate Area" tab into "Affiliates".
