@@ -111,7 +111,7 @@ Class SliceWP_Object_DB_Customers extends SliceWP_Object_DB {
 		// Email where clause
 		if ( ! empty( $args['email'] ) ) {
 
-			$email = sanitize_text_field( $args['email'] );
+			$email = esc_sql( sanitize_text_field( $args['email'] ) );
 			$where  .= " AND email = '{$email}'";
 
 		}
@@ -144,7 +144,7 @@ Class SliceWP_Object_DB_Customers extends SliceWP_Object_DB {
 		// Include date_min filter in where clause
 		if ( ! empty( $args['date_min'] )) {
 
-			$date_min =  sanitize_text_field( $args['date_min'] );
+			$date_min =  esc_sql( sanitize_text_field( $args['date_min'] ) );
 			$where  .= " AND date_created >= '{$date_min}' ";
 
 		}
@@ -152,13 +152,13 @@ Class SliceWP_Object_DB_Customers extends SliceWP_Object_DB {
 		// Include date_max filter in where clause
 		if ( ! empty( $args['date_max'] )) {
 
-			$date_max =  sanitize_text_field( $args['date_max'] );
+			$date_max =  esc_sql( sanitize_text_field( $args['date_max'] ) );
 			$where  .= " AND date_created <= '{$date_max}' ";
 
 		}
 		
 		// Default orderby
-		$orderby = sanitize_text_field( $args['orderby'] );
+		$orderby = in_array( $args['orderby'], array_keys( $this->get_columns() ), true ) ? sanitize_text_field( $args['orderby'] ) : $this->primary_key;
 
 		// Order
 		$order = ( 'DESC' === strtoupper( $args['order'] ) ? 'DESC' : 'ASC' );

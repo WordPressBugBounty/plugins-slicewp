@@ -110,12 +110,12 @@ Class SliceWP_Object_DB_Commissions extends SliceWP_Object_DB {
 
 			if ( is_array( $args['status'] ) ) {
 
-				$statuses = implode( "','", array_map( 'sanitize_text_field', $args['status'] ) );
+				$statuses = implode( "','", array_map( 'esc_sql', array_map( 'sanitize_text_field', $args['status'] ) ) );
 				$where  .= " AND status IN('{$statuses}')";
 
 			} else {
 
-				$status = sanitize_text_field( $args['status'] );
+				$status = esc_sql( sanitize_text_field( $args['status'] ) );
 				$where .= " AND status = '{$status}'";
 
 			}
@@ -127,12 +127,12 @@ Class SliceWP_Object_DB_Commissions extends SliceWP_Object_DB {
 
 			if ( is_array( $args['type'] ) ) {
 
-				$types  = implode( "','", array_map( 'sanitize_text_field', $args['type'] ) );
+				$types  = implode( "','", array_map( 'esc_sql', array_map( 'sanitize_text_field', $args['type'] ) ) );
 				$where .= " AND type IN('{$types}')";
 
 			} else {
 
-				$type   = sanitize_text_field( $args['type'] );
+				$type   = esc_sql( sanitize_text_field( $args['type'] ) );
 				$where .= " AND type = '{$type}'";
 
 			}
@@ -206,7 +206,7 @@ Class SliceWP_Object_DB_Commissions extends SliceWP_Object_DB {
 		// Reference where clause.
 		if ( ! empty( $args['reference'] ) ) {
 
-			$reference = sanitize_text_field( $args['reference'] );
+			$reference = esc_sql( sanitize_text_field( $args['reference'] ) );
 			$where 	  .= " AND reference = '{$reference}'";
 
 		}
@@ -214,7 +214,7 @@ Class SliceWP_Object_DB_Commissions extends SliceWP_Object_DB {
 		// Origin where clause.
 		if ( ! empty( $args['origin'] ) ) {
 
-			$origin = sanitize_text_field( $args['origin'] );
+			$origin = esc_sql( sanitize_text_field( $args['origin'] ) );
 			$where .= " AND origin = '{$origin}'";
 
 		}
@@ -222,7 +222,7 @@ Class SliceWP_Object_DB_Commissions extends SliceWP_Object_DB {
 		// Include date_min filter in where clause.
 		if ( ! empty( $args['date_min'] ) ) {
 
-			$date_min =  sanitize_text_field( $args['date_min']);
+			$date_min =  esc_sql( sanitize_text_field( $args['date_min']) );
 			$where  .= " AND date_created >= '{$date_min}' ";
 
 		}
@@ -230,7 +230,7 @@ Class SliceWP_Object_DB_Commissions extends SliceWP_Object_DB {
 		// Include date_max filter in where clause.
 		if ( ! empty( $args['date_max'] ) ) {
 
-			$date_max =  sanitize_text_field( $args['date_max']);
+			$date_max =  esc_sql( sanitize_text_field( $args['date_max']) );
 			$where  .= " AND date_created <= '{$date_max}' ";
 
 		}
@@ -276,12 +276,12 @@ Class SliceWP_Object_DB_Commissions extends SliceWP_Object_DB {
 
 			$affiliate_ids = ( ! empty( $affiliate_ids ) ? implode( ',', array_map( 'absint', $affiliate_ids ) ) : 0 );
 
-			$where .= " AND (affiliate_id IN({$affiliate_ids}) OR id LIKE '%%{$search}%%' OR reference LIKE '%%{$search}%%')";
+			$where .= " AND (affiliate_id IN({$affiliate_ids}) OR id LIKE '%%" . esc_sql( $search ) . "%%' OR reference LIKE '%%" . esc_sql( $search ) . "%%')";
 
 		}
 
 		// Orderby.
-		$orderby = sanitize_text_field( $args['orderby'] );
+		$orderby = in_array( $args['orderby'], array_keys( $this->get_columns() ), true ) ? sanitize_text_field( $args['orderby'] ) : $this->primary_key;
 
 		if ( $args['orderby'] == 'amount' ) {
 			$orderby = 'amount+0';
@@ -359,7 +359,7 @@ Class SliceWP_Object_DB_Commissions extends SliceWP_Object_DB {
 		// Status where clause.
 		if ( ! empty( $args['status'] ) ) {
 
-			$status = sanitize_text_field( $args['status'] );
+			$status = esc_sql( sanitize_text_field( $args['status'] ) );
 			$where .= " AND status = '{$status}'";
 
 		}
@@ -367,7 +367,7 @@ Class SliceWP_Object_DB_Commissions extends SliceWP_Object_DB {
 		// Include affiliate_id filter in where clause.
 		if ( ! empty( $args['affiliate_id'] ) ) {
 
-			$affiliate_id =  sanitize_text_field( $args['affiliate_id']);
+			$affiliate_id =  absint( $args['affiliate_id'] );
 			$where  	 .= " AND affiliate_id = '{$affiliate_id}' ";
 
 		}
@@ -375,7 +375,7 @@ Class SliceWP_Object_DB_Commissions extends SliceWP_Object_DB {
 		// Include date_min filter in where clause.
 		if ( ! empty( $args['date_min'] ) ) {
 
-			$date_min =  sanitize_text_field( $args['date_min']);
+			$date_min =  esc_sql( sanitize_text_field( $args['date_min']) );
 			$where   .= " AND date_created >= '{$date_min}' ";
 
 		}
@@ -383,7 +383,7 @@ Class SliceWP_Object_DB_Commissions extends SliceWP_Object_DB {
 		// Include date_max filter in where clause.
 		if ( ! empty( $args['date_max'] ) ) {
 
-			$date_max =  sanitize_text_field( $args['date_max']);
+			$date_max =  esc_sql( sanitize_text_field( $args['date_max']) );
 			$where   .= " AND date_created <= '{$date_max}' ";
 
 		}
@@ -391,13 +391,13 @@ Class SliceWP_Object_DB_Commissions extends SliceWP_Object_DB {
 		// Include where clause.
 		if ( ! empty( $args['include'] ) ) {
 
-			$include = implode( ',', $args['include'] );
+			$include = implode( ',', wp_parse_id_list( $args['include'] ) );
 			$where  .= " AND id IN({$include})";
 
 		}
 
 		// Orderby.
-		$orderby = sanitize_text_field( $args['orderby'] );
+		$orderby = in_array( $args['orderby'], array_keys( $this->get_columns() ), true ) ? sanitize_text_field( $args['orderby'] ) : $this->primary_key;
 
 		if ( $args['orderby'] == 'amount' ) {
 			$orderby = 'amount+0';

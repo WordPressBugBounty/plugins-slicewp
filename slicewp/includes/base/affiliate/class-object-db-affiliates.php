@@ -97,12 +97,12 @@ Class SliceWP_Object_DB_Affiliates extends SliceWP_Object_DB {
 
 			if ( is_array( $args['status'] ) ) {
 
-				$statuses = implode( "','", array_map( 'sanitize_text_field', $args['status'] ) );
+				$statuses = implode( "','", array_map( 'esc_sql', array_map( 'sanitize_text_field', $args['status'] ) ) );
 				$where  .= " AND status IN('{$statuses}')";
 
 			} else {
 
-				$status = sanitize_text_field( $args['status'] );
+				$status = esc_sql( sanitize_text_field( $args['status'] ) );
 				$where .= " AND status = '{$status}'";
 
 			}
@@ -159,14 +159,15 @@ Class SliceWP_Object_DB_Affiliates extends SliceWP_Object_DB {
 			$user_ids = $wpdb->get_col( $wpdb->prepare( "SELECT ID FROM {$wpdb->users} WHERE user_login LIKE %s OR user_email LIKE %s OR display_name LIKE %s", "%{$search}%", "%{$search}%", "%{$search}%" ) );
 			$user_ids = ( ! empty( $user_ids ) ? implode( ',', array_map( 'absint', $user_ids ) ) : 0 );
 
-			$where .= " AND (user_id IN($user_ids) OR id LIKE '%%{$search}%%')";
+			$search_like = esc_sql( $search );
+			$where .= " AND (user_id IN($user_ids) OR id LIKE '%%{$search_like}%%')";
 
 		}
 
 		// Include date_min filter in where clause
 		if ( ! empty( $args['date_min'] )) {
 
-			$date_min =  sanitize_text_field( $args['date_min'] );
+			$date_min =  esc_sql( sanitize_text_field( $args['date_min'] ) );
 			$where  .= " AND date_created >= '{$date_min}' ";
 
 		}
@@ -174,13 +175,13 @@ Class SliceWP_Object_DB_Affiliates extends SliceWP_Object_DB {
 		// Include date_max filter in where clause
 		if ( ! empty( $args['date_max'] )) {
 
-			$date_max =  sanitize_text_field( $args['date_max'] );
+			$date_max =  esc_sql( sanitize_text_field( $args['date_max'] ) );
 			$where  .= " AND date_created <= '{$date_max}' ";
 
 		}
 		
 		// Default orderby
-		$orderby = sanitize_text_field( $args['orderby'] );
+		$orderby = in_array( $args['orderby'], array_keys( $this->get_columns() ), true ) ? sanitize_text_field( $args['orderby'] ) : $this->primary_key;
 
 		$commissions_table = slicewp()->db['commissions']->table_name;
 		$visits_table = slicewp()->db['visits']->table_name;
@@ -228,8 +229,8 @@ Class SliceWP_Object_DB_Affiliates extends SliceWP_Object_DB {
 			$orderby  = "( SELECT SUM({$commissions_table}.amount) FROM {$commissions_table}";
 			$orderby .= " WHERE ( {$this->table_name}.id = {$commissions_table}.affiliate_id";
 			$orderby .= " AND {$commissions_table}.status = 'paid'";
-			$orderby .= " AND {$commissions_table}.date_created >= '{$args['commission_date_min']}'";
-			$orderby .= " AND {$commissions_table}.date_created <= '{$args['commission_date_max']}' ) )";
+			$orderby .= " AND {$commissions_table}.date_created >= '" . esc_sql( $args['commission_date_min'] ) . "'";
+			$orderby .= " AND {$commissions_table}.date_created <= '" . esc_sql( $args['commission_date_max'] ) . "' ) )";
 
 		}
 				
@@ -239,13 +240,13 @@ Class SliceWP_Object_DB_Affiliates extends SliceWP_Object_DB {
 			$orderby  = "( ( SELECT COUNT({$visits_table}.affiliate_id ) FROM {$visits_table}";
 			$orderby .= " WHERE ( {$this->table_name}.id = {$visits_table}.affiliate_id";
 			$orderby .= " AND {$visits_table}.commission_id != 0";
-			$orderby .= " AND {$visits_table}.date_created >= '{$args['commission_date_min']}'";
-			$orderby .= " AND {$visits_table}.date_created <= '{$args['commission_date_max']}' ) )";
+			$orderby .= " AND {$visits_table}.date_created >= '" . esc_sql( $args['commission_date_min'] ) . "'";
+			$orderby .= " AND {$visits_table}.date_created <= '" . esc_sql( $args['commission_date_max'] ) . "' ) )";
 			$orderby .= " / ";
 			$orderby .= "( SELECT COUNT({$visits_table}.affiliate_id ) FROM {$visits_table}";
 			$orderby .= " WHERE ( {$this->table_name}.id = {$visits_table}.affiliate_id";
-			$orderby .= " AND {$visits_table}.date_created >= '{$args['commission_date_min']}'";
-			$orderby .= " AND {$visits_table}.date_created <= '{$args['commission_date_max']}' ) ) )";
+			$orderby .= " AND {$visits_table}.date_created >= '" . esc_sql( $args['commission_date_min'] ) . "'";
+			$orderby .= " AND {$visits_table}.date_created <= '" . esc_sql( $args['commission_date_max'] ) . "' ) ) )";
 
 		}
 

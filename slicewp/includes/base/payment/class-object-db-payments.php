@@ -98,12 +98,12 @@ Class SliceWP_Object_DB_Payments extends SliceWP_Object_DB {
 
 			if ( is_array( $args['status'] ) ) {
 
-				$statuses = implode( "','", array_map( 'sanitize_text_field', $args['status'] ) );
+				$statuses = implode( "','", array_map( 'esc_sql', array_map( 'sanitize_text_field', $args['status'] ) ) );
 				$where  .= " AND status IN('{$statuses}')";
 
 			} else {
 
-				$status = sanitize_text_field( $args['status'] );
+				$status = esc_sql( sanitize_text_field( $args['status'] ) );
 				$where .= " AND status = '{$status}'";
 
 			}
@@ -115,12 +115,12 @@ Class SliceWP_Object_DB_Payments extends SliceWP_Object_DB {
 
 			if ( is_array( $args['payout_method'] ) ) {
 
-				$payout_methods = implode( "','", array_map( 'sanitize_text_field', $args['payout_method'] ) );
+				$payout_methods = implode( "','", array_map( 'esc_sql', array_map( 'sanitize_text_field', $args['payout_method'] ) ) );
 				$where  	    .= " AND payout_method IN('{$payout_methods}')";
 
 			} else {
 
-				$payout_method = sanitize_text_field( $args['payout_method'] );
+				$payout_method = esc_sql( sanitize_text_field( $args['payout_method'] ) );
 				$where 		  .= " AND payout_method = '{$payout_method}'";
 
 			}
@@ -146,7 +146,7 @@ Class SliceWP_Object_DB_Payments extends SliceWP_Object_DB {
 		// Include date_min filter in where clause
 		if ( ! empty( $args['date_min'] )) {
 
-			$date_min =  sanitize_text_field( $args['date_min']);
+			$date_min =  esc_sql( sanitize_text_field( $args['date_min']) );
 			$where  .= " AND date_created >= '{$date_min}' ";
 
 		}
@@ -154,7 +154,7 @@ Class SliceWP_Object_DB_Payments extends SliceWP_Object_DB {
 		// Include date_max filter in where clause
 		if ( ! empty( $args['date_max'] )) {
 
-			$date_max =  sanitize_text_field( $args['date_max']);
+			$date_max =  esc_sql( sanitize_text_field( $args['date_max']) );
 			$where  .= " AND date_created <= '{$date_max}' ";
 
 		}
@@ -190,7 +190,7 @@ Class SliceWP_Object_DB_Payments extends SliceWP_Object_DB {
 		}
 
 		// Orderby
-		$orderby = sanitize_text_field( $args['orderby'] );
+		$orderby = in_array( $args['orderby'], array_keys( $this->get_columns() ), true ) ? sanitize_text_field( $args['orderby'] ) : $this->primary_key;
 
 		if ( $args['orderby'] == 'amount' ) {
 			$orderby = 'amount+0';

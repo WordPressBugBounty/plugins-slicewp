@@ -208,8 +208,8 @@ html body .slicewp-select2-container .select2-results__option[aria-selected="tru
 html body .slicewp-select2-container .select2-results__option--highlighted { color: inherit !important; background: rgb( 226, 232,240 ) !important; }
 
 html body .slicewp-select2-container .select2-search { position: relative; padding: 0 !important; border: 0 !important; }
-html body .slicewp-select2-container .select2-search__field { margin: 10px !important; padding-left: 35px !important; width: calc( 100% - 20px ); border-radius: 5px; border: 1px solid #cbd5e1 !important; background: #fff !important; box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 5%) 0px 1px 2px 0px !important; box-sizing: border-box !important; }
-html body .slicewp-select2-container .select2-search:before { display: block; content: ''; position: absolute; top: 20px; left: 20px; width: 18px; height: 18px; opacity: 0.5; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z' /%3E%3C/svg%3E%0A"); }
+html body .slicewp-select2-container .select2-search__field { font-size: 14px !important; margin: 10px !important; padding-left: 35px !important; width: calc( 100% - 20px ); border-radius: 5px; border: 1px solid #cbd5e1 !important; background: #fff !important; box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 5%) 0px 1px 2px 0px !important; box-sizing: border-box !important; }
+html body .slicewp-select2-container .select2-search:before { display: block; content: ''; position: absolute; top: 22px; left: 20px; width: 18px; height: 18px; opacity: 0.5; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z' /%3E%3C/svg%3E%0A"); }
 
 html body .slicewp-field-wrapper .select2-selection.select2-selection--multiple { min-height: 36px !important; height: auto !important; line-height: 0 !important; }
 html body .slicewp-field-wrapper .select2-selection--multiple .select2-selection__rendered { padding: 0 3px; }
@@ -365,6 +365,7 @@ body.slicewp-pagestyles .ui-autocomplete li .ui-state-active { border: 0; backgr
 body.slicewp-pagestyles .postbox { border: 0; background: #fff; border-radius: 1px !important; box-shadow: 0 0 0 1px rgb(200 215 225 / 50%), 0 1px 2px #e9eff3; }
 body.slicewp-pagestyles .postbox .postbox-header { border: 0; padding: 20px; border-bottom: 1px solid rgba( 200, 215, 225, 0.5 ); font-weight: bold; }
 body.slicewp-pagestyles .postbox .postbox-header .hndle { padding: 0 !important; margin: 0; font-size: inherit; font-weight: 500; font-size: 15px; }
+body.slicewp-pagestyles .postbox .postbox-header .handle-actions { display: flex; }
 body.slicewp-pagestyles .postbox .postbox-header .handle-actions button { display: none; padding: 0; margin: 0; height: auto; }
 body.slicewp-pagestyles .postbox .inside { padding: 20px; margin: 0; }
 

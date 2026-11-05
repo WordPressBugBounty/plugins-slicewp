@@ -91,7 +91,7 @@ Class SliceWP_Object_DB_Collections extends SliceWP_Object_DB {
 		// Object context where clause.
 		if ( ! empty( $args['object_context'] ) ) {
 
-			$object_context = sanitize_text_field( $args['object_context'] );
+			$object_context = esc_sql( sanitize_text_field( $args['object_context'] ) );
 			$where  	   .= " AND object_context = '{$object_context}'";
 
 		}
@@ -101,12 +101,12 @@ Class SliceWP_Object_DB_Collections extends SliceWP_Object_DB {
 
 			if ( is_array( $args['type'] ) ) {
 
-				$types  = implode( "','", array_map( 'sanitize_text_field', $args['type'] ) );
+				$types  = implode( "','", array_map( 'esc_sql', array_map( 'sanitize_text_field', $args['type'] ) ) );
 				$where .= " AND type IN('{$types}')";
 
 			} else {
 
-				$type   = sanitize_text_field( $args['type'] );
+				$type   = esc_sql( sanitize_text_field( $args['type'] ) );
 				$where .= " AND type = '{$type}'";
 
 			}
@@ -116,7 +116,7 @@ Class SliceWP_Object_DB_Collections extends SliceWP_Object_DB {
 		// Name where clause.
 		if ( ! empty( $args['name'] ) ) {
 
-			$name   = sanitize_text_field( $args['name'] );
+			$name   = esc_sql( sanitize_text_field( $args['name'] ) );
 			$where .= " AND name = '{$name}'";
 
 		}
@@ -132,7 +132,7 @@ Class SliceWP_Object_DB_Collections extends SliceWP_Object_DB {
 		// Include date_min filter in where clause
 		if ( ! empty( $args['date_min'] )) {
 
-			$date_min =  sanitize_text_field( $args['date_min'] );
+			$date_min =  esc_sql( sanitize_text_field( $args['date_min'] ) );
 			$where  .= " AND date_created >= '{$date_min}' ";
 
 		}
@@ -140,13 +140,13 @@ Class SliceWP_Object_DB_Collections extends SliceWP_Object_DB {
 		// Include date_max filter in where clause
 		if ( ! empty( $args['date_max'] )) {
 
-			$date_max =  sanitize_text_field( $args['date_max'] );
+			$date_max =  esc_sql( sanitize_text_field( $args['date_max'] ) );
 			$where  .= " AND date_created <= '{$date_max}' ";
 
 		}
 
 		// Orderby.
-		$orderby = sanitize_text_field( $args['orderby'] );
+		$orderby = in_array( $args['orderby'], array_keys( $this->get_columns() ), true ) ? sanitize_text_field( $args['orderby'] ) : $this->primary_key;
 
 		// Order.
 		$order = ( 'DESC' === strtoupper( $args['order'] ) ? 'DESC' : 'ASC' );

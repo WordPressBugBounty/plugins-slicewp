@@ -92,7 +92,7 @@ Class SliceWP_Object_DB_Creatives extends SliceWP_Object_DB {
 		// Status where clause
 		if( ! empty( $args['status'] ) ) {
 
-			$status = sanitize_text_field( $args['status'] );
+			$status = esc_sql( sanitize_text_field( $args['status'] ) );
 			$where .= " AND status = '{$status}'";
 
 		}
@@ -101,7 +101,7 @@ Class SliceWP_Object_DB_Creatives extends SliceWP_Object_DB {
 		// Include where clause
 		if( ! empty( $args['include'] ) ) {
 
-			$include = implode( ',', $args['include'] );
+			$include = implode( ',', wp_parse_id_list( $args['include'] ) );
 			$where  .= " AND id IN({$include})";
 
 		}
@@ -111,12 +111,12 @@ Class SliceWP_Object_DB_Creatives extends SliceWP_Object_DB {
 		if( ! empty( $args['search'] ) ) {
 
 			$search = sanitize_text_field( $args['search'] );
-			$where  .= " AND (name LIKE '%%{$search}%%' OR description LIKE '%%{$search}%%' OR text LIKE '%%{$search}%%' OR landing_url LIKE '%%{$search}%%' OR alt_text LIKE '%%{$search}%%')";
+			$where  .= " AND (name LIKE '%%" . esc_sql( $search ) . "%%' OR description LIKE '%%" . esc_sql( $search ) . "%%' OR text LIKE '%%" . esc_sql( $search ) . "%%' OR landing_url LIKE '%%" . esc_sql( $search ) . "%%' OR alt_text LIKE '%%" . esc_sql( $search ) . "%%')";
 
 		}
 
 		// Orderby
-		$orderby = sanitize_text_field( $args['orderby'] );
+		$orderby = in_array( $args['orderby'], array_keys( $this->get_columns() ), true ) ? sanitize_text_field( $args['orderby'] ) : $this->primary_key;
 
 		// Order
 		$order = ( 'DESC' === strtoupper( $args['order'] ) ? 'DESC' : 'ASC' );

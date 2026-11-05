@@ -364,6 +364,32 @@ add_action( 'slicewp_list_table_output_item_details_affiliate_account_commission
 
 
 /**
+ * Outputs the default view for the commission's rejection reason in the affiliate account commissions list table.
+ * 
+ * @param array $item
+ * 
+ */
+function slicewp_output_list_table_commissions_rejection_reason( $item ) {
+	
+	if ( $item['status'] != 'rejected' ) {
+		return;
+	}
+
+	$rejection_reason = slicewp_get_commission_meta( absint( $item['id'] ), '_rejection_reason', true );
+
+	if ( empty( $rejection_reason ) ) {
+		return;
+	}
+	
+	echo '<h4 style="margin-top: 1.5rem;">' . __( 'Rejection Reason', 'slicewp' ) . '</h4>';
+
+	echo wp_kses_post( wpautop( $rejection_reason ) );
+
+}
+add_action( 'slicewp_list_table_output_item_details_affiliate_account_commissions', 'slicewp_output_list_table_commissions_rejection_reason', 150 );
+
+
+/**
  * Fires the payout method setup action within the affiliate account settings form.
  *
  * @param string $form

@@ -114,7 +114,7 @@ Class SliceWP_Object_DB_Visits extends SliceWP_Object_DB {
 		// Include date_min filter in where clause
 		if ( ! empty( $args['date_min'] ) ) {
 
-			$date_min =  sanitize_text_field( $args['date_min']);
+			$date_min =  esc_sql( sanitize_text_field( $args['date_min']) );
 			$where  .= " AND date_created >= '{$date_min}' ";
 
 		}
@@ -122,7 +122,7 @@ Class SliceWP_Object_DB_Visits extends SliceWP_Object_DB {
 		// Include date_max filter in where clause
 		if ( ! empty( $args['date_max'] ) ) {
 
-			$date_max =  sanitize_text_field( $args['date_max']);
+			$date_max =  esc_sql( sanitize_text_field( $args['date_max']) );
 			$where  .= " AND date_created <= '{$date_max}' ";
 
 		}
@@ -138,7 +138,7 @@ Class SliceWP_Object_DB_Visits extends SliceWP_Object_DB {
 		// Include "ip_address" in where clause.
 		if ( ! empty( $args['ip_address'] ) ) {
 
-			$ip_address = sanitize_text_field( $args['ip_address'] );
+			$ip_address = esc_sql( sanitize_text_field( $args['ip_address'] ) );
 			$where 	   .= " AND ip_address = '{$ip_address}' ";
 
 		}
@@ -146,7 +146,7 @@ Class SliceWP_Object_DB_Visits extends SliceWP_Object_DB {
 		// Include "landing_url" in where clause.
 		if ( ! empty( $args['landing_url'] ) ) {
 
-			$landing_url = sanitize_text_field( $args['landing_url'] );
+			$landing_url = esc_sql( sanitize_text_field( $args['landing_url'] ) );
 			$where 	    .= " AND landing_url = '{$landing_url}' ";
 
 		}
@@ -186,12 +186,12 @@ Class SliceWP_Object_DB_Visits extends SliceWP_Object_DB {
 
 			$affiliate_ids = ( ! empty( $affiliate_ids ) ? implode( ',', array_map( 'absint', $affiliate_ids ) ) : 0 );
 
-			$where .= " AND (affiliate_id IN({$affiliate_ids}) OR id LIKE '%%{$search}%%' OR ip_address LIKE '%%{$search}%%' OR commission_id LIKE '%%{$search}%%' OR landing_url LIKE '%%{$search}%%' OR referrer_url LIKE '%%{$search}%%')";
+			$where .= " AND (affiliate_id IN({$affiliate_ids}) OR id LIKE '%%" . esc_sql( $search ) . "%%' OR ip_address LIKE '%%" . esc_sql( $search ) . "%%' OR commission_id LIKE '%%" . esc_sql( $search ) . "%%' OR landing_url LIKE '%%" . esc_sql( $search ) . "%%' OR referrer_url LIKE '%%" . esc_sql( $search ) . "%%')";
 
 		}
 
 		// Orderby
-		$orderby = sanitize_text_field( $args['orderby'] );
+		$orderby = in_array( $args['orderby'], array_keys( $this->get_columns() ), true ) ? sanitize_text_field( $args['orderby'] ) : $this->primary_key;
 
 		// Order
 		$order = ( 'DESC' === strtoupper( $args['order'] ) ? 'DESC' : 'ASC' );

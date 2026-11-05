@@ -105,7 +105,7 @@ Class SliceWP_Object_DB_Collection_Object_Relationships extends SliceWP_Object_D
 		// Object context where clause.
 		if ( ! empty( $args['object_context'] ) ) {
 
-			$object_context = sanitize_text_field( $args['object_context'] );
+			$object_context = esc_sql( sanitize_text_field( $args['object_context'] ) );
 			$where  	   .= " AND object_context = '{$object_context}'";
 
 		}
@@ -121,7 +121,7 @@ Class SliceWP_Object_DB_Collection_Object_Relationships extends SliceWP_Object_D
 		// Include date_min filter in where clause
 		if ( ! empty( $args['date_min'] )) {
 
-			$date_min =  sanitize_text_field( $args['date_min'] );
+			$date_min =  esc_sql( sanitize_text_field( $args['date_min'] ) );
 			$where  .= " AND date_created >= '{$date_min}' ";
 
 		}
@@ -129,13 +129,13 @@ Class SliceWP_Object_DB_Collection_Object_Relationships extends SliceWP_Object_D
 		// Include date_max filter in where clause
 		if ( ! empty( $args['date_max'] )) {
 
-			$date_max =  sanitize_text_field( $args['date_max'] );
+			$date_max =  esc_sql( sanitize_text_field( $args['date_max'] ) );
 			$where  .= " AND date_created <= '{$date_max}' ";
 
 		}
 
 		// Orderby.
-		$orderby = sanitize_text_field( $args['orderby'] );
+		$orderby = in_array( $args['orderby'], array_keys( $this->get_columns() ), true ) ? sanitize_text_field( $args['orderby'] ) : $this->primary_key;
 
 		// Order.
 		$order = ( 'DESC' === strtoupper( $args['order'] ) ? 'DESC' : 'ASC' );
